@@ -1,7 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
+  imports = [
+    ./zsh
+    ./starship
+  ];
+ # Home Manager needs a bit of information about you and the paths it should
+
   # manage.
   home.username = "zdyant";
   home.homeDirectory = "/home/zdyant";
@@ -17,6 +22,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    oh-my-zsh
 	  kitty
 	  libnotify
 	  floorp
