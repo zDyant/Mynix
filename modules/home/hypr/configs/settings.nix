@@ -1,19 +1,12 @@
-{ ... }:
+{ ... } :
 {
-  wayland.windowManager.hyprland = {
-    enable = true;
-    extraConfig = '' 
 
-      monitor=,preferred,auto,auto
-      # starup apps
-      exec-once = swww query || swww init
-      exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-      exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-      exec-once = waybar &
-      exec-once = nm-applet --indicator &
-      exec-once = swaync &
+wayland.windowManager.hyprland =  {
+  extraConfig = "
 
-      dwindle {
+source = $HOME/.cache/wal/colors-hyprland.conf
+
+dwindle {
   pseudotile = yes
   preserve_split = yes
   special_scale_factor = 0.8
@@ -152,9 +145,6 @@ binds {
 xwayland {
     force_zero_scaling = true
 }
-$mainMod = SUPER
-bind = $mainMod, Return, exec, kitty
-
-'';
+    ";
   };
 }
