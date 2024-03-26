@@ -17,11 +17,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-  	swww
 	  kitty
-	  waybar
-	  rofi-wayland
-	  swaynotificationcenter
 	  libnotify
 	  floorp
 	  git
@@ -42,17 +38,9 @@
     unzip
     xdg-utils
     playerctl
-    libsForQt5.qt5ct
-    libsForQt5.qtstyleplugin-kvantum
-    qt6.full
     bitwarden
     jq
-    pywal
-    grim
-    wlogout
-    wl-clipboard
     python310Packages.pip
-    cliphist
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

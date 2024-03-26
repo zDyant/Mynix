@@ -1,5 +1,7 @@
-{inputs, ... }: {
-  imports = 
-    [(import ./hyprland)]
-++  [(import ./zsh)];
+{
+  imports = [
+    ./zsh
+    ./hypr
+    ./starship
+  ];
 }
