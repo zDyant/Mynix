@@ -5,6 +5,8 @@
     ./zsh
     ./starship
     ./hypr
+    ./bat
+    ./gtk
   ];
   home.username = "zdyant";
   home.homeDirectory = "/home/zdyant";
@@ -13,7 +15,6 @@
   home.packages = with pkgs; [
     vesktop
     oh-my-zsh
-    bibata-cursors
     rustup
     sqlite
     bat
@@ -42,9 +43,20 @@
     bitwarden
     jq
     python310Packages.pip
-    nerdfonts
-    fira-code
-    fira-code-symbols
+    steam
+    gamemode
+    winetricks
+    unzip
+    unrar
+    motrix
+    spotify
+    bottles
+    obsidian
+    adwsteamgtk
+    element-desktop
+    telegram-desktop
+    btrfs-progs
+    mesa
   ];
 
   home.file = {
