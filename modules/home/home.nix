@@ -1,4 +1,4 @@
-{ spicetify-nix, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -8,6 +8,7 @@
     ./bat
     ./gtk
     ./spotify
+    ./games
   ];
 
   home.username = "zdyant";
@@ -40,19 +41,14 @@
     bitwarden
     jq
     python310Packages.pip
-    steam
-    gamemode
-    winetricks
     unzip
     unrar
     motrix
     bottles
     obsidian
-    adwsteamgtk
     element-desktop
     telegram-desktop
     btrfs-progs
-    mesa
   ];
 
   

@@ -8,6 +8,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
+      ./steam.nix
     ];
 
   # Bootloader.
@@ -74,10 +75,7 @@
     description = "zDyant";
     extraGroups = [ "networkmanager" "wheel" ];
 
-    packages = with pkgs; [
-      firefox
-    ];
-  };
+ };
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
