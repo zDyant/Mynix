@@ -22,7 +22,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }:
+  outputs = { self, nixpkgs, home-manager, hyprland, spicetify-nix, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -35,7 +35,7 @@
       nixosConfigurations = {
         zdyant = lib.nixosSystem rec {
           inherit system;
-          specialArgs = {inherit self hyprland; };
+          specialArgs = {inherit self hyprland pkgs spicetify-nix; };
           modules = [
             ./modules/nixos/configuration.nix
             hyprland.nixosModules.default

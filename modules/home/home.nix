@@ -7,7 +7,7 @@
     ./hypr
     ./bat
     ./gtk
-    ./spotify
+    ./spicetify
     ./games
   ];
 
