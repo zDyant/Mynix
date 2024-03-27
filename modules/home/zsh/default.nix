@@ -1,6 +1,13 @@
-{ config, pkgs, ...}: 
+{ pkgs, ...}: 
 
 {
+
+  home.packages = with pkgs; [
+    zsh
+    oh-my-zsh
+    zoxide
+  ];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -18,6 +25,7 @@
     shellAliases = {
       cd = "z";
       cdi = "zi";
+      ls = "exa";
     };
 
   };

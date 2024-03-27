@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ spicetify-nix, pkgs, ... }:
 
 {
   imports = [
@@ -7,17 +7,17 @@
     ./hypr
     ./bat
     ./gtk
+    ./spotify
   ];
+
   home.username = "zdyant";
   home.homeDirectory = "/home/zdyant";
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
     vesktop
-    oh-my-zsh
     rustup
     sqlite
-    bat
 	  kitty
     xfce.thunar
 	  libnotify
@@ -27,12 +27,9 @@
 	  meson
 	  cmake
 	  lunarvim
-    zsh
-    starship
     eza
     git
     lazygit
-    zoxide
     gcc
     gparted
     man-pages
@@ -49,7 +46,6 @@
     unzip
     unrar
     motrix
-    spotify
     bottles
     obsidian
     adwsteamgtk
@@ -59,13 +55,6 @@
     mesa
   ];
 
-  home.file = {
-   # '';
-  };
-
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
-
+  
   programs.home-manager.enable = true;
 }
