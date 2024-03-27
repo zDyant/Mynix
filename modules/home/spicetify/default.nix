@@ -6,6 +6,7 @@ in {
   programs.spicetify = {
     enable = true;
     theme = spicePkgs.themes.Bloom;
+    colorScheme = "darkgreen";
     enabledCustomApps = with spicePkgs.apps; [ marketplace reddit ];
     enabledExtensions = with spicePkgs.extensions; [
       hidePodcasts
