@@ -10,7 +10,14 @@
       enable = true;
       plugins = [
         "git"
+        "colored-man-pages"
+        "colorize"
       ];
+    };
+
+    shellAliases = {
+      cd = "z";
+      cdi = "zi";
     };
 
   };
