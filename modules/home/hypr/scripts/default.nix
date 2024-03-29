@@ -16,7 +16,6 @@ let
   polkit-nixos = pkgs.writeScriptBin "polkit-nixos" (builtins.readFile ./Polkit-NixOS.sh);
   clip-manager = pkgs.writeScriptBin "clip-manager" (builtins.readFile ./clipManager.sh);
   change-layout = pkgs.writeScriptBin "change-layout" (builtins.readFile ./changeLayout.sh);
-  keyboard-layout = pkgs.writeScriptBin "keyboard-layoutd" (builtins.readFile ./SwitchKeyboardLayout.sh);
   take-screenshot = pkgs.writeScriptBin "take-screenshot" (builtins.readFile ./screenshot.sh);
 
 in {
@@ -37,7 +36,6 @@ in {
     polkit-nixos
     clip-manager
     change-layout
-    keyboard-layout
     take-screenshot
   ];
 }

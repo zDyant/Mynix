@@ -2,17 +2,6 @@
 ## /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
 # Scripts for refreshing waybar, rofi, swaync, pywal colors
 
-scriptsDir="."
-
-# Define file_exists function
-file_exists() {
-    if [ -e "$1" ]; then
-        return 0  # File exists
-    else
-        return 1  # File does not exist
-    fi
-}
-
 # Kill already running processes
 _ps=(waybar rofi swaync)
 for _prs in "${_ps[@]}"; do
@@ -23,7 +12,7 @@ done
 
 sleep 0.2
 # Relaunch waybar
-waybar &
+waybar > /dev/null 2>&1 &
 
 # relaunch swaync
 sleep 0.2
