@@ -5,7 +5,7 @@
 # Used by automatic wallpaper change
 # Modified inorder to refresh rofi background, Pywal, SwayNC
 
-SCRIPTSDIR=$HOME/.config/hypr/scripts
+SCRIPTSDIR="."
 UserScripts=$HOME/.config/hypr/UserScripts
 
 # Define file_exists function

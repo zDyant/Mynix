@@ -3,7 +3,7 @@
 # Script for Random Wallpaper ( CTRL ALT W)
 
 wallDIR="$HOME/Pictures/wallpapers"
-scriptsDir="$HOME/.config/hypr/scripts"
+scriptsDir="."
 
 PICS=($(find ${wallDIR} -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.gif" \)))
 
@@ -21,6 +21,6 @@ SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration
 swww query || swww init && swww img ${randomPicture} $SWWW_PARAMS
 
 sleep 0.2
-./pywalSwww.sh
+${scriptsDir}/pywalSwww.sh
 sleep 0.2
-./refresh.sh 
+${scriptsDir}/refresh.sh 

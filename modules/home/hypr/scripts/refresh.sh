@@ -2,8 +2,7 @@
 ## /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
 # Scripts for refreshing waybar, rofi, swaync, pywal colors
 
-scriptsDir=$HOME/.config/hypr/scripts
-UserScripts=$HOME/.config/hypr/UserScripts
+scriptsDir="."
 
 # Define file_exists function
 file_exists() {

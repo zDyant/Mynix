@@ -7,7 +7,7 @@ scriptsDir="."
 
 # Wallpapers Path
 wallpaperDir="$HOME/Pictures/wallpapers"
-themesDir="$HOME/Downloads/HyprNova/.config/rofi/themes"
+themesDir="$HOME/.config/rofi/themes"
 
 # Transition config
 FPS=60
@@ -114,6 +114,6 @@ main
 
 # Sleep to work properly
 sleep 0.2
-./pywalSwww.sh
+pywal-sww
 sleep 0.2
-./refresh.sh
+refresh
