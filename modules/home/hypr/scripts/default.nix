@@ -2,11 +2,9 @@
 let
 
   wallpaper-select = pkgs.writeScriptBin "wallpaper-select" (builtins.readFile ./wallpaperSelect.sh);
-  wallpaper-random = pkgs.writeScriptBin "wallpaper-random" (builtins.readFile ./wallpaperRandom.sh);
   toggle-mode = pkgs.writeScriptBin "toggle-mode" (builtins.readFile ./toggle.sh);
   sys-sounds = pkgs.writeScriptBin "sys-sounds" (builtins.readFile ./Sounds.sh);
   refresh = pkgs.writeScriptBin "refresh" (builtins.readFile ./refresh.sh);
-  pywal-swww = pkgs.writeScriptBin "pywal-swww" (builtins.readFile ./pywalSwww.sh);
   volume-control = pkgs.writeScriptBin "volume-control" (builtins.readFile ./volume_control.sh);
   media-control = pkgs.writeScriptBin "media-control" (builtins.readFile ./media_control.sh);
   waybar-style = pkgs.writeScriptBin "waybar-style" (builtins.readFile ./waybarStyles.sh);
@@ -22,11 +20,9 @@ in {
 
   home.packages = with pkgs; [
     wallpaper-select
-    wallpaper-random
     toggle-mode
     sys-sounds
     refresh
-    pywal-swww
     volume-control
     media-control
     waybar-style
