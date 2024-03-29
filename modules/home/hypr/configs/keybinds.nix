@@ -4,7 +4,6 @@
   wayland.windowManager.hyprland = {
     extraConfig = ''
 $mainMod = SUPER
-$scripts = ../scripts/
 $configs = ../configs/
 $files = thunar
 $term = kitty
@@ -112,42 +111,42 @@ bind = $mainMod, U, togglespecialworkspace,
 # Scripts ------------------------------------------------------------------------
 
 # Sound control
-bind = $mainMod, V, exec, $scripts/volume_control.sh --inc #volume up
-bind = $mainMod, Z, exec, $scripts/volume_control.sh --dec #volume down
+bind = $mainMod, V, exec, volume-control --inc #volume up
+bind = $mainMod, Z, exec, volume-control --dec #volume down
 
-bind = $mainMod, SPACE, exec, $scripts/media_control.sh --pause
-bind = $mainMod, C, exec, $scripts/media_control.sh --nxt
-bind = $mainMod, X, exec, $scripts/media_control.sh --prv
+bind = $mainMod, SPACE, exec, media-control --pause
+bind = $mainMod, C, exec, media-control --nxt
+bind = $mainMod, X, exec, media-control --prv
 
 # Wallpapers
-bind = $mainMod, W, exec, $scripts/wallpaperSelect.sh # Select wallpaper to apply
-bind = CTRL ALT, W, exec, $scripts/wallpaperRandom.sh # Random wallpapers
+bind = $mainMod, W, exec, wallpaper-select # Select wallpaper to apply
+bind = CTRL ALT, W, exec, wallpaper-random # Random wallpapers
 
 
 # Screenshot keybindings NOTE: You may need to press Fn key as well
-bind = $mainMod, Print, exec, $scripts/screenshot.sh --now
-bind = $mainMod SHIFT, Print, exec, $scripts/screenshot.sh --area
-bind = $mainMod CTRL, Print, exec, $scripts/screenshot.sh --in5 #screenshot in 5 secs
+bind = $mainMod, Print, exec, take-screenshot --now
+bind = $mainMod SHIFT, Print, exec, take-screenshot --area
+bind = $mainMod CTRL, Print, exec, take-screenshot --in5 #screenshot in 5 secs
 
 # screenshot with swappy (another screenshot tool)
-bind = $mainMod SHIFT, S, exec, $scripts/screenshot.sh --swappy
+bind = $mainMod SHIFT, S, exec, take-screenshot --swappy
 
 # Launchers
 bindr = $mainMod, $mainMod_L, exec, pkill rofi || rofi -show drun -modi drun,filebrowser,run,window # Rofi
 bind = $mainMod, Return, exec, $term  # Launch terminal
 bind = $mainMod, T, exec, $files # File manager
 
-bind = $mainMod ALT, R, exec, $scripts/refresh.sh # Refresh waybar, swaync, rofi
-bind = $mainMod ALT, V, exec, $scripts/clipManager.sh # Clipboard Manager
+bind = $mainMod ALT, R, exec, refresh # Refresh waybar, swaync, rofi
+bind = $mainMod ALT, V, exec, clip-manager # Clipboard Manager
 bind = $mainMod SHIFT, N, exec, swaync-client -t -sw # swayNC panel
 
 # Waybar / Bar related
 bind = $mainMod, B, exec, killall -SIGUSR1 waybar # Toggle hide/show waybar 
-bind = $mainMod CTRL, B, exec, $scripts/waybarStyles.sh # Waybar Styles Menu
-bind = $mainMod ALT, B, exec, $scripts/waybarLayout.sh # Waybar Layout Menu
+bind = $mainMod CTRL, B, exec, waybar-style # Waybar Styles Menu
+bind = $mainMod ALT, B, exec, waybar-layout # Waybar Layout Menu
 
 # Misc
-bind = $mainMod ALT, L, exec, $scripts/changeLayout.sh # Toggle Master or Dwindle Layout
+bind = $mainMod ALT, L, exec, change-layout # Toggle Master or Dwindle Layout
 
 # For passthrough keyboard into a VM
 # bind = $mainMod ALT, P, submap, passthru

@@ -4,7 +4,6 @@
 wayland.windowManager.hyprland = {
   extraConfig = "
 
-windowrulev2 = stayfocused, class:^(steam)$
 windowrulev2 = idleinhibit fullscreen, class:^(com.usebottles.bottles|Bottles)
 
 windowrule = float, org.kde.polkit-kde-authentication-agent-1
