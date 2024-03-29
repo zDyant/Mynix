@@ -9,6 +9,7 @@
     ./gtk
     ./spicetify
     ./games
+    ./rofi
   ];
 
   home.username = "zdyant";
@@ -16,6 +17,7 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    libreoffice
     vesktop
     rustup
     sqlite
@@ -32,11 +34,9 @@
     git
     lazygit
     gcc
-    gparted
     man-pages
     mpv
     unzip
-    xdg-utils
     playerctl
     bitwarden
     jq
@@ -49,6 +49,15 @@
     element-desktop
     telegram-desktop
     btrfs-progs
+    pavucontrol
+    fzf
+    python3
+    ffmpeg
+    openssl
+    pamixer
+    xdg-utils
+    tgpt
+    obsidian
   ];
 
   

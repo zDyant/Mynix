@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     swww
-    rofi-wayland
     waybar
     swaynotificationcenter
     wlogout
