@@ -14,10 +14,11 @@ exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESK
 # Polkit (Polkit Gnome / KDE)
 #exec-once = polkit
 
-# starup apps
+# startup apps
 exec-once = waybar &
 exec-once = nm-applet --indicator &
 exec-once = swaync &
+exec-once = hypridle &
 
 #clipboard manager
 exec-once = wl-paste --type text --watch cliphist store 
