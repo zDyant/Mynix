@@ -2,6 +2,7 @@
 let
 
   wallpaper-select = pkgs.writeScriptBin "wallpaper-select" (builtins.readFile ./wallpaperSelect.sh);
+  set-pywal = pkgs.writeScriptBin "set-pywal" (builtins.readFile ./pywal.sh);
   toggle-mode = pkgs.writeScriptBin "toggle-mode" (builtins.readFile ./toggle.sh);
   sys-sounds = pkgs.writeScriptBin "sys-sounds" (builtins.readFile ./Sounds.sh);
   refresh = pkgs.writeScriptBin "refresh" (builtins.readFile ./refresh.sh);
@@ -20,6 +21,7 @@ in {
 
   home.packages = with pkgs; [
     wallpaper-select
+    set-pywal
     toggle-mode
     sys-sounds
     refresh

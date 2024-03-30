@@ -111,8 +111,3 @@ fi
 
 main
 
-# Sleep to work properly
-sleep 0.2
-./pywal.sh
-sleep 0.2
-./refresh.sh

@@ -119,7 +119,7 @@ bind = $mainMod, C, exec, media-control --nxt
 bind = $mainMod, X, exec, media-control --prv
 
 # Wallpapers
-bind = $mainMod, W, exec, wallpaper-select # Select wallpaper to apply
+bind = $mainMod, W, exec, wallpaper-select && set-pywal no-tty && refresh # Select wallpaper to apply
 bind = CTRL ALT, W, exec, wallpaper-random # Random wallpapers
 
 
