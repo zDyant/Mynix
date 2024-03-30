@@ -4,6 +4,8 @@
   imports = [
     ./configs
     ./scripts
+    ./hyprlock.nix
+    ./hypridle.nix
   ];
 
   home.packages = with pkgs; [
@@ -19,12 +21,19 @@
     wl-clipboard
     wf-recorder
     glib
+    xwayland
     wayland
+    wayland-utils
+    wayland-protocols
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
+    wlroots
+    qt5ct
     direnv
     qt6.qtwayland
   ];
 
-systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
+  systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland = {

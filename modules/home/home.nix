@@ -21,7 +21,7 @@
   };
 
   home.packages = with pkgs; [
-    libreoffice
+    neofetch
     vesktop
     rustup
     sqlite
