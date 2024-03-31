@@ -10,7 +10,7 @@ themesDir="$HOME/.config/rofi/themes"
 FPS=60
 TYPE="any"
 DURATION=2
-BEZIER="0.6,0.08,1.0,0.55"
+BEZIER="0.4,0.2,0.4,1.0"
 SWWW_PARAMS="--transition-fps ${FPS} --transition-type ${TYPE} --transition-duration ${DURATION} --transition-bezier ${BEZIER}"
 
 # Check if swaybg is running
