@@ -25,7 +25,7 @@
     shellAliases = {
       cd = "z";
       cdi = "zi";
-      ls = "exa";
+      ls = "exa --icons";
     };
 
   };
