@@ -10,6 +10,7 @@
     ./spicetify
     ./games
     ./rofi
+    ./kitty
   ];
 
   home.username = "zdyant";
@@ -29,7 +30,6 @@
     vesktop
     rustup
     sqlite
-	  kitty
 	  libnotify
 	  floorp
 	  git
@@ -64,7 +64,6 @@
     pamixer
     xdg-utils
     tgpt
-    obsidian
   ];
 
   

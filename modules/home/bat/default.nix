@@ -7,7 +7,7 @@
   programs.bat = {
     enable = true;
     config = {
-      theme = "Dracula";
+      theme = "1337";
     };
   };
 }

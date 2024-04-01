@@ -92,8 +92,6 @@
     wget
     neovim  
     curl
-    catppuccin-plymouth
-    adi1090x-plymouth-themes
 ];
 
   services.openssh.enable = true;
