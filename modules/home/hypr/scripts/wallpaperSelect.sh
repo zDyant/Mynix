@@ -9,7 +9,7 @@ themesDir="$HOME/.config/rofi/themes"
 # Transition config
 FPS=60
 TYPE="any"
-DURATION=2
+DURATION=3
 BEZIER="0.4,0.2,0.4,1.0"
 SWWW_PARAMS="--transition-fps ${FPS} --transition-type ${TYPE} --transition-duration ${DURATION} --transition-bezier ${BEZIER}"
 
@@ -19,7 +19,7 @@ if pidof swaybg > /dev/null; then
 fi
 
 # Retrieve image files as a list
-PICS=($(find "${wallpaperDir}" -type f \( -iname \*.jpg -o -iname \*.jpeg -o -iname \*.png -o -iname \*.gif \)))
+PICS=($(find "${wallpaperDir}" -type f \( -iname \*.jpg -o -iname \*.jpeg -o -iname \*.png -o -iname \*.gif \) | sort ))
 
 # Use date variable to increase randomness
 randomNumber=$(( ($(date +%s) + RANDOM) + $$ ))
