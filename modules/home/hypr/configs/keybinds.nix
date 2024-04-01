@@ -5,7 +5,7 @@
     extraConfig = ''
 $mainMod = SUPER
 $configs = ../configs/
-$files = thunar
+$files = nautilus
 $term = kitty
 
 # Windows control ------------------------------------------------------------
@@ -125,8 +125,6 @@ bind = CTRL ALT, W, exec, wallpaper-random # Random wallpapers
 
 # Screenshot keybindings NOTE: You may need to press Fn key as well
 bind = $mainMod, Print, exec, take-screenshot --now
-bind = $mainMod SHIFT, Print, exec, take-screenshot --area
-bind = $mainMod CTRL, Print, exec, take-screenshot --in5 #screenshot in 5 secs
 
 # screenshot with swappy (another screenshot tool)
 bind = $mainMod SHIFT, S, exec, take-screenshot --swappy
