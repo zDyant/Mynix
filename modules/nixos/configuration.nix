@@ -71,8 +71,9 @@
     isNormalUser = true;
     description = "zDyant";
     extraGroups = [ "networkmanager" "wheel" ];
-
+    shell = pkgs.zsh;
  };
+ programs.zsh.enable = true;
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
