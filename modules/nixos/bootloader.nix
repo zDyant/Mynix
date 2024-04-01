@@ -4,10 +4,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.systemd.enable = true;
   # Don't show command line arguments on boot
-  boot.kernelParams = [ "quiet" ];
+  boot.kernelParams = [ "splash" "quiet" ];
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
+    useOSProber = true;
     device = "/dev/nvme0n1";
 
     theme = pkgs.stdenv.mkDerivation {
@@ -26,8 +27,8 @@
 
   boot.plymouth = {
     enable = true;
-    themePackages = [ pkgs.catppuccin-plymouth ];
-    theme = "catppuccin-macchiato";
+    themePackages = [ (pkgs.catppuccin-plymouth.override {variant = "mocha";})];
+    theme = "catppuccin-mocha";
   };
 
 }
