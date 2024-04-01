@@ -21,12 +21,15 @@
   };
 
   home.packages = with pkgs; [
-    neofetch
+    feh
+    gnome.eog
+    imagemagick
+    mdadm
+    swappy
     vesktop
     rustup
     sqlite
 	  kitty
-    xfce.thunar
 	  libnotify
 	  floorp
 	  git
