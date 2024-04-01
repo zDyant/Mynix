@@ -1,13 +1,10 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    rofi-wayland
-  ];
-
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
+    package = pkgs.rofi;
     theme = ./themes/nova-dark.rasi;
+    plugins = [ pkgs.rofi-calc ];
   };
 
 }

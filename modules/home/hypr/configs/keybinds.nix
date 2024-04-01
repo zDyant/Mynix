@@ -130,7 +130,7 @@ bind = $mainMod, Print, exec, take-screenshot --now
 bind = $mainMod SHIFT, S, exec, take-screenshot --swappy
 
 # Launchers
-bindr = $mainMod, $mainMod_L, exec, pkill rofi || rofi -show drun -modi drun,filebrowser,run,window # Rofi
+bindr = $mainMod, $mainMod_L, exec, pkill rofi || rofi -show # drun -modi drun,filebrowser,run,window  Rofi
 bind = $mainMod, Return, exec, $term  # Launch terminal
 bind = $mainMod, T, exec, $files # File manager
 
