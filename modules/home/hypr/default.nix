@@ -25,8 +25,6 @@
     wayland
     wayland-utils
     wayland-protocols
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland
     wlroots
     qt5ct
     direnv

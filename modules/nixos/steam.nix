@@ -18,8 +18,8 @@
    settings = {
 
     custom = {
-      start = "notify-send -a 'Gamemode' 'Optimizations activated'";
-      end = "notify-send -a 'Gamemode' 'Optimizations deactivated'";
+      start = "notify-send -a 'Gamemode' 'Gamemode ON' ";
+      end = "notify-send -a 'Gamemode' 'Gamemode OFF' ";
     };
    };
   };

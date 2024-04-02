@@ -65,6 +65,8 @@
     pamixer
     xdg-utils
     tgpt
+    fd
+    ripgrep
   ];
 
   
