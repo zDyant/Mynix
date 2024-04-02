@@ -8,12 +8,6 @@
       "JetBrainsMono"
       ];
     })
-    gnome.gnome-themes-extra
-    gradience
-    bibata-cursors
-    whitesur-icon-theme
-    adw-gtk3
-    catppuccin-gtk
   ];
 
   gtk = {
