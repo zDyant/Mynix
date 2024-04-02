@@ -2,7 +2,7 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "Rosé Pine";
+    theme = "Catppuccin-Mocha";
     font = {
     name = "JetBrainsMono Nerd Font";
     size = 11;

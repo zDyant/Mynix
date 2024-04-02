@@ -4,7 +4,7 @@
     enable = true;
 
     config = {
-      theme = "catppuccin-mocha";
+      theme = "1337";
     };
 
     themes = let

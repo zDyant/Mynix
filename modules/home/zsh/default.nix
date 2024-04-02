@@ -20,6 +20,13 @@
       cd = "z";
       cdi = "zi";
       ls = "exa --icons";
+
+      ga = "git add";
+      gst = "git status";
+      gf = "git diff";
+      gm = "git commit -m";
+      gr = "git restore";
+
     };
 
   };
