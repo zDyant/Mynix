@@ -1,30 +1,25 @@
 { pkgs, ... }:
-let
-  variant = "mocha";
-  # frappe, latte, macchiato, mocha
-in {
+{
   programs.bat = {
     enable = true;
+
     config = {
-      pager = "less -FR";
-      theme = "Catppuccin-${variant}";
+      theme = "catppuccin-mocha";
     };
+
     themes = let
-      src = pkgs.fetchFromGitHub {
+      catppuccin = pkgs.fetchFromGitHub {
         owner = "catppuccin";
         repo = "bat";
-        rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
-        hash = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
+        rev = "b19bea35a85a32294ac4732cad5b0dc6495bed32";
+        sha256 = "sha256-POoW2sEM6jiymbb+W/9DKIjDM1Buu1HAmrNP0yC2JPg=";
       };
     in {
-      Catppuccin-mocha = {
-        inherit src;
-        file = "Catppuccin-mocha.tmTheme";
-      };
-      Catppuccin-latte = {
-        inherit src;
-        file = "Catppuccin-latte.tmTheme";
-      };
+      catppuccin-frappe.src     = "${catppuccin}/themes/Catppuccin Frappe.tmTheme";
+      catppuccin-latte.src      = "${catppuccin}/themes/Catppuccin Latte.tmTheme";
+      catppuccin-macchiato.src  = "${catppuccin}/themes/Catppuccin Macchiato.tmTheme";
+      catppuccin-mocha.src      = "${catppuccin}/themes/Catppuccin Mocha.tmTheme";
+
     };
   };
 }
