@@ -2,6 +2,14 @@
 {
   home.packages = with pkgs; [
     lunarvim
+    rustup
+    python310Packages.pip
+    sqlite.dev
+    sqlite
+	  meson
+	  cmake
+    gcc
+    python3
     lazygit
   ];
 

@@ -7,11 +7,13 @@
     ./hypr
     ./bat
     ./gtk
+    ./lvim
     ./spicetify
     ./games
     ./rofi
     ./kitty
   ];
+
 
   home.username = "zdyant";
   home.homeDirectory = "/home/zdyant";
@@ -22,33 +24,30 @@
   };
 
   home.packages = with pkgs; [
+  appimage-run
+  qbittorrent
+  vesktop
+  tlrc
+  cron
+  rclone
+  gnome.nautilus
     kdePackages.kate
     feh
     gnome.eog
     imagemagick
     mdadm
     swappy
-    vesktop
-    rustup
-    sqlite
 	  libnotify
 	  floorp
-	  git
     gh
-	  meson
-	  cmake
-	  lunarvim
     eza
     git
-    lazygit
-    gcc
     man-pages
     mpv
     unzip
     playerctl
     bitwarden
     jq
-    python310Packages.pip
     unzip
     unrar
     motrix
@@ -59,7 +58,6 @@
     btrfs-progs
     pavucontrol
     fzf
-    python3
     ffmpeg
     openssl
     pamixer
