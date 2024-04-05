@@ -24,47 +24,44 @@
   };
 
   home.packages = with pkgs; [
+  # Cli tools
+  ripgrep
+  unrar
+  unzip
+  jq
+  eza
+  gh
+  git
+  feh
+  mdadm
   appimage-run
-  qbittorrent
-  vesktop
+  fd
+  tgpt
+  man-pages
   tlrc
+  swappy
+  imagemagick
+	libnotify
+  playerctl
+  fzf
+
+  vesktop
   cron
   rclone
   gnome.nautilus
-    kdePackages.kate
-    feh
-    gnome.eog
-    imagemagick
-    mdadm
-    swappy
-	  libnotify
-	  floorp
-    gh
-    eza
-    git
-    man-pages
-    mpv
-    unzip
-    playerctl
-    bitwarden
-    jq
-    unzip
-    unrar
-    motrix
-    bottles
-    obsidian
-    element-desktop
-    telegram-desktop
-    btrfs-progs
-    pavucontrol
-    fzf
-    ffmpeg
-    openssl
-    pamixer
-    xdg-utils
-    tgpt
-    fd
-    ripgrep
+  gnome.eog
+	floorp
+  mpv
+  motrix
+  obsidian
+  element-desktop
+  telegram-desktop
+  btrfs-progs
+  pavucontrol
+  ffmpeg
+  openssl
+  pamixer
+  xdg-utils
   ];
 
   
