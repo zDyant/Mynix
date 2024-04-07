@@ -10,9 +10,6 @@
 
   home.packages = with pkgs; [
     swww
-    waybar
-    swaynotificationcenter
-    wlogout
     pywal
     hyprpicker
     grim
@@ -29,6 +26,7 @@
     qt5ct
     direnv
     qt6.qtwayland
+    cava
   ];
 
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];

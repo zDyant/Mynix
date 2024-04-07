@@ -6,5 +6,6 @@
     ./keybinds.nix
     ./variables.nix
     ./window_rules.nix
+    ./animations.nix
   ];
 }

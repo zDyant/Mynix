@@ -11,8 +11,6 @@ let
   waybar-style = pkgs.writeScriptBin "waybar-style" (builtins.readFile ./waybarStyles.sh);
   waybar-layout = pkgs.writeScriptBin "waybar-layout" (builtins.readFile ./waybarLayout.sh);
   waybar-cava = pkgs.writeScriptBin "waybar-cava" (builtins.readFile ./WaybarCava.sh);
-  portal-hyprland = pkgs.writeScriptBin "portal-hyprland" (builtins.readFile ./PortalHyprland.sh);
-  polkit-nixos = pkgs.writeScriptBin "polkit-nixos" (builtins.readFile ./Polkit-NixOS.sh);
   clip-manager = pkgs.writeScriptBin "clip-manager" (builtins.readFile ./clipManager.sh);
   change-layout = pkgs.writeScriptBin "change-layout" (builtins.readFile ./changeLayout.sh);
   take-screenshot = pkgs.writeScriptBin "take-screenshot" (builtins.readFile ./screenshot.sh);
@@ -30,8 +28,6 @@ in {
     waybar-style
     waybar-layout
     waybar-cava
-    portal-hyprland
-    polkit-nixos
     clip-manager
     change-layout
     take-screenshot

@@ -120,10 +120,8 @@ bind = $mainMod, X, exec, media-control --prv
 
 # Wallpapers
 bind = $mainMod, W, exec, wallpaper-select && set-pywal no-tty && refresh # Select wallpaper to apply
-bind = CTRL ALT, W, exec, wallpaper-random # Random wallpapers
+# bind = CTRL ALT, W, exec, wallpaper-random # Random wallpapers
 
-
-# Screenshot keybindings NOTE: You may need to press Fn key as well
 bind = $mainMod, Print, exec, take-screenshot --now
 
 # screenshot with swappy (another screenshot tool)
@@ -136,19 +134,21 @@ bind = $mainMod, T, exec, $files # File manager
 
 bind = $mainMod ALT, R, exec, refresh # Refresh waybar, swaync, rofi
 bind = $mainMod ALT, V, exec, clip-manager # Clipboard Manager
+
 bind = $mainMod SHIFT, N, exec, swaync-client -t -sw # swayNC panel
 
 # Waybar / Bar related
-bind = $mainMod, B, exec, killall -SIGUSR1 waybar # Toggle hide/show waybar 
-bind = $mainMod CTRL, B, exec, waybar-style # Waybar Styles Menu
-bind = $mainMod ALT, B, exec, waybar-layout # Waybar Layout Menu
+bind = $mainMod, B, exec, killall waybar # Toggle hide/show waybar 
+bind = $mainMod CTRL, B, exec, waybar-style && refresh # Waybar Styles Menu
+bind = $mainMod ALT, B, exec, waybar-layout && refresh # Waybar Layout Menu
 
 # Misc
 bind = $mainMod ALT, L, exec, change-layout # Toggle Master or Dwindle Layout
 
 # For passthrough keyboard into a VM
 # bind = $mainMod ALT, P, submap, passthru
-#submap = passthru
+# submap = passthru
+
 # to unbind
 #bind = $mainMod ALT, P, submap, reset
 #submap = reset
