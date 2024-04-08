@@ -9,6 +9,8 @@
   ];
 
   home.packages = with pkgs; [
+    networkmanagerapplet
+    blueman
     swww
     pywal
     hyprpicker
