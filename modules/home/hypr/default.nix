@@ -11,7 +11,7 @@
 
   home.packages = with pkgs; [
     htop
-    nvtop
+    nvtopPackages.full
     gnome.gnome-system-monitor
     networkmanagerapplet
     blueman
