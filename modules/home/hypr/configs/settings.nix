@@ -52,7 +52,7 @@ decoration {
 
   drop_shadow=true
   shadow_range = 16
-  shadow_render_power = 3
+  shadow_render_power = 2
   shadow_offset = 2 2
   col.shadow = rgba(0C0E13A6)
 
