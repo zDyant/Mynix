@@ -24,7 +24,10 @@ windowrulev2 = opacity 0.9 0.7, class:^(steam)$
 windowrulev2 = opacity 1, 1, title:^(Picture-in-Picture)$
 
 # Blur -----------------------------------------------------
-layerrule = blur, wlogout
+  # Wlogout
+layerrule = blur, gtk-layer-shell
+layerrule = blur, logout_dialog
+
 layerrule = blur, class:^(swww)$
 layerrule = blur, rofi
 #layerrule = blur, (waybar)
