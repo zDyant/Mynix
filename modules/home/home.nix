@@ -12,6 +12,9 @@
     ./games
     ./rofi
     ./kitty
+    ./wlogout
+    ./swaync
+    ./waybar
   ];
 
 
@@ -45,6 +48,12 @@
   playerctl
   fzf
 
+  # charm-freeze
+  glow
+  vhs
+
+  rnote
+  gimp
   vesktop
   cron
   rclone

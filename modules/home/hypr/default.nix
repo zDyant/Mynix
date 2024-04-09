@@ -4,11 +4,15 @@
   imports = [
     ./configs
     ./scripts
+    ./scripts.nix
     ./hyprlock.nix
     ./hypridle.nix
   ];
 
   home.packages = with pkgs; [
+    htop
+    nvtop
+    gnome.gnome-system-monitor
     networkmanagerapplet
     blueman
     swww
