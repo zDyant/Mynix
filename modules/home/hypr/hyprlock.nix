@@ -7,7 +7,7 @@ source = $HOME/.cache/wal/colors-hyprland.conf
 background {
     monitor =
     path = $HOME/.current_wallpaper   # only png supported for now
-    color = $color7
+    color = $color1
 
     # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
     blur_size = 4
@@ -32,6 +32,7 @@ input-field {
     fade_on_empty = true
     placeholder_text = <i>Password...</i> # Text rendered in the input box when it's empty.
     hide_input = false
+
     position = 0, 50
     halign = center
     valign = bottom
@@ -41,34 +42,35 @@ input-field {
 label {
     monitor =
     text = cmd[update:1000] echo "<b><big> $(date +"%H:%M:%S") </big></b>"
-    color = $color0
+    color = $color1
     font_size = 64
     font_family = JetBrains Mono Nerd Font 10
+
     position = 0, 16
     halign = center
     valign = center
 }
 
-# User label
+# Date
 label {
     monitor =
-    text = Hey <span text_transform="capitalize" size="larger">$USER</span>
-    color = $color0
-    font_size = 20
+    text = cmd[update:18000000] echo "<b> "$(date +'%A, %-d %B %Y')" </b>"
+    color = $color7
+    font_size = 24
     font_family = JetBrains Mono Nerd Font 10
-    position = 0, 0
+
+    position = 0, -16
     halign = center
     valign = center
 }
 
-
-# Type to unlock
 label {
     monitor =
-    text = Type to unlock!
-    color = $color0
-    font_size = 16
-    font_family = JetBrains Mono Nerd Font 10
+    text =    $USER
+    color = $color7
+    font_size = 18
+    font_family = Inter Display Medium
+
     position = 0, 30
     halign = center
     valign = bottom
