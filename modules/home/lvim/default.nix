@@ -8,6 +8,7 @@
     sqlite
 	  meson
 	  cmake
+    gnumake
     gcc
     python3
     lazygit
