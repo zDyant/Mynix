@@ -14,9 +14,9 @@
     enable = true;
 
     theme = {
-      name = "Catppuccin-Mocha-Standard-Blue-Dark";
+      name = "Catppuccin-Mocha-Standard-Green-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "blue" ];
+        accents = [ "green" ];
         size = "standard";
         tweaks = [ "normal" ];
         variant = "mocha";
@@ -29,8 +29,8 @@
     };
 
     iconTheme = {
-      name = "WhiteSur";
-      package = pkgs.whitesur-icon-theme;
+      name = "Reversal";
+      package = pkgs.reversal-icon-theme;
     };
 
     cursorTheme = {
