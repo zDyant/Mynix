@@ -71,6 +71,7 @@
   openssl
   pamixer
   xdg-utils
+  libxkbcommon
   ];
 
   
