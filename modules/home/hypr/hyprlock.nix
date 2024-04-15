@@ -66,7 +66,7 @@ label {
 
 label {
     monitor =
-    text =    $USER
+    text = Hey $USER
     color = $color7
     font_size = 18
     font_family = Inter Display Medium
