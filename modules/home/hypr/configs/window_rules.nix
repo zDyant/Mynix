@@ -4,7 +4,7 @@
 wayland.windowManager.hyprland = {
   extraConfig = "
 
-windowrulev2 = idleinhibit fullscreen, class:^(com.usebottles.bottles|Bottles)
+windowrulev2 = idleinhibit fullscreen, fullscreen:1
 
 windowrule = float, org.kde.polkit-kde-authentication-agent-1
 windowrule = float, nm-connection-editor|blueman-manager
