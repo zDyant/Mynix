@@ -12,6 +12,7 @@
     gcc
     python3
     lazygit
+    yarn
   ];
 
   xdg.configFile."lvim" = {
