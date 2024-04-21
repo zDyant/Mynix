@@ -25,7 +25,6 @@ windowrulev2 = opacity 1, 1, title:^(Picture-in-Picture)$
 
 # Blur -----------------------------------------------------
   # Wlogout
-layerrule = blur, gtk-layer-shell
 layerrule = blur, logout_dialog
 
 layerrule = blur, class:^(swww)$
