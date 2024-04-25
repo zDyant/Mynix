@@ -47,15 +47,14 @@
 	libnotify
   playerctl
   fzf
+  nh
 
   # charm-freeze
   glow
   vhs
 
   rnote
-  gimp
   vesktop
-  cron
   rclone
   gnome.nautilus
   gnome.eog
@@ -72,6 +71,9 @@
   pamixer
   xdg-utils
   libxkbcommon
+  zlib
+  zlib-ng
+  steamtinkerlaunch
   ];
 
   
