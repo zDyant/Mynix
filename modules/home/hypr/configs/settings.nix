@@ -4,6 +4,8 @@
 wayland.windowManager.hyprland =  {
   extraConfig = "
 
+
+monitor=,preferred,auto,1
 source = $HOME/.cache/wal/colors-hyprland.conf
 
 dwindle {
