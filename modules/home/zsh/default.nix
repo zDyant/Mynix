@@ -24,8 +24,10 @@
       ga = "git add";
       gst = "git status";
       gf = "git diff";
+      gfs = "git diff --staged";
       gm = "git commit -m";
       gr = "git restore";
+      grs = "git restore --staged";
 
     };
 
