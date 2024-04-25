@@ -73,7 +73,6 @@
   libxkbcommon
   zlib
   zlib-ng
-  steamtinkerlaunch
   ];
 
   

@@ -12,6 +12,8 @@
     winetricks
     mesa
     mangohud
+    steamtinkerlaunch
+
 
     # emulators
     pcsx2
