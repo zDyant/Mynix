@@ -14,19 +14,14 @@
       ./audio.nix
       ./hyprland.nix
       ./login-screen.nix
+      ./network.nix
     ];
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     cmake
   ];
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   nix.settings.experimental-features = [ "nix-command" "flakes"];
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
@@ -58,7 +53,6 @@
     xkbVariant = "";
   };
 
-  programs.dconf.enable = true;
   services.gvfs.enable = true;
   # Enable CUPS to print documents.
   services.printing.enable = true;
