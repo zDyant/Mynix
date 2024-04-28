@@ -73,6 +73,9 @@
   libxkbcommon
   zlib
   zlib-ng
+  evince
+  gnome.gnome-keyring
+  libgnome-keyring
   ];
 
   
