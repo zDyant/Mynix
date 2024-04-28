@@ -8,12 +8,14 @@
     heroic
     gamescope
     adwsteamgtk
-    wineWowPackages.waylandFull
+    wineWowPackages.stagingFull
     winetricks
     mesa
     mangohud
     steamtinkerlaunch
-
+    xivlauncher
+    gamemode
+    sunshine
 
     # emulators
     pcsx2
