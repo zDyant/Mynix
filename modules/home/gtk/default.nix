@@ -14,12 +14,9 @@
     enable = true;
 
     theme = {
-      name = "Catppuccin-Mocha-Standard-Green-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "green" ];
-        size = "standard";
-        tweaks = [ "normal" ];
-        variant = "mocha";
+      name = "Orchis-Dark-Nord";
+      package = pkgs.orchis-theme.override {
+        tweaks = [  "nord" ];
       };
     };
 
