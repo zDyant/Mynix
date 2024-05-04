@@ -8,7 +8,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ./steam.nix
+      ./gaming.nix
       ./bootloader.nix
       ./virtualisation.nix
       ./audio.nix
