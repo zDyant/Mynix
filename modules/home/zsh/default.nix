@@ -10,6 +10,7 @@
     oh-my-zsh = {
       enable = true;
       plugins = [
+        "web-search"
         "git"
         "colored-man-pages"
         "colorize"
