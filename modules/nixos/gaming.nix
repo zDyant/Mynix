@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: 
+{ lib, ... }: 
 {
 
   hardware.opengl = {
@@ -25,14 +25,14 @@
 
   programs.gamemode = {
    enable = true;
-  #  enableRenice = true;
-  #  settings = {
+   enableRenice = true;
+   settings = {
 
-  #   custom = {
-  #     start = "notify-send -a 'Gamemode' 'Gamemode ON' ";
-  #     end = "notify-send -a 'Gamemode' 'Gamemode OFF' ";
-  #   };
-  #  };
+    custom = {
+      start = "notify-send -a 'Gamemode' 'Gamemode ON' ";
+      end = "notify-send -a 'Gamemode' 'Gamemode OFF' ";
+    };
+   };
   };
 }
 
