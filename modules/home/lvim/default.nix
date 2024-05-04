@@ -2,7 +2,8 @@
 {
   home.packages = with pkgs; [
     lunarvim
-    rustup
+    rustc
+    cargo
     python310Packages.pip
     sqlite.dev
     sqlite

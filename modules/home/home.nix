@@ -17,7 +17,6 @@
     ./waybar
   ];
 
-
   home.username = "zdyant";
   home.homeDirectory = "/home/zdyant";
   home.stateVersion = "23.11"; # Please read the comment before changing.
@@ -27,7 +26,7 @@
   };
 
   home.packages = with pkgs; [
-  # Cli tools
+  # Cli tools -----------------------------------------------
   ripgrep
   unrar
   unzip
@@ -41,43 +40,50 @@
   fd
   tgpt
   man-pages
-  tlrc
+  tlrc # tldr
   swappy
   imagemagick
-	libnotify
   playerctl
   fzf
   nh
-
   # charm-freeze
   glow
   vhs
-
-  rnote
-  vesktop
-  rclone
-  gnome.nautilus
-  gnome.eog
-	floorp
-  mpv
-  motrix
-  obsidian
-  element-desktop
-  telegram-desktop
-  btrfs-progs
-  pavucontrol
   ffmpeg
-  openssl
-  pamixer
+
+  # libs ---------------------------------------------------------
   xdg-utils
   libxkbcommon
   zlib
   zlib-ng
-  evince
-  gnome.gnome-keyring
+  pamixer
   libgnome-keyring
+  btrfs-progs
+  libarchive
+  pkgconf
+	libnotify
+  libpkgconf
+  openssl
+
+  # Chatting ----------------------------------------------------- 
+  element-desktop
+  paper-plane # telegram
+  vesktop # discord
+
+  # Apps ---------------------------------------------------------
+  gnome.file-roller
+  gnome.nautilus
+  gnome.eog
+  gnome.gnome-keyring
+  rnote
+  rclone
+	floorp
+  mpv
+  motrix
+  obsidian
+  pavucontrol
+  evince
   ];
 
-  
   programs.home-manager.enable = true;
 }
