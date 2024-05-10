@@ -5,7 +5,7 @@
   ];
 
   xdg.configFile."wlogout" = {
-    source = config.lib.file.mkOutOfStoreSymlink /etc/nixos/modules/home/wlogout/wlogout;
+    source = config.lib.file.mkOutOfStoreSymlink ./wlogout;
     recursive = true;
   };
 }

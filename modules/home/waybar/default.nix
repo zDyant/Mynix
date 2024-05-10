@@ -5,7 +5,7 @@
   ];
 
   xdg.configFile."waybar" = {
-    source = config.lib.file.mkOutOfStoreSymlink /etc/nixos/modules/home/waybar/waybar;
+    source = config.lib.file.mkOutOfStoreSymlink ./waybar; 
     recursive = true;
   };
 }

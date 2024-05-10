@@ -5,7 +5,7 @@
   ];
 
   xdg.configFile."swaync" = {
-    source = config.lib.file.mkOutOfStoreSymlink /etc/nixos/modules/home/swaync/swaync;
+    source = config.lib.file.mkOutOfStoreSymlink ./swaync;
     recursive = true;
   };
 }
