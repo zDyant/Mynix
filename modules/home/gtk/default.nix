@@ -14,9 +14,9 @@
     enable = true;
 
     theme = {
-      name = "Orchis-Dark-Nord";
+      name = "Orchis-Dark-Dracula";
       package = pkgs.orchis-theme.override {
-        tweaks = [  "nord" ];
+        tweaks = [ "dracula" ];
       };
     };
 
