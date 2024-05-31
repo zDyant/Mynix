@@ -101,7 +101,6 @@
   (vesktop.override { withSystemVencord = false; }) # discord
 
   # Apps ---------------------------------------------------------
-  flatpak
   gnome.gnome-software
   gnome.file-roller
   gnome.nautilus
@@ -117,7 +116,7 @@
   evince
   authenticator
   protonvpn-gui
-  hugo
+  ungoogled-chromium
   ];
 
   programs.home-manager.enable = true;
