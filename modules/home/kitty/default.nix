@@ -2,7 +2,7 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "Rosé Pine";
+    theme = "Kaolin Aurora";
     font = {
       name = "JetBrainsMono Nerd Font";
       size = 11;
@@ -10,7 +10,7 @@
     settings = {
       mouse_hide_wait = 0;
       confirm_os_window_close = 0;
-
+      enable_audio_bell = false;
 
       # tab_bar_min_tabs            1
       tab_bar_edge = "bottom";
