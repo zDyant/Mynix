@@ -13,7 +13,6 @@
     xivlauncher
     sunshine
     lutris
-    pegasus-frontend
     moonlight-qt
 
     # emulators -----------------------
