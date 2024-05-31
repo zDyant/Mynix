@@ -2,7 +2,6 @@
 {
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    nerdfonts
     (nerdfonts.override {
       fonts = [
       "JetBrainsMono"
@@ -21,7 +20,8 @@
     };
 
     font = {
-      name = "JetBrainsMono Nerd Font";
+      name = "Geist Mono";
+      package = pkgs.geist-font;
       size = 11;
     };
 
