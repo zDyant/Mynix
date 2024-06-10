@@ -22,11 +22,13 @@ windowrulev2 = opacity 0.9 0.7, class:^(yad)$
 windowrulev2 = opacity 0.9 0.7, class:^(Spotify)$
 windowrulev2 = opacity 0.9 0.7, class:^(steam)$
 windowrulev2 = opacity 1, 1, title:^(Picture-in-Picture)$
+windowrulev2 = opacity 0.9 0.8, class:^(org.gnome.Nautilus)$
 
 # Blur -----------------------------------------------------
   # Wlogout
 layerrule = blur, logout_dialog
 
+layerrule = blur, class:^(org.gnome.Nautilus)$
 layerrule = blur, class:^(swww)$
 layerrule = blur, rofi
 #layerrule = blur, (waybar)

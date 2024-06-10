@@ -23,12 +23,12 @@ master {
 general {
   sensitivity=1.00
   apply_sens_to_raw=1
-  gaps_in = 8
-  gaps_out = 8
+  gaps_in = 2
+  gaps_out = 12
   border_size = 1
   resize_on_border = true
    
-  col.active_border = $color6 $color3 90deg
+  col.active_border = 0xff444444
   col.inactive_border = rgba(000000A0)
 
   layout = dwindle
@@ -43,16 +43,15 @@ group {
 }
 
 decoration {
-  rounding = 24
-         
+  rounding = 16
   active_opacity = 1.0
-  inactive_opacity = 0.9
+  inactive_opacity = 1.0
   fullscreen_opacity = 1.0
 
-  dim_inactive = true
+  dim_inactive = false
   dim_strength = 0.35
 
-  drop_shadow=true
+  drop_shadow=false
   shadow_range = 16
   shadow_render_power = 2
   shadow_offset = 2 2
@@ -61,9 +60,11 @@ decoration {
   blur {
   enabled = true	
   size = 5
-  passes = 3
+  passes = 4
   ignore_opacity = true
   new_optimizations = true
+  noise = 0.03
+  contrast = 1.3
   }
 }
     
