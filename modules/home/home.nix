@@ -36,8 +36,10 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.sessionVariables = {
+
     TERMINAL = "kitty";    
     BROWSER = "floorp";
+
 	WLR_RENDERER = "vulkan";
 	XDG_CURRENT_DESKTOP = "Hyprland";
 	XDG_SESSION_DESKTOP = "Hyprland";
@@ -45,10 +47,11 @@
 	GTK_USE_PORTAL = "1";
     NIXOS_OZONE_WL = "1";
 	NIXOS_XDG_OPEN_USE_PORTAL = "1";
-	# XDG_CACHE_HOME = "\${HOME}/.cache";
-	# XDG_CONFIG_HOME = "\${HOME}/.config";
-	# XDG_BIN_HOME = "\${HOME}/.local/bin";
-	# XDG_DATA_HOME = "\${HOME}/.local/share";
+
+	XDG_CACHE_HOME = "$HOME/.cache";
+	XDG_CONFIG_HOME = "$HOME/.config";
+	XDG_BIN_HOME = "$HOME/.local/bin";
+	XDG_DATA_HOME = "$HOME/.local/share";
   };
 
   home.sessionPath = [
