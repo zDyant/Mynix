@@ -10,11 +10,11 @@
       ./hardware-configuration.nix
       ./gaming.nix
       ./bootloader.nix
-      ./virtualisation.nix
       ./audio.nix
       ./hyprland.nix
       ./login-screen.nix
       ./network.nix
+      ./fonts.nix
     ];
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
@@ -22,7 +22,6 @@
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
-
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
 
@@ -81,6 +80,7 @@
     wget
     neovim  
     curl
+    xdg-utils
 ];
 
   services.openssh.enable = true;
