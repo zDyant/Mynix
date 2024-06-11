@@ -9,7 +9,7 @@
     enable = true;
     efiSupport = true;
     useOSProber = true;
-    device = "/dev/nvme0n1";
+    device = "/dev/sdb";
 
     theme = pkgs.stdenv.mkDerivation {
       pname = "catppuccin-grub";
