@@ -6,18 +6,18 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
      home-manager = {
-       url = "github:nix-community/home-manager";
-       inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
      };
 
      hyprland = {
-        url = "github:hyprwm/Hyprland";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
      };
 
     spicetify-nix = {
       url = "github:the-argus/spicetify-nix";
-        inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };
@@ -35,7 +35,7 @@
       nixosConfigurations = {
         zdyant = lib.nixosSystem rec {
           inherit system;
-          specialArgs = {inherit self hyprland pkgs spicetify-nix; };
+          specialArgs = { inherit self hyprland pkgs spicetify-nix ; };
           modules = [
             ./modules/nixos/configuration.nix
             hyprland.nixosModules.default
