@@ -32,6 +32,8 @@
 
       fi = "fzf --height 60% --preview='kitten icat --clear --transfer-mode=memory --stdin=no --place=\${FZF_PREVIEW_COLUMNS}x\${FZF_PREVIEW_LINES}@0x0 {}' && sleep 0.5 ; printf 'x1b_Ga=d,d=Ax1b\\\\' ";
       ff = "fzf -q '!png !jpg !jpeg !gif !bmp' --preview 'bat --color=always {}'";
+
+      bevy = "nix-shell --run \"cargo run\"";
     };
 
     completionInit = ''
