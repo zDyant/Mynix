@@ -16,10 +16,6 @@
       ./network.nix
       ./fonts.nix
     ];
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    cmake
-  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
   # Set your time zone.
