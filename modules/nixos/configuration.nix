@@ -74,6 +74,9 @@
     neovim  
     curl
     xdg-utils
+    libxkbcommon
+    zlib
+    zlib-ng
 ];
 
   services.openssh.enable = true;
