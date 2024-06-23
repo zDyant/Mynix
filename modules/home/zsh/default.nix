@@ -34,6 +34,9 @@
       ff = "fzf -q '!png !jpg !jpeg !gif !bmp' --preview 'bat --color=always {}'";
 
       bevy = "nix-shell --run \"cargo run\"";
+
+      pkg = "nix-shell -p";
+      upkg = "nix-shell -I nixpkgs=channel:nixpkgs-unstable -p";
     };
 
     completionInit = ''
