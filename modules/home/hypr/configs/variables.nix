@@ -14,23 +14,12 @@ env = XDG_CURRENT_DESKTOP,Hyprland
 env = XDG_SESSION_DESKTOP,Hyprland
 env = XDG_SESSION_TYPE,wayland
 
+# !!!!!!!!!!!
 # vulkan
-env = WLR_RENDERER,vulkan
+# env = WLR_RENDERER,vulkan  # KEEP IT OFF, OTHERWISE HYPRLAND WON'T LAUNCH
 
 # firefox
 env = MOZ_ENABLE_WAYLAND,1
-
-# NVIDIA 
-# This is from Hyprland Wiki. As a start, WLR_NO_HARDWARE_CURSORS 1 will be activated if nvidia gpu detected
-#env = WLR_NO_HARDWARE_CURSORS,1
-#env = LIBVA_DRIVER_NAME,nvidia 
-#env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-#env = GBM_BACKEND,nvidia-drm 
-
-#env = __NV_PRIME_RENDER_OFFLOAD,1 
-#env = __VK_LAYER_NV_optimus,NVIDIA_only
-#env = WLR_DRM_NO_ATOMIC,1
-#env = NVD_BACKEND,direct
 
 # FOR VM and POSSIBLY NVIDIA
 #env = WLR_RENDERER_ALLOW_SOFTWARE,1
