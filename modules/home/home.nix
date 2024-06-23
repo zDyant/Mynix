@@ -60,7 +60,6 @@
 
   home.packages = with pkgs; [
   # Cli tools -----------------------------------------------
-  ripgrep
   unrar
   unzip
   jq
@@ -68,38 +67,21 @@
   gh
   git
   feh
-  mdadm
-  appimage-run
-  fd
   tgpt
   man-pages
   tlrc # tldr
   swappy
   imagemagick
   playerctl
-  fzf
   nh
-  # charm-freeze
-  glow
-  vhs
-  ffmpeg
 
   # libs ---------------------------------------------------------
-  xdg-utils
-  libxkbcommon
-  zlib
-  zlib-ng
   pamixer
-  libgnome-keyring
   btrfs-progs
   libarchive
   pkgconf
-	libnotify
-  libpkgconf
-  openssl
 
   # Chatting ----------------------------------------------------- 
-  element-desktop                                 # Matrix client
   telegram-desktop
   (vesktop.override { withSystemVencord = false; }) # discord
 
@@ -112,6 +94,7 @@
   rnote
   rclone
   floorp
+  librewolf
   mpv
   motrix
   obsidian
@@ -120,6 +103,7 @@
   authenticator
   protonvpn-gui
   ungoogled-chromium
+  fragments
   ];
 
   programs.home-manager.enable = true;
