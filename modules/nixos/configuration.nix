@@ -18,12 +18,22 @@
       ./substituters.nix
     ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
-  # Set your time zone.
-  time.timeZone = "America/Sao_Paulo";
+  users.users.zdyant = {
+    isNormalUser = true;
+    description = "zDyant";
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    shell = pkgs.zsh;
+  };
+  programs.zsh.enable = true;
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  system.stateVersion = "23.11"; # Did you read the comment?
+  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nixpkgs.config.allowUnfree = true;
+
+  services.openssh.enable = true;
+
+  time.timeZone = "America/Sao_Paulo";
+  i18n.defaultLocale = "en_US.UTF-8"; # Select internationalisation properties.
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "pt_BR.UTF-8";
@@ -37,6 +47,8 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
+  services.gnome.gnome-keyring.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -47,28 +59,7 @@
   };
 
   services.gvfs.enable = true;
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.zdyant = {
-    isNormalUser = true;
-    description = "zDyant";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    shell = pkgs.zsh;
- };
- programs.zsh.enable = true;
-
-  # Enable automatic login for the user.
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim 
     wget
@@ -88,6 +79,4 @@
 
   ];
 
-  services.openssh.enable = true;
-  system.stateVersion = "23.11"; # Did you read the comment?
 }
