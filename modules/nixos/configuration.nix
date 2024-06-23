@@ -15,6 +15,7 @@
       ./login-screen.nix
       ./network.nix
       ./fonts.nix
+      ./substituters.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
