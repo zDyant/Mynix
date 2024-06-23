@@ -23,6 +23,15 @@
     "steam-runtime"
   ];
 
+  services.zerotierone = {
+    enable = true;
+    joinNetworks = [ 
+      "e3918db483703b19"
+      "3efa5cb78a814c49"
+    ];
+  };
+
+
   programs.gamemode = {
    enable = true;
    enableRenice = true;

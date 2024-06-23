@@ -1,9 +1,8 @@
 { ... }:
 {
-  networking.hostName = "zdyant"; # Define your hostname.
+  networking.hostName = "zdyant";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Enable networking
   networking.networkmanager.enable = true;
 
   # Sunshine configuration
@@ -13,12 +12,10 @@
     allowedUDPPortRanges = [
       { from = 47998; to = 48000; }
       { from = 8000; to = 8010; }
-  ];
-};
-
-  services.zerotierone = {
-    enable = true;
-    joinNetworks = [ "e3918db483703b19" ];
+    ];
   };
 
+  # Prevent Nix from building
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
 }
