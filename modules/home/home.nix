@@ -17,30 +17,16 @@
     ./waybar
   ];
 
-  xdg.mimeApps.enable = true;
-  xdg.mimeApps = {
-
-    defaultApplications = {
-      "inode/directory" =           "org.gnome.Nautilus.desktop";
-      "text/html" =                 "org.qutebrowser.qutebrowser.desktop";
-      "x-scheme-handler/http" =     "org.qutebrowser.qutebrowser.desktop";
-      "x-scheme-handler/https" =    "org.qutebrowser.qutebrowser.desktop";
-      "x-scheme-handler/about" =    "org.qutebrowser.qutebrowser.desktop";
-      "x-scheme-handler/unknown" =  "org.qutebrowser.qutebrowser.desktop";
-    };
-
-  };
-
   home.username = "zdyant";
   home.homeDirectory = "/home/zdyant";
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.stateVersion = "23.11"; # DONT TOUCH! 
 
   home.sessionVariables = {
 
     TERMINAL = "kitty";    
     BROWSER = "floorp";
 
-	WLR_RENDERER = "vulkan";
+	# WLR_RENDERER = "vulkan";  # KEEP IT OFF, OTHERWISE HYPRLAND WON'T LAUNCH
 	XDG_CURRENT_DESKTOP = "Hyprland";
 	XDG_SESSION_DESKTOP = "Hyprland";
 	XDG_SESSION_TYPE = "wayland";
@@ -54,10 +40,12 @@
 	XDG_DATA_HOME = "$HOME/.local/share";
   };
 
+  # Add to $PATH
   home.sessionPath = [
     "$HOME/.cargo/bin"
   ];
 
+  # Check LIBS on configuration.nix
   home.packages = with pkgs; [
   # Cli tools -----------------------------------------------
   unrar
