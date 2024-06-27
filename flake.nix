@@ -25,12 +25,16 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, spicetify-nix, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, hyprland, spicetify-nix, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-          config.allowUnfree = true;
+        config.allowUnfree = true;
+      };
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
 
@@ -38,7 +42,7 @@
       nixosConfigurations = {
         zdyant = lib.nixosSystem rec {
           inherit system;
-          specialArgs = { inherit self hyprland pkgs spicetify-nix ; };
+          specialArgs = { inherit self hyprland pkgs pkgs-unstable spicetify-nix ; };
           modules = [
             ./modules/nixos/configuration.nix
             hyprland.nixosModules.default
