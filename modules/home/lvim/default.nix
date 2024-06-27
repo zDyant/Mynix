@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     lunarvim
     rustc
+    rust-analyzer
     cargo
     python310Packages.pip
     sqlite.dev
