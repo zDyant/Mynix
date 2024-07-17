@@ -62,6 +62,7 @@
   imagemagick
   playerctl
   nh
+  matugen
 
   # libs ---------------------------------------------------------
   pamixer
@@ -92,6 +93,8 @@
   protonvpn-gui
   ungoogled-chromium
   fragments
+  planify
+  charm-freeze
   ];
 
   programs.home-manager.enable = true;
