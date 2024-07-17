@@ -11,7 +11,7 @@
     ./spicetify
     ./games
     ./rofi
-    ./kitty
+    ./alacritty
     ./wlogout
     ./swaync
     ./waybar

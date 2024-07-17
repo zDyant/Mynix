@@ -6,7 +6,7 @@
 $mainMod = SUPER
 $configs = ../configs/
 $files = nautilus
-$term = kitty
+$term = alacritty
 
 # Windows control ------------------------------------------------------------
 
