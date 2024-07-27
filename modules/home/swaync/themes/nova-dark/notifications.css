@@ -1,0 +1,45 @@
+@import "default.css";
+
+.notification-row {
+  outline: none;
+  margin: 0;
+  padding: 0px;
+}
+
+.floating-notifications .close-button {
+  margin: 4px;
+}
+
+.floating-notifications.background .notification-row .notification-background {
+  background: alpha(@background-color, .6);
+  border-radius: 24px;
+  margin: 16px;
+  /* fill 100% of notification space */
+  padding: 0;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification {
+  border: 1px solid @accent-color;
+  border-radius: 24px;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification.critical {
+  border: 1px solid @error-color;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification .notification-content {
+  margin: 14px;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * {
+  min-height: 3.4em;
+}
+
+.notification.critical progress {
+  background-color: @error-color;
+}
+
+.notification.low progress,
+.notification.normal progress {
+  background-color: @accent-color;
+}
