@@ -5,9 +5,9 @@ in {
   imports = [ spicetify-nix.homeManagerModule ];
   programs.spicetify = {
     enable = true;
-    theme = spicePkgs.themes.Bloom;
-    colorScheme = "darkgreen";
-    enabledCustomApps = with spicePkgs.apps; [ marketplace reddit ];
+    # theme = "marketplace";
+    # colorScheme = "darkgreen";
+    enabledCustomApps = with spicePkgs.apps; [ marketplace ];
     enabledExtensions = with spicePkgs.extensions; [
       hidePodcasts
       fullAppDisplay
