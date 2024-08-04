@@ -14,8 +14,8 @@ configuration {
     
 }
 
-/* ---- Load pywal colors ---- */
-@theme "~/.cache/wal/colors-rofi-dark.rasi"
+/* ---- Load matugen colors ---- */
+@theme "../colors.rasi"
 
 /* ---- Global Properties ---- */
 * {
