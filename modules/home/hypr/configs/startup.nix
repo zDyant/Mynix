@@ -18,6 +18,7 @@ exec-once = systemctl --user restart xdg-desktop-portal.service
 exec-once = nm-applet --indicator &
 exec-once = swaync &
 exec-once = hypridle &
+exec-once = hyprpanel &
 
 #clipboard manager
 exec-once = wl-paste --type text --watch cliphist store 

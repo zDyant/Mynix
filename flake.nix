@@ -24,15 +24,19 @@
       # url = "github:the-argus/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, hyprland, spicetify-nix, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, hyprland, spicetify-nix, hyprpanel, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        overlays = [
+          hyprpanel.overlay.${system}
+        ];
       };
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
@@ -44,7 +48,7 @@
       nixosConfigurations = {
         zdyant = lib.nixosSystem rec {
           inherit system;
-          specialArgs = { inherit self hyprland pkgs pkgs-unstable spicetify-nix ; };
+          specialArgs = { inherit self hyprland pkgs pkgs-unstable spicetify-nix hyprpanel; };
           modules = [
             ./modules/nixos/configuration.nix
             hyprland.nixosModules.default
