@@ -15,7 +15,6 @@ exec-once = systemctl --user import-environment PATH
 exec-once = systemctl --user restart xdg-desktop-portal.service
 
 # startup apps
-exec-once = waybar &
 exec-once = nm-applet --indicator &
 exec-once = swaync &
 exec-once = hypridle &

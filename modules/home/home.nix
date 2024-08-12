@@ -14,7 +14,6 @@
     ./alacritty
     ./wlogout
     ./swaync
-    ./waybar
   ];
 
   home.username = "zdyant";
@@ -99,6 +98,7 @@
   planify
   charm-freeze
   gedit
+  hyprpanel
   ]) ++
   (with pkgs-unstable; [
     neovim
