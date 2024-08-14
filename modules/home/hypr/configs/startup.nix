@@ -16,7 +16,6 @@ exec-once = systemctl --user restart xdg-desktop-portal.service
 
 # startup apps
 exec-once = nm-applet --indicator &
-exec-once = swaync &
 exec-once = hypridle &
 exec-once = hyprpanel &
 

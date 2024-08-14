@@ -13,7 +13,6 @@
     ./rofi
     ./alacritty
     ./wlogout
-    ./swaync
   ];
 
   home.username = "zdyant";

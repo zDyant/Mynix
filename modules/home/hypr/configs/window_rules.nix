@@ -33,8 +33,6 @@ layerrule = blur, class:^(swww)$
 layerrule = blur, rofi
 #layerrule = blur, (waybar)
 
-layerrule = blur, swaync-control-center
-layerrule = blur, swaync-notification-window
 
 # Tweaks to work with blur -----------------------------------
 
