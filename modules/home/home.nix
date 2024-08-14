@@ -12,7 +12,6 @@
     ./games
     ./rofi
     ./alacritty
-    ./wlogout
   ];
 
   home.username = "zdyant";
