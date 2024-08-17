@@ -7,6 +7,7 @@
 {
   imports =
     [ 
+    #!!! Remember to copy the new hardware-configuration file from /etc/nixos/
       ./hardware-configuration.nix
       ./gaming.nix
       ./bootloader.nix
