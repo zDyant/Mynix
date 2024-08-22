@@ -35,7 +35,7 @@
         inherit system;
         config.allowUnfree = true;
         overlays = [
-          hyprpanel.overlay.${system}
+          hyprpanel.overlay
         ];
       };
       pkgs-unstable = import nixpkgs-unstable {
