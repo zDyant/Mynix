@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -46,14 +46,13 @@
   ];
 
   # Check LIBS on configuration.nix
-  home.packages = (with pkgs; [
+  home.packages = with pkgs; [
   # Cli tools -----------------------------------------------
   unrar
   unzip
   jq
   eza
   gh
-  git
   feh
   tgpt
   man-pages
@@ -97,10 +96,8 @@
   charm-freeze
   gedit
   hyprpanel
-  ]) ++
-  (with pkgs-unstable; [
-    neovim
-  ]);
+  unstable.neovim
+  ];
 
   programs.home-manager.enable = true;
 }

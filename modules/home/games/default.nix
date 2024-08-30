@@ -1,7 +1,7 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
 
-  home.packages = (with pkgs; [
+  home.packages = with pkgs; [
     protonup-qt
     heroic
     adwsteamgtk # Theme for steam
@@ -16,6 +16,7 @@
     # moonlight-qt
     # prismlauncher
     # jdk21
+    # unstable.nexusmods-app
 
     # emulators -----------------------
     # emulationstation-de
@@ -24,10 +25,6 @@
     # rpcs3           # PS3
     # cemu            # Wii u
     # ryujinx         # Switch
-  ]);
-  # ++
-  # (with pkgs-unstable; [
-  #   nexusmods-app
-  # ]);
+  ];
   
 }

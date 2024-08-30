@@ -31,16 +31,20 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, hyprland, spicetify-nix, hyprpanel, ... }:
     let
       system = "x86_64-linux";
+      overlay-unstable = final: prev: {
+        unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      };
+
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
         overlays = [
+          overlay-unstable
           hyprpanel.overlay
         ];
-      };
-      pkgs-unstable = import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
 
@@ -50,6 +54,7 @@
           inherit system;
           specialArgs = { inherit self hyprland pkgs pkgs-unstable spicetify-nix hyprpanel; };
           modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
             ./modules/nixos/configuration.nix
             hyprland.nixosModules.default
             home-manager.nixosModules.home-manager {
