@@ -60,6 +60,10 @@
   };
 
   services.gvfs.enable = true;
+  
+  
+  systemd.services.lactd.wantedBy = ["multi-user.target"];
+  systemd.packages = with pkgs; [ lact ];
 
   environment.systemPackages = with pkgs; [
     vim 
@@ -77,7 +81,7 @@
     appimage-run
     fd
     ffmpeg
-
+    lact
   ];
 
 }
