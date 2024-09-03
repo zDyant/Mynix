@@ -1,15 +1,15 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
-    lunarvim
+    unstable.lunarvim
     rustc
     rust-analyzer
     cargo
     python310Packages.pip
     sqlite.dev
     sqlite
-	  meson
-	  cmake
+	meson
+	cmake
     gnumake
     gcc
     python3
