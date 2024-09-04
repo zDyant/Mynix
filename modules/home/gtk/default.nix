@@ -20,15 +20,15 @@
     };
 
     cursorTheme = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
+      name = "BreezeX-RosePineDawn-Linux";
+      package = pkgs.rose-pine-cursor;
     };
 
   };
 
   home.pointerCursor = {
-    name = "Bibata-Modern-Ice";
-    package = pkgs.bibata-cursors;
+    name = "BreezeX-RosePineDawn-Linux";
+    package = pkgs.rose-pine-cursor;
     size = 16;
   };
 
