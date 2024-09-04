@@ -9,7 +9,6 @@
     # steamtinkerlaunch 
     wineWowPackages.stagingFull # Don't change!!!, wayland version is broken
     mesa
-    # mangohud
     xivlauncher
     sunshine
     # lutris
@@ -27,4 +26,11 @@
     # ryujinx         # Switch
   ];
   
+
+  programs.mangohud = {
+    enable = true;
+    settings = {
+      preset = 3;
+    };
+  };
 }
