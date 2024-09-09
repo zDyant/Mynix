@@ -19,16 +19,17 @@
       # rev = "1c460e98f870676b15871fe4e5bfeb1a32a3d6d8";
     };
 
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+    };
+
     spicetify-nix = {
-      url = "github:A1ca7raz/spicetify-nix";
-      # url = "github:the-argus/spicetify-nix";
+      url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, hyprland, spicetify-nix, hyprpanel, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       overlay-unstable = final: prev: {
@@ -43,25 +44,25 @@
         config.allowUnfree = true;
         overlays = [
           overlay-unstable
-          hyprpanel.overlay
+          inputs.hyprpanel.overlay
         ];
       };
       lib = nixpkgs.lib;
 
     in {
       nixosConfigurations = {
-        zdyant = lib.nixosSystem rec {
+        zdyant = lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit self hyprland pkgs pkgs-unstable spicetify-nix hyprpanel; };
+          specialArgs = { inherit inputs pkgs; };
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
             ./modules/nixos/configuration.nix
-            hyprland.nixosModules.default
+            inputs.hyprland.nixosModules.default
             home-manager.nixosModules.home-manager {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.users.zdyant = import ./modules/home/home.nix;
-                home-manager.extraSpecialArgs = specialArgs;
+                home-manager.extraSpecialArgs = { inherit inputs ; };
             }
         ];
       };
