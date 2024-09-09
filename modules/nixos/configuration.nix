@@ -82,6 +82,11 @@
     fd
     ffmpeg
     lact
+    eza
+    pamixer
+    btrfs-progs
+    libarchive
+    pkgconf
   ];
 
 }

@@ -10,19 +10,15 @@
   ];
 
   home.packages = with pkgs; [
-    htop
-    nvtopPackages.full
-    gnome.gnome-system-monitor
+    btop
     networkmanagerapplet
     blueman
     swww
-    pywal
     hyprpicker
     grim
     slurp
     cliphist
     wl-clipboard
-    wf-recorder
     glib
     xwayland
     wayland

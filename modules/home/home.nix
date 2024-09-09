@@ -51,7 +51,6 @@
   unrar
   unzip
   jq
-  eza
   gh
   feh
   tgpt
@@ -62,41 +61,32 @@
   playerctl
   nh
   matugen
-
-  # libs ---------------------------------------------------------
-  pamixer
-  btrfs-progs
-  libarchive
-  pkgconf
+  wf-recorder
 
   # Chatting ----------------------------------------------------- 
   telegram-desktop
   (vesktop.override { withSystemVencord = false; }) # discord
 
   # Apps ---------------------------------------------------------
-  gnome.gnome-software
   gnome.file-roller
-  gnome.nautilus
-  gnome.eog
+  gnome.eog     # Image-viewer
   gnome.gnome-keyring
-  rnote
-  rclone
+  cinnamon.nemo-with-extensions
+  rnote         # Scratch pad
+  rclone        # Backup to proton drive
   floorp
   librewolf
-  mpv
-  motrix
+  # mpv
+  motrix        # DL/Torrent manager
   obsidian
   pavucontrol
-  evince
-  authenticator
+  evince        # PDF reader
+  authenticator # OTP manager
   protonvpn-gui
-  ungoogled-chromium
-  fragments
-  planify
-  charm-freeze
-  gedit
+  # planify     # Todo-List
+  unstable.zed-editor
   hyprpanel
-  unstable.neovim
+  youtube-music
   ];
 
   programs.home-manager.enable = true;
