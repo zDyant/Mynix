@@ -6,7 +6,7 @@
 $mainMod = SUPER
 $configs = ../configs/
 $files = nemo
-$term = alacritty
+$term = kitty
 
 # Windows control ------------------------------------------------------------
 

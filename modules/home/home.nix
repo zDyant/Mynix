@@ -11,7 +11,7 @@
     ./spicetify
     ./games
     ./rofi
-    ./alacritty
+    ./kitty
   ];
 
   programs.git = {

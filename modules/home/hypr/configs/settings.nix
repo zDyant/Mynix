@@ -107,7 +107,7 @@ misc {
   enable_swallow = true
   no_direct_scanout = true #for fullscreen games
   focus_on_activate = false
-  swallow_regex = ^(alacritty)$
+  swallow_regex = ^(kitty)$
   #disable_autoreload = true
 }
 
