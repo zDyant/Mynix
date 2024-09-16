@@ -25,10 +25,10 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
   };
-  programs.zsh.enable = true;
+  
 
   system.stateVersion = "23.11"; # Did you read the comment?
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
   services.openssh.enable = true;
@@ -61,9 +61,20 @@
 
   services.gvfs.enable = true;
   
-  
+  # AMD Gpu Control
   systemd.services.lactd.wantedBy = ["multi-user.target"];
   systemd.packages = with pkgs; [ lact ];
+
+  services.flatpak.enable = true;
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
+  programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim 
