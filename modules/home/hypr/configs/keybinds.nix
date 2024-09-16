@@ -5,7 +5,7 @@
     extraConfig = ''
 $mainMod = SUPER
 $configs = ../configs/
-$files = nautilus
+$files = nemo
 $term = alacritty
 
 # Windows control ------------------------------------------------------------
@@ -132,15 +132,7 @@ bindr = $mainMod, $mainMod_L, exec, pkill rofi || rofi -show # drun -modi drun,f
 bind = $mainMod, Return, exec, $term  # Launch terminal
 bind = $mainMod, T, exec, $files # File manager
 
-bind = $mainMod ALT, R, exec, refresh # Refresh waybar, swaync, rofi
 bind = $mainMod ALT, V, exec, clip-manager # Clipboard Manager
-
-bind = $mainMod SHIFT, N, exec, swaync-client -t -sw # swayNC panel
-
-# Waybar / Bar related
-bind = $mainMod, B, exec, killall waybar # Toggle hide/show waybar 
-bind = $mainMod CTRL, B, exec, waybar-style && refresh # Waybar Styles Menu
-bind = $mainMod ALT, B, exec, waybar-layout && refresh # Waybar Layout Menu
 
 # Misc
 bind = $mainMod ALT, L, exec, change-layout # Toggle Master or Dwindle Layout

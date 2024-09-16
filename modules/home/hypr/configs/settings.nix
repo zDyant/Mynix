@@ -6,7 +6,7 @@ wayland.windowManager.hyprland =  {
 
 
 monitor=,preferred,auto,1
-source = $HOME/.cache/wal/colors-hyprland.conf
+source = colors.conf
 
 dwindle {
   pseudotile = yes
@@ -15,7 +15,6 @@ dwindle {
 }
 
 master {
-  new_is_master=1
   new_on_top=1
   mfact = 0.5
 }
@@ -48,21 +47,24 @@ decoration {
   inactive_opacity = 1.0
   fullscreen_opacity = 1.0
 
-  dim_inactive = false
-  dim_strength = 0.35
+  dim_inactive = true
+  dim_strength = 0.15
 
   drop_shadow=false
-  shadow_range = 16
-  shadow_render_power = 2
+  shadow_range = 32
+  shadow_render_power = 3
   shadow_offset = 2 2
   col.shadow = rgba(0C0E13A6)
 
   blur {
   enabled = true	
-  size = 5
-  passes = 4
+  size = 16
+  passes = 2
   ignore_opacity = true
   new_optimizations = true
+  vibrancy = 1
+  brightness = 1
+  xray = true
   noise = 0.03
   contrast = 1.3
   }

@@ -6,44 +6,12 @@ wayland.windowManager.hyprland = {
 
 windowrulev2 = idleinhibit fullscreen, fullscreen:1
 
-windowrule = float, org.kde.polkit-kde-authentication-agent-1
-windowrule = float, nm-connection-editor|blueman-manager
 windowrule = float, pavucontrol
 windowrule = float, eog # Eye of gnome
-windowrule = float, rofi
-windowrule = float, gnome-system-monitor
-windowrule = float, yad
 
 #opacity (transparent) #enable as desired
 #first value: focused, second:not focused
-windowrulev2 = opacity 0.9 0.6, class:^[Rr]ofi)$
-windowrulev2 = opacity 0.9 0.8, class:^(kitty)$
-windowrulev2 = opacity 0.9 0.7, class:^(yad)$
-windowrulev2 = opacity 0.9 0.7, class:^(Spotify)$
-windowrulev2 = opacity 0.9 0.7, class:^(steam)$
 windowrulev2 = opacity 1, 1, title:^(Picture-in-Picture)$
-windowrulev2 = opacity 0.9 0.8, class:^(org.gnome.Nautilus)$
-
-# Blur -----------------------------------------------------
-  # Wlogout
-layerrule = blur, logout_dialog
-
-layerrule = blur, class:^(org.gnome.Nautilus)$
-layerrule = blur, class:^(swww)$
-layerrule = blur, rofi
-#layerrule = blur, (waybar)
-
-
-# Tweaks to work with blur -----------------------------------
-
-layerrule = unset, rofi
-layerrule = ignorezero, rofi
-
-layerrule = ignorezero, swaync-control-center
-layerrule = ignorezero, swaync-notification-window
-
-layerrule = ignorealpha 0.5, swaync-control-center
-layerrule = ignorealpha 0.5, swaync-notification-window
 
 # Picture-in-a-Picture (PIP) rules: Oddly, some need re-duplication.  This is because the window for
 # PIP changes after on first launch, and will not inherant the rules...
