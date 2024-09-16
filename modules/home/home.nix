@@ -14,6 +14,12 @@
     ./alacritty
   ];
 
+  programs.git = {
+    enable = true;
+    userName = "zDyant";
+    userEmail = "dyant@proton.me";
+  };
+
   home.username = "zdyant";
   home.homeDirectory = "/home/zdyant";
   home.stateVersion = "23.11"; # DONT TOUCH! 
