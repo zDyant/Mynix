@@ -16,7 +16,7 @@
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
       # hash of the version
-      # rev = "1c460e98f870676b15871fe4e5bfeb1a32a3d6d8";
+      ref = "refs/tags/v0.43.0";
     };
 
     hyprpanel = {
