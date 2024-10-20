@@ -82,7 +82,7 @@
   rclone        # Backup to proton drive
   floorp
   librewolf
-  # mpv
+  mpv
   motrix        # DL/Torrent manager
   obsidian
   pavucontrol
@@ -93,6 +93,7 @@
   unstable.zed-editor
   hyprpanel
   youtube-music
+  anki
   ];
 
   programs.home-manager.enable = true;
