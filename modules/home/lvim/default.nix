@@ -5,14 +5,14 @@
     rustc
     rust-analyzer
     cargo
-    python310Packages.pip
+    # python310Packages.pip
     sqlite.dev
     sqlite
 	meson
 	cmake
     gnumake
     gcc
-    python3
+    # python3
     lazygit
     yarn
   ];
