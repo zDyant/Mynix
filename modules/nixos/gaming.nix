@@ -1,4 +1,4 @@
-{ lib, ... }: 
+{ pkgs, lib, ... }: 
 {
 
   hardware.opengl = {
@@ -6,7 +6,17 @@
     driSupport = true;
     driSupport32Bit = true;
   };
-  services.xserver.videoDrivers = ["amdgpu"];
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
+
+  hardware.opengl.extraPackages = with pkgs; [
+    amdvlk
+  ];
+
+  hardware.opengl.extraPackages32 = with pkgs; [
+    driversi686Linux.amdvlk
+  ];
 
   programs.steam = {
     enable = true;
