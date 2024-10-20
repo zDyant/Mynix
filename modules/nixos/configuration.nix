@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports =
@@ -15,6 +15,7 @@
       ./hyprland.nix
       ./login-screen.nix
       ./network.nix
+      ./sunshine.nix
       ./fonts.nix
       ./substituters.nix
     ];
@@ -98,6 +99,7 @@
     btrfs-progs
     libarchive
     pkgconf
+    inputs.zen-browser.packages."${system}".default
   ];
 
 }

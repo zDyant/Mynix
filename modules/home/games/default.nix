@@ -10,7 +10,7 @@
     wineWowPackages.stagingFull # Don't change!!!, wayland version is broken
     mesa
     xivlauncher
-    sunshine
+    # sunshine
     # lutris
     # moonlight-qt
     # prismlauncher
