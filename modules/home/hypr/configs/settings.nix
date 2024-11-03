@@ -23,8 +23,8 @@ general {
   sensitivity=1.00
   apply_sens_to_raw=1
   gaps_in = 2
-  gaps_out = 12
-  border_size = 1
+  gaps_out = 10
+  # border_size = 1
   resize_on_border = true
    
   col.active_border = 0xff444444
@@ -42,7 +42,7 @@ group {
 }
 
 decoration {
-  rounding = 16
+  rounding = 10
   active_opacity = 1.0
   inactive_opacity = 1.0
   fullscreen_opacity = 1.0
@@ -50,23 +50,25 @@ decoration {
   dim_inactive = true
   dim_strength = 0.15
 
-  drop_shadow=false
-  shadow_range = 32
+  drop_shadow = true
+  shadow_range = 50
+  shadow_ignore_window = true;
   shadow_render_power = 3
-  shadow_offset = 2 2
+  # shadow_offset = 2 2
   col.shadow = rgba(0C0E13A6)
+  col.shadow_inactive=rgba(11111B00)
 
   blur {
   enabled = true	
-  size = 16
-  passes = 2
+  size = 6
+  passes = 3
   ignore_opacity = true
   new_optimizations = true
   vibrancy = 1
   brightness = 1
-  xray = true
-  noise = 0.03
   contrast = 1.3
+  xray = false
+  noise = 0.0117
   }
 }
     
