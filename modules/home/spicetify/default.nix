@@ -1,11 +1,15 @@
-{ pkgs, spicetify-nix, ... }:
+{ pkgs, inputs, ... }:
 
-let spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+let 
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in {
-  imports = [ spicetify-nix.homeManagerModule ];
+  imports = [ 
+	inputs.spicetify-nix.homeManagerModules.default
+  ];
   programs.spicetify = {
     enable = true;
-    # theme = "marketplace";
+    spicetifyPackage = inputs.nixpkgs-unstable.legacyPackages."${pkgs.system}".spicetify-cli;
+    theme = spicePkgs.themes.lucid;
     # colorScheme = "darkgreen";
     enabledCustomApps = with spicePkgs.apps; [ marketplace ];
     enabledExtensions = with spicePkgs.extensions; [
