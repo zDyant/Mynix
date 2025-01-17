@@ -9,12 +9,27 @@ windowrulev2 = idleinhibit fullscreen, fullscreen:1
 windowrule = float, pavucontrol
 windowrule = float, eog # Eye of gnome
 
-#opacity (transparent) #enable as desired
-#first value: focused, second:not focused
+# Blur --------------------------------------------------------
+# Hyprpanel
+layerrule = blur, bar-0
+layerrule = blur, rofi
+
+# Opacity -----------------------------------------------------
+# First value: focused, second:not focused
+
 windowrulev2 = opacity 1, 1, title:^(Picture-in-Picture)$
 
-# Picture-in-a-Picture (PIP) rules: Oddly, some need re-duplication.  This is because the window for
+# Animations --------------------------------------------------
+layerrule = animation slide top, rofi
+layerrule = animation slide right, notificationsmenu
+layerrule = animation slide left, dashboardmenu
+
+
+
+# Picture-in-a-Picture ----------------------------------------
+# (PIP) rules: Oddly, some need re-duplication.  This is because the window for
 # PIP changes after on first launch, and will not inherant the rules...
+
 windowrulev2=opacity 0.95 0.75,title:^(Picture-in-Picture)$ # for opacity: [focus num] [bg num]
 # Interestingly, the opacity rule above doesn't need the reduplication?
 windowrulev2=pin,title:^(Picture-in-Picture)$ 
