@@ -72,10 +72,10 @@
   (vesktop.override { withSystemVencord = false; }) # discord
 
   # Apps ---------------------------------------------------------
-  gnome.file-roller
-  gnome.eog     # Image-viewer
-  gnome.gnome-keyring
-  cinnamon.nemo-with-extensions
+  file-roller
+  eog     # Image-viewer
+  gnome-keyring
+  nemo-with-extensions
   rnote         # Scratch pad
   rclone        # Backup to proton drive
   floorp
