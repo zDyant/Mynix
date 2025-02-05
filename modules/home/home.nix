@@ -54,8 +54,6 @@
   # Check LIBS on configuration.nix
   home.packages = with pkgs; [
   # Cli tools -----------------------------------------------
-  unrar
-  unzip
   jq
   gh
   feh

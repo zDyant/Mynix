@@ -23,6 +23,8 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
+    unrar
+    unzip
     vim 
     wget
     neovim  
