@@ -27,7 +27,7 @@
   home.sessionVariables = {
 
     TERMINAL = "kitty";    
-    BROWSER = "floorp";
+    BROWSER = "zen";
 
 	# WLR_RENDERER = "vulkan";  # KEEP IT OFF, OTHERWISE HYPRLAND WON'T LAUNCH
 	XDG_CURRENT_DESKTOP = "Hyprland";
@@ -78,7 +78,6 @@
   nemo-with-extensions
   rnote         # Scratch pad
   rclone        # Backup to proton drive
-  floorp
   librewolf
   mpv
   motrix        # DL/Torrent manager
@@ -92,6 +91,7 @@
   hyprpanel
   youtube-music
   anki
+  openrgb-with-all-plugins
   ];
 
   programs.home-manager.enable = true;
