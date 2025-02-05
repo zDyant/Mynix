@@ -20,67 +20,6 @@
       ./substituters.nix
     ];
 
-  users.users.zdyant = {
-    isNormalUser = true;
-    description = "zDyant";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    shell = pkgs.zsh;
-  };
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-  
-
-  system.stateVersion = "23.11"; # Did you read the comment?
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
-
-  services.openssh.enable = true;
-
-  time.timeZone = "America/Sao_Paulo";
-  i18n.defaultLocale = "en_US.UTF-8"; # Select internationalisation properties.
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "pt_BR.UTF-8";
-    LC_IDENTIFICATION = "pt_BR.UTF-8";
-    LC_MEASUREMENT = "pt_BR.UTF-8";
-    LC_MONETARY = "pt_BR.UTF-8";
-    LC_NAME = "pt_BR.UTF-8";
-    LC_NUMERIC = "pt_BR.UTF-8";
-    LC_PAPER = "pt_BR.UTF-8";
-    LC_TELEPHONE = "pt_BR.UTF-8";
-    LC_TIME = "pt_BR.UTF-8";
-  };
-
-  services.gnome.gnome-keyring.enable = true;
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  services.gvfs.enable = true;
-  
-  # AMD Gpu Control
-  systemd.services.lactd.wantedBy = ["multi-user.target"];
-  systemd.packages = with pkgs; [ lact ];
-
-  services.flatpak.enable = true;
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
-
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -107,5 +46,81 @@
     pkgconf
     inputs.zen-browser.packages."${system}".default
   ];
+  
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
 
+  # Configure keymap in X11 ------------------------------
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
+
+  # Several services -------------------------------------
+  
+    # For passwords
+  services.gnome.gnome-keyring.enable = true;
+
+  services.gvfs.enable = true;
+
+  services.openssh.enable = true;
+
+  services.hardware.openrgb.enable = true;
+  
+  # Flatpak ----------------------------------------------
+  services.flatpak.enable = true;
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
+  # AMD Gpu Control
+  systemd.services.lactd.wantedBy = ["multi-user.target"];
+  systemd.packages = with pkgs; [ lact ];
+
+  # Bluetooth --------------------------------------------
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
+  services.blueman.enable = true;
+
+  # Users ------------------------------------------------
+  users.users.zdyant = {
+    isNormalUser = true;
+    description = "zDyant";
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    shell = pkgs.zsh;
+  };
+
+  # Garbage collector ------------------------------------
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+  # WARN Don't change -------------------------------------
+  system.stateVersion = "23.11"; # Did you read the comment?
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
+  
+  
+  # Some shenanigans --------------------------------------
+  time.timeZone = "America/Sao_Paulo";
+  i18n.defaultLocale = "en_US.UTF-8"; # Select internationalisation properties.
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "pt_BR.UTF-8";
+    LC_IDENTIFICATION = "pt_BR.UTF-8";
+    LC_MEASUREMENT = "pt_BR.UTF-8";
+    LC_MONETARY = "pt_BR.UTF-8";
+    LC_NAME = "pt_BR.UTF-8";
+    LC_NUMERIC = "pt_BR.UTF-8";
+    LC_PAPER = "pt_BR.UTF-8";
+    LC_TELEPHONE = "pt_BR.UTF-8";
+    LC_TIME = "pt_BR.UTF-8";
+  };
 }
