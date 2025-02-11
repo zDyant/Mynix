@@ -20,8 +20,6 @@ master {
 }
 
 general {
-  sensitivity=1.00
-  apply_sens_to_raw=1
   gaps_in = 2
   gaps_out = 10
   # border_size = 1
@@ -50,25 +48,28 @@ decoration {
   dim_inactive = true
   dim_strength = 0.15
 
-  drop_shadow = true
-  shadow_range = 50
-  shadow_ignore_window = true;
-  shadow_render_power = 3
-  # shadow_offset = 2 2
-  col.shadow = rgba(0C0E13A6)
-  col.shadow_inactive=rgba(11111B00)
+  shadow {
+    enabled = false
+    range = 50
+    ignore_window = true;
+    render_power = 3
+    # shadow_offset = 2 2
+    color = rgba(0C0E13A6)
+    color_inactive = rgba(11111B00)
+  }
+
 
   blur {
-  enabled = true	
-  size = 6
-  passes = 3
-  ignore_opacity = true
-  new_optimizations = true
-  vibrancy = 1
-  brightness = 1
-  contrast = 1.3
-  xray = false
-  noise = 0.0117
+    enabled = true	
+    size = 6
+    passes = 3
+    ignore_opacity = true
+    new_optimizations = true
+    vibrancy = 1
+    brightness = 1
+    contrast = 1.3
+    xray = false
+    noise = 0.0117
   }
 }
     
@@ -86,6 +87,7 @@ input {
   left_handed=0
   follow_mouse=1
   float_switch_override_focus=0
+  sensitivity=1.00
 
   touchpad {
     disable_while_typing=1
@@ -94,7 +96,7 @@ input {
     middle_button_emulation=1
     tap-to-click=1
     drag_lock=0
-          }
+  }
 }
 
 gestures {
@@ -107,10 +109,9 @@ misc {
   mouse_move_enables_dpms = true
   vrr = 2
   enable_swallow = true
-  no_direct_scanout = true #for fullscreen games
+  # no_direct_scanout = true #for fullscreen games
   focus_on_activate = false
   swallow_regex = ^(kitty)$
-  #disable_autoreload = true
 }
 
 binds {
@@ -119,7 +120,7 @@ binds {
   pass_mouse_when_bound=0
 }
 
-#Could help when scaling and not pixelating
+# Could help when scaling and not pixelating
 xwayland {
     force_zero_scaling = true
 }
