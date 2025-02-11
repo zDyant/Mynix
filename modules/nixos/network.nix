@@ -16,7 +16,14 @@
     ];
   };
 
-  # Prevent Nix from building
+  services.zerotierone = {
+    enable = true;
+    joinNetworks = [ 
+      "a84ac5c10a7b57e4"
+    ];
+  };
+
+  # Do not prevent Nix from building
   systemd.network.wait-online.enable = false;
   boot.initrd.systemd.network.wait-online.enable = false;
 }
