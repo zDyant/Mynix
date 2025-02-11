@@ -12,7 +12,6 @@
   home.packages = with pkgs; [
     btop
     networkmanagerapplet
-    blueman
     swww
     hyprpicker
     grim
@@ -25,7 +24,7 @@
     wayland-utils
     wayland-protocols
     wlroots
-    qt5ct
+    libsForQt5.qt5ct
     direnv
     qt6.qtwayland
     cava
