@@ -24,10 +24,11 @@
     };
 
     spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
+      url = "github:Gerg-L/spicetify-nix/ac59ecec59685225698100b06d0b742a6415eb9a";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
@@ -58,6 +59,7 @@
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
             ./modules/nixos/configuration.nix
+            inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.hyprland.nixosModules.default
             home-manager.nixosModules.home-manager {
                 home-manager.useGlobalPkgs = true;

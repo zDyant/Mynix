@@ -12,6 +12,7 @@
     ./games
     ./rofi
     ./kitty
+    ./flatpak.nix
   ];
 
   programs.git = {
