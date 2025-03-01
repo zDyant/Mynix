@@ -100,8 +100,12 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 30d";
+    randomizedDelaySec = "14m";
+    options = "--delete-older-than 7d";
   };
+
+  # Making sure /tmp is clear to avoid issues
+  boot.tmp.cleanOnBoot = true;
 
   # WARN Don't change -------------------------------------
   system.stateVersion = "23.11"; # Did you read the comment?
