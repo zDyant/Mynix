@@ -46,7 +46,6 @@
     btrfs-progs
     libarchive
     pkgconf
-    inputs.zen-browser.packages."${system}".default
   ];
   
   # Enable the X11 windowing system.
