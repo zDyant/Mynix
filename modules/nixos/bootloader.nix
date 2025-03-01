@@ -7,6 +7,8 @@
   boot.kernelParams = [ "splash" "quiet" ];
   boot.loader.grub = {
     enable = true;
+    # Prevent /boot from overflowing
+    configurationLimit = 10;
     efiSupport = true;
     useOSProber = true;
     device = "/dev/sdb";
