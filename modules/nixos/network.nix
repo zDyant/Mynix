@@ -4,6 +4,8 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   networking.networkmanager.enable = true;
+  
+  networking.enableIPv6 = true;
 
   # Sunshine configuration
   networking.firewall = {
