@@ -76,7 +76,7 @@
   file-roller
   eog     # Image-viewer
   gnome-keyring
-  nemo-with-extensions
+  xfce.thunar
   rnote         # Scratch pad
   rclone        # Backup to proton drive
   librewolf
