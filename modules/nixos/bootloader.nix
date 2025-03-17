@@ -3,6 +3,7 @@
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.systemd.enable = true;
+
   # Don't show command line arguments on boot
   boot.kernelParams = [ "splash" "quiet" ];
   boot.loader.grub = {
@@ -11,7 +12,7 @@
     configurationLimit = 10;
     efiSupport = true;
     useOSProber = true;
-    device = "/dev/sdb";
+    device = "/dev/nvme0n1";
 
     theme = pkgs.stdenv.mkDerivation {
       pname = "catppuccin-grub";
