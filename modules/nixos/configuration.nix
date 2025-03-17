@@ -104,6 +104,9 @@
     options = "--delete-older-than 7d";
   };
 
+  # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
+  nix.settings.auto-optimise-store = true;
+
   # Making sure /tmp is clear to avoid issues
   boot.tmp.cleanOnBoot = true;
 
