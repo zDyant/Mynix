@@ -10,13 +10,11 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
 
-  hardware.graphics.extraPackages = with pkgs; [
-    amdvlk
-  ];
-
-  hardware.graphics.extraPackages32 = with pkgs; [
-    driversi686Linux.amdvlk
-  ];
+  # Enabiling this makes gamescope unsuable
+  # https://github.com/ValveSoftware/gamescope/issues/1349
+  # https://github.com/ValveSoftware/gamescope/issues/1465
+  # hardware.graphics.extraPackages = with pkgs; [ amdvlk ];
+  # hardware.graphics.extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
 
   programs.steam = {
     enable = true;
