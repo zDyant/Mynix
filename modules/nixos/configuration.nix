@@ -18,6 +18,7 @@
       ./sunshine.nix
       ./fonts.nix
       ./substituters.nix
+      ./virtualisation.nix
       ./stylix.nix
     ];
 
