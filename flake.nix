@@ -29,6 +29,7 @@
     };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
+    stylix.url = "github:danth/stylix/release-24.11";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
@@ -59,6 +60,7 @@
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
             ./modules/nixos/configuration.nix
+            inputs.stylix.nixosModules.stylix
             inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.hyprland.nixosModules.default
             home-manager.nixosModules.home-manager {

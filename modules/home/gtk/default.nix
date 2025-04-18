@@ -3,34 +3,42 @@
   gtk = {
     enable = true;
 
-    theme = {
-      name = "adw-gtk3";
-      package = pkgs.adw-gtk3;
-    };
+    # theme = {
+    #   name = "adw-gtk3";
+    #   package = pkgs.adw-gtk3;
+    # };
 
-    font = {
-      name = "Geist Mono";
-      package = pkgs.geist-font;
-      size = 11;
-    };
+    # font = {
+    #   name = "Geist Mono";
+    #   package = pkgs.geist-font;
+    #   size = 11;
+    # };
 
-    iconTheme = {
-      name = "Reversal";
-      package = pkgs.reversal-icon-theme;
-    };
+    # iconTheme = {
+    #   name = "Reversal";
+    #   package = pkgs.reversal-icon-theme;
+    # };
 
-    cursorTheme = {
-      name = "BreezeX-RosePineDawn-Linux";
-      package = pkgs.rose-pine-cursor;
-    };
+    # cursorTheme = {
+    #   name = "BreezeX-RosePineDawn-Linux";
+    #   package = pkgs.rose-pine-cursor;
+    # };
+
+    # gtk3.extraConfig = {
+    #   gtk-application-prefer-dark-theme = 1;
+    # };
+    # 
+    # gtk4.extraConfig = {
+    #   gtk-application-prefer-dark-theme = 1;
+    # };
 
   };
 
-  home.pointerCursor = {
-    name = "BreezeX-RosePineDawn-Linux";
-    package = pkgs.rose-pine-cursor;
-    size = 16;
-  };
+  # home.pointerCursor = {
+  #   name = "BreezeX-RosePineDawn-Linux";
+  #   package = pkgs.rose-pine-cursor;
+  #   size = 16;
+  # };
 
   dconf = {
     enable = true;

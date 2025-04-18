@@ -13,6 +13,7 @@
     ./rofi
     ./kitty
     ./flatpak.nix
+    ./stylix.nix
   ];
 
   programs.git = {

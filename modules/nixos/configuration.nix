@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -18,6 +18,7 @@
       ./sunshine.nix
       ./fonts.nix
       ./substituters.nix
+      ./stylix.nix
     ];
 
   programs.zsh.enable = true;
