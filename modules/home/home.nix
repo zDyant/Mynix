@@ -60,6 +60,9 @@
   nh
   matugen
   wf-recorder
+  diff-so-fancy
+  # rclone        # Backup to proton drive
+  distrobox
 
   # Chatting ----------------------------------------------------- 
   telegram-desktop
@@ -67,24 +70,21 @@
 
   # Apps ---------------------------------------------------------
   file-roller
-  eog     # Image-viewer
-  gnome-keyring
-  xfce.thunar
+  eog           # Image-viewer
   rnote         # Scratch pad
-  rclone        # Backup to proton drive
-  librewolf
   mpv
   motrix        # DL/Torrent manager
   obsidian
   pavucontrol
   evince        # PDF reader
   authenticator # OTP manager
-  protonvpn-gui
+  # protonvpn-gui
   # planify     # Todo-List
-  unstable.zed-editor
+  # unstable.zed-editor
+  unstable.cosmic-files
   hyprpanel
   youtube-music
-  anki
+  # anki
   openrgb-with-all-plugins
   ];
 
