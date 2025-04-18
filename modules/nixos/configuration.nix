@@ -48,6 +48,7 @@
     btrfs-progs
     libarchive
     pkgconf
+    gnome-keyring
   ];
   
   # Enable the X11 windowing system.
