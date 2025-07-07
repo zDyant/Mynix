@@ -1,21 +1,22 @@
 { pkgs, ... }:
 {
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-      "JetBrainsMono"
-      ];
-    })
-  ];
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      geist-font
+      maple-mono.variable
+      nerd-fonts.jetbrains-mono
+    ];
 
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-
-      sansSerif = [ "Geist Sans" ];
-      monospace = [ "Geist Mono" "JetBrainsMono Nerd Font" ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = [  "Geist"  ];
+        sansSerif = [ "Geist Sans" ];
+        monospace = [ "Maple Mono" "Geist Mono" "JetBrainsMono" ];
+      };
+      
     };
-    
-  };
 
+  };
 }
