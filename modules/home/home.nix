@@ -7,7 +7,7 @@
     ./hypr
     ./bat
     ./gtk
-    ./lvim
+    ./nvim
     ./spicetify
     ./games
     ./rofi

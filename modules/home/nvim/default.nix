@@ -3,18 +3,22 @@
   home.packages = with pkgs; [
     unstable.lunarvim
     rustc
-    rust-analyzer
     cargo
-    # python310Packages.pip
-    sqlite.dev
-    sqlite
-	meson
-	cmake
+    meson
+    cmake
     gnumake
     gcc
     # python3
+
+    # Required by nvim
+    sqlite.dev
+    sqlite
+    rust-analyzer
+    stylua
+    lua-language-server
+    astro-language-server
     lazygit
-    yarn
+    nixfmt-rfc-style
   ];
 
   # xdg.configFile."lvim" = {
