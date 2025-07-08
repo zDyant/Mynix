@@ -16,6 +16,8 @@
     ./stylix.nix
   ];
 
+  programs.hyprpanel.enable = true;
+
   programs.git = {
     enable = true;
     userName = "zDyant";
@@ -63,6 +65,8 @@
   diff-so-fancy
   # rclone        # Backup to proton drive
   distrobox
+  gowall
+  yazi
 
   # Chatting ----------------------------------------------------- 
   telegram-desktop
@@ -82,10 +86,11 @@
   # planify     # Todo-List
   # unstable.zed-editor
   unstable.cosmic-files
-  hyprpanel
   youtube-music
   # anki
   openrgb-with-all-plugins
+  # davinci-resolve
+  ferdium
   ];
 
   programs.home-manager.enable = true;
