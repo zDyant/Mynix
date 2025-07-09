@@ -6,7 +6,6 @@ wayland.windowManager.hyprland =  {
 
 
 monitor=,preferred,auto,1
-source = colors.conf
 
 dwindle {
   pseudotile = yes
@@ -22,7 +21,7 @@ master {
 general {
   gaps_in = 2
   gaps_out = 10
-  # border_size = 1
+  border_size = 1
   resize_on_border = true
    
   col.active_border = 0xff444444
@@ -32,17 +31,17 @@ general {
 }
 
 group {
-  col.border_active = $color6
+  col.border_active = 0xff444444
 
-	groupbar {
-	col.active = $color6
+  groupbar {
+    col.active = rgba(000000A0)
   }
 }
 
 decoration {
-  rounding = 10
+  rounding = 12
   active_opacity = 1.0
-  inactive_opacity = 1.0
+  inactive_opacity = 0.9
   fullscreen_opacity = 1.0
 
   dim_inactive = true
@@ -72,8 +71,6 @@ decoration {
     noise = 0.0117
   }
 }
-    
-
 
 input {
   kb_layout=us

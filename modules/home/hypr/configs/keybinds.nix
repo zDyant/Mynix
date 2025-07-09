@@ -5,7 +5,7 @@
     extraConfig = ''
 $mainMod = SUPER
 $configs = ../configs/
-$files = nemo
+$files = yazi
 $term = kitty
 
 # Windows control ------------------------------------------------------------
