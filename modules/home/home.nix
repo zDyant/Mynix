@@ -6,7 +6,6 @@
     ./starship
     ./hypr
     ./bat
-    ./gtk
     ./nvim
     ./spicetify
     ./games
