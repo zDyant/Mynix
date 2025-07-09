@@ -24,7 +24,7 @@
 
       ga = "git add";
       gst = "git status";
-      gf = "git diff";
+      gf = "git diff | diff-so-fancy";
       gfs = "git diff --staged";
       gm = "git commit -m";
       gr = "git restore";
