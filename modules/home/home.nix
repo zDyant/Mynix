@@ -16,6 +16,7 @@
   ];
 
   programs.hyprpanel.enable = true;
+  gtk.enable = true;
 
   programs.git = {
     enable = true;
