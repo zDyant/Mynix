@@ -10,7 +10,7 @@
   # Sunshine configuration
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 47984 47989 47990 48010 ];
+    allowedTCPPorts = [ 3040 47984 47989 47990 48010 ];
     allowedUDPPorts = [ 9993 9994 ];
     allowedUDPPortRanges = [
       { from = 47998; to = 48000; }
