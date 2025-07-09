@@ -5,7 +5,7 @@
     extraConfig = "
 windowrulev2 = idleinhibit fullscreen, fullscreen:1
 
-Windowrule ----------------------------------------------------------------------
+# Windowrule ----------------------------------------------------------------------
   windowrule = tag +browser, class:^(zen-alpha|zen)$
   
   # gamestore tags -------------------------------------------
@@ -28,7 +28,7 @@ Windowrule ---------------------------------------------------------------------
   windowrule = tag +viewer, class:^(eog|org.gnome.Loupe)$ # image viewer
   
   # Move to workspaces -----------------------------------------
-  w windowrule move to workspace
+  # windowrule move to workspace
   windowrule = workspace 1, tag:browser*
   windowrule = workspace 2, tag:gamestore*
   windowrule = workspace 2, tag:games*

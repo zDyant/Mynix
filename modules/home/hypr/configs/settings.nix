@@ -121,10 +121,7 @@ binds {
 xwayland {
     force_zero_scaling = true
 }
-debug {
-  # Disable watchdog
-  watchdog_timeout = 0
-}
+
     ";
   };
 }
