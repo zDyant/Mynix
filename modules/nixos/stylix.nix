@@ -6,6 +6,7 @@
     targets = {
       grub.enable = false;
     };
+    opacity.terminal = 0.8;
 
     image = pkgs.fetchurl {
       url = "https://www.pixelstalk.net/wp-content/uploads/2016/05/Epic-Anime-Awesome-Wallpapers.jpg";

@@ -5,31 +5,29 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [ 
+  imports = [
     #!!! Remember to copy the new hardware-configuration file from /etc/nixos/
-      ./hardware-configuration.nix
-      ./gaming.nix
-      ./bootloader.nix
-      ./audio.nix
-      ./hyprland.nix
-      ./login-screen.nix
-      ./network.nix
-      ./sunshine.nix
-      ./fonts.nix
-      ./substituters.nix
-      ./virtualisation.nix
-      ./stylix.nix
-    ];
-
-  programs.zsh.enable = true;
+    ./hardware-configuration.nix
+    ./gaming.nix
+    ./bootloader.nix
+    ./audio.nix
+    ./hyprland.nix
+    ./login-screen.nix
+    ./network.nix
+    ./sunshine.nix
+    ./fonts.nix
+    ./substituters.nix
+    ./virtualisation.nix
+    ./stylix.nix
+    ./terminal.nix
+  ];
 
   environment.systemPackages = with pkgs; [
     unrar
     unzip
-    vim 
+    vim
     wget
-    neovim  
+    neovim
     curl
     xdg-utils
     zlib
@@ -50,7 +48,7 @@
     pkgconf
     gnome-keyring
   ];
-  
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -61,8 +59,8 @@
   };
 
   # Several services -------------------------------------
-  
-    # For passwords
+
+  # For passwords
   services.gnome.gnome-keyring.enable = true;
 
   services.gvfs.enable = true;
@@ -70,7 +68,7 @@
   services.openssh.enable = true;
 
   services.hardware.openrgb.enable = true;
-  
+
   # Flatpak ----------------------------------------------
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {
@@ -82,7 +80,7 @@
   };
 
   # AMD Gpu Control
-  systemd.services.lactd.wantedBy = ["multi-user.target"];
+  systemd.services.lactd.wantedBy = [ "multi-user.target" ];
   systemd.packages = with pkgs; [ lact ];
 
   # Bluetooth --------------------------------------------
@@ -95,7 +93,11 @@
   users.users.zdyant = {
     isNormalUser = true;
     description = "zDyant";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.zsh;
   };
 
@@ -115,10 +117,12 @@
 
   # WARN Don't change -------------------------------------
   system.stateVersion = "23.11"; # Did you read the comment?
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
-  
-  
+
   # Some shenanigans --------------------------------------
   time.timeZone = "America/Sao_Paulo";
   i18n.defaultLocale = "en_US.UTF-8"; # Select internationalisation properties.
