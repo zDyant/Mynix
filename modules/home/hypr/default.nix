@@ -41,6 +41,20 @@
       enable = true;
       # hidpi = true;
     };
-    # systemd.enable = true;
+    systemd.enable = true;
   };
+
+  xdg = {
+    enable = true;
+    mime.enable = true;
+    mimeApps = {
+      enable = true;
+    };
+    portal = {
+      enable = true;
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
+      configPackages = [pkgs.hyprland];
+    };
+  };
+
 }
