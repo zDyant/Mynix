@@ -11,14 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
-      # hash of the version
-      ref = "refs/tags/v0.47.0";
-    };
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix/ac59ecec59685225698100b06d0b742a6415eb9a";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,7 +49,6 @@
             ./modules/nixos/configuration.nix
             inputs.stylix.nixosModules.stylix
             inputs.nix-flatpak.nixosModules.nix-flatpak
-            inputs.hyprland.nixosModules.default
             home-manager.nixosModules.home-manager {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
