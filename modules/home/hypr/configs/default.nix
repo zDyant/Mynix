@@ -7,5 +7,6 @@
     ./variables.nix
     ./window_rules.nix
     ./animations.nix
+    ./plugins.nix
   ];
 }
