@@ -7,6 +7,7 @@
     ./scripts.nix
     ./hyprlock.nix
     ./hypridle.nix
+    ./hyprcursor.nix
   ];
 
   home.packages = with pkgs; [

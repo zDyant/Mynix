@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
-    plugins = [
-      pkgs.hyprlandPlugins.hypr-dynamic-cursors
+    plugins = with pkgs.hyprlandPlugins; [
+      hypr-dynamic-cursors
     ];
     extraConfig = "
 

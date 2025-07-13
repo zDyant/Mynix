@@ -2,6 +2,7 @@
 {
   stylix = {
     enable = true;
+    autoEnable = true;
     polarity = "dark";
     targets = {
       grub.enable = false;
@@ -15,9 +16,9 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
     cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-      size = 12;
+      package = pkgs.rose-pine-cursor;
+      name = "BreezeX-RosePine-Linux";
+      size = 16;
     };
 
     fonts = {
