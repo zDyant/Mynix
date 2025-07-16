@@ -7,6 +7,7 @@ windowrulev2 = idleinhibit fullscreen, fullscreen:1
 
 # Windowrule ----------------------------------------------------------------------
   windowrule = tag +browser, class:^(zen-alpha|zen)$
+  windowrule = tag +browser, class:^(obsidian)$
   
   # gamestore tags -------------------------------------------
   windowrule = tag +gamestore, class:^([Ss]team)$
@@ -26,13 +27,17 @@ windowrulev2 = idleinhibit fullscreen, fullscreen:1
   windowrule = tag +viewer, class:^(gnome-system-monitor|org.gnome.SystemMonitor|io.missioncenter.MissionCenter)$ # system monitor
   windowrule = tag +viewer, class:^(evince)$ # document viewer 
   windowrule = tag +viewer, class:^(eog|org.gnome.Loupe)$ # image viewer
+
+  # music tags -------------------------------------
+  windowrule = tag +music, class:^([Ss]potify)$
   
   # Move to workspaces -----------------------------------------
   # windowrule move to workspace
   windowrule = workspace 1, tag:browser*
-  windowrule = workspace 2, tag:gamestore*
-  windowrule = workspace 2, tag:games*
-  windowrule = workspace 3, tag:im*
+  windowrule = workspace 2 silent, tag:gamestore*
+  windowrule = workspace 2 silent, tag:games*
+  windowrule = workspace 3 silent, tag:im*
+  windowrule = workspace 5 silent, tag:music*
   
   # Float popups and dialogue  ---------------------------------
   windowrule = float, title:^(Authentication Required)$
@@ -51,7 +56,6 @@ windowrulev2 = idleinhibit fullscreen, fullscreen:1
 
 # Layerrule ----------------------------------------------------------------------------------------
 # Blur --------------------------------------------------------
-layerrule = blur, bar-0 # Hyprpanel
 
 layerrule = blur, rofi
 
