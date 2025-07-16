@@ -13,9 +13,9 @@
     ./kitty
     ./flatpak.nix
     ./stylix.nix
+    ./quickshel.nix
   ];
 
-  programs.hyprpanel.enable = true;
   gtk.enable = true;
 
   programs.git = {
