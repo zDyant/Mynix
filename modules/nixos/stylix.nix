@@ -18,7 +18,7 @@
     cursor = {
       package = pkgs.rose-pine-cursor;
       name = "BreezeX-RosePine-Linux";
-      size = 16;
+      size = 28;
     };
 
     fonts = {
