@@ -17,7 +17,10 @@ exec-once = systemctl --user restart xdg-desktop-portal.service
 # startup apps
 exec-once = nm-applet --indicator &
 exec-once = hypridle &
-exec-once = hyprpanel &
+exec-once = QT_STYLE_OVERRIDE= && QT_QPA_PLATFORMTHEME= && QT_QUICK_CONTROLS_STYLE=Fusion && qs &
+exec-once = app.zen_browser.zen
+exec-once = obsidian
+exec-once = spotify
 
 #clipboard manager
 exec-once = wl-paste --type text --watch cliphist store 
