@@ -20,6 +20,7 @@
     ./virtualisation.nix
     ./stylix.nix
     ./terminal.nix
+    ./secrets.nix
   ];
 
   environment.systemPackages = with pkgs; [

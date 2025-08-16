@@ -49,6 +49,10 @@
       setopt HIST_IGNORE_DUPS
       setopt HIST_FIND_NO_DUPS
     '';
+
+    envExtra = ''
+      export GEMINI_API_KEY=$(cat /run/secrets/gemini_api_key)
+    '';
   };
 
   programs.zoxide = {

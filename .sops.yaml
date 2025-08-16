@@ -1,0 +1,7 @@
+keys:
+  - &zdyant_nixos_desktop age1p0uk6f4u0p474qayupxmd6k2p5cqgyztghyenfxevz2kmrwejqcsyprrj7
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *zdyant_nixos_desktop
