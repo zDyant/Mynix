@@ -12,5 +12,4 @@
   sops.secrets.gemini_api_key = {
     owner = config.users.users.zdyant.name;
   };
-  sops.secrets.nextdns_id = { };
 }
