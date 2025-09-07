@@ -62,6 +62,8 @@
 
   # Several services -------------------------------------
 
+  programs.nix-ld.enable = true;
+
   # For passwords
   services.gnome.gnome-keyring.enable = true;
 
