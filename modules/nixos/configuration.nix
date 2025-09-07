@@ -21,6 +21,7 @@
     ./stylix.nix
     ./terminal.nix
     ./secrets.nix
+    ./ai.nix
   ];
 
   environment.systemPackages = with pkgs; [
