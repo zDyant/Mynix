@@ -14,6 +14,7 @@
     ./flatpak.nix
     ./stylix.nix
     ./quickshel.nix
+    ./nh.nix
   ];
 
   gtk.enable = true;
