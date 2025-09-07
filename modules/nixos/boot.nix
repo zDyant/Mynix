@@ -2,10 +2,17 @@
 {
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.systemd.enable = true;
+  boot.initrd = {
+    systemd.enable = true;
+    verbose.enable = false;
+  };
 
   # Don't show command line arguments on boot
-  boot.kernelParams = [ "splash" "quiet" ];
+  boot.kernelParams = [
+    "splash"
+    "quiet"
+  ];
+
   boot.loader.grub = {
     enable = true;
     # Prevent /boot from overflowing
@@ -17,13 +24,12 @@
     theme = pkgs.stdenv.mkDerivation {
       pname = "catppuccin-grub";
       version = "1.0";
-      src = pkgs.fetchFromGitHub
-        {
-          owner = "catppuccin";
-          repo = "grub";
-          rev = "88f6124";
-          sha256 = "sha256-e8XFWebd/GyX44WQI06Cx6sOduCZc5z7/YhweVQGMGY=";
-        };
+      src = pkgs.fetchFromGitHub {
+        owner = "catppuccin";
+        repo = "grub";
+        rev = "88f6124";
+        sha256 = "sha256-e8XFWebd/GyX44WQI06Cx6sOduCZc5z7/YhweVQGMGY=";
+      };
       installPhase = "cp -r src/catppuccin-mocha-grub-theme $out";
     };
   };

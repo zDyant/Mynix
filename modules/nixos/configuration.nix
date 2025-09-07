@@ -9,7 +9,7 @@
     #!!! Remember to copy the new hardware-configuration file from /etc/nixos/
     ./hardware-configuration.nix
     ./gaming.nix
-    ./bootloader.nix
+    ./boot.nix
     ./audio.nix
     ./hyprland.nix
     ./login-screen.nix
