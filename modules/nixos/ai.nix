@@ -12,6 +12,11 @@
   services.ollama = {
     enable = true;
     openFirewall = true;
+    acceleration = "rocm";
+    loadModels = [
+      "llama3.1:8b"
+      "deepseek-r1:7b"
+    ];
   };
 
 }
