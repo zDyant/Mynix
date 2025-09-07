@@ -16,8 +16,8 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/vice.yaml";
 
     cursor = {
-      package = pkgs.rose-pine-cursor;
-      name = "BreezeX-RosePine-Linux";
+      package = ( pkgs.callPackage ./vision-cursor.nix {} );
+      name = "Vision-White";
       size = 28;
     };
 
@@ -42,7 +42,6 @@
         name = "Noto Color Emoji";
       };
     };
-
 
   };
 }
