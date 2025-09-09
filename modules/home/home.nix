@@ -15,15 +15,11 @@
     ./stylix.nix
     ./quickshel.nix
     ./nh.nix
+    ./git.nix
   ];
 
   gtk.enable = true;
 
-  programs.git = {
-    enable = true;
-    userName = "zDyant";
-    userEmail = "dyant@proton.me";
-  };
 
   home.username = "zdyant";
   home.homeDirectory = "/home/zdyant";
