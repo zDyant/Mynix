@@ -1,29 +1,28 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    unstable.lunarvim
     rustc
     cargo
     meson
     cmake
     gnumake
     gcc
+    nodejs
+    # Needed for hyprls
+    go
     # python3
 
     # Required by nvim
     sqlite.dev
     sqlite
-    rust-analyzer
-    stylua
-    lua-language-server
-    astro-language-server
     lazygit
-    nixfmt-rfc-style
+    rustfmt # mason can't install, or install using rustup
+    # Installed using mason with opts = { PATH = "append" }
+    # nixfmt-rfc-style
+    # rust-analyzer
+    # stylua
+    # hyprls
+    # lua-language-server
+    # astro-language-server
   ];
-
-  # xdg.configFile."lvim" = {
-  #   source = config.lib.file.mkOutOfStoreSymlink ./lvim;
-  #   recursive = true;
-  # };
-
 }
