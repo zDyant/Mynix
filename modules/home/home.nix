@@ -11,6 +11,7 @@
     ./games
     ./rofi
     ./kitty
+    ./yazi
     ./flatpak.nix
     ./stylix.nix
     ./quickshel.nix
