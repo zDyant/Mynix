@@ -9,21 +9,25 @@
     oh-my-zsh = {
       enable = true;
       plugins = [
-        "web-search"
+        "copyfile"
+        "copybuffer"
+        "fancy-ctrl-z"
         "git"
         "colored-man-pages"
         "colorize"
       ];
     };
 
-
     shellAliases = {
       cd = "z";
       cdi = "zi";
+      v = "nvim";
+      nr = "nh os switch -H zdyant";
       ls = "exa --icons";
 
-      gpull = "git pull --ff-only";
+	  da = "devbox add";
 
+      gpull = "git pull --ff-only";
 
       pkg = "nix-shell -p";
       upkg = "nix-shell -I nixpkgs=channel:nixpkgs-unstable -p";
@@ -42,6 +46,7 @@
 
     envExtra = ''
       export GEMINI_API_KEY=$(cat /run/secrets/gemini_api_key)
+      export BRAVE_API_KEY=$(cat /run/secrets/brave_api_key)
     '';
   };
 
