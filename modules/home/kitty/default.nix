@@ -3,6 +3,7 @@
   programs.kitty = {
     enable = true;
     # themeFile = "Catppuccin-Mocha";
+    # Managed by stylix
     # font = {
     #   name = "JetBrainsMono Nerd Font";
     #   size = 11;
