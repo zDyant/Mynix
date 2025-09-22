@@ -9,7 +9,7 @@ in {
   programs.spicetify = {
     enable = true;
     # spicetifyPackage = inputs.nixpkgs-unstable.legacyPackages."${pkgs.system}".spicetify-cli;
-    theme = spicePkgs.themes.lucid;
+    theme = spicePkgs.themes.text;
     # colorScheme = "darkgreen";
     enabledCustomApps = with spicePkgs.apps; [ marketplace ];
     enabledExtensions = with spicePkgs.extensions; [
