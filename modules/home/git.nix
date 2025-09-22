@@ -6,7 +6,7 @@
     userEmail = "dyant@proton.me";
     difftastic = {
       enable = true;
-      display = "inline";
+      # display = "inline";
     };
   };
 }
