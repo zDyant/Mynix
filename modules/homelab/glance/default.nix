@@ -13,7 +13,7 @@ let
         "http://localhost:${
           toString homelab.services.${toServiceName title}.port
         }";
-      icon = "si:${icon}";
+      icon = "sh:${icon}";
     } // extra;
 in {
   options.homelab.services."glance" = {
@@ -61,6 +61,7 @@ in {
                     (mkSite { title = "Plex"; icon         = "plex"; fixedPort = 32400; extra = { alt-status-codes = [ 401 ]; }; })
                     (mkSite { title = "Ollama"; icon       = "ollama"; })
                     (mkSite { title = "Open-webui"; icon   = "open-webui"; })
+                    (mkSite { title = "Kutt";       icon   = "kutt"; })
                   ];
                 }
 
