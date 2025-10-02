@@ -1,8 +1,9 @@
 { config, lib, ... }:
 let
-  cfg = config.services."glance-custom";
+  homelab = config.homelab;
+  cfg = homelab.services."glance";
 
-  toServiceName = title: "${lib.toLower title}-custom";
+  toServiceName = title: "${lib.toLower title}";
   mkSite = { title, icon, fixedPort ? null, extra ? { } }:
     {
       inherit title;
@@ -10,12 +11,12 @@ let
         "http://localhost:${toString fixedPort}"
       else
         "http://localhost:${
-          toString config.services.${toServiceName title}.port
+          toString homelab.services.${toServiceName title}.port
         }";
       icon = "si:${icon}";
     } // extra;
 in {
-  options.services."glance-custom" = {
+  options.homelab.services."glance" = {
     enable = lib.mkEnableOption "Custom Glance configuration";
     port = lib.mkOption {
       type = lib.types.port;
@@ -58,6 +59,8 @@ in {
                     (mkSite { title = "Radarr"; icon       = "radarr"; })
                     (mkSite { title = "Sonarr"; icon       = "sonarr"; })
                     (mkSite { title = "Plex"; icon         = "plex"; fixedPort = 32400; extra = { alt-status-codes = [ 401 ]; }; })
+                    (mkSite { title = "Ollama"; icon       = "ollama"; })
+                    (mkSite { title = "Open-webui"; icon   = "open-webui"; })
                   ];
                 }
 

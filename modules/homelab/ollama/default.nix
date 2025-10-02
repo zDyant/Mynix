@@ -1,7 +1,9 @@
 { config, lib, ... }:
-let cfg = config.services."ollama-custom";
+let
+  homelab = config.homelab;
+  cfg = homelab.services."ollama";
 in {
-  options.services."ollama-custom" = {
+  options.homelab.services."ollama" = {
     enable = lib.mkEnableOption "Custom Ollama configuration";
     port = lib.mkOption {
       type = lib.types.port;

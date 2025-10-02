@@ -1,8 +1,9 @@
 { config, lib, ... }:
 let
-  cfg = config.services."prowlarr-custom";
+  homelab = config.homelab;
+  cfg = homelab.services."prowlarr";
 in {
-  options.services."prowlarr-custom" = {
+  options.homelab.services."prowlarr" = {
     enable = lib.mkEnableOption "Custom Prowlarr configuration";
     port = lib.mkOption {
       type = lib.types.port;

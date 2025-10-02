@@ -1,8 +1,9 @@
 { config, lib, ... }:
 let
-  cfg = config.services."radarr-custom";
+  homelab = config.homelab;
+  cfg = homelab.services."radarr";
 in {
-  options.services."radarr-custom" = {
+  options.homelab.services."radarr" = {
     enable = lib.mkEnableOption "Custom Radarr configuration";
     port = lib.mkOption {
       type = lib.types.port;

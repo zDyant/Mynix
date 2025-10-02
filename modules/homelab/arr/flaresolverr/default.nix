@@ -1,7 +1,9 @@
 { config, lib, ... }:
-let cfg = config.services."flaresolverr-custom";
+let
+  homelab = config.homelab;
+  cfg = homelab.services."flaresolverr";
 in {
-  options.services."flaresolverr-custom" = {
+  options.homelab.services."flaresolverr" = {
     enable = lib.mkEnableOption "Custom Flaresolverr configuration";
     port = lib.mkOption {
       type = lib.types.port;

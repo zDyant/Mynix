@@ -1,7 +1,9 @@
 { config, lib, ... }:
-let cfg = config.services."open-webui-custom";
+let
+  homelab = config.homelab;
+  cfg = homelab.services."open-webui";
 in {
-  options.services."open-webui-custom" = {
+  options.homelab.services."open-webui" = {
     enable = lib.mkEnableOption "Custom Open-webui configuration";
     port = lib.mkOption {
       type = lib.types.port;

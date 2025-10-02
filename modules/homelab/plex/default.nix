@@ -1,8 +1,9 @@
 { lib, config, ... }:
 let
-  cfg = config.services.plex-custom;
+  homelab = config.homelab;
+  cfg = homelab.services.plex;
 in {
-  options.services.plex-custom = {
+  options.homelab.services.plex = {
     enable = lib.mkEnableOption "Custom Plex configuration";
   };
 

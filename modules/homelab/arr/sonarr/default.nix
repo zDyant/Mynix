@@ -1,8 +1,9 @@
 { config, lib, ... }:
 let
-  cfg = config.services."sonarr-custom";
+  homelab = config.homelab;
+  cfg = homelab.services."sonarr";
 in {
-  options.services."sonarr-custom" = {
+  options.homelab.services."sonarr" = {
     enable = lib.mkEnableOption "Custom Sonarr configuration";
     port = lib.mkOption {
       type = lib.types.port;

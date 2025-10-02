@@ -1,7 +1,9 @@
 { config, lib, ... }:
-let cfg = config.services.qbittorrent-custom;
+let
+  homelab = config.homelab;
+  cfg = homelab.services.qbittorrent;
 in {
-  options.services."qbittorrent-custom" = {
+  options.homelab.services."qbittorrent" = {
     enable = lib.mkEnableOption
       "Qbittorrent client (bound to a Wireguard VPN network)";
     port = lib.mkOption {
