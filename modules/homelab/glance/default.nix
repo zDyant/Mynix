@@ -109,45 +109,79 @@ in {
               widgets = [
                 {
                   type = "bookmarks";
-                  groups = [{
-                    links = [
-                      {
-                        title = "FMHY";
-                        url = "https://fmhy.net/";
-                      }
-                      {
+                  groups = [
+                    {
+                      title = "Piracy";
+                      links = [
+                        {
+                          title = "FMHY";
+                          url = "https://fmhy.net/";
+                        }
+                        {
 
-                        title = "Megathread";
-                        url = "https://rentry.co/megathread";
-                      }
-                      {
-                        title = "Pirated Games Mega Thread";
-                        url = "https://rentry.org/pgames";
-                      }
-                      {
-                        title = "Wiki Index";
-                        url = "https://wiki-index.pages.dev/";
-                      }
-                      {
-                        title = "r/ROMs Megathread";
-                        url = "https://r-roms.github.io/";
-                      }
-                      {
-                        title = "Media Savyy";
-                        url = "https://mediasavvy.pages.dev/";
-                      }
-                      {
-                        title = "Open Together";
-                        url = "https://opentogethertube.com/";
-                      }
-                    ];
-                  }];
+                          title = "Megathread";
+                          url = "https://rentry.co/megathread";
+                        }
+                        {
+                          title = "Pirated Games Mega Thread";
+                          url = "https://rentry.org/pgames";
+                        }
+                        {
+                          title = "Wiki Index";
+                          url = "https://wiki-index.pages.dev/";
+                        }
+                        {
+                          title = "r/ROMs Megathread";
+                          url = "https://r-roms.github.io/";
+                        }
+                        {
+                          title = "Media Savyy";
+                          url = "https://mediasavvy.pages.dev/";
+                        }
+                        {
+                          title = "Open Together";
+                          url = "https://opentogethertube.com/";
+                        }
+                      ];
+                    }
+
+                    {
+                      title = "Utils";
+                      links = [
+                        {
+                          title = "Mazanoke - Image optimizer in your browser";
+                          url = "https://mazanoke.com/ ";
+                        }
+                        {
+                          title = "Zero-Share - P2P file sharing";
+                          url = "https://github.com/ntsd/zero-share";
+                        }
+                        {
+                          title = "Quick Reference";
+                          url = "https://quickref.me/";
+                        }
+                        {
+                          title = "Devhints";
+                          url = "https://devhints.io/";
+                        }
+                        {
+                          title = "Drawnix";
+                          url = "https://drawnix.com/";
+                        }
+                      ];
+                    }
+                  ];
                 }
                 {
                   type = "releases";
                   cache = "1d";
                   repositories =
-                    [ "rust-lang/rust" "glanceapp/glance" "hyprwm/hyprland" ];
+                    [
+                      "rust-lang/rust"
+                      "glanceapp/glance"
+                      "hyprwm/hyprland"
+                      "9001/copyparty"
+                    ];
                 }
               ];
             }
