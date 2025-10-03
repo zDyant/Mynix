@@ -21,7 +21,7 @@
     ./stylix.nix
     ./terminal.nix
     ./secrets.nix
-    ./ai.nix
+    ./homelab.nix
   ];
 
   environment.systemPackages = with pkgs; [
