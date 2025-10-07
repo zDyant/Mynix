@@ -13,7 +13,7 @@
       defaultFonts = {
         serif = [  "Geist"  ];
         sansSerif = [ "Geist Sans" ];
-        monospace = [ "Maple Mono" "Geist Mono" "JetBrainsMono" ];
+        monospace = [ "Maple Mono" "Geist Mono" ];
       };
       
     };
