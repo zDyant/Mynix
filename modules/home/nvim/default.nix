@@ -13,6 +13,7 @@
     # python3
 
     # Required by nvim
+    lldb
     sqlite.dev
     sqlite
     lazygit
