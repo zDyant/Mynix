@@ -23,6 +23,19 @@
       fsType = "vfat";
     };
 
+  fileSystems."/home/zdyant/Games" = {
+    device = "/dev/disk/by-uuid/2bc73a6a-628f-45eb-b347-15db16482131";
+    fsType = "btrfs";
+    options = [ "nofail" ];
+  };
+
+  # Plex Media
+  fileSystems."/mnt/media" = {
+    device = "/dev/disk/by-uuid/bc1116fd-e47a-4379-bc9f-bc7d8044b805";
+    fsType = "ext4";
+    options = [ "nofail" ];
+  };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
