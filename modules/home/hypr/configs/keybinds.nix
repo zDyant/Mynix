@@ -5,7 +5,7 @@
     extraConfig = ''
 $mainMod = SUPER
 $configs = ../configs/
-$files = yazi
+$files = zsh -c yazi
 $term = kitty
 
 # Windows control ------------------------------------------------------------
@@ -130,7 +130,7 @@ bind = $mainMod SHIFT, S, exec, take-screenshot --swappy
 # Launchers
 bindr = $mainMod, $mainMod_L, exec, pkill rofi || rofi -show # drun -modi drun,filebrowser,run,window  Rofi
 bind = $mainMod, T, exec, $term  # Launch terminal
-bind = $mainMod, E, exec, $files # File manager
+bind = $mainMod, E, exec, $term $files # File manager
 
 bind = $mainMod ALT, V, exec, clip-manager # Clipboard Manager
 
