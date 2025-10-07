@@ -11,13 +11,13 @@
 
     firewall = {
       enable = true;
-      # Sunshine configuration
-      allowedTCPPorts = [ 3040 47984 47989 47990 48010 45555 11434];
+      allowedTCPPorts = [ 3040 45555 11434 1342 1337 ];
       allowedUDPPorts = [ 9993 9994 ];
-      allowedUDPPortRanges = [
-        { from = 47998; to = 48000; }
-        { from = 8000; to = 8010; }
-      ];
+      # Not needed anymore since services.sunshine.OpenFirewall = true;
+      # allowedUDPPortRanges = [
+      #   { from = 47998; to = 48000; }
+      #   { from = 8000; to = 8010; }
+      # ];
     };
   };
 
