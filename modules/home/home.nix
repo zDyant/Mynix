@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -19,77 +24,78 @@
     ./git.nix
   ];
 
+
+  # Why I enabled this?
   gtk.enable = true;
-
-
-  home.username = "zdyant";
-  home.homeDirectory = "/home/zdyant";
-  home.stateVersion = "23.11"; # DONT TOUCH! 
 
   home.sessionVariables = {
 
-    TERMINAL = "kitty";    
+    TERMINAL = "kitty";
     BROWSER = "zen";
 
-	# WLR_RENDERER = "vulkan";  # KEEP IT OFF, OTHERWISE HYPRLAND WON'T LAUNCH
-	XDG_CURRENT_DESKTOP = "Hyprland";
-	XDG_SESSION_DESKTOP = "Hyprland";
-	XDG_SESSION_TYPE = "wayland";
-	GTK_USE_PORTAL = "1";
+    # WLR_RENDERER = "vulkan";  # KEEP IT OFF, OTHERWISE HYPRLAND WON'T LAUNCH
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_SESSION_TYPE = "wayland";
+    GTK_USE_PORTAL = "1";
     NIXOS_OZONE_WL = "1";
-	NIXOS_XDG_OPEN_USE_PORTAL = "1";
+    NIXOS_XDG_OPEN_USE_PORTAL = "1";
   };
 
   # Add to $PATH
   home.sessionPath = [
+    # needed 'cause of npm set prefix ~/.npm-global
+    "$HOME/.npm-global/bin"
     "$HOME/.cargo/bin"
   ];
 
+  # github.com/britter/nix-configuration/blob/abdf6168b2a435da6f8d8f14c2fe7893f390cb2d/home/benedikt.nix#L85
+  # Run npm config set during activation to store prefix in ~/.npmrc
+  home.activation.setNpmPrefix = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    ${pkgs.nodejs}/bin/npm config set prefix "${config.home.homeDirectory}/.npm-global"
+  '';
+
   # Check LIBS on configuration.nix
   home.packages = with pkgs; [
-  # Cli tools -----------------------------------------------
-  jq
-  gh
-  feh
-  tgpt
-  man-pages
-  tlrc # tldr
-  swappy
-  imagemagick
-  playerctl
-  nh
-  matugen
-  wf-recorder
-  diff-so-fancy
-  # rclone        # Backup to proton drive
-  distrobox
-  gowall
-  yazi
+    # Cli tools -----------------------------------------------
+    gh
+    man-pages
+    tlrc # tldr
+    cht-sh # Cheatsheets
+    cheat # Cheatsheets
+    # matugen
+    wf-recorder
+    rclone # Backup to proton drive
+    distrobox
+    # unstable.opencode # Too old
+    devbox # Ease the use of nix-shell
+	imv
+	zathura
 
-  # Chatting ----------------------------------------------------- 
-  telegram-desktop
-  (vesktop.override { withSystemVencord = false; }) # discord
+    # Chatting -----------------------------------------------------
+    legcord # Discord
+    ferdium
 
-  # Apps ---------------------------------------------------------
-  file-roller
-  eog           # Image-viewer
-  rnote         # Scratch pad
-  mpv
-  motrix        # DL/Torrent manager
-  obsidian
-  pavucontrol
-  evince        # PDF reader
-  authenticator # OTP manager
-  # protonvpn-gui
-  # planify     # Todo-List
-  # unstable.zed-editor
-  unstable.cosmic-files
-  youtube-music
-  # anki
-  openrgb-with-all-plugins
-  # davinci-resolve
-  ferdium
+    # Apps ---------------------------------------------------------
+    file-roller
+    eog # Image-viewer
+    rnote # Scratch pad
+    mpv
+    motrix # DL/Torrent manager
+    obsidian # Love you obsidian
+    pavucontrol
+    evince # PDF reader
+    authenticator # OTP manager
+    # planify     # Todo-List
+    unstable.zed-editor # Don't want to edit everything using vim
+    unstable.cosmic-files # Die gnome
+    youtube-music
+    # anki
   ];
+
+  home.username = "zdyant";
+  home.homeDirectory = "/home/zdyant";
+  home.stateVersion = "23.11"; # DONT TOUCH!
 
   programs.home-manager.enable = true;
 }
