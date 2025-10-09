@@ -17,12 +17,11 @@
     ./rofi
     ./kitty
     ./yazi
+    ./git
     ./tmux
     ./stylix.nix
     ./quickshel.nix
     ./nh.nix
-    ./git.nix
-    ./vicinae
   ];
 
 
