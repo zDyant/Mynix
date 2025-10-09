@@ -17,6 +17,7 @@
     ./rofi
     ./kitty
     ./yazi
+    ./tmux
     ./stylix.nix
     ./quickshel.nix
     ./nh.nix
