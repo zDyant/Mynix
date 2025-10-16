@@ -5,6 +5,12 @@ let
 
   toServiceName = title: "${lib.toLower title}";
   mkSite = { title, icon, fixedPort ? null, extra ? { } }:
+  let
+    isEnabled = homelab.services.${toServiceName title}.enable;
+  in 
+    if !isEnabled then
+      null
+    else
     {
       inherit title;
       url = if fixedPort != null then
