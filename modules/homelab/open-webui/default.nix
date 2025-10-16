@@ -17,7 +17,7 @@ in {
     services.open-webui = {
       enable = true;
       openFirewall = true;
-      port = 45555;
+      port = cfg.port;
     };
 
   };
