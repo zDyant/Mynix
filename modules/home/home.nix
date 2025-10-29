@@ -22,6 +22,7 @@
     ./stylix.nix
     ./quickshel.nix
     ./nh.nix
+    ./wallpaper-engine
   ];
 
 
