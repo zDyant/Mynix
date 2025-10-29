@@ -9,7 +9,7 @@
   imports = [
     ./zsh
     ./starship
-    ./hypr
+    ./hyprland
     ./bat
     ./nvim
     ./spicetify
