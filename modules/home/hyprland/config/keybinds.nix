@@ -113,19 +113,15 @@ bind = $mainMod, U, togglespecialworkspace,
 # Sound control
 bind = $mainMod, V, exec, volume-control --inc #volume up
 bind = $mainMod, Z, exec, volume-control --dec #volume down
-
 bind = $mainMod, SPACE, exec, media-control --pause
 bind = $mainMod, C, exec, media-control --nxt
 bind = $mainMod, X, exec, media-control --prv
 
 # Wallpapers
 bind = $mainMod, W, exec, wallpaper-select && set-pywal no-tty && refresh # Select wallpaper to apply
-# bind = CTRL ALT, W, exec, wallpaper-random # Random wallpapers
 
-bind = $mainMod, Print, exec, take-screenshot --now
-
-# screenshot with swappy (another screenshot tool)
-bind = $mainMod SHIFT, S, exec, take-screenshot --swappy
+bind = $mainMod SHIFT, S, exec, hyprshot -m region --clipboard-only
+bind = $mainMod CTRL SHIFT, S, exec, hyprshot -m region
 
 # Launchers
 bindr = $mainMod, $mainMod_L, exec, pkill rofi || rofi -show # drun -modi drun,filebrowser,run,window  Rofi
@@ -133,17 +129,6 @@ bind = $mainMod, T, exec, $term  # Launch terminal
 bind = $mainMod, E, exec, $term $files # File manager
 
 bind = $mainMod ALT, V, exec, clip-manager # Clipboard Manager
-
-# Misc
-bind = $mainMod ALT, L, exec, change-layout # Toggle Master or Dwindle Layout
-
-# For passthrough keyboard into a VM
-# bind = $mainMod ALT, P, submap, passthru
-# submap = passthru
-
-# to unbind
-#bind = $mainMod ALT, P, submap, reset
-#submap = reset
 
 # Hyprland ---------------------------------------------------------
 bind = CTRL ALT, Delete, exec, hyprctl dispatch exit 0

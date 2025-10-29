@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./configs
+    ./config
     ./scripts
     ./scripts.nix
     ./hyprlock.nix
@@ -15,8 +15,6 @@
     networkmanagerapplet
     swww
     hyprpicker
-    grim
-    slurp
     cliphist
     wl-clipboard
     glib
@@ -32,6 +30,10 @@
     # for wallpaper script
     xxHash
     bc
+    playerctl
+    jq
+    hyprshot
+    hyprland-qtutils
   ];
 
   # systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
@@ -53,8 +55,8 @@
     };
     portal = {
       enable = true;
-      extraPortals = [pkgs.xdg-desktop-portal-gtk];
-      configPackages = [pkgs.hyprland];
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      configPackages = [ pkgs.hyprland ];
     };
   };
 
