@@ -5,7 +5,7 @@
 
     targets = {
       rofi.enable = false;
-      spicetify.enable = false;
+
     };
 
     iconTheme = {
