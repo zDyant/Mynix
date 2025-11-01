@@ -23,6 +23,7 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur.url = "github:nix-community/NUR";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -46,6 +47,7 @@
         config.allowUnfree = true;
         overlays = [
           overlay-unstable
+          inputs.nur.overlays.default
         ];
       };
       lib = nixpkgs.lib;

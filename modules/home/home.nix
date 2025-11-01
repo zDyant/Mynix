@@ -23,7 +23,7 @@
     ./quickshel.nix
     ./nh.nix
     ./wallpaper-engine
-  ];
+    ./floorp
 
 
   # Why I enabled this?
