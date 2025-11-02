@@ -13,14 +13,15 @@
     # python3
 
     # Required by nvim
+    nixd
     lldb
     sqlite.dev
     sqlite
     lazygit
     rustfmt # mason can't install, or install using rustup
+    rust-analyzer
     # Installed using mason with opts = { PATH = "append" }
     # nixfmt-rfc-style
-    # rust-analyzer
     # stylua
     # hyprls
     # lua-language-server
