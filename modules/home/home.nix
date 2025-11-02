@@ -24,6 +24,7 @@
     ./nh.nix
     ./wallpaper-engine
     ./floorp
+    ./mpv
 
 
   # Why I enabled this?
@@ -81,7 +82,6 @@
     file-roller
     eog # Image-viewer
     rnote # Scratch pad
-    mpv
     motrix # DL/Torrent manager
     obsidian # Love you obsidian
     pavucontrol
