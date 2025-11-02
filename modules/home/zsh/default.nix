@@ -23,6 +23,7 @@
       cdi = "zi";
       v = "nvim";
       nr = "nh os switch -H zdyant";
+      ns = "nh search ";
       ls = "exa --icons";
 
 	  da = "devbox add";
@@ -46,7 +47,6 @@
 
     envExtra = ''
       export GEMINI_API_KEY=$(cat /run/secrets/gemini_api_key)
-      export BRAVE_API_KEY=$(cat /run/secrets/brave_api_key)
     '';
   };
 
