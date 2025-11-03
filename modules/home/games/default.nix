@@ -9,6 +9,7 @@
     # steamtinkerlaunch 
     wineWowPackages.stagingFull # Don't change!!!, wayland version is broken
     mesa
+    hydralauncher
     # xivlauncher
     # lutris
     # moonlight-qt
