@@ -13,23 +13,19 @@ let
     "hash" = "sha256-sZEgmCrAm0SnRoFmn8glScII07Kvpa6cYdC6jHHQmMI=";
   };
 in {
-  imports = [
-    ./search.nix
-    ./extensions.nix
-    ./settings.nix
-  ];
+  imports = [ ./search.nix ./extensions.nix ./settings.nix ];
   stylix.targets.floorp.enable = false;
 
   programs.floorp = {
     enable = true;
     nativeMessagingHosts = [ pkgs.tridactyl-native ];
-          policies = {
-        DisableTelemetry = true;
-        OfferToSaveLogins = false;
-        OfferToSaveLoginsDefault = false;
-        DontCheckDefaultBrowser = true; # disable the annoying popup at startup
-        HardwareAcceleration = true;
-      };
+    policies = {
+      DisableTelemetry = true;
+      OfferToSaveLogins = false;
+      OfferToSaveLoginsDefault = false;
+      DontCheckDefaultBrowser = true; # disable the annoying popup at startup
+      HardwareAcceleration = true;
+    };
 
     profiles.zdyant = {
       id = 0;
@@ -40,6 +36,8 @@ in {
         ${builtins.readFile "${betterfox}/Fastfox.js"}
         ${builtins.readFile "${betterfox}/Peskyfox.js"}
         ${builtins.readFile "${betterfox}/Smoothfox.js"}
+        user_pref("shyfox.enable.ext.mono.toolbar.icons", true);
+        user_pref("shyfox.enable.ext.mono.context.icons", true);
       '';
       userChrome = builtins.readFile "${textfox}/chrome/userChrome.css";
       userContent = builtins.readFile "${textfox}/chrome/userContent.css";
@@ -60,6 +58,7 @@ in {
         --tf-accent: #${config.lib.stylix.colors.base0A}; /* Accent color used, eg: color when hovering a container  */
         --tf-bg    : #${config.lib.stylix.colors.base00}; /* Background color of all elements, tab colors derive from this */
         --tf-border: #${config.lib.stylix.colors.base02}; /* Border color when not hovered */
+        --tf-border-width: 1px; /* Width of borders */
       }
     '';
 
