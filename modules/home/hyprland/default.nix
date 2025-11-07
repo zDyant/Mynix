@@ -11,13 +11,9 @@
   ];
 
   home.packages = with pkgs; [
-    btop
     networkmanagerapplet
-    swww
-    hyprpicker
-    cliphist
-    wl-clipboard
     glib
+    wl-clipboard
     xwayland
     wayland
     wayland-utils
@@ -26,13 +22,7 @@
     libsForQt5.qt5ct
     direnv
     qt6.qtwayland
-    cava
-    # for wallpaper script
-    xxHash
-    bc
     playerctl
-    jq
-    hyprshot
     hyprland-qtutils
   ];
 

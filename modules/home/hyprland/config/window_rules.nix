@@ -66,15 +66,12 @@ windowrulev2 = idleinhibit fullscreen, fullscreen:1
   # Layerrule ----------------------------------------------------------------------------------------
   # Blur --------------------------------------------------------
   
-  layerrule = blur, rofi
-  
   # Opacity -----------------------------------------------------
   # First value: focused, second:not focused
   
   windowrulev2 = opacity 1, 1, title:^(Picture-in-Picture)$
   
   # Animations --------------------------------------------------
-  layerrule = animation slide top, rofi
   layerrule = animation slide right, notificationsmenu
   layerrule = animation slide left, dashboardmenu
   

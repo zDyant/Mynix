@@ -1,10 +1,12 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   stylix = {
     enable = true;
 
     targets = {
-      rofi.enable = false;
+      qt = {
+        enable = true;
+        platform = "qtct";
+      };
 
     };
 

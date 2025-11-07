@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ inputs, config, lib, pkgs, ... }:
 
 {
   imports = [
@@ -14,18 +9,17 @@
     ./nvim
     ./spicetify
     ./games
-    ./rofi
     ./kitty
     ./yazi
     ./git
     ./tmux
     ./stylix.nix
-    ./quickshel.nix
     ./nh.nix
     ./wallpaper-engine
     ./floorp
     ./mpv
-
+    ./noctalia
+  ];
 
   # Why I enabled this?
   gtk.enable = true;
