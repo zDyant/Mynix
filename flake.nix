@@ -12,17 +12,18 @@
     };
 
     spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix/ac59ecec59685225698100b06d0b742a6415eb9a";
+      url =
+        "github:Gerg-L/spicetify-nix/ac59ecec59685225698100b06d0b742a6415eb9a";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
     stylix.url = "github:danth/stylix/release-25.05";
 
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    arion.url = "github:hercules-ci/arion";
     nur.url = "github:nix-community/NUR";
 
     quickshell = {
@@ -50,6 +51,7 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        config.permittedInsecurePackages = [ "mbedtls-2.28.10" ];
         overlays = [
           overlay-unstable
           inputs.nur.overlays.default
@@ -63,20 +65,19 @@
           inherit system;
           specialArgs = { inherit inputs pkgs; };
           modules = [
-            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
             ./modules/nixos/configuration.nix
             inputs.stylix.nixosModules.stylix
-            inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.sops-nix.nixosModules.sops
-            home-manager.nixosModules.home-manager {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.zdyant = import ./modules/home/home.nix;
-                home-manager.backupFileExtension = "backup";
-                home-manager.extraSpecialArgs = { inherit inputs ; };
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.zdyant = import ./modules/home/home.nix;
+              home-manager.backupFileExtension = "backup";
+              home-manager.extraSpecialArgs = { inherit inputs; };
             }
-        ];
+          ];
+        };
       };
     };
-  };
 }
