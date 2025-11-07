@@ -25,9 +25,14 @@
     };
     nur.url = "github:nix-community/NUR";
 
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
+    quickshell = {
+      url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.quickshell.follows = "quickshell"; # Use same quickshell version
     };
 
   };
