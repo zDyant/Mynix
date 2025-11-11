@@ -5,7 +5,7 @@
     ./config
     ./scripts
     ./scripts.nix
-    ./hyprlock.nix
+    ./hyprlock
     ./hypridle.nix
     ./hyprcursor.nix
   ];
