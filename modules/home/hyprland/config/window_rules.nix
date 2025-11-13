@@ -6,7 +6,7 @@
 windowrulev2 = idleinhibit fullscreen, fullscreen:1
 
 # Windowrule ----------------------------------------------------------------------
-  windowrule = tag +browser, class:^(zen-alpha|zen)$
+  windowrule = tag +browser, class:^(floorp)$
   windowrule = tag +browser, class:^(obsidian)$
   
   # gamestore tags -------------------------------------------
