@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{ config, ... }: {
   imports = [ ../homelab/default.nix ];
 
   sops.secrets.cloudflared-token = { };
@@ -11,18 +10,19 @@
 
     services = {
       glance.enable = true;
-      qbittorrent.enable = true;
-      plex.enable = true;
-      prowlarr.enable = true;
-      radarr.enable = true;
-      sonarr.enable = true;
-      flaresolverr.enable = true;
+      # qbittorrent.enable = true;
+      # plex.enable = true;
+      # prowlarr.enable = true;
+      # radarr.enable = true;
+      # sonarr.enable = true;
+      # flaresolverr.enable = true;
       open-webui.enable = true;
       ollama.enable = true;
       kutt = {
         enable = true;
         jwtToken = config.sops.secrets.kutt-token.path;
       };
+      # comet.enable = true;
     };
   };
 }
