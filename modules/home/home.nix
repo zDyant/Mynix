@@ -19,6 +19,7 @@
     ./floorp
     ./mpv
     ./noctalia
+    ./navi
   ];
 
   # Why I enabled this?
