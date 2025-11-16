@@ -20,6 +20,7 @@
     ./mpv
     ./noctalia
     ./navi
+    ./vicinae
   ];
 
   # Why I enabled this?

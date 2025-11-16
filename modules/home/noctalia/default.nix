@@ -2,7 +2,6 @@
   imports = [ inputs.noctalia.homeModules.default ];
 
   wayland.windowManager.hyprland.settings.exec-once = [ "noctalia-shell" ];
-  wayland.windowManager.hyprland.settings.bind = [ "$mod, $mod_L, exec, noctalia-shell ipc call launcher toggle" ];
 
   programs.noctalia-shell = {
     enable = true;
@@ -16,7 +15,6 @@
         fontFixed = pkgs.maple-mono.NF;
       };
       location.name = "Sao Paulo, Brazil";
-      appLauncher.enableClipboardHistory = true;
       dock.enabled = false;
       osd.autoHideMs = 1000;
       screenRecorder = {
