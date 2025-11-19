@@ -65,7 +65,7 @@
     rclone # Backup to proton drive
     distrobox
     # unstable.opencode # Too old
-    devbox # Ease the use of nix-shell
+    devenv # Ease the use of nix-shell
 	imv
 	zathura
 
