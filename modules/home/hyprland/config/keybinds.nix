@@ -97,10 +97,10 @@
 
     # Resize
     binde = [
-      "$mod SHIFT, left, resizeactive,-50 0"
-      "$mod SHIFT, right, resizeactive,50 0"
-      "$mod SHIFT, up, resizeactive,0 -50"
-      "$mod SHIFT, down, resizeactive,0 50"
+      "$mod SHIFT, h, resizeactive,-50 0"
+      "$mod SHIFT, l, resizeactive,50 0"
+      "$mod SHIFT, k, resizeactive,0 -50"
+      "$mod SHIFT, j, resizeactive,0 50"
     ];
 
     # Move/resize windows with mod + LMB/RMB and dragging
