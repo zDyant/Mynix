@@ -23,9 +23,7 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    arion.url = "github:hercules-ci/arion";
     nur.url = "github:nix-community/NUR";
-
     quickshell = {
       url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
