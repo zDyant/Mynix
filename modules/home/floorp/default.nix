@@ -14,6 +14,7 @@ let
   };
 in {
   imports = [ ./search.nix ./extensions.nix ./settings.nix ];
+    ./policies.nix
   stylix.targets.floorp.enable = false;
 
   programs.floorp = {
