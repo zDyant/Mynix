@@ -10,16 +10,13 @@
     "extensions.autoDisableScopes" = 0;
     "extensions.allowPrivateBrowsingByDefault" = true;
 
-
     "middlemouse.paste" = false;
     "browser.toolbars.bookmarks.visibility" = "never";
     "browser.tabs.opentabfor.middleclick" = true;
     "browser.tabs.loadInBackground" = true;
     "browser.aboutConfig.showWarning" = false;
-
-    # this gets rid of the close button
-    # https://github.com/Floorp-Projects/Floorp/discussions/674
     "browser.tabs.inTitlebar" = 0;
+    "browser.newtab.preload" = true;
 
     # ask for where to download files instead of just putting them wherever
     "browser.download.useDownloadDir" = false;
@@ -39,5 +36,4 @@
     "extensions.formautofill.heuristics.enabled" = false;
 
   };
-
 }

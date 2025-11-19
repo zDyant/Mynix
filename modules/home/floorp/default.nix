@@ -13,20 +13,17 @@ let
     "hash" = "sha256-sZEgmCrAm0SnRoFmn8glScII07Kvpa6cYdC6jHHQmMI=";
   };
 in {
-  imports = [ ./search.nix ./extensions.nix ./settings.nix ];
+  imports = [
+    ./search.nix
+    ./extensions.nix
+    ./settings.nix
     ./policies.nix
+  ];
   stylix.targets.floorp.enable = false;
 
   programs.floorp = {
     enable = true;
     nativeMessagingHosts = [ pkgs.tridactyl-native ];
-    policies = {
-      DisableTelemetry = true;
-      OfferToSaveLogins = false;
-      OfferToSaveLoginsDefault = false;
-      DontCheckDefaultBrowser = true; # disable the annoying popup at startup
-      HardwareAcceleration = true;
-    };
 
     profiles.zdyant = {
       id = 0;
