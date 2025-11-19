@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   programs.floorp.profiles.zdyant.search = {
+
     force = true;
     default = "ddg";
     engines = {
@@ -23,6 +24,21 @@
         icon =
           "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
         definedAliases = [ "@no" ];
+      };
+
+      "Home-manager Options" = {
+        urls = [{
+          template =
+            "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";
+        }];
+        definedAliases = [ "@ho" ];
+      };
+
+      "Noogle" = {
+        urls = [{ template = "https://noogle.dev/{searchTerms}"; }];
+        icon =
+          "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+        definedAliases = [ "@ng" ];
       };
 
       "Youtube" = {
