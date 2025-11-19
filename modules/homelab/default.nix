@@ -33,6 +33,7 @@ in
     ./open-webui
     ./ollama
     ./kutt
+    ./ezbookkeeping
   ];
 
 }
