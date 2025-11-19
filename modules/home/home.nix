@@ -58,7 +58,6 @@
     # Cli tools -----------------------------------------------
     gh
     man-pages
-    tlrc # tldr
     cht-sh # Cheatsheets
     cheat # Cheatsheets
     # matugen
