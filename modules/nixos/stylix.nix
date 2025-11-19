@@ -7,13 +7,12 @@
     targets = {
       grub.enable = false;
     };
-    opacity.terminal = 0.8;
 
     image = pkgs.fetchurl {
-      url = "https://www.pixelstalk.net/wp-content/uploads/2016/05/Epic-Anime-Awesome-Wallpapers.jpg";
-      sha256 = "enQo3wqhgf0FEPHj2coOCvo7DuZv+x5rL/WIo4qPI50=";
+      url = "https://w.wallhaven.cc/full/o5/wallhaven-o5zrj7.jpg";
+      sha256 = "sha256-oL0wnPOdNQbryau0F6ie715gbd/W41vzCOfuBJeCkVA=";
     };
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/vice.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
 
     cursor = {
       package = ( pkgs.callPackage ./vision-cursor.nix {} );
