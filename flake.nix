@@ -12,27 +12,28 @@
     };
 
     spicetify-nix = {
-        "github:Gerg-L/spicetify-nix/ac59ecec59685225698100b06d0b742a6415eb9a";
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix.url = "github:danth/stylix/release-25.05";
+    nur.url = "github:nix-community/NUR";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/NUR";
+
     quickshell = {
       url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia-shell?ref=v3.1.1";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.quickshell.follows = "quickshell"; # Use same quickshell version
     };
+
     vicinae.url = "github:vicinaehq/vicinae";
     vicinae-extensions = {
       url = "github:vicinaehq/extensions";
