@@ -63,7 +63,7 @@
       mOnSurfaceVariant = "#${base04}";
       mOnTertiary       = "#${base06}";
       mOutline          = "#${base0F}";
-      mPrimary          = "#${base0A}";
+      mPrimary          = "#${base0B}";
       mSecondary        = "#${base0C}";
       mShadow           = "#${base00}";
       mSurface          = "#${base01}";
