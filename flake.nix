@@ -39,21 +39,51 @@
       url = "github:vicinaehq/extensions";
       flake = false;
     };
+    pre-commit-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
-      system = "x86_64-linux";
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        #"aarch64-darwin"
+      ];
       lib = nixpkgs.lib;
-    in {
-
-      formatter = nixpkgs.legacyPackages.${system}.alejandra;
+      pkgs = forAllSystems (system: nixpkgs.legacyPackages.${system});
+    in
+    {
       overlays = import ./overlays { inherit inputs; };
+      formatter = pkgs.nixfmt-rfc-style;
+
+      # INFO:
+      # Run the hooks in a sandbox with `nix flake check`.
+      # Read-only filesystem and no internet access.
+
+      checks = forAllSystems (system: import ./checks.nix { inherit inputs system pkgs; });
+
+      # INFO:
+      # Enter a development shell with `nix develop -c pre-commit run -a`.`
+      # The hooks will be installed automatically.
+      devShells = forAllSystems (
+        system:
+        import ./shell.nix {
+          inherit pkgs;
+          checks = self.checks.${system};
+        }
+      );
 
       nixosConfigurations = {
         zdyant = lib.nixosSystem {
-          inherit system;
           specialArgs = { inherit inputs; };
           modules = [
             ./modules/nixos/configuration.nix
