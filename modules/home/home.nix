@@ -87,6 +87,7 @@
     unstable.cosmic-files # Die gnome
     youtube-music
     # anki
+    stremio-enhanced
   ];
 
   home.username = "zdyant";
