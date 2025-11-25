@@ -1,8 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -149,7 +145,15 @@
 
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      inputs.self.overlays.additions
+      inputs.self.overlays.unstable-pkgs
+      inputs.self.overlays.modifications
+    ];
+
+  };
 
   # Some shenanigans --------------------------------------
   time.timeZone = "America/Sao_Paulo";

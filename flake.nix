@@ -45,31 +45,19 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
-      overlay-unstable = final: prev: {
-        unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      };
-
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-        config.permittedInsecurePackages = [ "mbedtls-2.28.10" ];
-        overlays = [
-          overlay-unstable
-          inputs.nur.overlays.default
-        ];
-      };
       lib = nixpkgs.lib;
-
     in {
+
+      formatter = nixpkgs.legacyPackages.${system}.alejandra;
+      overlays = import ./overlays { inherit inputs; };
+
       nixosConfigurations = {
         zdyant = lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs pkgs; };
+          specialArgs = { inherit inputs; };
           modules = [
             ./modules/nixos/configuration.nix
+            inputs.nur.modules.nixos.default
             inputs.stylix.nixosModules.stylix
             inputs.sops-nix.nixosModules.sops
             home-manager.nixosModules.home-manager
