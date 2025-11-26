@@ -123,6 +123,7 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   nix = {
+    package = pkgs.lixPackageSets.stable.lix;
     settings = {
       # STFU
       warn-dirty = false;
@@ -151,6 +152,7 @@
       inputs.self.overlays.additions
       inputs.self.overlays.unstable-pkgs
       inputs.self.overlays.modifications
+      inputs.self.overlays.lix
     ];
 
   };

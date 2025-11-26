@@ -1,7 +1,8 @@
-{ inputs, ... }: {
+{ inputs, ... }:
+{
 
   additions = final: _prev: import ../pkgs final.pkgs;
-  
+
   # This one contains whatever you want to overlay
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
@@ -9,6 +10,15 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
+  };
+  lix = final: prev: {
+    inherit (prev.lixPackageSets.stable)
+      nixpkgs-review
+      nix-direnv
+      nix-eval-jobs
+      nix-fast-build
+      colmena
+      ;
   };
 
   unstable-pkgs = final: _prev: {
