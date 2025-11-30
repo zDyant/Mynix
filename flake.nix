@@ -67,7 +67,7 @@
         #"aarch64-darwin"
       ];
       lib = nixpkgs.lib;
-      pkgs = forAllSystems (system: nixpkgs.legacyPackages.${system});
+      pkgs = nixpkgs.legacyPackages."x86_64-linux";
     in
     {
       overlays = import ./overlays { inherit inputs; };
@@ -85,7 +85,6 @@
       devShells = forAllSystems (
         system:
         import ./shell.nix {
-          inherit pkgs;
           checks = self.checks.${system};
         }
       );

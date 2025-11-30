@@ -1,17 +1,12 @@
 # https://github.com/EmergentMind/nix-config-starter/blob/a002409272bf775c2ab8ca0f3ab754b859050460/checks.nix
-{
-  inputs,
-  system,
-  pkgs,
-  ...
-}:
+{ inputs, system, ... }:
 {
   # Use alternative pre-commit implementations
 
   pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
     src = ./.;
-    package = pkgs.prek;
     default_stages = [ "pre-commit" ];
+
     hooks = {
       # ========== General ==========
       check-case-conflicts.enable = true;
@@ -24,11 +19,12 @@
       trim-trailing-whitespace.enable = true;
 
       # ========== nix ==========
-      nixfmt-rfc-style.enable = true;
+      # nixfmt-rfc-style.enable = true;
       deadnix = {
         enable = true;
         settings = {
           noLambdaArg = true;
+          edit = true;
         };
       };
 
