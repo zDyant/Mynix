@@ -1,4 +1,10 @@
-{ config, inputs, pkgs, ... }: {
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
+{
   imports = [ inputs.noctalia.homeModules.default ];
 
   wayland.windowManager.hyprland.settings.exec-once = [ "noctalia-shell" ];
@@ -31,11 +37,13 @@
             { id = "Spacer"; }
             { id = "MediaMini"; }
           ];
-          center = [{
-            hideUnoccupied = false;
-            id = "Workspace";
-            labelMode = "none";
-          }];
+          center = [
+            {
+              hideUnoccupied = false;
+              id = "Workspace";
+              labelMode = "none";
+            }
+          ];
           right = [
             {
               id = "Tray";
@@ -55,20 +63,20 @@
       };
     };
     colors = with config.lib.stylix.colors; {
-      mError            = "#${base08}";
-      mOnError          = "#${base00}";
-      mOnPrimary        = "#${base00}";
-      mOnSecondary      = "#${base00}";
-      mOnSurface        = "#${base06}";
+      mError = "#${base08}";
+      mOnError = "#${base00}";
+      mOnPrimary = "#${base00}";
+      mOnSecondary = "#${base00}";
+      mOnSurface = "#${base06}";
       mOnSurfaceVariant = "#${base04}";
-      mOnTertiary       = "#${base06}";
-      mOutline          = "#${base0F}";
-      mPrimary          = "#${base0B}";
-      mSecondary        = "#${base0C}";
-      mShadow           = "#${base00}";
-      mSurface          = "#${base01}";
-      mSurfaceVariant   = "#${base02}";
-      mTertiary         = "#${base0B}";
+      mOnTertiary = "#${base06}";
+      mOutline = "#${base0F}";
+      mPrimary = "#${base0D}";
+      mSecondary = "#${base0C}";
+      mShadow = "#${base00}";
+      mSurface = "#${base01}";
+      mSurfaceVariant = "#${base02}";
+      mTertiary = "#${base0B}";
     };
   };
 }
