@@ -1,4 +1,9 @@
-{ inputs, config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -8,7 +13,7 @@
     ./bat
     ./nvim
     ./spicetify
-    ./games
+    ./gaming
     ./kitty
     ./yazi
     ./git
@@ -60,14 +65,12 @@
     man-pages
     cht-sh # Cheatsheets
     cheat # Cheatsheets
-    # matugen
     wf-recorder
     rclone # Backup to proton drive
     distrobox
-    # unstable.opencode # Too old
     devenv # Ease the use of nix-shell
-	imv
-	zathura
+    imv
+    zathura
 
     # Chatting -----------------------------------------------------
     legcord # Discord
@@ -88,6 +91,7 @@
     youtube-music
     # anki
     stremio-enhanced
+    brave
   ];
 
   home.username = "zdyant";
