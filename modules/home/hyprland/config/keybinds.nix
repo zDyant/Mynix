@@ -1,10 +1,12 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+{
 
   wayland.windowManager.hyprland.settings."$mod" = "SUPER";
   wayland.windowManager.hyprland.settings = {
     # Windows control ------------------------------------------------------------
     bind = [
-      "$mod, Q, killactive,"
+      "$mod, Q, killactive"
+      "$mod SHIFT, Q, exec, hyprctl kill"
       "$mod, F, fullscreen"
       "$mod SHIFT, F, togglefloating"
 
@@ -82,7 +84,7 @@
       # The following mappings use the key codes to better support various keyboard layouts
       # 1 is code:10, 2 is code 11, etc
 
-      # Switch workspaces with mod + [0-9] 
+      # Switch workspaces with mod + [0-9]
       "$mod, code:10, workspace, 1"
       "$mod, code:11, workspace, 2"
       "$mod, code:12, workspace, 3"
@@ -104,6 +106,9 @@
     ];
 
     # Move/resize windows with mod + LMB/RMB and dragging
-    bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
+    bindm = [
+      "$mod, mouse:272, movewindow"
+      "$mod, mouse:273, resizewindow"
+    ];
   };
 }
