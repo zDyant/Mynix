@@ -43,7 +43,15 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable"; # Bleeding edge packages from Chaotic-AUR
 
+    play = {
+      url = "github:tophc7/play.nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+        chaotic.follows = "chaotic";
+      };
+    };
   };
 
   outputs =

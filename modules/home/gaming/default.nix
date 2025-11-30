@@ -1,17 +1,23 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./gamescope.nix
+  ];
 
   home.packages = with pkgs; [
     protonup-qt
-    heroic
     adwsteamgtk # Theme for steam
     # steam-rom-manager # Emulator on steam
-    # steamtinkerlaunch 
+    # steamtinkerlaunch
     wineWowPackages.stagingFull # Don't change!!!, wayland version is broken
     mesa
     hydralauncher
     # xivlauncher
+
+    # INFO: installed using play.nix
     # lutris
+    # heroic
+
     # moonlight-qt
     # prismlauncher
     # jdk21
@@ -25,7 +31,6 @@
     # cemu            # Wii u
     # ryujinx         # Switch
   ];
-  
 
   programs.mangohud = {
     enable = true;
