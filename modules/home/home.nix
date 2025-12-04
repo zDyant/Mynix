@@ -26,6 +26,7 @@
     ./noctalia
     ./navi
     ./vicinae
+    ./nixcord
   ];
 
   # Why I enabled this?

@@ -52,6 +52,7 @@
         chaotic.follows = "chaotic";
       };
     };
+    nixcord = { url = "github:kaylorben/nixcord"; };
   };
 
   outputs =
