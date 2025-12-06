@@ -23,10 +23,10 @@
     ./wallpaper-engine
     ./floorp
     ./mpv
-    ./noctalia
     ./navi
     ./vicinae
     ./nixcord
+    ./DmShell
   ];
 
   # Why I enabled this?

@@ -24,16 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    quickshell = {
-      url = "github:outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell?ref=v3.1.1";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.quickshell.follows = "quickshell"; # Use same quickshell version
-    };
-
     vicinae.url = "github:vicinaehq/vicinae";
     vicinae-extensions = {
       url = "github:vicinaehq/extensions";
@@ -54,6 +44,7 @@
       };
     };
     nixcord = { url = "github:kaylorben/nixcord"; };
+    dms = { url = "github:AvengeMedia/DankMaterialShell"; };
   };
 
   outputs =
