@@ -17,7 +17,7 @@
       plugins = {
         themeLibrary.enable = true;
         openInApp.enable = true;
-        USRBG.enable = true;
+        usrbg.enable = true;
         allCallTimers = {
           enable = true;
           trackSelf = true;
@@ -36,7 +36,7 @@
         betterSettings.enable = true;
         biggerStreamPreview.enable = true;
         callTimer.enable = true;
-        clearURLs.enable = true;
+        clearUrLs.enable = true;
         clipsEnhancements.enable = true;
         colorSighted.enable = true;
         crashHandler.enable = true;

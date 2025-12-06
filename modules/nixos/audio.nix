@@ -1,7 +1,7 @@
 { ... }: 
 {
   # sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
   services.pipewire = {
@@ -9,9 +9,5 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-
-    # lowLatency = {
-    #   enable = true;
-    # };
   };
 }

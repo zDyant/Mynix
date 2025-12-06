@@ -6,6 +6,7 @@
     polarity = "dark";
     targets = {
       grub.enable = false;
+      plymouth.enable = false;
     };
 
     image = pkgs.fetchurl {
@@ -32,12 +33,12 @@
       };
 
       monospace = {
-        package = pkgs.maple-mono.variable;
+        package = pkgs.maple-mono.NF;
         name = "Maple Mono";
       };
 
       emoji = {
-        package = pkgs.noto-fonts-emoji;
+        package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
     };

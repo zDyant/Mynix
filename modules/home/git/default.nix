@@ -1,26 +1,23 @@
-{ ... }:
-{
+{ ... }: {
+
+  programs.difftastic = {
+    enable = true;
+    git.enable = true;
+  };
+
   programs.git = {
     enable = true;
-    userName = "zDyant";
-    userEmail = "dyant@proton.me";
-    difftastic = {
-      enable = true;
-      # display = "inline";
-    };
-    extraConfig = {
+    settings = {
+      user.name = "zDyant";
+      user.email = "dyant@proton.me";
       core = {
         compression = 9;
         whitespace = "error";
         preloadindex = true;
       };
       url = {
-        "git@github.com:zdyant/" = {
-          insteadOf = "zdyant:";
-        };
-        "git@github.com" = {
-          insteadOf = "gh:";
-        };
+        "git@github.com:zdyant/" = { insteadOf = "zdyant:"; };
+        "git@github.com" = { insteadOf = "gh:"; };
       };
       status = {
         branch = true;
