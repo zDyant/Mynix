@@ -4,7 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    font-awesome
+    font-awesome_6
     maple-mono.NF
     (pkgs.writeShellApplication {
       name = "player";
@@ -28,7 +28,8 @@
 
     text-color   = "rgb(${config.lib.stylix.colors.base05})";
     bg-color     = "rgb(${config.lib.stylix.colors.base00})";
-    accent-color = "rgb(${config.lib.stylix.colors.base0A})";
+    accent-color = "rgb(${config.lib.stylix.colors.base0D})";
+    border-color = "rgb(${config.lib.stylix.colors.base0A})";
     fail-color   = "rgb(${config.lib.stylix.colors.base08})";
   in {
     enable = true;
@@ -42,8 +43,8 @@
         }
       ];
 
-      # Hours
       label = [
+        # Hours
         {
           text = ''cmd[update:1000] echo "<b><big> $(date +"%H") </big></b>"'';
           color = accent-color;
@@ -90,13 +91,14 @@
           halign = "center";
           valign = "center";
         }
+
         # Weather
         {
           monitor = "";
           text = ''
             cmd[update:1000] echo "$(curl -s 'wttr.in?format=%l+%c+%C+%t'| tr -d '+' )"'';
           color = text-color;
-          font_size = "10%";
+          font_size = 16;
           font_family = mono-font;
 
           position = "0, 1%";
@@ -107,11 +109,11 @@
         {
           monitor = "";
           text = ''cmd[update:1000] echo "$(player -music --source) "'';
-          color = text-color;
-          font_size = "1%";
+          color = accent-color;
+          font_size = 16;
           font_family = icon-font;
 
-          position = "8.5%, 2.5%";
+          position = "8.6%, 2.5%";
           halign = "left";
           valign = "bottom";
         }
@@ -119,8 +121,8 @@
         {
           monitor = "";
           text = ''cmd[update:1000] echo "<b>$(player -music --title)</b>"'';
-          color = text-color;
-          font_size = "1%";
+          color = accent-color;
+          font_size = 18;
           font_family = mono-font;
 
           position = "10%, 2%";
@@ -135,7 +137,7 @@
           font_size = 12;
           font_family = mono-font;
 
-          position = "10%, 0";
+          position = "10%, 1%";
           halign = "left";
           valign = "bottom";
         }
@@ -144,7 +146,7 @@
       input-field = [
         {
           monitor = "";
-          size = "240, 50";
+          size = "16%, 5%";
           outline_thickness = border-thickness;
           rounding = border-radius;
 
@@ -155,13 +157,13 @@
 
           outer_color = accent-color;
           inner_color = bg-color;
-          font_color = text-color;
-          fail_color = fail-color;
+          font_color  = text-color;
+          fail_color  = fail-color;
 
           fade_on_empty = true;
           placeholder_text = "<span>󰢏  $USER </span>";
 
-          position = "0, 120";
+          position = "0, 10%";
           halign = "center";
           valign = "bottom";
         }
@@ -172,6 +174,7 @@
           monitor = "";
           size = "100%, 5%";
           color = bg-color;
+
           halign = "center";
           valign = "bottom";
           zindex = 0;
@@ -182,15 +185,15 @@
         {
           monitor = "";
           path = "~/.config/hypr/hyprlock/music.webp";
-          size = "1%";
-          rounding = border-radius;
-          border_size = border-thickness;
-          border_color = accent-color;
+          size = 156;
+          rounding     = border-radius;
+          border_size  = border-thickness;
+          border_color = border-color;
           rotate = 0;
           reload_time = 2;
           reload_cmd = "player -music --arturl";
 
-          position = "0, 0";
+          position = "1, 1";
           halign = "left";
           valign = "bottom";
         }
