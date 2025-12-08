@@ -3,6 +3,7 @@
     inputs.nixcord.homeModules.nixcord
     ./system24.nix
   ];
+  stylix.targets.nixcord.enable = false;
 
   programs.nixcord = {
     enable = true;
@@ -81,6 +82,7 @@
         youtubeAdblock.enable = true;
         webScreenShareFixes.enable = true;
         wigglyText.enable = true;
+        blurNSFW.enable = true;
       };
     };
   };
