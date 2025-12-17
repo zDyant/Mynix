@@ -2,7 +2,6 @@
   imports = [ inputs.vicinae.homeManagerModules.default ];
 
   wayland.windowManager.hyprland.settings = {
-    exec-once = [ "vicinae server" ];
     bind = [
       "$mod, $mod_L, exec, vicinae toggle"
       "$mod, A, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
@@ -11,6 +10,7 @@
 
   services.vicinae = {
     enable = true;
+    autoStart = true;
     useLayerShell = false;
 
     settings = {
