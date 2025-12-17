@@ -1,7 +1,8 @@
 { inputs, ... }: {
-  imports = [
-    inputs.dms.homeModules.dankMaterialShell.default
-  ];
-  wayland.windowManager.hyprland.settings.exec-once = [ "dms run" ];
-  programs.dankMaterialShell.enable = true;
+  imports = [ inputs.dms.homeModules.dankMaterialShell.default ];
+  programs.dankMaterialShell = {
+    enable = true;
+    systemd.enable = true;
+    systemd.restartIfChanged = true;
+  };
 }
