@@ -6,7 +6,7 @@
     wallpapers = [
       {
         monitor = "DP-2";
-        wallpaperId = "3549235003";
+        wallpaperId = "1741572995";
         #scaling = "fit"; # "stretch" "fit" "fill" "default"
         fps = 60;
       }
