@@ -1,26 +1,16 @@
-{
-  config,
-  osConfig,
-  lib,
-  pkgs,
-  inputs,
-  ...
-}:
-{
+{ config, osConfig, lib, pkgs, inputs, ... }: {
   imports = [ inputs.play.homeManagerModules.play ];
 
+  monitors = [{
+    name = "DP-2";
+    primary = true;
+    width = 1920;
+    height = 1080;
+    refreshRate = 144;
+    hdr = false;
+    vrr = true;
+  }];
   play = {
-    monitors = [
-      {
-        name = "DP-2";
-        primary = true;
-        width = 1920;
-        height = 1080;
-        refreshRate = 144;
-        hdr = false;
-        vrr = true;
-      }
-    ];
 
     gamescoperun = {
       enable = true;
@@ -30,24 +20,23 @@
       defaultWSI = true;
       defaultHDR = null;
 
-      baseOptions = {
-        "backend" = "wayland";
-      };
+      baseOptions = { "backend" = "wayland"; };
 
       # Extra environment variables
       environment = {
         XCURSOR_THEME = config.home.pointerCursor.name or "Adwaita";
-        XCURSOR_PATH = "${config.home.pointerCursor.package or pkgs.adwaita-icon-theme}/share/icons";
+        XCURSOR_PATH = "${
+            config.home.pointerCursor.package or pkgs.adwaita-icon-theme
+          }/share/icons";
       };
     };
 
     wrappers = {
       steam = lib.mkDefault {
         enable = true;
-        command = "${lib.getExe osConfig.programs.steam.package} -bigpicture -tenfoot";
-        extraOptions = {
-          "steam" = true;
-        };
+        command =
+          "${lib.getExe osConfig.programs.steam.package} -bigpicture -tenfoot";
+        extraOptions = { "steam" = true; };
         environment = {
           STEAM_FORCE_DESKTOPUI_SCALING = 1;
           STEAM_GAMEPADUI = 1;
@@ -58,10 +47,9 @@
       steam-no-wsi = lib.mkDefault {
         enable = true;
         useWSI = false; # Override default
-        command = "${lib.getExe osConfig.programs.steam.package} -bigpicture -tenfoot";
-        extraOptions = {
-          "steam" = true;
-        };
+        command =
+          "${lib.getExe osConfig.programs.steam.package} -bigpicture -tenfoot";
+        extraOptions = { "steam" = true; };
         environment = {
           STEAM_FORCE_DESKTOPUI_SCALING = 1;
           STEAM_GAMEPADUI = 1;
@@ -72,9 +60,7 @@
       heroic = lib.mkDefault {
         enable = true;
         package = pkgs.heroic; # No special package configured by play.nix
-        extraOptions = {
-          "force-windows-fullscreen" = true;
-        };
+        extraOptions = { "force-windows-fullscreen" = true; };
       };
     };
   };
@@ -96,10 +82,7 @@
       type = "Application";
       terminal = false;
       categories = [ "Game" ];
-      mimeType = [
-        "x-scheme-handler/steam"
-        "x-scheme-handler/steamlink"
-      ];
+      mimeType = [ "x-scheme-handler/steam" "x-scheme-handler/steamlink" ];
       settings = {
         StartupNotify = "true";
         StartupWMClass = "Steam";
