@@ -46,40 +46,15 @@
             youtube.com##a[href="https://support.google.com/youtube?p=ppp&nohelpkit=1"]
           '';
 
+          # https://github.com/yokoffing/filterlists
           filterLists = [
-            "adguard-cookiemonster"
-            "adguard-cookies"
-            "adguard-mobile-app-banners"
-            "adguard-other-annoyances"
-            "adguard-popup-overlays"
-            "adguard-widgets"
-            "dpollock-0"
-            "easylist-annoyances"
-            "easylist-chat"
-            "easylist-newsletters"
-            "easylist-notifications"
-            "easylist"
-            "easyprivacy"
-            "fanboy-cookiemonster"
-            "plowe-0"
             "ublock-abuse"
             "ublock-annoyances"
             "ublock-badware"
-            "ublock-cookies-adguard"
-            "ublock-cookies-easylist"
             "ublock-filters"
             "ublock-privacy"
             "ublock-quick-fixes"
             "ublock-unbreak"
-            "urlhaus-1"
-            "user-filters"
-            "easyprivacy"
-            "adguard-spyware"
-            "adguard-spyware-url"
-            "block-lan"
-            "easylist"
-            "adguard-generic"
-            "adguard-mobile"
             "ublock-filters"
             "ublock-badware"
             "ublock-privacy"
@@ -90,6 +65,16 @@
             "https://raw.githubusercontent.com/liamengland1/miscfilters/master/antipaywall.txt"
             "https://raw.githubusercontent.com/gijsdev/ublock-hide-yt-shorts/master/list.txt"
             "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt"
+            "https://filters.adtidy.org/extension/ublock/filters/122_optimized.txt"                                                     # Fanboy Annoyances (Optimized)
+            "https://filters.adtidy.org/extension/ublock/filters/2_optimized.txt"                                                       # EasyList + Adguard
+            "https://filters.adtidy.org/extension/ublock/filters/3_optimized.txt"                                                       # AdGuard Tracking Protection filter (Optimized)
+            "https://filters.adtidy.org/extension/ublock/filters/14_optimized.txt"                                                      # AdGuard Annoyances filter (Optimized)
+            "https://filters.adtidy.org/extension/ublock/filters/4_optimized.txt"                                                       # AdGuard Social Media filter (Optimized)
+            "https://filters.adtidy.org/extension/ublock/filters/118_optimized.txt"                                                     # EasyPrivacy (Optimized)
+            "https://raw.githubusercontent.com/DandelionSprout/adfilt/refs/heads/master/Dandelion%20Sprout's%20Anti-Malware%20List.txt" # Dandelion Sprout's Anti-Malware List
+            "https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/adblock/spam-tlds-ublock.txt"                      # HaGeZi's The World's Most Abused TLDs
+            "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/BrowseWebsitesWithoutLoggingIn.txt"                        # Browse websites without logging in
+            "https://raw.githubusercontent.com/DandelionSprout/adfilt/refs/heads/master/ClearURLs%20for%20uBo/clear_urls_uboified.txt"  # ClearURLs for uBo (unofficial)
           ];
         };
       };
