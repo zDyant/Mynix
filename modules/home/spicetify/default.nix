@@ -10,8 +10,8 @@ in {
     theme = spicePkgs.themes.text;
     colorScheme = "custom";
     customColorScheme = with config.lib.stylix.colors; {
-      "accent"             = "${base0A}";
-      "accent-active"      = "${base0A}";
+      "accent"             = "${base0C}";
+      "accent-active"      = "${base0D}";
       "accent-inactive"    = "${base01}";
       "banner"             = "${base0A}";
       "border-active"      = "${base0A}";
