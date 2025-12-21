@@ -11,20 +11,20 @@
         bezier = linear,0,0,1,1
         bezier = quick,0.15,0,0.1,1
 
-        animation = windows,    1, 6, easeOutQuint
-        animation = windowsIn,  1, 6, easeOutQuint, popin 80%
-        animation = windowsOut, 1, 4, linear,       popin
-        animation = windowsMove,1, 4, easeInOutCubic
+        animation = windows,    1, 4, easeOutQuint
+        animation = windowsIn,  1, 4, easeOutQuint, popin 60%
+        animation = windowsOut, 1, 3, linear,       popin 80%
+        animation = windowsMove,1, 3, easeInOutCubic
 
-        animation = fade,       1, 6, easeInOutCubic
-        animation = fadeIn,     1, 6, easeInOutCubic
-        animation = fadeOut,    1, 6, quick
+        animation = fade,       1, 4, easeInOutCubic
+        animation = fadeIn,     1, 4, easeInOutCubic
+        animation = fadeOut,    1, 3, quick
 
-        animation = layers,     1, 6, easeOutQuint
-        animation = layersIn,   1, 6, easeOutQuint, fade
-        animation = layersOut,  1, 4, linear, popin
+        animation = layers,     1, 4, easeOutQuint
+        animation = layersIn,   1, 4, easeOutQuint, fade
+        animation = layersOut,  1, 3, easeInOutCubic, popin
 
-        animation = workspaces,  1, 6, swipe, slide
+        animation = workspaces, 1, 4, swipe, slidefade 20%
       }
 
     '';
