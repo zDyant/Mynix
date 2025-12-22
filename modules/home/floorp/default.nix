@@ -1,24 +1,9 @@
-{ config, pkgs, ... }:
+{ lib, inputs, config, pkgs, ... }:
 let
-  textfox = pkgs.fetchFromGitHub {
-    "owner" = "adriankarlen";
-    "repo" = "textfox";
-    "rev" = "d5bfe864c50b17ea62750458e83877a5256aca5b";
-    "hash" = "sha256-wGoP8VHBKn2QNaQpyeOn6bx+thccMT5TgWxxeefzxj4=";
-  };
-  betterfox = pkgs.fetchFromGitHub {
-    "owner" = "yokoffing";
-    "repo" = "Betterfox";
-    "rev" = "3b159ac8fbb3d5921db8ff1763aa51cff12ea1ec";
-    "hash" = "sha256-sZEgmCrAm0SnRoFmn8glScII07Kvpa6cYdC6jHHQmMI=";
-  };
+  colorScheme = lib.getAttrs (map (n: "base0${toString n}")
+    ((lib.range 0 9) ++ [ "A" "B" "C" "D" "E" "F" ])) config.lib.stylix.colors;
 in {
-  imports = [
-    ./search.nix
-    ./extensions.nix
-    ./settings.nix
-    ./policies.nix
-  ];
+  imports = [ ./search.nix ./extensions.nix ./settings.nix ./policies.nix ];
   stylix.targets.floorp.enable = false;
 
   programs.floorp = {
@@ -30,21 +15,53 @@ in {
       isDefault = true;
       name = "zdyant";
       extraConfig = ''
-        ${builtins.readFile "${betterfox}/user.js"}
-        ${builtins.readFile "${betterfox}/Fastfox.js"}
-        ${builtins.readFile "${betterfox}/Peskyfox.js"}
-        ${builtins.readFile "${betterfox}/Smoothfox.js"}
+        ${builtins.readFile "${inputs.betterfox}/user.js"}
+        ${builtins.readFile "${inputs.betterfox}/Fastfox.js"}
+        ${builtins.readFile "${inputs.betterfox}/Peskyfox.js"}
+        ${builtins.readFile "${inputs.betterfox}/Smoothfox.js"}
         user_pref("shyfox.enable.ext.mono.toolbar.icons", true);
         user_pref("shyfox.enable.ext.mono.context.icons", true);
       '';
-      userChrome = builtins.readFile "${textfox}/chrome/userChrome.css";
-      userContent = builtins.readFile "${textfox}/chrome/userContent.css";
+      userChrome = builtins.readFile "${inputs.textfox}/chrome/userChrome.css";
+      userContent = let
+      in ''
+        ${builtins.readFile "${inputs.textfox}/chrome/userContent.css"}
+        ${builtins.readFile
+        "${inputs.userstyles.packages.${pkgs.system}.mkUserStyles colorScheme [
+          "brave-search"
+          "bsky"
+          "chatgpt"
+          "cinny"
+          "claude"
+          "devdocs"
+          "discord"
+          "duckduckgo"
+          "github"
+          "google"
+          "hacker-news"
+          "lobste.rs"
+          "nixos-*"
+          "npm"
+          "ollama"
+          "perplexity"
+          "qwant"
+          "reddit"
+          "slack"
+          "spotify-web"
+          "stack-overflow"
+          "telegram"
+          "whatsapp-web"
+          "wikipedia"
+          "wikipedia"
+          "youtube"
+        ]}"}
+      '';
     };
   };
 
   home.file."${config.home.homeDirectory}/.floorp/${config.home.username}/chrome/" =
     {
-      source = "${textfox}/chrome";
+      source = "${inputs.textfox}/chrome";
       recursive = true;
       force = true;
     };

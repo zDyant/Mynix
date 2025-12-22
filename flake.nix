@@ -45,6 +45,12 @@
     };
     nixcord = { url = "github:kaylorben/nixcord"; };
     dms = { url = "github:AvengeMedia/DankMaterialShell"; };
+    textfox = { url = "github:adriankarlen/textfox"; };
+    betterfox = {
+      url = "github:yokoffing/Betterfox";
+      flake = false;
+    };
+    userstyles.url = "github:knoopx/nix-userstyles";
   };
 
   outputs =
