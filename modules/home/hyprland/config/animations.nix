@@ -5,28 +5,26 @@
        animations {
         enabled = yes
 
+        bezier = emphasizedAccel, 0.3, 0, 0.8, 0.15
+        bezier = emphasizedDecel, 0.05, 0.7, 0.1, 1
+        bezier = standard, 0.2, 0, 0, 1
         bezier = swipe, 0.6, 0.0, 0.2, 1.05
-        bezier = easeOutQuint,0.23,1,0.32,1
-        bezier = easeInOutCubic,0.65,0.05,0.36,1
-        bezier = linear,0,0,1,1
-        bezier = quick,0.15,0,0.1,1
 
-        animation = windows,    1, 4, easeOutQuint
-        animation = windowsIn,  1, 4, easeOutQuint, popin 60%
-        animation = windowsOut, 1, 3, linear,       popin 80%
-        animation = windowsMove,1, 3, easeInOutCubic
+        animation = layersIn, 1, 5, emphasizedDecel, slide
+        animation = layersOut, 1, 4, emphasizedAccel, slide
+        animation = fadeLayers, 1, 4, standard
 
-        animation = fade,       1, 4, easeInOutCubic
-        animation = fadeIn,     1, 4, easeInOutCubic
-        animation = fadeOut,    1, 3, quick
-
-        animation = layers,     1, 4, easeOutQuint
-        animation = layersIn,   1, 4, easeOutQuint, fade
-        animation = layersOut,  1, 3, easeInOutCubic, popin
+        animation = windowsIn, 1, 5, emphasizedDecel
+        animation = windowsOut, 1, 3, emphasizedAccel
+        animation = windowsMove, 1, 4, standard
 
         animation = workspaces, 1, 4, swipe, slidefade 20%
-      }
+        animation = specialWorkspace, 1, 4, swipe, slidefadevert 20%
 
+        animation = fade, 1, 6, standard
+        animation = fadeDim, 1, 6, standard
+        animation = border, 1, 6, standard
+      }
     '';
   };
 }
