@@ -16,10 +16,27 @@
     general = {
       gaps_in = 4;
       gaps_out = 10;
-      border_size = 4;
+      border_size = 1;
       resize_on_border = false;
       "col.active_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base0A})";
       layout = "dwindle";
+    };
+
+    group = lib.mkForce {
+      "col.border_active"   = "rgb(${config.lib.stylix.colors.base0A})";
+      "col.border_inactive" = "rgb(${config.lib.stylix.colors.base02})";
+
+      groupbar = {
+        gradients = true;
+        font_family = config.stylix.fonts.monospace.name;
+        font_weight_active = "heavy";
+        font_size = 14;
+        height = 20;
+        text_color          = "rgb(${config.lib.stylix.colors.base00})";
+        text_color_inactive = "rgb(${config.lib.stylix.colors.base05})";
+        "col.active"        = "rgb(${config.lib.stylix.colors.base0D})";
+        "col.inactive"      = "rgb(${config.lib.stylix.colors.base00})";
+      };
     };
 
     decoration = {
@@ -30,7 +47,7 @@
       shadow.enabled = false;
 
       blur = {
-        enabled = true;
+        enabled = false;
         size = 1;
         passes = 4;
         ignore_opacity = true;
@@ -56,8 +73,6 @@
         natural_scroll = true;
       };
     };
-
-    gestures = { workspace_swipe = "off"; };
 
     misc = {
       disable_hyprland_logo = true;
