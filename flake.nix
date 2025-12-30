@@ -44,7 +44,9 @@
       };
     };
     nixcord = { url = "github:kaylorben/nixcord"; };
-    dms = { url = "github:AvengeMedia/DankMaterialShell"; };
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell/?ref=406dc64abab2ef04b27148720be34f43f2246b1f";
+    };
     textfox = { url = "github:adriankarlen/textfox"; };
     betterfox = {
       url = "github:yokoffing/Betterfox";
