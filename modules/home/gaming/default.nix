@@ -2,15 +2,13 @@
 {
   imports = [
     ./gamescope.nix
+    # ./switch.nix
   ];
 
   home.packages = with pkgs; [
     protonup-qt
     adwsteamgtk # Theme for steam
-    # steam-rom-manager # Emulator on steam
-    # steamtinkerlaunch
     wineWowPackages.stagingFull # Don't change!!!, wayland version is broken
-    mesa
     hydralauncher
     # xivlauncher
 
@@ -29,7 +27,6 @@
     # retroarchFull   # Retro
     # rpcs3           # PS3
     # cemu            # Wii u
-    # ryujinx         # Switch
   ];
 
   programs.mangohud = {
