@@ -9,15 +9,15 @@
     "QT_SCALE_FACTOR,1"
     "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
     "XDG_CURRENT_DESKTOP,Hyprland"
+    "NIXOS_XDG_OPEN_USE_PORTAL,1"
     "XDG_SESSION_DESKTOP,Hyprland"
     "XDG_SESSION_TYPE,wayland"
-
+    "GTK_USE_PORTAL,1"
     # "WLR_RENDERER,vulkan"  # WARN: KEEP IT OFF, OTHERWISE HYPRLAND WON'T LAUNCH
 
     # firefox
     "MOZ_ENABLE_WAYLAND,1"
     # This is to make electron apps start in wayland
     "ELECTRON_OZONE_PLATFORM_HINT,wayland"
-
   ];
 }

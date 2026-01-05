@@ -34,13 +34,7 @@
   gtk.enable = true;
 
   home.sessionVariables = {
-    # WLR_RENDERER = "vulkan";  # KEEP IT OFF, OTHERWISE HYPRLAND WON'T LAUNCH
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_DESKTOP = "Hyprland";
-    XDG_SESSION_TYPE = "wayland";
-    GTK_USE_PORTAL = "1";
-    NIXOS_OZONE_WL = "1";
-    NIXOS_XDG_OPEN_USE_PORTAL = "1";
+    # WLR_RENDERER = "vulkan";  # WARN: KEEP IT OFF, OTHERWISE HYPRLAND WON'T LAUNCH
   };
 
   # Check LIBS on configuration.nix
