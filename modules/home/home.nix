@@ -33,8 +33,6 @@
   gtk.enable = true;
 
   home.sessionVariables = {
-
-    TERMINAL = "kitty";
     BROWSER = "floorp";
 
     # WLR_RENDERER = "vulkan";  # KEEP IT OFF, OTHERWISE HYPRLAND WON'T LAUNCH
