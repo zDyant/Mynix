@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-
 {
   imports = [
     ./zsh
@@ -41,8 +40,6 @@
   home.packages = with pkgs; [
     # Cli tools -----------------------------------------------
     man-pages
-    cht-sh # Cheatsheets
-    cheat # Cheatsheets
     wf-recorder
     rclone # Backup to proton drive
     distrobox
@@ -51,7 +48,6 @@
     zathura
 
     # Chatting -----------------------------------------------------
-    legcord # Discord
     ferdium
 
     # Apps ---------------------------------------------------------
@@ -63,13 +59,11 @@
     pavucontrol
     evince # PDF reader
     authenticator # OTP manager
-    # planify     # Todo-List
-    unstable.zed-editor # Don't want to edit everything using vim
+    planify     # Todo-List
     unstable.cosmic-files # Die gnome
     youtube-music
-    # anki
+    anki
     stremio-enhanced
-    brave
   ];
 
   home.username = "zdyant";
