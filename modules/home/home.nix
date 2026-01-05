@@ -34,8 +34,6 @@
   gtk.enable = true;
 
   home.sessionVariables = {
-    BROWSER = "floorp";
-
     # WLR_RENDERER = "vulkan";  # KEEP IT OFF, OTHERWISE HYPRLAND WON'T LAUNCH
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";

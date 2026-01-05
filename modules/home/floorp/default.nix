@@ -6,6 +6,7 @@ in {
   imports = [ ./search.nix ./extensions.nix ./settings.nix ./policies.nix ];
   stylix.targets.floorp.enable = false;
 
+  home.sessionVariables = { BROWSER = "floorp"; };
   programs.floorp = {
     enable = true;
     nativeMessagingHosts = [ pkgs.tridactyl-native ];
