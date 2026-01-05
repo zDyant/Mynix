@@ -1,6 +1,10 @@
 { lib, pkgs, ... }:
-{
-
+let
+  dotsPath = "$HOME/Documents/dots/";
+  terminal = lib.getExe pkgs.kitty;
+  shell = "${lib.getExe pkgs.zsh} -c";
+  hyprshot = lib.getExe pkgs.hyprshot;
+in {
   wayland.windowManager.hyprland.settings."$mod" = "SUPER";
   wayland.windowManager.hyprland.settings = {
     # Windows control ------------------------------------------------------------
@@ -35,12 +39,15 @@
       "$mod, C, exec, media-control --nxt"
       "$mod, X, exec, media-control --prv"
 
-      "$mod SHIFT, S, exec, ${lib.getExe pkgs.hyprshot} -m region --clipboard-only"
-      "$mod, S, exec, ${lib.getExe pkgs.hyprshot} -m region"
+      "$mod SHIFT, S,       exec, ${hyprshot} -m region --clipboard-only"
+      "$mod SHIFT ALT_L, S, exec, ${hyprshot} -z -m region --clipboard-only" # Freeze
+      "$mod, S,             exec, ${hyprshot} -m region"
+      "$mod ALT_L, S,       exec, ${hyprshot} -z -m region" # Freeze
 
       # Launchers
-      "$mod, T, exec, kitty" # Launch terminal
-      "$mod, E, exec, kitty zsh -c yazi" # File manager
+      "$mod, T, exec, ${terminal}" # Launch terminal
+      "$mod, E, exec, ${terminal} ${shell} yazi" # File manager
+      "$mod, return, exec, ${terminal} -d ${dotsPath} ${shell} nvim"
 
       # Hyprland ---------------------------------------------------------
       "CTRL ALT, Delete, exec, hyprctl dispatch exit 0"
@@ -106,9 +113,6 @@
     ];
 
     # Move/resize windows with mod + LMB/RMB and dragging
-    bindm = [
-      "$mod, mouse:272, movewindow"
-      "$mod, mouse:273, resizewindow"
-    ];
+    bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
   };
 }
