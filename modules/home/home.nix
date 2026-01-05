@@ -46,7 +46,6 @@
   # Check LIBS on configuration.nix
   home.packages = with pkgs; [
     # Cli tools -----------------------------------------------
-    gh
     man-pages
     cht-sh # Cheatsheets
     cheat # Cheatsheets
