@@ -68,6 +68,9 @@
       follow_mouse = 1;
       sensitivity = 1.0;
 
+      scroll_method = "on_button_down";
+      scroll_button = 274;
+
       touchpad = {
         disable_while_typing = true;
         natural_scroll = true;
