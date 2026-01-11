@@ -10,7 +10,6 @@
     displayManager = {
       gdm.enable = true;
 
-      defaultSession = "hyprland";
       autoLogin = {
         enable = true;
         user = "zdyant";
