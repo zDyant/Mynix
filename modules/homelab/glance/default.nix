@@ -5,22 +5,20 @@ let
 
   toServiceName = title: "${lib.toLower title}";
   mkSite = { title, icon, fixedPort ? null, extra ? { } }:
-  let
-    isEnabled = homelab.services.${toServiceName title}.enable;
-  in 
-    if !isEnabled then
+    let isEnabled = homelab.services.${toServiceName title}.enable;
+    in if !isEnabled then
       null
     else
-    {
-      inherit title;
-      url = if fixedPort != null then
-        "http://localhost:${toString fixedPort}"
-      else
-        "http://localhost:${
-          toString homelab.services.${toServiceName title}.port
-        }";
-      icon = "sh:${icon}";
-    } // extra;
+      {
+        inherit title;
+        url = if fixedPort != null then
+          "http://localhost:${toString fixedPort}"
+        else
+          "http://localhost:${
+            toString homelab.services.${toServiceName title}.port
+          }";
+        icon = "sh:${icon}";
+      } // extra;
 in {
   options.homelab.services."glance" = {
     enable = lib.mkEnableOption "Custom Glance configuration";
@@ -58,16 +56,49 @@ in {
                   cache = "5m";
                   title = "Services";
                   style = "compact";
-                  sites             = [
-                    (mkSite { title = "Qbittorrent"; icon  = "qbittorrent"; })
-                    (mkSite { title = "Prowlarr"; icon     = "prowlarr"; })
-                    (mkSite { title = "Flaresolverr"; icon = "flaresolverr"; })
-                    (mkSite { title = "Radarr"; icon       = "radarr"; })
-                    (mkSite { title = "Sonarr"; icon       = "sonarr"; })
-                    (mkSite { title = "Plex"; icon         = "plex"; fixedPort = 32400; extra = { alt-status-codes = [ 401 ]; }; })
-                    (mkSite { title = "Ollama"; icon       = "ollama"; })
-                    (mkSite { title = "Open-webui"; icon   = "open-webui"; })
-                    (mkSite { title = "Kutt";       icon   = "kutt"; })
+                  sites = [
+                    (mkSite {
+                      title = "Qbittorrent";
+                      icon = "qbittorrent";
+                    })
+                    (mkSite {
+                      title = "Prowlarr";
+                      icon = "prowlarr";
+                    })
+                    (mkSite {
+                      title = "Flaresolverr";
+                      icon = "flaresolverr";
+                    })
+                    (mkSite {
+                      title = "Radarr";
+                      icon = "radarr";
+                    })
+                    (mkSite {
+                      title = "Sonarr";
+                      icon = "sonarr";
+                    })
+                    (mkSite {
+                      title = "Plex";
+                      icon = "plex";
+                      fixedPort = 32400;
+                      extra = { alt-status-codes = [ 401 ]; };
+                    })
+                    (mkSite {
+                      title = "Ollama";
+                      icon = "ollama";
+                    })
+                    (mkSite {
+                      title = "Open-webui";
+                      icon = "open-webui";
+                    })
+                    (mkSite {
+                      title = "Kutt";
+                      icon = "kutt";
+                    })
+                    (mkSite {
+                      title = "Ezbookkeeping";
+                      icon = "Ezbookkeeping";
+                    })
                   ];
                 }
 
@@ -176,18 +207,44 @@ in {
                         }
                       ];
                     }
+
+                    {
+                      title = "Anki";
+                      links = [
+                        {
+                          title = "Cherry's Ankiweb";
+                          url = "https://ankiweb.net/shared/by-author/857020437";
+                        }
+                        {
+                          title = "Cherry's Kofi";
+                          url = "https://ko-fi.com/cherry_berry/shop/";
+                        }
+                        {
+                          title = "Kelciour's notion";
+                          url = "https://kelciour.notion.site/Home-14b745ea2520800cbd92ed43718202b6#29d745ea252080e5a446fd84d249fed1";
+                        }
+                        {
+                          title = "Kelciour's ankiweb";
+                          url = "https://ankiweb.net/shared/by-author/201620050";
+                        }
+                        {
+                          title = "Kelciour's ankiweb 2";
+                          url = "https://ankiweb.net/shared/by-author/273874825";
+                        }
+                      ];
+                    }
+
                   ];
                 }
                 {
                   type = "releases";
                   cache = "1d";
-                  repositories =
-                    [
-                      "rust-lang/rust"
-                      "glanceapp/glance"
-                      "hyprwm/hyprland"
-                      "9001/copyparty"
-                    ];
+                  repositories = [
+                    "rust-lang/rust"
+                    "glanceapp/glance"
+                    "hyprwm/hyprland"
+                    "9001/copyparty"
+                  ];
                 }
               ];
             }
