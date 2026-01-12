@@ -11,8 +11,6 @@
 
     services = {
       glance.enable = true;
-      open-webui.enable = true;
-      ollama.enable = true;
       kutt = {
         enable = true;
         jwtToken = config.sops.secrets.kutt-token.path;
