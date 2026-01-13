@@ -1,14 +1,7 @@
-{ pkgs, ... }:
-
+{ lib, pkgs, ... }:
+# https://github.com/purplesmoke05/dotnix/blob/6704c3b3c6f03437fcc834a76b86e662845d3dcb/home-manager/wm/hyprland/default.nix#L71
 {
-  imports = [
-    ./config
-    ./scripts
-    ./scripts.nix
-    ./hyprlock
-    ./hypridle.nix
-    ./hyprcursor.nix
-  ];
+  imports = lib.fs.scanPaths ./.;
 
   home.packages = with pkgs; [
     networkmanagerapplet
@@ -40,9 +33,7 @@
   xdg = {
     enable = true;
     mime.enable = true;
-    mimeApps = {
-      enable = true;
-    };
+    mimeApps = { enable = true; };
     portal = {
       enable = true;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];

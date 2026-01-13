@@ -1,6 +1,14 @@
 { config, lib, ... }: {
   wayland.windowManager.hyprland.settings = {
-    monitor = ",preferred,auto,1";
+    monitorv2 = {
+      output = "DP-2";
+      mode = "1920x1080@144";
+      position = "0x0";
+      scale = 1;
+      bitdepth = 10;
+      cm = "wide";
+    };
+    # monitor = ",1920x1080@144,0x0, 1, bitdepth, 10, cm, wide";
 
     dwindle = {
       pseudotile = "yes";

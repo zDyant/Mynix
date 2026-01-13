@@ -7,10 +7,10 @@ let
 in
 {
 
-  home.packages = with pkgs; [
-    hyprcursor
-    rose-pine-hyprcursor
-  ];
+  # home.packages = with pkgs; [
+  #   hyprcursor
+  #   rose-pine-hyprcursor
+  # ];
 
   # wayland.windowManager.hyprland.settings = {
   #   env = [

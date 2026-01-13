@@ -52,6 +52,12 @@
 
   services.hardware.openrgb.enable = true;
 
+  # INFO: uinput for hintsd
+  hardware.uinput.enable = true;
+  # AT-SPI bridge
+  # Required for hintsd accessibility scanning.
+  services.gnome.at-spi2-core.enable = true;
+
   # Flatpak ----------------------------------------------
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {

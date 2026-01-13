@@ -41,6 +41,7 @@
     youtube-music
     anki
     stremio-enhanced
+    hints
   ];
 
   home.username = "zdyant";
