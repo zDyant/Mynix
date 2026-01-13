@@ -23,19 +23,15 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    vicinae.url = "github:vicinaehq/vicinae";
     vicinae-extensions = {
       url = "github:vicinaehq/extensions";
       flake = false;
     };
-    pre-commit-hooks = {
+    git-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    chaotic.url =
-      "github:chaotic-cx/nyx/nyxpkgs-unstable"; # Bleeding edge packages from Chaotic-AUR
-
+    chaotic = { url = "github:chaotic-cx/nyx/nyxpkgs-unstable"; };
     play = {
       url = "github:tophc7/play.nix";
       inputs = {
@@ -45,70 +41,81 @@
     };
     nixcord = { url = "github:kaylorben/nixcord"; };
     dms = {
-      url = "github:AvengeMedia/DankMaterialShell/?ref=406dc64abab2ef04b27148720be34f43f2246b1f";
+      url =
+        "github:AvengeMedia/DankMaterialShell/?ref=406dc64abab2ef04b27148720be34f43f2246b1f";
     };
     textfox = { url = "github:adriankarlen/textfox"; };
     betterfox = {
       url = "github:yokoffing/Betterfox";
       flake = false;
     };
-    userstyles.url = "github:knoopx/nix-userstyles";
+    userstyles = { url = "github:knoopx/nix-userstyles"; };
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    mix-nix = {
+      url = "github:tophc7/mix.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      ...
-    }@inputs:
+  outputs = { ... }@inputs:
     let
-      forAllSystems = nixpkgs.lib.genAttrs [
-        "x86_64-linux"
-        #"aarch64-darwin"
-      ];
-      lib = nixpkgs.lib;
-      pkgs = nixpkgs.legacyPackages."x86_64-linux";
-    in
-    {
-      overlays = import ./overlays { inherit inputs; };
-      formatter = pkgs.nixfmt-rfc-style;
+      # Extend nixpkgs lib with mix.nix utilities BEFORE entering flake-parts
+      # This gives us lib.fs.*, lib.hosts.*, lib.desktop.*, etc.
+      lib = inputs.mix-nix.lib;
+    in inputs.flake-parts.lib.mkFlake {
+      inherit inputs;
+      specialArgs = { inherit lib; };
+    } {
+      systems = [ "x86_64-linux" ];
+      imports = [ inputs.mix-nix.flakeModules.default ];
 
-      # INFO:
-      # Run the hooks in a sandbox with `nix flake check`.
-      # Read-only filesystem and no internet access.
-
-      checks = forAllSystems (system: import ./checks.nix { inherit inputs system pkgs; });
-
-      # INFO:
-      # Enter a development shell with `nix develop -c pre-commit run -a`.`
-      # The hooks will be installed automatically.
-      devShells = forAllSystems (
-        system:
-        import ./shell.nix {
-          checks = self.checks.${system};
-        }
-      );
-
-      nixosConfigurations = {
-        zdyant = lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./modules/nixos/configuration.nix
-            inputs.nur.modules.nixos.default
-            inputs.stylix.nixosModules.stylix
-            inputs.sops-nix.nixosModules.sops
-            inputs.chaotic.nixosModules.default
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.zdyant = import ./modules/home/home.nix;
-              home-manager.backupFileExtension = "backup";
-              home-manager.extraSpecialArgs = { inherit inputs; };
-            }
-          ];
+      perSystem = { system, pkgs, ... }: {
+        _module.args.pkgs = import inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
         };
+
+        # INFO:
+        # Run the hooks in a sandbox with `nix flake check`.
+        # Read-only filesystem and no internet access.
+        checks = import ./checks.nix { inherit inputs system pkgs; };
+
+        # INFO:
+        # Enter a development shell with `nix develop -c pre-commit run -a`.`
+        # The hooks will be installed automatically.
+        devShells.default =
+          import ./shell.nix { checks = inputs.self.checks.${system}; };
+      };
+
+      flake.overlays = import ./overlays { inherit inputs; };
+      mix = {
+        coreModules = [
+          inputs.stylix.nixosModules.stylix
+          inputs.sops-nix.nixosModules.sops
+          inputs.nur.modules.nixos.default
+          inputs.chaotic.nixosModules.default
+        ];
+        coreHomeModules = [
+          # inputs.home-manager.nixosModules.home-manager
+          # {
+          #   home-manager.useGlobalPkgs = true;
+          #   home-manager.useUserPackages = true;
+          #   home-manager.backupFileExtension = "backup";
+          #   home-manager.extraSpecialArgs = { inherit inputs; };
+          # }
+        ];
+        hostsDir = ./hosts;
+        hostsHomeDir = ./home/hosts;
+        usersHomeDir = ./home/users;
+
+        users.zdyant = {
+          name = "zdyant";
+          uid = 1000;
+          shell = "zsh";
+          extraGroups = [ "networkmanager" "wheel" "docker" ];
+        };
+        hosts.gaia.user = "zdyant";
       };
     };
 }

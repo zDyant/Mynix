@@ -3,6 +3,8 @@ let
   cfg = config.homelab;
 in
 {
+  imports = lib.fs.scanPaths ./.;
+
   options.homelab = {
     enable = lib.mkEnableOption "Enable Homelab services and configuration";
     timeZone = lib.mkOption {
@@ -22,18 +24,4 @@ in
       example = "/run/secrets/cloudflared-tunnel";
     };
   };
-
-
-  imports = [
-    ./glance
-    ./plex
-    ./arr
-    ./cloudflared
-    ./qbittorrent
-    ./open-webui
-    ./ollama
-    ./kutt
-    ./ezbookkeeping
-  ];
-
 }

@@ -2,8 +2,7 @@
 { inputs, system, ... }:
 {
   # Use alternative pre-commit implementations
-
-  pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+  pre-commit-check = inputs.git-hooks.lib.${system}.run {
     src = ./.;
     default_stages = [ "pre-commit" ];
 
