@@ -5,24 +5,14 @@
   imports = lib.fs.scanPaths ./.;
 
   environment.systemPackages = with pkgs; [
-    unrar
-    unzip
-    vim
-    wget
-    neovim
-    curl
     xdg-utils
     zlib
     zlib-ng
     libxkbcommon
     libnotify
     openssl
-    ripgrep
-    fzf
     appimage-run
-    fd
     ffmpeg
-    eza
     pamixer
     btrfs-progs
     libarchive
@@ -39,17 +29,18 @@
     variant = "";
   };
 
-  # Several services -------------------------------------
+  # Bluetooth --------------------------------------------
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
+  # Several services -------------------------------------
   programs.nix-ld.enable = true;
 
   # For passwords
   services.gnome.gnome-keyring.enable = true;
-
   services.gvfs.enable = true;
-
   services.openssh.enable = true;
-
   services.hardware.openrgb.enable = true;
 
   # INFO: uinput for hintsd
@@ -68,12 +59,6 @@
     '';
   };
 
-  # Bluetooth --------------------------------------------
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-
-  services.blueman.enable = true;
-
   # Garbage collector ------------------------------------
   nix.gc = {
     automatic = true;
@@ -82,47 +67,18 @@
     options = "--delete-older-than 7d";
   };
 
-  # Making sure /tmp is clear to avoid issues
-  boot.tmp.cleanOnBoot = true;
-  boot.tmp.useTmpfs = true;
-
-  # WE DONT WANT TO BUILD STUFF ON TMPFS
-  # ITS NOT A GOOD IDEA
-  systemd.services.nix-daemon = { environment.TMPDIR = "/var/tmp"; };
-
   # WARN Don't change -------------------------------------
   system.stateVersion = "23.11"; # Did you read the comment?
 
-  nix = {
-    package = pkgs.lixPackageSets.stable.lix;
-    settings = {
-      # STFU
-      warn-dirty = false;
-      # https://bmcgee.ie/posts/2023/12/til-how-to-optimise-substitutions-in-nix/
-      http-connections = 128;
-      max-substitution-jobs = 128;
-      # use binary cache, its not gentoo
-      builders-use-substitutes = true;
-      auto-optimise-store = true;
-      max-jobs = "auto";
-
-      # continue building derivations if one fails
-      keep-going = true;
-
-      experimental-features = [ "nix-command" "flakes" ];
-    };
-
-  };
+  nix = { package = pkgs.lixPackageSets.stable.lix; };
 
   nixpkgs = {
-    config.allowUnfree = true;
     overlays = [
       inputs.self.overlays.additions
       inputs.self.overlays.unstable-pkgs
       inputs.self.overlays.modifications
       inputs.self.overlays.lix
     ];
-
   };
 
   # Some shenanigans --------------------------------------
