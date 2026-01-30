@@ -13,10 +13,7 @@
     amd.enable = true;
     ananicy.enable = true;
     gamemode.enable = true;
-
-    steam = {
-      enable = true;
-      extraCompatPackages = with pkgs; [ proton-ge-bin ];
-    };
+    lutris.enable = true;
+    steam.enable = true;
   };
 }
