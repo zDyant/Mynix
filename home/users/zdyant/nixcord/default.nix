@@ -1,5 +1,9 @@
-{ inputs, ... }: {
-  imports = [ inputs.nixcord.homeModules.nixcord ./system24.nix ];
+{ lib, inputs, ... }: {
+  imports = [
+    inputs.nixcord.homeModules.nixcord
+    ./system24.nix
+    ./krisp.nix
+  ];
   stylix.targets.nixcord.enable = false;
 
   programs.nixcord = {
@@ -42,15 +46,14 @@
         equicordToolbox.enable = true;
         equicordHelper = {
           enable = true;
-          showYourOwnActivityButtons = true;
           noMirroredCamera = true;
+          disableCreateDMButton = true;
         };
         fakeNitro.enable = true;
         fixImagesQuality.enable = true;
         fixSpotifyEmbeds.enable = true;
         fixYoutubeEmbeds.enable = true;
         forwardAnywhere.enable = true;
-        ghosted.enable = true;
         ignoreTerms.enable = true;
         imageFilename.enable = true;
         keyboardSounds = {
