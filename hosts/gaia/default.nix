@@ -49,16 +49,6 @@
   # Required for hintsd accessibility scanning.
   services.gnome.at-spi2-core.enable = true;
 
-  # Flatpak ----------------------------------------------
-  services.flatpak.enable = true;
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
-
   # Garbage collector ------------------------------------
   nix.gc = {
     automatic = true;
