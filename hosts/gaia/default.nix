@@ -60,17 +60,6 @@
   # WARN Don't change -------------------------------------
   system.stateVersion = "23.11"; # Did you read the comment?
 
-  nix = { package = pkgs.lixPackageSets.stable.lix; };
-
-  nixpkgs = {
-    overlays = [
-      inputs.self.overlays.additions
-      inputs.self.overlays.unstable-pkgs
-      inputs.self.overlays.modifications
-      inputs.self.overlays.lix
-    ];
-  };
-
   # Some shenanigans --------------------------------------
   time.timeZone = "America/Sao_Paulo";
   i18n.defaultLocale = "en_US.UTF-8"; # Select internationalisation properties.
