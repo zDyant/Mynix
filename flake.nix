@@ -56,6 +56,10 @@
       url = "github:tophc7/mix.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    bonk = {
+      url = "github:tophc7/bonk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { ... }@inputs:
@@ -95,6 +99,8 @@
           inputs.sops-nix.nixosModules.sops
           inputs.nur.modules.nixos.default
           inputs.chaotic.nixosModules.default
+          inputs.bonk.nixosModules.default
+          ./modules/host/core
         ];
         coreHomeModules = [
           # inputs.home-manager.nixosModules.home-manager
