@@ -102,15 +102,7 @@
           inputs.bonk.nixosModules.default
           ./modules/host/core
         ];
-        coreHomeModules = [
-          # inputs.home-manager.nixosModules.home-manager
-          # {
-          #   home-manager.useGlobalPkgs = true;
-          #   home-manager.useUserPackages = true;
-          #   home-manager.backupFileExtension = "backup";
-          #   home-manager.extraSpecialArgs = { inherit inputs; };
-          # }
-        ];
+        coreHomeModules = [ ];
         hostsDir = ./hosts;
         hostsHomeDir = ./home/hosts;
         usersHomeDir = ./home/users;
