@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     protonup-qt
     adwsteamgtk # Theme for steam
+    steamtinkerlaunch
     wineWowPackages.stagingFull # Don't change!!!, wayland version is broken
     hydralauncher
     # xivlauncher

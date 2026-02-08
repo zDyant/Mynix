@@ -20,7 +20,10 @@
       defaultWSI = true;
       defaultHDR = null;
 
-      baseOptions = { "backend" = "wayland"; };
+      baseOptions = {
+        "fsr-upscaling" = true;
+        "backend" = "wayland";
+      };
 
       # Extra environment variables
       environment = {
@@ -61,6 +64,14 @@
         enable = true;
         package = pkgs.heroic; # No special package configured by play.nix
         extraOptions = { "force-windows-fullscreen" = true; };
+      };
+
+      lutris = lib.mkDefault {
+        enable = true;
+        package =
+          osConfig.play.lutris.package; # play.nix provides readonly packages
+        extraOptions = { "force-windows-fullscreen" = true; };
+        environment = { LUTRIS_SKIP_INIT = 1; };
       };
     };
   };
@@ -124,5 +135,23 @@
         };
       };
     };
+
+    "net.lutris.Lutris" = lib.mkDefault {
+      name = "Lutris Games Launcher";
+      comment = "Lutris in Gamescope Session";
+      exec = "${lib.getExe config.play.wrappers.lutris.wrappedPackage}";
+      # exec = config.play.wrappers.lutris.wrappedPackage;
+      icon = "net.lutris.Lutris";
+      type = "Application";
+      terminal = false;
+      categories = [ "Game" ];
+      actions = {
+        native = {
+          name = "Lutris (No Gamescope)";
+          exec = "${lib.getExe pkgs.lutris}";
+        };
+      };
+    };
+
   };
 }
