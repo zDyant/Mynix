@@ -3,7 +3,7 @@
   imports = [
     ./startup.nix
     ./settings.nix
-    ./keybinds.nix
+    ./keybinds
     ./variables.nix
     ./window_rules.nix
     ./animations.nix

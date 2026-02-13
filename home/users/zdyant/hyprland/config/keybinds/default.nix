@@ -3,8 +3,8 @@ let
   dotsPath = "$HOME/Documents/dots/";
   terminal = lib.getExe pkgs.kitty;
   shell = "${lib.getExe pkgs.zsh} -c";
-  hyprshot = lib.getExe pkgs.hyprshot;
 in {
+  imports = [ ./wlr-which-key.nix ];
   wayland.windowManager.hyprland.settings."$mod" = "SUPER";
   wayland.windowManager.hyprland.settings = {
     # Windows control ------------------------------------------------------------
@@ -13,6 +13,8 @@ in {
       "$mod SHIFT, Q, exec, hyprctl kill"
       "$mod, F, fullscreen"
       "$mod SHIFT, F, togglefloating"
+
+      "$mod SHIFT, S, exec, ${lib.getExe pkgs.hyprshot} -m region --clipboard-only"
 
       "$mod, h, movefocus, l"
       "$mod, l, movefocus, r"
@@ -39,15 +41,10 @@ in {
       "$mod, C, exec, media-control --nxt"
       "$mod, X, exec, media-control --prv"
 
-      "$mod SHIFT, S,       exec, ${hyprshot} -m region --clipboard-only"
-      "$mod SHIFT ALT_L, S, exec, ${hyprshot} -z -m region --clipboard-only" # Freeze
-      "$mod, S,             exec, ${hyprshot} -m region"
-      "$mod ALT_L, S,       exec, ${hyprshot} -z -m region" # Freeze
-
       # Launchers
       "$mod, T, exec, ${terminal}" # Launch terminal
       "$mod, E, exec, ${terminal} ${shell} yazi" # File manager
-      "$mod, return, exec, ${terminal} -d ${dotsPath} ${shell} nvim"
+      "$mod, return, exec, ${terminal} -d ${dotsPath} ${shell} nvim -c 'terminal'"
 
       # Hyprland ---------------------------------------------------------
       "CTRL ALT, Delete, exec, hyprctl dispatch exit 0"
