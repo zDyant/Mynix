@@ -1,7 +1,6 @@
 { ... }: {
   wayland.windowManager.hyprland.settings.env = [
     "NIXOS_OZONE_WL, 1"
-    "NIXPKGS_ALLOW_UNFREE, 1"
     "CLUTTER_BACKEND,wayland"
     "GDK_BACKEND,wayland,x11"
     "QT_AUTO_SCREEN_SCALE_FACTOR,1"
