@@ -31,12 +31,10 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    chaotic = { url = "github:chaotic-cx/nyx/nyxpkgs-unstable"; };
     play = {
       url = "github:tophc7/play.nix";
       inputs = {
         nixpkgs.follows = "nixpkgs-unstable";
-        chaotic.follows = "chaotic";
       };
     };
     nixcord = { url = "github:kaylorben/nixcord"; };
@@ -98,7 +96,6 @@
           inputs.stylix.nixosModules.stylix
           inputs.sops-nix.nixosModules.sops
           inputs.nur.modules.nixos.default
-          inputs.chaotic.nixosModules.default
           inputs.bonk.nixosModules.default
           ./modules/host/core
         ];
