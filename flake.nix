@@ -33,9 +33,7 @@
     };
     play = {
       url = "github:tophc7/play.nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs-unstable";
-      };
+      inputs = { nixpkgs.follows = "nixpkgs-unstable"; };
     };
     nixcord = { url = "github:kaylorben/nixcord"; };
     dms = {
@@ -52,7 +50,6 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     mix-nix = {
       url = "github:tophc7/mix.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     bonk = {
       url = "github:tophc7/bonk";
@@ -71,9 +68,10 @@
       specialArgs = { inherit lib; };
     } {
       systems = [ "x86_64-linux" ];
-      imports = [ inputs.mix-nix.flakeModules.default ];
       imports = with inputs; [
+        mix-nix.flakeModules.default
         arroz-nix.flakeModules.default
+      ];
 
       perSystem = { system, pkgs, ... }: {
         _module.args.pkgs = import inputs.nixpkgs {
@@ -95,11 +93,11 @@
 
       flake.overlays = import ./overlays { inherit inputs; };
       mix = {
-        coreModules = [
-          inputs.stylix.nixosModules.stylix
-          inputs.sops-nix.nixosModules.sops
-          inputs.nur.modules.nixos.default
-          inputs.bonk.nixosModules.default
+        coreModules = with inputs; [
+          stylix.nixosModules.stylix
+          sops-nix.nixosModules.sops
+          nur.modules.nixos.default
+          bonk.nixosModules.default
           ./modules/host/core
         ];
         coreHomeModules = [ ];
