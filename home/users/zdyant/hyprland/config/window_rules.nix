@@ -1,93 +1,63 @@
-{ ... }:
-{
+{ ... }: {
 
   wayland.windowManager.hyprland = {
-    extraConfig = "
-windowrulev2 = idleinhibit fullscreen, fullscreen:1
+    extraConfig =
+      "
+      windowrulev2 = idleinhibit fullscreen, fullscreen:1
 
-# Windowrule ----------------------------------------------------------------------
-  windowrule = tag +browser, class:^(floorp)$
-  windowrule = tag +browser, class:^(obsidian)$
-  
-  # gamestore tags -------------------------------------------
-  windowrule = tag +gamestore, class:^([Ss]team)$
-  windowrule = tag +gamestore, title:^([Ll]utris)$
-  windowrule = tag +gamestore, class:^(com.heroicgameslauncher.hgl)$
-  
-  # game tags ------------------------------------------------
-  windowrule = tag +games, class:^(gamescope)$
-  windowrule = tag +games, class:^(steam_app_\d+)$
-  
-  # IM Tags --------------------------------------------------
-  windowrule = tag +im, class:^([Ff]erdium)$
-  windowrule = tag +im, class:^(.*[Cc]ord) 
-  windowrule = tag +im, class:^(org.telegram.desktop|io.github.tdesktop_x64.TDesktop)$
-  
-  # viewer tags
-  windowrule = tag +viewer, class:^(gnome-system-monitor|org.gnome.SystemMonitor|io.missioncenter.MissionCenter)$ # system monitor
-  windowrule = tag +viewer, class:^(evince)$ # document viewer 
-  windowrule = tag +viewer, class:^(eog|org.gnome.Loupe)$ # image viewer
+      
+      windowrule = tag +browser, class:^([Ff]loorp)$
+      windowrule = tag +im,      class:^([Ff]erdium)$
+      windowrule = tag +im,      class:^(.*[Cc]ord) 
+      windowrule = tag +music,   class:^([Ss]potify)$
 
-  # music tags -------------------------------------
-  windowrule = tag +music, class:^([Ss]potify)$
-  
-  # Move to workspaces -----------------------------------------
-  # windowrule move to workspace
-  windowrule = workspace 1, tag:browser*
-  windowrule = workspace 2 silent, tag:gamestore*
-  windowrule = workspace 2 silent, tag:games*
-  windowrule = workspace 3 silent, tag:im*
-  windowrule = workspace 5 silent, tag:music*
-  
-  # Float popups and dialogue  ---------------------------------
-  windowrule = float, title:^(Picture-in-Picture)$
-  windowrule = move 72% 7%,title:^(Picture-in-Picture)$
+      # Move to workspaces -----------------------------------------
+      # windowrule move to workspace
+      windowrule = workspace 1, tag:browser*
+      windowrule = workspace 3 silent, tag:im*
+      windowrule = workspace 5 silent, tag:music*
+      
+      # Float popups and dialogue  ---------------------------------
+      windowrule   = keepaspectratio, title:^(Picture.in.Picture|Picture-in-Picture)$
+      windowrulev2 = pin,             title:^(Picture.in.Picture|Picture-in-Picture)$
+      windowrulev2 = float,           title:^(Picture.in.Picture|Picture-in-Picture)$
+      windowrulev2 = size 25% 25%,    title:^(Picture.in.Picture|Picture-in-Picture)$
+      windowrulev2 = move 72% 7%,     title:^(Picture.in.Picture|Picture-in-Picture)$
+      
+      windowrule = float,  title:^(Authentication Required)$
+      windowrule = center, title:^(Authentication Required)$
 
-  windowrule = float, title:^(Authentication Required)$
-  windowrule = center, title:^(Authentication Required)$
-  
-  # Blur and Fullscreen ----------------------------------------
-  windowrule = noblur, tag:games*
-  windowrule = fullscreen, tag:games*
-  
-  # Extras -----------------------------------------------------
-  windowrule = keepaspectratio, title:^(Picture-in-Picture)$
+      windowrule = float, title:^(Open|Save|File|Folder).*$
+      windowrule = float, title:^(Open File|Save File|Save As).*$
+      windowrule = float, title:^(xdg-desktop-portal.*).*$
+      windowrule = float, class:^(pavucontrol)$
 
-  # Ref https://wiki.hypr.land/Configuring/Workspace-Rules/
-  # Smart gaps / No gaps when only
-  workspace = w[tv1], gapsout:0, gapsin:0
-  workspace = f[1], gapsout:0, gapsin:0
-  windowrule = bordersize 1, floating:0, onworkspace:w[tv1]
-  windowrule = rounding 0, floating:0, onworkspace:w[tv1]
-  windowrule = bordersize 1, floating:0, onworkspace:f[1]
-  windowrule = rounding 0, floating:0, onworkspace:f[1]
+      # Browser extensions - floating popup style
+      windowrule   = float,        title:^(Extension:.*)$
+      windowrulev2 = size 20% 40%, title:^(Extension:.*)$
+      
+      # Extras -----------------------------------------------------
+      
+      # Ref https://wiki.hypr.land/Configuring/Workspace-Rules/
+      # Smart gaps / No gaps when only
+      workspace  = w[tv1],        gapsout:0,  gapsin:0
+      workspace  = f[1],          gapsout:0,  gapsin:0
+      windowrule = bordersize 1, floating:0, onworkspace:w[tv1]
+      windowrule = rounding 0,   floating:0, onworkspace:w[tv1]
+      windowrule = bordersize 1, floating:0, onworkspace:f[1]
+      windowrule = rounding 0,   floating:0, onworkspace:f[1]
 
-  # Layerrule ----------------------------------------------------------------------------------------
-  # INFO: Remove border around hyprshot screenshots
-  layerrule = noanim, selection
-  # Blur --------------------------------------------------------
-  
-  # Opacity -----------------------------------------------------
-  # First value: focused, second:not focused
-  
-  # windowrulev2 = opacity 1, 1, title:^(Picture-in-Picture)$
-  
-  # Animations --------------------------------------------------
-  
-  # Picture-in-a-Picture ----------------------------------------
-  # (PIP) rules: Oddly, some need re-duplication.  This is because the window for
-  # PIP changes after on first launch, and will not inherant the rules...
-  
-  windowrulev2=pin,title:^(Picture-in-Picture)$ 
-  windowrulev2=float, title:^(Picture-in-Picture)$
-  windowrulev2=size 25% 25%,title:^(Picture-in-Picture)$ 
-  windowrulev2=move 72% 7%,title:^(Picture-in-Picture)$ 
-  
-  windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
-  windowrulev2 = noanim,class:^(xwaylandvideobridge)$
-  windowrulev2 = noinitialfocus,class:^(xwaylandvideobridge)$
-  windowrulev2 = maxsize 1 1,class:^(xwaylandvideobridge)$
-  windowrulev2 = noblur,class:^(xwaylandvideobridge)$
-    ";
+      windowrule = size 65% 100%, class:^(floorp)$
+
+      # Layerrule ----------------------------------------------------------------------------------------
+      # WARN: Remove border around hyprshot screenshots
+      layerrule = noanim, selection
+
+      windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
+      windowrulev2 = noanim,                           class:^(xwaylandvideobridge)$
+      windowrulev2 = noinitialfocus,                   class:^(xwaylandvideobridge)$
+      windowrulev2 = maxsize 1 1,                      class:^(xwaylandvideobridge)$
+      windowrulev2 = noblur,                           class:^(xwaylandvideobridge)$
+      ";
   };
 }

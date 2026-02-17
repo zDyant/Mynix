@@ -1,6 +1,22 @@
 { config, osConfig, lib, pkgs, inputs, ... }: {
   imports = [ inputs.play.homeManagerModules.play ];
 
+  wayland.windowManager.hyprland.settings.windowrule =
+    lib.mkIf config.wayland.windowManager.hyprland.enable [
+      "tag +gamestore, class:^([Ss]team)$"
+      "tag +gamestore, class:^([Ll]utris)$"
+      "tag +gamestore, class:^(com.heroicgameslauncher.hgl)$"
+      "tag +games, class:^(gamescope|\\.gamescope-wrapped)$"
+      "tag +games, class:^(steam_app_.*)$"
+
+      "noblur,     tag:games*"
+      "fullscreen, tag:games*"
+      "immediate,  tag:games*"
+
+      "workspace 2 silent, tag:gamestore*"
+      "workspace 2 silent, tag:games*"
+    ];
+
   monitors = [{
     name = "DP-2";
     primary = true;
@@ -21,7 +37,7 @@
       defaultHDR = null;
 
       baseOptions = {
-        "fsr-upscaling" = true;
+        "fsr-upscaling" = false;
         "backend" = "wayland";
       };
 
