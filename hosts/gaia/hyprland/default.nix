@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -14,7 +14,13 @@
 
   xdg.portal = {
     enable = true;
+    config.common.default = "wlr";
     wlr.enable = true;
+    wlr.settings.screencast = {
+      output_name = "DP-2";
+      chooser_type = "simple";
+      chooser_cmd = "${lib.getExe pkgs.slurp} -f 'Monitor: %o' -or";
+    };
     xdgOpenUsePortal = true;
     extraPortals = with pkgs;
       [
