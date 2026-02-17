@@ -58,6 +58,7 @@
       url = "github:tophc7/bonk";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    arroz-nix.url = "github:tophc7/arroz.nix";
   };
 
   outputs = { ... }@inputs:
@@ -71,6 +72,8 @@
     } {
       systems = [ "x86_64-linux" ];
       imports = [ inputs.mix-nix.flakeModules.default ];
+      imports = with inputs; [
+        arroz-nix.flakeModules.default
 
       perSystem = { system, pkgs, ... }: {
         _module.args.pkgs = import inputs.nixpkgs {
