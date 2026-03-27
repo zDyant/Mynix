@@ -8,7 +8,7 @@ stdenv.mkDerivation {
     owner = "tsora1603";
     repo = "pixora-theme";
     rev = "main";
-    sha256 = "sha256-fbWC9EpYA9i7xTfvqRPyD7fx68E8En7DVJIi1QwXUKU=";
+    sha256 = "sha256-TJh1TlRRpkNPX7T2BpVqBx1TC+JOuaahoOJlrFqpQs8=";
   };
 
   installPhase = ''
