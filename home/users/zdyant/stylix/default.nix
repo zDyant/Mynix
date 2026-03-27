@@ -10,10 +10,10 @@
 
     };
 
-    iconTheme = {
+    icons = {
       enable = true;
-      package = pkgs.reversal-icon-theme;
-      dark = "Reversal";
+      package = pkgs.pixora-icon-theme;
+      dark  = "pixora";
     };
 
   };
