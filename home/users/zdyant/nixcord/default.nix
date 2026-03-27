@@ -1,4 +1,4 @@
-{ lib, inputs, ... }: {
+{ inputs, ... }: {
   imports = [
     inputs.nixcord.homeModules.nixcord
     ./system24.nix
@@ -19,13 +19,13 @@
       plugins = {
         themeLibrary.enable = true;
         openInApp.enable = true;
-        allCallTimers = {
+        callTimer = {
           enable = true;
+          allCallTimers = true;
           trackSelf = true;
         };
         alwaysAnimate.enable = true;
         alwaysTrust.enable = true;
-        anammox.enable = true; # Removes gift/shop/boost buttons..
         animalese.enable = true;
         bannersEverywhere = {
           enable = true;
@@ -36,7 +36,6 @@
         betterGifPicker.enable = true;
         betterSettings.enable = true;
         biggerStreamPreview.enable = true;
-        callTimer.enable = true;
         ClearURLs.enable = true;
         clipsEnhancements.enable = true;
         colorSighted.enable = true;
@@ -47,14 +46,12 @@
         equicordHelper = {
           enable = true;
           noMirroredCamera = true;
-          disableCreateDMButton = true;
         };
         fakeNitro.enable = true;
         fixImagesQuality.enable = true;
         fixSpotifyEmbeds.enable = true;
         fixYoutubeEmbeds.enable = true;
         forwardAnywhere.enable = true;
-        ignoreTerms.enable = true;
         imageFilename.enable = true;
         keyboardSounds = {
           enable = true;
