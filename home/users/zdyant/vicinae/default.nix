@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }: {
+{ config, ... }: {
   wayland.windowManager.hyprland.settings = {
     bind = [
       "$mod, A, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
@@ -26,15 +26,19 @@
         csd = true;
         rounding = 0;
       };
+
+      providers = {
+        core.entrypoints = {
+          sponsor.enabled = false;
+          store.enabled = false;
+          documentation.enabled = false; # Documentation links
+          themeManager.enabled = false; # Theme browser
+          oauth-token-store.enabled = false;
+          report-bug.enabled = false;
+        };
+      };
     };
 
-    extensions = let
-      mkExt = name:
-        pkgs.runCommand "vicinae-ext-${name}" { } ''
-          mkdir -p $out
-          cp -r ${inputs.vicinae-extensions}/extensions/${name}/* $out/
-        '';
-    in [ (mkExt "nix") ];
   };
 
 }
