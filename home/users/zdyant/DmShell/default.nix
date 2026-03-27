@@ -1,4 +1,4 @@
-{ inputs, config, ... }:
+{ inputs, config, pkgs, ... }:
 let
   colorScheme = {
     dark = with config.lib.stylix.colors.withHashtag; {
@@ -45,8 +45,9 @@ let
     };
   };
 in {
-  imports = [ inputs.dms.homeModules.dankMaterialShell.default ];
-  programs.dankMaterialShell = {
+  imports = [ inputs.dms.homeModules.dank-material-shell ];
+  programs.dank-material-shell = {
+    dgop.package = inputs.dgop.packages.${pkgs.system}.default;
     enable = true;
     systemd.enable = true;
     systemd.restartIfChanged = true;

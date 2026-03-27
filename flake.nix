@@ -36,9 +36,11 @@
       inputs = { nixpkgs.follows = "nixpkgs-unstable"; };
     };
     nixcord = { url = "github:kaylorben/nixcord"; };
-    dms = {
-      url =
-        "github:AvengeMedia/DankMaterialShell/?ref=406dc64abab2ef04b27148720be34f43f2246b1f";
+    dms.url = "github:AvengeMedia/DankMaterialShell";
+    # INFO: temporary fix for dms 
+    dgop = {
+      url = "github:AvengeMedia/dgop";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     textfox = { url = "github:adriankarlen/textfox"; };
     betterfox = {
