@@ -31,7 +31,6 @@
       "$mod SHIFT, U, movetoworkspace, special"
       "$mod, U, togglespecialworkspace"
 
-
       # Hyprland ---------------------------------------------------------
       "CTRL ALT, Delete, exec, hyprctl dispatch exit 0"
 
@@ -96,6 +95,9 @@
     ];
 
     # Move/resize windows with mod + LMB/RMB and dragging
-    bindm = [ "$mod, mouse:272, movewindow" "$mod, mouse:273, resizewindow" ];
+    bindm = [
+      "$mod, mouse:272, movewindow"
+      "$mod, mouse:273, resizewindow"
+    ];
   };
 }
