@@ -10,8 +10,8 @@
     };
 
     image = pkgs.fetchurl {
-      url = "https://w.wallhaven.cc/full/o5/wallhaven-o5zrj7.jpg";
-      sha256 = "sha256-oL0wnPOdNQbryau0F6ie715gbd/W41vzCOfuBJeCkVA=";
+      url = "https://w.wallhaven.cc/full/5y/wallhaven-5y7wz1.png";
+      sha256 = "sha256-h7MH1ysRaSDlQ8DXHPGmyBmQsdSRKbMQXwVO2N+yVyk=";
     };
     base16Scheme = "${pkgs.base16-schemes}/share/themes/horizon-dark.yaml";
 
