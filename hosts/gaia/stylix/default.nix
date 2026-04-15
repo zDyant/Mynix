@@ -42,6 +42,12 @@
         name = "Noto Color Emoji";
       };
     };
-
   };
+
+  environment.systemPackages = with pkgs; [
+    cinzel
+    maple-mono.NF
+    geist-font
+    departure-mono
+  ];
 }
