@@ -21,5 +21,7 @@ in {
     "$mod, T, exec, ${terminal}" # Launch terminal
     "$mod, E, exec, ${terminal} ${shell} yazi" # File manager
     "$mod, return, exec, ${terminal} -d ${dotsPath} ${shell} nvim -c 'terminal'"
+
+    "$mod, S, exec, ${lib.getExe pkgs.grim} - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"}"
   ];
 }
