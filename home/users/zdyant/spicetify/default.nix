@@ -36,6 +36,11 @@ in {
       shuffle
       playNext
       autoSkip
+      loopyLoop
+      sectionMarker
+      skipAfterTimestamp
+      aiBandBlocker
+      madeForYouShortcut
     ];
   };
 }
