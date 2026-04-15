@@ -23,10 +23,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    vicinae-extensions = {
-      url = "github:vicinaehq/extensions";
-      flake = false;
-    };
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
