@@ -14,14 +14,14 @@
         animation = layersOut, 1, 4, emphasizedAccel, slide
         animation = fadeLayers, 1, 4, standard
 
-        animation = windowsIn, 1, 5, emphasizedDecel
-        animation = windowsOut, 1, 3, emphasizedAccel
-        animation = windowsMove, 1, 4, standard
+        animation = windowsIn, 1, 5, emphasizedDecel, gnomed
+        animation = windowsOut, 1, 5, emphasizedAccel, gnomed
+        animation = windowsMove, 1, 5, standard
 
         animation = workspaces, 1, 4, swipe, slidefade 20%
         animation = specialWorkspace, 1, 4, swipe, slidefadevert 20%
 
-        animation = fade, 1, 6, standard
+        animation = fade, 1, 6, emphasizedDecel
         animation = fadeDim, 1, 6, standard
         animation = border, 1, 6, standard
       }
