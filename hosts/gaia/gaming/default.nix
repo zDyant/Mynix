@@ -1,4 +1,5 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+{
   imports = [ inputs.play.nixosModules.play ];
 
   # AMD Gpu Control
@@ -7,7 +8,12 @@
 
   environment.systemPackages = with pkgs; [ lact ];
 
-  hardware.graphics = { enable = true; };
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
+  };
 
   play = {
     amd.enable = true;
