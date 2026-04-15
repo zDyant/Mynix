@@ -49,7 +49,7 @@
 
     decoration = {
       rounding = 0;
-      dim_inactive = true;
+      dim_inactive = false;
       dim_strength = 0.24;
 
       shadow.enabled = false;
