@@ -13,7 +13,7 @@
       url = "https://w.wallhaven.cc/full/5y/wallhaven-5y7wz1.png";
       sha256 = "sha256-h7MH1ysRaSDlQ8DXHPGmyBmQsdSRKbMQXwVO2N+yVyk=";
     };
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/horizon-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
 
     cursor = {
       package = pkgs.vision-cursor;
