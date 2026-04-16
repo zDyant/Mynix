@@ -4,4 +4,5 @@ pkgs: {
   vision-cursor = pkgs.callPackage ./vision-cursor.nix { };
   hints = pkgs.callPackage ./hints.nix { python3Packages = pkgs.python312Packages; };
   pixora-icon-theme = pkgs.callPackage ./pixora.nix { };
+  surge = pkgs.callPackage ./surge.nix { };
 }

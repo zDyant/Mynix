@@ -31,6 +31,8 @@
       windowrule = float, title:^(Open File|Save File|Save As).*$
       windowrule = float, title:^(xdg-desktop-portal.*).*$
       windowrule = float, class:^(pavucontrol)$
+      windowrule = float,        class:^(download-manager)$
+      windowrule = size 40% 60%, class:^(download-manager)$
 
       # Browser extensions - floating popup style
       windowrule   = float,        title:^(Extension:.*)$

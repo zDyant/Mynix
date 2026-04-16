@@ -33,6 +33,10 @@ in {
         key = "e";
         desc = "Cosmic Files";
         cmd = lib.getExe pkgs.cosmic-files;
+      {
+        key = "d";
+        desc = "Download Manager";
+        cmd = "${lib.getExe pkgs.kitty} --class download-manager ${lib.getExe pkgs.surge}";
       }
 
       # Recording
