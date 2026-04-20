@@ -1,12 +1,9 @@
 { stdenv, pkgs }:
-let
-  v = "0.8.1";
-in
-stdenv.mkDerivation {
+stdenv.mkDerivation  rec {
   pname = "Surge";
-  version = v;
+  version = "0.8.1";
   src = pkgs.fetchurl {
-    url = "https://github.com/SurgeDM/Surge/releases/download/v${v}/Surge_${v}_linux_amd64.tar.gz";
+    url = "https://github.com/SurgeDM/Surge/releases/download/v${version}/Surge_${version}_linux_amd64.tar.gz";
     hash = "sha256-mzMZWHY+gJ+YwKK1sEvCR4q2i7NXanhm3v6KIWeDtRw=";
   };
   sourceRoot = ".";
