@@ -23,8 +23,8 @@
 
     fonts = {
       serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
+        package = pkgs.cinzel;
+        name = "cinzel";
       };
 
       sansSerif = {
@@ -40,6 +40,12 @@
       emoji = {
         package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
+      };
+      sizes = {
+        applications = 12;
+        desktop = 11;
+        popups = 11;
+        terminal = 12;
       };
     };
   };
