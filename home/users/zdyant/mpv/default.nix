@@ -25,6 +25,8 @@
         "download_path" = "${config.xdg.userDirs.videos}/mpv";
 
         "osc_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base00;
+        "scalewindowed" = "0.6";
+        "hover_effect" = "size";
 
         "hover_effect_color"   = lib.mkDefault config.lib.stylix.colors.withHashtag.base05;
         "side_buttons_color"   = lib.mkDefault config.lib.stylix.colors.withHashtag.base04;
@@ -33,7 +35,6 @@
 
         "seekbarfg_color"     = lib.mkDefault config.lib.stylix.colors.withHashtag.base0D;
         "seekbarbg_color"     = lib.mkDefault config.lib.stylix.colors.withHashtag.base04;
-        "seek_handle_color"   = lib.mkDefault config.lib.stylix.colors.withHashtag.base0D;
         "seekbar_cache_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base0A;
 
         "window_controls_color"      = lib.mkDefault config.lib.stylix.colors.withHashtag.base04;
