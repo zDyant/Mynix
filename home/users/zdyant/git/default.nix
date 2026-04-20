@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
 
   programs.difftastic = {
     enable = true;
@@ -24,8 +25,12 @@
         preloadindex = true;
       };
       url = {
-        "git@github.com:zdyant/" = { insteadOf = "zdyant:"; };
-        "git@github.com" = { insteadOf = "gh:"; };
+        "git@github.com:zdyant/" = {
+          insteadOf = "zdyant:";
+        };
+        "git@github.com" = {
+          insteadOf = "gh:";
+        };
       };
       status = {
         branch = true;
@@ -35,6 +40,14 @@
         context = 3;
         renames = "copies";
         interHunkContext = 10;
+      };
+      extraConfig = {
+        init.defaultBranch = "main";
+        pull = {
+          rebase = true;
+          ff = "only";
+        };
+        core.editor = "nvim";
       };
     };
   };
