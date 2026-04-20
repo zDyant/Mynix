@@ -12,8 +12,8 @@
 
     icons = {
       enable = true;
-      package = pkgs.pixora-icon-theme;
-      dark  = "pixora";
+      package = pkgs.pixora-icons;
+      dark  = "pixora-icons";
     };
 
   };
