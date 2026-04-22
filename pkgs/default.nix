@@ -1,7 +1,6 @@
-pkgs: {
-  # example = pkgs.callPackage ./example { };
-  stremio-enhanced = pkgs.callPackage ./stremio-enhanced.nix { };
-  vision-cursor = pkgs.callPackage ./vision-cursor.nix { };
-  pixora-icons = pkgs.callPackage ./pixora.nix { };
-  surge = pkgs.callPackage ./surge.nix { };
-}
+# https://github.com/TophC7/mix.nix/blob/main/packages/default.nix
+{
+  lib,
+  pkgs,
+}:
+lib.fs.importAttrs ./. {inherit lib pkgs;}

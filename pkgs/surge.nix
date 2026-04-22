@@ -1,5 +1,9 @@
-{ stdenv, pkgs }:
-stdenv.mkDerivation  rec {
+{
+  lib,
+  pkgs,
+  ...
+}:
+pkgs.stdenvNoCC.mkDerivation rec {
   pname = "Surge";
   version = "0.8.1";
   src = pkgs.fetchurl {

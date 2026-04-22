@@ -1,4 +1,7 @@
-{ pkgs, ... }: {
+{
+  pkgs,
+  ...
+}: {
   stylix = {
     enable = true;
 
@@ -7,15 +10,12 @@
         enable = true;
         platform = "qtct";
       };
-
     };
 
     icons = {
       enable = true;
       package = pkgs.pixora-icons;
-      dark  = "pixora-icons";
+      dark = "pixora-icons";
     };
-
   };
-
 }

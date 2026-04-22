@@ -1,23 +1,20 @@
 {
   lib,
-  stdenvNoCC,
-  fetchurl,
+  pkgs,
 }:
-
-stdenvNoCC.mkDerivation (finalAttrs: {
+pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "vision-cursor";
   version = "1.0";
 
   srcs = [
-    (fetchurl {
+    (pkgs.fetchurl {
       url = "https://github.com/zDyant/Vision-Cursor/releases/download/v${finalAttrs.version}/Vision-Black-Linux.tar.gz";
       hash = "sha256-Mgz00DxJ4g6JCu5D1V/O507pJN9iEGw37SzFHAc9tVY=";
     })
-    (fetchurl {
+    (pkgs.fetchurl {
       url = "https://github.com/zDyant/Vision-Cursor/releases/download/v${finalAttrs.version}/Vision-White-Linux.tar.gz";
       hash = "sha256-IYwWAyiNjosGxC5vddvnfGwtVghWOoCl0hXqxVsKDh4=";
     })
-
   ];
 
   sourceRoot = ".";
