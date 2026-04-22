@@ -43,12 +43,6 @@
   services.openssh.enable = true;
   services.hardware.openrgb.enable = true;
 
-  # INFO: uinput for hintsd
-  hardware.uinput.enable = true;
-  # AT-SPI bridge
-  # Required for hintsd accessibility scanning.
-  services.gnome.at-spi2-core.enable = true;
-
   # Garbage collector ------------------------------------
   nix.gc = {
     automatic = true;
