@@ -3,7 +3,6 @@
 
   nixpkgs = {
     overlays = [
-      inputs.self.overlays.unstable-pkgs
       inputs.self.overlays.lix
       inputs.self.overlays.packages
     ];

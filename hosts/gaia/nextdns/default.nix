@@ -27,10 +27,10 @@ in
       mode = "0440";
     };
     services.resolved.enable = true;
-    services.resolved.dnsovertls = "true";
+    services.resolved.settings.Resolve.DNSOverTLS = "true";
 
     # prevent switching back to default dns
     networking.networkmanager.dns = lib.mkDefault "systemd-resolved";
-    services.resolved.domains = [ "~." ];
+    services.resolved.settings.Resolve.Domains = [ "~." ];
   };
 }

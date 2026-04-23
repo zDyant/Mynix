@@ -3,18 +3,17 @@
 
   wayland.windowManager.hyprland.settings.windowrule =
     lib.mkIf config.wayland.windowManager.hyprland.enable [
-      "tag +gamestore, class:^([Ss]team)$"
-      "tag +gamestore, class:^([Ll]utris)$"
-      "tag +gamestore, class:^(com.heroicgameslauncher.hgl)$"
-      "tag +games, class:^(gamescope|\\.gamescope-wrapped)$"
-      "tag +games, class:^(steam_app_.*)$"
+      "tag +gamestore, match:class ^([Ss]team)$"
+      "tag +gamestore, match:class ^([Ll]utris)$"
+      "tag +gamestore, match:class ^(com.heroicgameslauncher.hgl)$"
+      "tag +games, match:class ^(gamescope|\\.gamescope-wrapped)$"
+      "tag +games, match:class ^(steam_app_.*)$"
 
-      "noblur,     tag:games*"
-      "fullscreen, tag:games*"
-      "immediate,  tag:games*"
+      "no_blur on,     match:tag games*"
+      "fullscreen on, match:tag games*"
 
-      "workspace 2 silent, tag:gamestore*"
-      "workspace 2 silent, tag:games*"
+      "workspace 2 silent, match:tag gamestore*"
+      "workspace 2 silent, match:tag games*"
     ];
 
   monitors = [{

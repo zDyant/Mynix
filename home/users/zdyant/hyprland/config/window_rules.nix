@@ -1,65 +1,30 @@
-{ ... }: {
+{...}: {
+  wayland.windowManager.hyprland.settings.windowrule = [
+    # # Idle & Fullscreen
+    "idle_inhibit fullscreen, match:fullscreen true"
+    "idle_inhibit fullscreen, match:fullscreen 1"
 
-  wayland.windowManager.hyprland = {
-    extraConfig =
-      "
-      windowrulev2 = idleinhibit fullscreen, fullscreen:1
+    "tag +browser, match:class ^([Ff]loorp)$"
+    "tag +im,      match:class ^(.*[Cc]ord)$"
+    "tag +music,   match:class ^([Ss]potify)$"
+    "tag +config,  match:class ^(pavucontrol)$"
+    "tag +config,  match:class ^(Open|Save|File|Folder)$"
+    "tag +config,  match:class ^(Open File|Save File|Save as)$"
+    "tag +config,  match:class ^(Authentication Required)$"
 
-      
-      windowrule = tag +browser, class:^([Ff]loorp)$
-      windowrule = tag +im,      class:^([Ff]erdium)$
-      windowrule = tag +im,      class:^(.*[Cc]ord) 
-      windowrule = tag +music,   class:^([Ss]potify)$
+    # Move to workspaces -----------------------------------------
+    "workspace 1,        match:tag browser*"
+    "workspace 3 silent, match:tag im*"
+    "workspace 5 silent, match:tag music*"
+    "float on,           match:tag config*"
+    "center on,          match:tag config*"
 
-      # Move to workspaces -----------------------------------------
-      # windowrule move to workspace
-      windowrule = workspace 1, tag:browser*
-      windowrule = workspace 3 silent, tag:im*
-      windowrule = workspace 5 silent, tag:music*
-      
-      # Float popups and dialogue  ---------------------------------
-      windowrule   = keepaspectratio, title:^(Picture.in.Picture|Picture-in-Picture)$
-      windowrulev2 = pin,             title:^(Picture.in.Picture|Picture-in-Picture)$
-      windowrulev2 = float,           title:^(Picture.in.Picture|Picture-in-Picture)$
-      windowrulev2 = size 25% 25%,    title:^(Picture.in.Picture|Picture-in-Picture)$
-      windowrulev2 = move 72% 7%,     title:^(Picture.in.Picture|Picture-in-Picture)$
-      
-      windowrule = float,  title:^(Authentication Required)$
-      windowrule = center, title:^(Authentication Required)$
+    "float on,     match:class ^(download-manager)$"
+    "size 40% 60%, match:class ^(download-manager)$"
 
-      windowrule = float, title:^(Open|Save|File|Folder).*$
-      windowrule = float, title:^(Open File|Save File|Save As).*$
-      windowrule = float, title:^(xdg-desktop-portal.*).*$
-      windowrule = float, class:^(pavucontrol)$
-      windowrule = float,        class:^(download-manager)$
-      windowrule = size 40% 60%, class:^(download-manager)$
-
-      # Browser extensions - floating popup style
-      windowrule   = float,        title:^(Extension:.*)$
-      windowrulev2 = size 20% 40%, title:^(Extension:.*)$
-      
-      # Extras -----------------------------------------------------
-      
-      # Ref https://wiki.hypr.land/Configuring/Workspace-Rules/
-      # Smart gaps / No gaps when only
-      workspace  = w[tv1],        gapsout:0,  gapsin:0
-      workspace  = f[1],          gapsout:0,  gapsin:0
-      windowrule = bordersize 1, floating:0, onworkspace:w[tv1]
-      windowrule = rounding 0,   floating:0, onworkspace:w[tv1]
-      windowrule = bordersize 1, floating:0, onworkspace:f[1]
-      windowrule = rounding 0,   floating:0, onworkspace:f[1]
-
-      windowrule = size 65% 100%, class:^(floorp)$
-
-      # Layerrule ----------------------------------------------------------------------------------------
-      # WARN: Remove border around hyprshot screenshots
-      layerrule = noanim, selection
-
-      windowrulev2 = opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$
-      windowrulev2 = noanim,                           class:^(xwaylandvideobridge)$
-      windowrulev2 = noinitialfocus,                   class:^(xwaylandvideobridge)$
-      windowrulev2 = maxsize 1 1,                      class:^(xwaylandvideobridge)$
-      windowrulev2 = noblur,                           class:^(xwaylandvideobridge)$
-      ";
-  };
+    "match:title ^(Picture-in-Picture)$, float on, move 72% 7%, pin on keep_aspect_ratio on, size 40%"
+    # Layerrule ----------------------------------------------------------------------------------------
+    # INFO: Remove border around hyprshot screenshots
+    # "no_anim on, match:namespace selection"
+  ];
 }

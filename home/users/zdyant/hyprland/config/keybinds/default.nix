@@ -1,9 +1,6 @@
-{ ... }:
+{ lib, ... }:
 {
-  imports = [
-    ./wlr-which-key.nix
-    ./misc.nix
-  ];
+  imports = lib.fs.scanPaths ./.;
   wayland.windowManager.hyprland.settings."$mod" = "SUPER";
   wayland.windowManager.hyprland.settings = {
     # Windows control ------------------------------------------------------------

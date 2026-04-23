@@ -9,7 +9,7 @@
     protonup-qt
     adwsteamgtk # Theme for steam
     steamtinkerlaunch
-    wineWowPackages.stagingFull # Don't change!!!, wayland version is broken
+    wineWow64Packages.stagingFull # Don't change!!!, wayland version is broken
     hydralauncher
     # xivlauncher
 

@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ ... }: {
   wayland.windowManager.hyprland.settings = {
     bind = [
       "$mod, A, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
@@ -16,11 +16,6 @@
       faviconService = "twenty";
       popToRootOnClose = true;
       rootSearch.searchFiles = false;
-
-      font = {
-        normal = "${config.stylix.fonts.monospace.name}";
-        size = 12;
-      };
 
       window = {
         csd = true;
