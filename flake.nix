@@ -29,11 +29,6 @@
       url = "github:tophc7/play.nix";
     };
     nixcord = { url = "github:kaylorben/nixcord"; };
-    dms.url = "github:AvengeMedia/DankMaterialShell";
-    # INFO: temporary fix for dms 
-    dgop = {
-      url = "github:AvengeMedia/dgop";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     textfox = { url = "github:adriankarlen/textfox"; };
     betterfox = {
