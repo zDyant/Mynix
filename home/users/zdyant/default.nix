@@ -1,14 +1,35 @@
 {
+  flakeRoot,
   lib,
   pkgs,
   ...
-}:
-{
-  imports = lib.fs.scanPaths ./.;
+}: {
+  imports = lib.flatten [
+    (lib.fs.scanPaths ./.)
+    (map (lib.fs.relativeTo flakeRoot) [
+      "modules/home/common/floorp"
+      "modules/home/common/gaming"
+      "modules/home/common/mpv"
+      "modules/home/common/nautilus"
+      "modules/home/common/nixcord"
+      "modules/home/common/yazi"
+      "modules/home/common/bat.nix"
+      "modules/home/common/kitty.nix"
+      "modules/home/common/npm.nix"
+      "modules/home/common/spaceship.nix"
+      "modules/home/common/spicetify.nix"
+      "modules/home/common/stylix.nix"
+      "modules/home/common/tldr.nix"
+      "modules/home/common/tmux.nix"
+      "modules/home/common/vicinae.nix"
+      "modules/home/common/wallpaper-engine.nix"
+      "modules/home/common/zsh.nix"
+
+    ])
+  ];
 
   # Why I enabled this?
   gtk.enable = true;
-
   home.sessionVariables = {
     # WLR_RENDERER = "vulkan";  # WARN: KEEP IT OFF, OTHERWISE HYPRLAND WON'T LAUNCH
   };
@@ -16,36 +37,22 @@
   # Check LIBS on configuration.nix
   home.packages = with pkgs; [
     # Cli tools -----------------------------------------------
-    man-pages
     wf-recorder
-    rclone # Backup to proton drive
-    distrobox
     devenv # Ease the use of nix-shell
-    imv
-    zathura
-
-    # Chatting -----------------------------------------------------
-    ferdium
 
     # Apps ---------------------------------------------------------
-    file-roller
-    eog # Image-viewer
     rnote # Scratch pad
-    motrix # DL/Torrent manager
     obsidian # Love you obsidian
-    pavucontrol
-    evince # PDF reader
-    authenticator # OTP manager
-    planify     # Todo-List
-    unstable.cosmic-files # Die gnome
-    youtube-music
+    planify # Todo-List
     anki
-    stremio-enhanced
+    oxipng
+    obs-studio
+    hyperhdr
+    filen-cli
+    rclone
   ];
 
   home.username = "zdyant";
   home.homeDirectory = "/home/zdyant";
   home.stateVersion = "23.11"; # DONT TOUCH!
-
-  programs.home-manager.enable = true;
 }

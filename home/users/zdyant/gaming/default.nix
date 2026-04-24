@@ -1,25 +1,23 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./gamescope.nix
-    # ./switch.nix
+
+  monitors = [
+    {
+      name = "DP-2";
+      primary = true;
+      width = 1920;
+      height = 1080;
+      refreshRate = 144;
+      hdr = true;
+      vrr = true;
+    }
   ];
 
   home.packages = with pkgs; [
-    protonup-qt
     adwsteamgtk # Theme for steam
-    steamtinkerlaunch
-    wineWow64Packages.stagingFull # Don't change!!!, wayland version is broken
-    hydralauncher
+    # hydralauncher
     # xivlauncher
-
-    # INFO: installed using play.nix
-    # lutris
-    # heroic
-
     # moonlight-qt
-    # prismlauncher
-    # jdk21
     # unstable.nexusmods-app
 
     # emulators -----------------------
@@ -29,11 +27,4 @@
     # rpcs3           # PS3
     # cemu            # Wii u
   ];
-
-  programs.mangohud = {
-    enable = true;
-    settings = {
-      preset = 3;
-    };
-  };
 }

@@ -25,6 +25,6 @@
     "match:title ^(Picture-in-Picture)$, float on, move 72% 7%, pin on keep_aspect_ratio on, size 40%"
     # Layerrule ----------------------------------------------------------------------------------------
     # INFO: Remove border around hyprshot screenshots
-    # "no_anim on, match:namespace selection"
+    "no_anim on, match:namespace selection"
   ];
 }

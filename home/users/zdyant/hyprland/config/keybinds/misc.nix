@@ -1,6 +1,6 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, config, ... }:
 let
-  dotsPath = "$HOME/Documents/dots/";
+  dotsPath = config.home.homeDirectory + "/repos/dots";
   terminal = lib.getExe pkgs.kitty;
   shell = "${lib.getExe pkgs.zsh} -c";
   playerctl = "${lib.getExe pkgs.playerctl} -p spotify";
@@ -20,7 +20,7 @@ in {
     # Launchers
     "$mod, T, exec, ${terminal}" # Launch terminal
     "$mod, E, exec, ${terminal} ${shell} yazi" # File manager
-    "$mod, return, exec, ${terminal} -d ${dotsPath} ${shell} nvim -c 'terminal'"
+    "$mod, RETURN, exec, ${terminal} ${shell} 'cd ${dotsPath} && nvim +terminal'"
 
     "$mod, S, exec, ${lib.getExe pkgs.grim} - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"}"
   ];

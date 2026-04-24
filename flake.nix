@@ -15,8 +15,9 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/NUR";
-
+    nur = {
+      url = "github:nix-community/NUR";
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,15 +29,20 @@
     play = {
       url = "github:tophc7/play.nix";
     };
-    nixcord = { url = "github:kaylorben/nixcord"; };
+    nixcord = {
+      url = "github:kaylorben/nixcord";
     };
-    textfox = { url = "github:adriankarlen/textfox"; };
+    textfox = {
+      url = "github:adriankarlen/textfox";
+      flake = false;
+    };
     betterfox = {
       url = "github:yokoffing/Betterfox";
       flake = false;
     };
-    userstyles = { url = "github:knoopx/nix-userstyles"; };
-
+    userstyles = {
+      url = "github:knoopx/userContent.css";
+    };
     flake-parts.url = "github:hercules-ci/flake-parts";
     mix-nix = {
       url = "github:tophc7/mix.nix";
@@ -45,25 +51,29 @@
       url = "github:tophc7/bonk";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    arroz-nix.url = "github:tophc7/arroz.nix";
   };
 
-  outputs = { ... }@inputs:
-    let
-      # Extend nixpkgs lib with mix.nix utilities BEFORE entering flake-parts
-      # This gives us lib.fs.*, lib.hosts.*, lib.desktop.*, etc.
-      lib = inputs.mix-nix.lib;
-    in inputs.flake-parts.lib.mkFlake {
+  outputs = {...} @ inputs: let
+    # INFO: Extend nixpkgs lib with mix.nix utilities BEFORE entering flake-parts
+    # This gives us lib.fs.*, lib.hosts.*, lib.desktop.*, etc.
+    lib = inputs.mix-nix.lib;
+  in
+    inputs.flake-parts.lib.mkFlake
+    {
       inherit inputs;
-      specialArgs = { inherit lib; };
-    } {
-      systems = [ "x86_64-linux" ];
+      specialArgs = {inherit lib;};
+    }
+    {
+      systems = ["x86_64-linux"];
       imports = with inputs; [
         mix-nix.flakeModules.default
-        arroz-nix.flakeModules.default
       ];
 
-      perSystem = { system, pkgs, ... }: {
+      perSystem = {
+        system,
+        pkgs,
+        ...
+      }: {
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;
           config.allowUnfree = true;
@@ -72,16 +82,15 @@
         # INFO:
         # Run the hooks in a sandbox with `nix flake check`.
         # Read-only filesystem and no internet access.
-        checks = import ./checks.nix { inherit inputs system pkgs; };
+        checks = import ./checks.nix {inherit inputs system pkgs;};
 
         # INFO:
         # Enter a development shell with `nix develop -c pre-commit run -a`.`
         # The hooks will be installed automatically.
-        devShells.default =
-          import ./shell.nix { checks = inputs.self.checks.${system}; };
+        devShells.default = import ./shell.nix {checks = inputs.self.checks.${system};};
       };
 
-      flake.overlays = import ./overlays { inherit inputs; };
+      flake.overlays = import ./overlays {inherit lib inputs;};
       mix = {
         coreModules = with inputs; [
           stylix.nixosModules.stylix
@@ -90,16 +99,30 @@
           bonk.nixosModules.default
           ./modules/host/core
         ];
-        coreHomeModules = [ ];
-        hostsDir = ./hosts;
-        hostsHomeDir = ./home/hosts;
-        usersHomeDir = ./home/users;
+        coreHomeModules = [./modules/home/core];
+        hostsDir        = ./hosts;
+        hostsHomeDir    = ./home/hosts;
+        usersHomeDir    = ./home/users;
+
+        specialArgs = let flakeRoot = ./.; in {inherit flakeRoot;};
 
         users.zdyant = {
           name = "zdyant";
           uid = 1000;
           shell = "zsh";
-          extraGroups = [ "networkmanager" "wheel" "docker" ];
+          extraGroups = [
+            "adbusers"
+            "audio"
+            "docker"
+            "gamemode"
+            "git"
+            "i2c"
+            "input"
+            "libvirtd"
+            "networkmanager"
+            "video"
+            "wheel"
+          ];
         };
         hosts.gaia.user = "zdyant";
       };

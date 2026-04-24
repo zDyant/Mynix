@@ -24,7 +24,7 @@
     general = {
       gaps_in = 4;
       gaps_out = 10;
-      border_size = 1;
+      border_size = 2;
       resize_on_border = false;
       "col.active_border" = lib.mkForce "rgb(${config.lib.stylix.colors.base0A})";
       layout = "dwindle";

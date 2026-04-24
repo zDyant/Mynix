@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }: {
-
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = lib.fs.scanPaths ./.;
 
   environment.variables.EDITOR = "nvim";
@@ -7,24 +10,39 @@
   programs.git.enable = true;
 
   environment.systemPackages = with pkgs; [
+    jq
+    openssh
     ripgrep
     fzf
     eza
     curl
     neovim
-    vim
+    lazygit
     wget
     unrar
     unzip
     fd
     yazi
-    git
   ];
 
+  documentation.nixos.enable = lib.mkForce false;
   nix = {
+    # Garbage collector ------------------------------------
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+
     settings = {
+      connect-timeout = 5;
+      log-lines = 25;
+      min-free = 128000000; # 128MB
+      max-free = 1000000000; # 1GB
+
       # STFU
       warn-dirty = false;
+
       # https://bmcgee.ie/posts/2023/12/til-how-to-optimise-substitutions-in-nix/
       http-connections = 128;
       max-substitution-jobs = 128;
@@ -32,17 +50,14 @@
       builders-use-substitutes = true;
       auto-optimise-store = true;
       max-jobs = "auto";
+
       # continue building derivations if one fails
       keep-going = true;
+      experimental-features = ["nix-command" "flakes"];
 
-      experimental-features = [ "nix-command" "flakes" ];
-
-      substituters = [ "https://cache.nixos.org" ];
-
-      trusted-public-keys =
-        [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+      substituters = ["https://cache.nixos.org"];
+      trusted-public-keys = ["cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="];
     };
-
   };
 
   nixpkgs.config = {
@@ -55,5 +70,5 @@
 
   # WE DONT WANT TO BUILD STUFF ON TMPFS
   # ITS NOT A GOOD IDEA
-  systemd.services.nix-daemon = { environment.TMPDIR = "/var/tmp"; };
+  systemd.services.nix-daemon = {environment.TMPDIR = "/var/tmp";};
 }
