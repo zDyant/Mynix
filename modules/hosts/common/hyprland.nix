@@ -1,9 +1,10 @@
 { config, lib, pkgs, ... }: {
+  # WARN: test if arroz-nix handles it, if not include on import
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
     withUWSM = true;
-    portalPackage = pkgs.xdg-desktop-portal-gtk;
+    portalPackage = lib.mkForce pkgs.xdg-desktop-portal-gtk;
   };
 
   services.displayManager.defaultSession =
@@ -23,10 +24,6 @@
     };
     xdgOpenUsePortal = true;
     extraPortals = with pkgs;
-      [
-        # xdg-desktop-portal-hyprland
-        xdg-desktop-portal-gtk
-        # xdg-desktop-portal-wlr
-      ];
+      [ xdg-desktop-portal-gtk ];
   };
 }

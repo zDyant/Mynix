@@ -16,6 +16,11 @@
       "modules/hosts/common/flatpak.nix"
       "modules/hosts/common/gaming.nix"
       "modules/hosts/common/terminal.nix"
+      "modules/hosts/common/cache.nix"
+      "modules/hosts/common/lix.nix"
+      "modules/hosts/common/nextdns.nix"
+      "modules/hosts/common/sunshine.nix"
+      "modules/hosts/common/hyprland.nix"
     ])
   ];
 
