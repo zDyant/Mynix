@@ -97,7 +97,7 @@
           sops-nix.nixosModules.sops
           nur.modules.nixos.default
           bonk.nixosModules.default
-          ./modules/host/core
+          ./modules/hosts/core
         ];
         coreHomeModules = [./modules/home/core];
         hostsDir        = ./hosts;

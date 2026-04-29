@@ -8,14 +8,14 @@
   imports = lib.flatten [
     (lib.fs.scanPaths ./.)
     (map (lib.fs.relativeTo flakeRoot) [
-      "modules/host/common/amd.nix"
-      "modules/host/common/adb.nix"
-      "modules/host/common/audio.nix"
-      "modules/host/common/bluetooth.nix"
-      "modules/host/common/docker.nix"
-      "modules/host/common/flatpak.nix"
-      "modules/host/common/gaming.nix"
-      "modules/host/common/terminal.nix"
+      "modules/hosts/common/amd.nix"
+      "modules/hosts/common/adb.nix"
+      "modules/hosts/common/audio.nix"
+      "modules/hosts/common/bluetooth.nix"
+      "modules/hosts/common/docker.nix"
+      "modules/hosts/common/flatpak.nix"
+      "modules/hosts/common/gaming.nix"
+      "modules/hosts/common/terminal.nix"
     ])
   ];
 
