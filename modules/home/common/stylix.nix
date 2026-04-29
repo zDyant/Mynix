@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  stylix = lib.mkForce {
+  stylix = {
     enable = true;
 
     targets = {
@@ -13,7 +13,7 @@
       };
     };
 
-    icons = {
+    icons = lib.mkForce {
       enable = true;
       package = pkgs.pixora-icons;
       dark = "pixora-icons";
