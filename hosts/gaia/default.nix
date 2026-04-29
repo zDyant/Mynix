@@ -24,7 +24,6 @@
     ])
   ];
 
-  programs.dms-shell.enable = true;
   environment.systemPackages = with pkgs; [
     zlib
     zlib-ng
