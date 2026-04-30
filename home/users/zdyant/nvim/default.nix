@@ -10,6 +10,7 @@
     nodejs
     # Needed for hyprls
     go
+    uv
     # python3
 
     # Required by nvim
