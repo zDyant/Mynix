@@ -30,7 +30,7 @@
       defaultHDR = null;
 
       baseOptions = {
-        "fsr-upscaling" = true;
+        "fsr-upscaling" = false;
         "backend" = "wayland";
       };
 
@@ -61,7 +61,6 @@
       heroic = lib.mkDefault {
         enable = true;
         package = pkgs.heroic; # No special package configured by play.nix
-        extraOptions = {"force-windows-fullscreen" = true;};
       };
 
       lutris = lib.mkDefault {
