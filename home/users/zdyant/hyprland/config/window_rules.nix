@@ -1,5 +1,11 @@
 {...}: {
-  wayland.windowManager.hyprland.settings.windowrule = [
+  wayland.windowManager.hyprland.settings = {
+    layerrule = [
+      # INFO: Remove border around hyprshot screenshots
+      "no_anim on, match:namespace selection"
+    ];
+
+    windowrule = [
     # # Idle & Fullscreen
     "idle_inhibit fullscreen, match:fullscreen true"
     "idle_inhibit fullscreen, match:fullscreen 1"
@@ -23,8 +29,7 @@
     "size 40% 60%, match:class ^(download-manager)$"
 
     "match:title ^(Picture-in-Picture)$, float on, move 72% 7%, pin on keep_aspect_ratio on, size 40%"
-    # Layerrule ----------------------------------------------------------------------------------------
-    # INFO: Remove border around hyprshot screenshots
-    "no_anim on, match:namespace selection"
   ];
+  };
+
 }
