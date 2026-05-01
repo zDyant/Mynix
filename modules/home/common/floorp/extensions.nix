@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.floorp.profiles.zdyant.extensions = {
     force = true;
     packages = with pkgs.nur.repos.rycee.firefox-addons; [
@@ -8,15 +8,11 @@
       ublock-origin
       refined-github
       localcdn
-      clearurls
-      privacy-badger
       don-t-fuck-with-paste
       skip-redirect
       tridactyl
-      to-google-translate
       istilldontcareaboutcookies
       return-youtube-dislikes
-      decentraleyes
       tweaks-for-youtube
       youtube-suite-search-fixer
       violentmonkey
