@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
   programs.zsh = {
@@ -6,7 +6,12 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+
     defaultKeymap = "viins";
+    initContent = lib.mkAfter ''
+    bindkey -M viins '^Y' autosuggest-accept
+    bindkey -M viins '^E' autosuggest-accept
+    '';
 
     shellAliases = {
       v = "nvim";
