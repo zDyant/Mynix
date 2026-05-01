@@ -6,32 +6,21 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "copyfile"
-        "copybuffer"
-        "fancy-ctrl-z"
-        "git"
-        "colored-man-pages"
-        "colorize"
-      ];
-    };
+    defaultKeymap = "viins";
 
     shellAliases = {
-      cd = "z";
-      cdi = "zi";
       v = "nvim";
       ns = "nh search ";
       ls = "exa --icons";
-      lg = "lazygit";
 
-	  da = "devbox add";
+      upkg = "nix-shell -I nixpkgs=channel:nixpkgs-unstable -p";
 
       gpull = "git pull --ff-only";
-
-      pkg = "nix-shell -p";
-      upkg = "nix-shell -I nixpkgs=channel:nixpkgs-unstable -p";
+      ga = "git add";
+      gst = "git status";
+      gcl = "git clone --recurse-submodules";
+      gcmsg = "git commit --message";
+      gd = "git diff";
     };
 
     completionInit = ''
