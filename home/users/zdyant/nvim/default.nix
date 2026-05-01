@@ -20,6 +20,7 @@
     sqlite
     rustfmt # mason can't install, or install using rustup
     rust-analyzer
+    alejandra
     # LSP are installed by mason with opts = { PATH = "append" }
   ];
 }
