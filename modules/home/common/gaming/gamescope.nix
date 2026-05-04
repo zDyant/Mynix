@@ -25,13 +25,13 @@
   play = {
     gamescoperun = {
       enable = true;
-      useGit = true;
-      defaultWSI = true;
-      defaultHDR = null;
+      useGit = lib.mkDefault true;
+      defaultWSI = lib.mkDefault true;
+      defaultHDR = lib.mkDefault null;
 
-      baseOptions = {
-        "fsr-upscaling" = false;
-        "backend" = "wayland";
+      baseOptions = lib.mkDefault {
+        "fsr-upscaling" = lib.mkDefault false;
+        "backend" = lib.mkDefault "wayland";
       };
 
       # Extra environment variables
