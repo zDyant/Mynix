@@ -1,6 +1,4 @@
-{ lib, ... }:
-
-{
+{lib, ...}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -9,8 +7,8 @@
 
     defaultKeymap = "viins";
     initContent = lib.mkAfter ''
-    bindkey -M viins '^Y' autosuggest-accept
-    bindkey -M viins '^E' autosuggest-accept
+      bindkey -M viins '^Y' autosuggest-accept
+      bindkey -M viins '^E' autosuggest-accept
     '';
 
     shellAliases = {
@@ -29,7 +27,8 @@
     };
 
     completionInit = ''
-      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+      zstyle ':completion:*' sort false
       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
       setopt APPEND_HISTORY
       setopt SHARE_HISTORY
