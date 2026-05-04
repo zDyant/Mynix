@@ -19,11 +19,6 @@
     settings = {
       user.name = "zDyant";
       user.email = "dyant@proton.me";
-      core = {
-        compression = 9;
-        whitespace = "error";
-        preloadindex = true;
-      };
       url = {
         "git@github.com:zdyant/" = {
           insteadOf = "zdyant:";
@@ -31,23 +26,6 @@
         "git@github.com" = {
           insteadOf = "gh:";
         };
-      };
-      status = {
-        branch = true;
-        showStash = true;
-      };
-      diff = {
-        context = 3;
-        renames = "copies";
-        interHunkContext = 10;
-      };
-      extraConfig = {
-        init.defaultBranch = "main";
-        pull = {
-          rebase = true;
-          ff = "only";
-        };
-        core.editor = "nvim";
       };
     };
   };
