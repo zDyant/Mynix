@@ -1,17 +1,8 @@
-{ config, ... }:
+{ lib, config, ... }:
 {
   services.linux-wallpaperengine = {
     enable = true;
-    assetsPath = "${config.xdg.dataHome}/Steam/steamapps/common/wallpaper_engine/assets";
-    # INFO: Managed by DankMaterialShell
-    # wallpapers = [
-    #   {
-    #     monitor = "DP-2";
-    #     # wallpaperId = "1741572995";
-    #     #scaling = "fit"; # "stretch" "fit" "fill" "default"
-    #     fps = 60;
-    #   }
-    # ];
+    assetsPath = lib.mkDefault "${config.xdg.dataHome}/Steam/steamapps/common/wallpaper_engine/assets";
   };
 
   # Add env variable for wayland
