@@ -51,6 +51,9 @@
       url = "github:tophc7/bonk";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    affinity-nix = {
+      url = "github:mrshmllow/affinity-nix";
+    };
   };
 
   outputs = {...} @ inputs: let
