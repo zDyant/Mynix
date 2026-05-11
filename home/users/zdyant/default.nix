@@ -38,7 +38,6 @@
   # Check LIBS on configuration.nix
   home.packages = with pkgs; [
     # Cli tools -----------------------------------------------
-    wf-recorder
     devenv # Ease the use of nix-shell
 
     # Apps ---------------------------------------------------------
@@ -48,9 +47,10 @@
     anki
     oxipng
     obs-studio
-    hyperhdr
     filen-cli
     rclone
+    protonmail-desktop
+    bitwarden-desktop
   ];
 
   home.username = "zdyant";
