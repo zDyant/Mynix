@@ -1,6 +1,6 @@
-{ lib, pkgs, config, ... }:
+{ lib, pkgs, ... }:
 let
-  dotsPath = config.home.homeDirectory + "/repos/dots";
+  dotsPath = "/repos/dots";
   terminal = lib.getExe pkgs.kitty;
   shell = "${lib.getExe pkgs.zsh} -c";
   playerctl = "${lib.getExe pkgs.playerctl} -p spotify";

@@ -15,14 +15,14 @@
       {path = "${config.home.homeDirectory}/Pictures";}
       {path = "${config.home.homeDirectory}/Games";}
       {
-        path = "${config.home.homeDirectory}/repos/dots";
+        path = "/repos/dots";
         name = "Dotfiles";
       }
       {path = "${config.home.homeDirectory}/obsidian";}
     ];
 
     folderIcons = {
-      "${config.home.homeDirectory}/repos/dots" = "folder-linux";
+      "/repos/dots" = "folder-linux";
       "${config.home.homeDirectory}/Games/" = "folder-games";
       "${config.home.homeDirectory}/Downloads" = "folder-download";
     };
