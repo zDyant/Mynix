@@ -112,7 +112,7 @@
         users.zdyant = {
           name = "zdyant";
           uid = 1000;
-          shell = "zsh";
+          shell = inputs.nixpkgs.legacyPackages.x86_64-linux.zsh;
           extraGroups = [
             "adbusers"
             "audio"

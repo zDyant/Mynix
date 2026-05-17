@@ -1,5 +1,5 @@
-{ ... }: {
-  programs.floorp.profiles.zdyant.settings = {
+{ host, ... }: {
+  programs.floorp.profiles.${host.user.name}.settings = {
 
     # Telemetry
     "browser.ping-centre.telemetry" = false;

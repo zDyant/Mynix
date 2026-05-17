@@ -5,10 +5,6 @@
 }: {
   imports = lib.fs.scanPaths ./.;
 
-  environment.variables.EDITOR = "nvim";
-  programs.zsh.enable = true;
-  programs.git.enable = true;
-
   environment.systemPackages = with pkgs; [
     jq
     openssh
@@ -16,8 +12,6 @@
     fzf
     eza
     curl
-    neovim
-    lazygit
     wget
     unrar
     unzip

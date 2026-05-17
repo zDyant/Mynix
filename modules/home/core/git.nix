@@ -4,6 +4,16 @@
     git.enable = true;
   };
 
+  programs.gh-dash.enable = true;
+  programs.lazygit.enable = true;
+
+  programs.gh = {
+    enable = true;
+    settings = {
+      editor = "nvim";
+    };
+  };
+
   programs.git = {
     enable = true;
     package = pkgs.gitFull;

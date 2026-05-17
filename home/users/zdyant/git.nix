@@ -1,19 +1,4 @@
-{ ... }:
-{
-
-  programs.difftastic = {
-    enable = true;
-    git.enable = true;
-  };
-
-  programs.gh = {
-    enable = true;
-    settings = {
-      editor = "nvim";
-    };
-  };
-  programs.gh-dash.enable = true;
-
+{...}: {
   programs.git = {
     enable = true;
     settings = {

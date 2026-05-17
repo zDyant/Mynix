@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  programs.floorp.profiles.zdyant.search = {
+{ pkgs, host, ... }: {
+  programs.floorp.profiles.${host.user.name}.search = {
 
     force = true;
     default = "ddg";

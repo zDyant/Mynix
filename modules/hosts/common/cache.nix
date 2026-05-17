@@ -1,6 +1,5 @@
 { ... }: {
   nix.settings = {
-    trusted-users = ["zdyant"];
     substituters = [
       "https://hyprland.cachix.org"
       "https://nix-community.cachix.org"
