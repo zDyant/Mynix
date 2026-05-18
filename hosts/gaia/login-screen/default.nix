@@ -1,4 +1,4 @@
-{ ... }:
+{ host, ... }:
 
 {
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
@@ -12,7 +12,7 @@
 
       autoLogin = {
         enable = true;
-        user = "zdyant";
+        user = host.user.name;
       };
 
     };
