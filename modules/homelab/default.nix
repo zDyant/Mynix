@@ -4,44 +4,75 @@
   ...
 }: let
   cfg = config.homelab;
+  mkProxyVHost = {
+    host,
+    port,
+    websocket ? false,
+    extraConfig ? {},
+  }: {
+    "${host}.${cfg.domain}" =
+      {
+        enableACME = true;
+        forceSSL = true;
+
+        extraConfig = ''
+          add_header X-Frame-Options "SAMEORIGIN" always;
+          add_header X-Content-Type-Options "nosniff" always;
+          add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+        '';
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:${toString port}";
+          proxyWebsockets = websocket;
+        };
+      }
+      // extraConfig;
+  };
+
+  enabledProxyVHosts = lib.mkMerge [
+    (lib.mkIf cfg.services.glance.enable (mkProxyVHost {
+      host = "glance";
+      port = cfg.services.glance.port;
+    }))
+    (lib.mkIf cfg.services.ollama.enable (mkProxyVHost {
+      host = "ollama";
+      port = cfg.services.ollama.port;
+    }))
+    (lib.mkIf cfg.services.kutt.enable (mkProxyVHost {
+      host = "kutt";
+      port = cfg.services.kutt.port;
+      websocket = true;
+    }))
+    (lib.mkIf cfg.services.ezbookkeeping.enable (mkProxyVHost {
+      host = "ezbookkeeping";
+      port = cfg.services.ezbookkeeping.port;
+    }))
+  ];
 in {
   imports = lib.fs.scanPaths ./.;
 
   options.homelab = {
     enable = lib.mkEnableOption "Enable Homelab services and configuration";
-    timeZone = lib.mkOption {
-      default = "America/Sao_Paulo";
-      type = lib.types.str;
-      description = "Time zone used by the services";
-      example = "Europe/Berlin";
-    };
     domain = lib.mkOption {
       type = lib.types.str;
       description = "Domain used to access the services";
       example = "zdyant.com";
     };
-    cloudflaredToken = lib.mkOption {
-      type = lib.types.path;
-      description = "Cloudflared tunnel used to expose services";
-      example = "/run/secrets/cloudflared-tunnel";
+  };
+
+  config = lib.mkIf cfg.enable {
+    networking.firewall.allowedTCPPorts = [80 443];
+
+  security.acme.acceptTerms = true;
+  security.acme.defaults.email = "zdyant@pm.me";
+
+    services.nginx = {
+      enable = true;
+      recommendedGzipSettings = true;
+      recommendedOptimisation = true;
+      recommendedProxySettings = true;
+      recommendedTlsSettings = true;
+
+      virtualHosts = enabledProxyVHosts;
     };
   };
-  # networking.firewall.allowedTCPPorts = [80 443];
-  # services.nginx = {
-  #   enable = true;
-  #   virtualHosts.localhost = {
-  #     locations."/" = {
-  #       return = "200 '<html><body>It works</body></html>'";
-  #       extraConfig = ''
-  #         default_type text/html;
-  #       '';
-  #     };
-  #   };
-  # };
-  # security.acme = {
-  #   acceptTerms = true;
-  #   # Optional: You can configure the email address used with Let's Encrypt.
-  #   # This way you get renewal reminders (automated by NixOS) as well as expiration emails.
-  #   defaults.email = "gabriel@zdyant.com";
-  # };
 }

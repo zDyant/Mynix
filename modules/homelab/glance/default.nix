@@ -58,38 +58,8 @@ in {
                   style = "compact";
                   sites = [
                     (mkSite {
-                      title = "Qbittorrent";
-                      icon = "qbittorrent";
-                    })
-                    (mkSite {
-                      title = "Prowlarr";
-                      icon = "prowlarr";
-                    })
-                    (mkSite {
-                      title = "Flaresolverr";
-                      icon = "flaresolverr";
-                    })
-                    (mkSite {
-                      title = "Radarr";
-                      icon = "radarr";
-                    })
-                    (mkSite {
-                      title = "Sonarr";
-                      icon = "sonarr";
-                    })
-                    (mkSite {
-                      title = "Plex";
-                      icon = "plex";
-                      fixedPort = 32400;
-                      extra = { alt-status-codes = [ 401 ]; };
-                    })
-                    (mkSite {
                       title = "Ollama";
                       icon = "ollama";
-                    })
-                    (mkSite {
-                      title = "Open-webui";
-                      icon = "open-webui";
                     })
                     (mkSite {
                       title = "Kutt";
@@ -111,19 +81,14 @@ in {
                 {
                   type = "rss";
                   limit = 10;
-                  collapse-after = 6;
+                  collapse-after = 5;
                   cache = "3h";
                   feeds = [
                     { url = "https://9to5linux.com/feed"; }
-                    { url = "https://pointieststick.com/feed/"; }
-                    { url = "https://diolinux.com.br/feed"; }
-                    { url = "https://news.nononsenseapps.com/index.atom"; }
-                    { url = "https://www.gamingonlinux.com/article_rss.php"; }
-                    { url = "https://news.itsfoss.com/latest/rss/"; }
-                    { url = "https://linuxgamingcentral.org/posts/index.xml"; }
-                    { url = "https://www.omglinux.com/feed/"; }
-                    { url = "https://www.phoronix.com/rss.php"; }
-                    { url = "https://tuxphones.com/rss/"; }
+                    { url = "https://gamingonlinux.com/rss"; }
+                    { url = "https://feed.itsfoss.com"; }
+                    { url = "https://omglinux.com/feed/"; }
+                    { url = "https://phoronix.com/rss.php"; }
                     { url = "https://wololo.net/feed/"; }
                   ];
                 }
@@ -238,12 +203,14 @@ in {
                 }
                 {
                   type = "releases";
-                  cache = "1d";
+                  cache = "7d";
                   repositories = [
-                    "rust-lang/rust"
                     "glanceapp/glance"
                     "hyprwm/hyprland"
-                    "9001/copyparty"
+                    "quickshell-mirror/quickshell"
+                    "TophC7/mix.nix"
+                    "TophC7/arroz.nix"
+                    "TophC7/play.nix"
                   ];
                 }
               ];
