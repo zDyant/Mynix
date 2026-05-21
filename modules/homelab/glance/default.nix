@@ -208,9 +208,6 @@ in {
                     "glanceapp/glance"
                     "hyprwm/hyprland"
                     "quickshell-mirror/quickshell"
-                    "TophC7/mix.nix"
-                    "TophC7/arroz.nix"
-                    "TophC7/play.nix"
                   ];
                 }
               ];
