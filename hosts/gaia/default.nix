@@ -56,11 +56,8 @@
   # For passwords
   services.gnome.gnome-keyring.enable = true;
   services.gvfs.enable = true;
-  services.openssh.enable = true;
   services.hardware.openrgb.enable = true;
 
-  # WARN Don't change -------------------------------------
-  system.stateVersion = "23.11"; # Did you read the comment?
 
   # Some shenanigans --------------------------------------
   time.timeZone = "America/Sao_Paulo";
