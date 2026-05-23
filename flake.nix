@@ -54,6 +54,10 @@
     affinity-nix = {
       url = "github:mrshmllow/affinity-nix";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {...} @ inputs: let
@@ -128,6 +132,11 @@
           ];
         };
         hosts.gaia.user = "zdyant";
+        hosts.hephaestus = {
+          user = "zdyant";
+          isServer = true;
+          isMinimal = true;
+        };
       };
     };
 }
