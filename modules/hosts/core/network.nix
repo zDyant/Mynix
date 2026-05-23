@@ -10,7 +10,7 @@
         networkmanager.enable = true;
         useDHCP = lib.mkDefault true;
         useHostResolvConf = false;
-        usePredictableInterfaceNames = true;
+        usePredictableInterfaceNames = lib.mkDefault true;
       };
     }
   ];
