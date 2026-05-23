@@ -2,7 +2,6 @@
   flakeRoot,
   lib,
   pkgs,
-  host,
   ...
 }: {
   imports = lib.flatten [
@@ -51,6 +50,4 @@
     protonmail-desktop
     bitwarden-desktop
   ];
-
-  home.stateVersion = "23.11"; # DONT TOUCH!
 }
