@@ -42,10 +42,6 @@
       port = cfg.services.kutt.port;
       websocket = true;
     }))
-    (lib.mkIf cfg.services.ezbookkeeping.enable (mkProxyVHost {
-      host = "ezbookkeeping";
-      port = cfg.services.ezbookkeeping.port;
-    }))
   ];
 in {
   imports = lib.fs.scanPaths ./.;
