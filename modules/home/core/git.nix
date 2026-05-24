@@ -48,6 +48,13 @@
 
     ignores = [
       ".csvignore"
+      "node_modules"
+
+      ".pre-commit-config.yaml"
+      ".codex"
+      ".bak/"
+      "*.bak"
+
       # nix
       "*.drv"
       "result"
@@ -56,7 +63,7 @@
       "__pycache__/"
       ".venv/"
       # direnv
-      ".direnv"
+      ".direnv/"
     ];
   };
 }
