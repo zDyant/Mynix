@@ -32,7 +32,6 @@
       log-lines = 25;
       min-free = 128000000; # 128MB
       max-free = 1000000000; # 1GB
-      download-buffer-size = 2147483648; # 2GB
       auto-optimise-store = true;
 
       # STFU
