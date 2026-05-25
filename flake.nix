@@ -110,6 +110,10 @@
         hostsDir        = ./hosts;
         hostsHomeDir    = ./home/hosts;
         usersHomeDir    = ./home/users;
+        secrets = {
+          file = ./secrets.nix;
+          gitattributes = ./.gitattributes;
+        };
 
         specialArgs = let flakeRoot = ./.; in {inherit flakeRoot;};
 
