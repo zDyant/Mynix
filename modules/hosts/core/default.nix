@@ -16,6 +16,9 @@
     unzip
     fd
     yazi
+    git-crypt
+    gnupg
+    gpg-tui
   ];
 
   documentation.nixos.enable = lib.mkForce false;
