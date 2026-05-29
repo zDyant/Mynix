@@ -75,7 +75,7 @@ in {
 
     systemd.tmpfiles.rules = [
       "d /var/lib/${name} 0755 root root -"
-      "d /var/lib/${name}/postgres 0700 root root -"
+      "d /var/lib/${name}/postgres 0700 70 70 -"
     ];
   };
 }
