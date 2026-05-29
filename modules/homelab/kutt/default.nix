@@ -18,7 +18,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    sops.secrets.kutt-token = { };
     virtualisation.oci-containers = {
       containers = {
         kutt = {

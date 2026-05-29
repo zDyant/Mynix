@@ -18,10 +18,6 @@
     nur = {
       url = "github:nix-community/NUR";
     };
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -101,15 +97,14 @@
       mix = {
         coreModules = with inputs; [
           stylix.nixosModules.stylix
-          sops-nix.nixosModules.sops
           nur.modules.nixos.default
           bonk.nixosModules.default
           ./modules/hosts/core
         ];
         coreHomeModules = [./modules/home/core];
-        hostsDir        = ./hosts;
-        hostsHomeDir    = ./home/hosts;
-        usersHomeDir    = ./home/users;
+        hostsDir = ./hosts;
+        hostsHomeDir = ./home/hosts;
+        usersHomeDir = ./home/users;
         secrets = {
           file = ./secrets.nix;
           gitattributes = ./.gitattributes;
