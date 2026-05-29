@@ -5,7 +5,10 @@ let
 
   toServiceName = title: "${lib.toLower title}";
   mkSite = { title, icon, fixedPort ? null, extra ? { } }:
-    let isEnabled = homelab.services.${toServiceName title}.enable;
+    let
+      serviceName = toServiceName title;
+      hasService = builtins.hasAttr serviceName homelab.services;
+      isEnabled = hasService && homelab.services.${serviceName}.enable;
     in if !isEnabled then
       null
     else
@@ -15,7 +18,7 @@ let
           "http://localhost:${toString fixedPort}"
         else
           "http://localhost:${
-            toString homelab.services.${toServiceName title}.port
+            toString homelab.services.${serviceName}.port
           }";
         icon = "sh:${icon}";
       } // extra;
@@ -66,8 +69,8 @@ in {
                       icon = "kutt";
                     })
                     (mkSite {
-                      title = "Ezbookkeeping";
-                      icon = "Ezbookkeeping";
+                      title = "Openmonetis";
+                      icon = "openmonetis";
                     })
                   ];
                 }
@@ -208,6 +211,8 @@ in {
                     "glanceapp/glance"
                     "hyprwm/hyprland"
                     "quickshell-mirror/quickshell"
+                    "motion-canvas/motion-canvas"
+                    "felipegcoutinho/openmonetis"
                   ];
                 }
               ];
