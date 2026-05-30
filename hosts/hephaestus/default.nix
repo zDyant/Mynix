@@ -7,6 +7,4 @@
 
   # Only for root's password reset on hetzner
   services.qemuGuest.enable = true;
-
-  };
 }
