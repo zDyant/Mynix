@@ -58,7 +58,7 @@ in {
                   cache = "5m";
                   title = "Services";
                   style = "compact";
-                  sites = [
+                  sites = builtins.filter (site: site != null) [
                     (mkSite {
                       title = "Ollama";
                       icon = "ollama";
@@ -86,8 +86,6 @@ in {
                   collapse-after = 5;
                   cache = "3h";
                   feeds = [
-                    { url = "https://9to5linux.com/feed"; }
-                    { url = "https://gamingonlinux.com/rss"; }
                     { url = "https://feed.itsfoss.com"; }
                     { url = "https://omglinux.com/feed/"; }
                     { url = "https://phoronix.com/rss.php"; }
@@ -212,6 +210,7 @@ in {
                     "quickshell-mirror/quickshell"
                     "motion-canvas/motion-canvas"
                     "felipegcoutinho/openmonetis"
+                    "penpot/penpot"
                   ];
                 }
               ];
