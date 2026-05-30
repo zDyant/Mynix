@@ -36,7 +36,6 @@ in {
   config = lib.mkIf cfg.enable {
     services.glance = {
       enable = true;
-      openFirewall = true;
 
       settings = {
         server = { port = cfg.port; };
