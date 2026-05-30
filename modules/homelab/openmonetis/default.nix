@@ -54,7 +54,7 @@ in {
         ${name} = {
           image = "felipegcoutinho/openmonetis:main";
           autoStart = true;
-          ports = ["${toString cfg.port}:3000"];
+          ports = ["127.0.0.1:${toString cfg.port}:3000"];
           dependsOn = [dbContainer];
           extraOptions = [
             "--network=${name}"
