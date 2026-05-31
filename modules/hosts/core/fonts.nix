@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   fonts = {
     packages = with pkgs; [
       # Sans(Serif) fonts
@@ -27,10 +26,10 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        serif = [ "Laila" ];
-        sansSerif = [ "Lexend" ];
-        monospace = [ "Maple Mono NF" ];
-        emoji = [ "Noto Color Emoji" ];
+        serif = ["Laila"];
+        sansSerif = ["Lexend"];
+        monospace = ["Maple Mono NF"];
+        emoji = ["Noto Color Emoji"];
       };
     };
   };

@@ -1,18 +1,19 @@
-{ pkgs, lib, ... }:
-
-let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   krispPatcher = pkgs.fetchurl {
-    url =
-      "https://github.com/keysmashes/sys/raw/25f9bc04e6b8d59c1abb32bf4e7ce8ed8de048e2/hm/discord/krisp-patcher.py";
+    url = "https://github.com/keysmashes/sys/raw/25f9bc04e6b8d59c1abb32bf4e7ce8ed8de048e2/hm/discord/krisp-patcher.py";
     hash = "sha256-h8Jjd9ZQBjtO3xbnYuxUsDctGEMFUB5hzR/QOQ71j/E=";
   };
 
-  python = pkgs.python3.withPackages (ps: with ps; [ capstone pyelftools ]);
+  python = pkgs.python3.withPackages (ps: with ps; [capstone pyelftools]);
 
   krispPatcherApp = pkgs.writeShellApplication {
     name = "krisp-patcher-wrapper";
 
-    runtimeInputs = [ pkgs.findutils python ];
+    runtimeInputs = [pkgs.findutils python];
 
     text = ''
       set -euo pipefail
@@ -34,12 +35,11 @@ let
       fi
     '';
   };
-
 in {
   systemd.user.services.krisp-patcher = {
     Unit = {
       Description = "Patch Discord Krisp module";
-      After = [ "graphical-session.target" ];
+      After = ["graphical-session.target"];
     };
 
     Service = {
@@ -47,15 +47,15 @@ in {
       ExecStart = lib.getExe krispPatcherApp;
     };
 
-    Install = { WantedBy = [ "default.target" ]; };
+    Install = {WantedBy = ["default.target"];};
   };
 
   # Re-run automatically when Discord updates
   systemd.user.paths.krisp-patcher = {
     Unit.Description = "Watch Discord for Krisp updates";
 
-    Path.PathModified = [ "%h/.config/discord" ];
+    Path.PathModified = ["%h/.config/discord"];
 
-    Install.WantedBy = [ "default.target" ];
+    Install.WantedBy = ["default.target"];
   };
 }

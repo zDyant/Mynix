@@ -49,7 +49,7 @@
       builders-use-substitutes = true;
       max-jobs = "auto";
       allow-import-from-derivation = true;
-      trusted-users = [ "@wheel" ];
+      trusted-users = ["@wheel"];
 
       # continue building derivations if one fails
       keep-going = true;

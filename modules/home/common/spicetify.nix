@@ -1,8 +1,13 @@
-{ lib, config, pkgs, inputs, ... }:
-
-let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}: let
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in {
-  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
+  imports = [inputs.spicetify-nix.homeManagerModules.default];
   stylix.targets.spicetify.enable = false;
 
   programs.spicetify = lib.mkDefault {
@@ -10,19 +15,19 @@ in {
     theme = spicePkgs.themes.text;
     colorScheme = "custom";
     customColorScheme = with config.lib.stylix.colors; {
-      "accent"             = "${base0C}";
-      "accent-active"      = "${base0D}";
-      "accent-inactive"    = "${base01}";
-      "banner"             = "${base0A}";
-      "border-active"      = "${base0A}";
-      "border-inactive"    = "${base02}";
-      "header"             = "${base03}";
-      "highlight"          = "${base07}";
-      "main"               = "${base00}";
-      "notification"       = "${base0B}";
+      "accent" = "${base0C}";
+      "accent-active" = "${base0D}";
+      "accent-inactive" = "${base01}";
+      "banner" = "${base0A}";
+      "border-active" = "${base0A}";
+      "border-inactive" = "${base02}";
+      "header" = "${base03}";
+      "highlight" = "${base07}";
+      "main" = "${base00}";
+      "notification" = "${base0B}";
       "notification-error" = "${base08}";
-      "subtext"            = "${base04}";
-      "text"               = "${base05}";
+      "subtext" = "${base04}";
+      "text" = "${base05}";
     };
 
     # enabledCustomApps = with spicePkgs.apps; [ ];

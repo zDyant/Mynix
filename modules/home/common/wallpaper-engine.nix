@@ -1,5 +1,8 @@
-{ lib, config, ... }:
 {
+  lib,
+  config,
+  ...
+}: {
   services.linux-wallpaperengine = {
     enable = true;
     assetsPath = lib.mkDefault "${config.xdg.dataHome}/Steam/steamapps/common/wallpaper_engine/assets";

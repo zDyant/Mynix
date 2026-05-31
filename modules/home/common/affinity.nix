@@ -3,12 +3,10 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   system = pkgs.stdenv.hostPlatform.system;
   affinityPkgs = pkgs.extend inputs.affinity-nix.overlays.default;
-in
-{
+in {
   assertions = [
     {
       assertion = system == "x86_64-linux";

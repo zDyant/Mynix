@@ -1,8 +1,4 @@
-{
-  lib,
-  ...
-}:
-{
+{lib, ...}: {
   lix = final: prev: {
     inherit
       (prev.lixPackageSets.stable)

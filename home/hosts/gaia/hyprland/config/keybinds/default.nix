@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   imports = lib.fs.scanPaths ./.;
   wayland.windowManager.hyprland.settings."$mod" = "SUPER";
   wayland.windowManager.hyprland.settings = {

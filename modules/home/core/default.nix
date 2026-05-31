@@ -16,7 +16,7 @@ in {
     home-manager.enable = true;
     nix-index.enable = true;
   };
-  
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 }

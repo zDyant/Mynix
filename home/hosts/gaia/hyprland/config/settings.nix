@@ -1,4 +1,8 @@
-{ config, lib, ... }: {
+{
+  config,
+  lib,
+  ...
+}: {
   wayland.windowManager.hyprland.settings = {
     monitorv2 = {
       output = "DP-2";
@@ -31,7 +35,7 @@
     };
 
     group = lib.mkForce {
-      "col.border_active"   = "rgb(${config.lib.stylix.colors.base0A})";
+      "col.border_active" = "rgb(${config.lib.stylix.colors.base0A})";
       "col.border_inactive" = "rgb(${config.lib.stylix.colors.base02})";
 
       groupbar = {
@@ -40,10 +44,10 @@
         font_weight_active = "heavy";
         font_size = 14;
         height = 20;
-        text_color          = "rgb(${config.lib.stylix.colors.base00})";
+        text_color = "rgb(${config.lib.stylix.colors.base00})";
         text_color_inactive = "rgb(${config.lib.stylix.colors.base05})";
-        "col.active"        = "rgb(${config.lib.stylix.colors.base0D})";
-        "col.inactive"      = "rgb(${config.lib.stylix.colors.base00})";
+        "col.active" = "rgb(${config.lib.stylix.colors.base0D})";
+        "col.inactive" = "rgb(${config.lib.stylix.colors.base00})";
       };
     };
 
@@ -102,6 +106,6 @@
     };
 
     # Could help when scaling and not pixelating
-    xwayland = { force_zero_scaling = true; };
+    xwayland = {force_zero_scaling = true;};
   };
 }

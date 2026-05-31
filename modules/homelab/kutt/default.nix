@@ -1,5 +1,8 @@
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   homelab = config.homelab;
   cfg = homelab.services."kutt";
 in {
@@ -23,7 +26,7 @@ in {
         kutt = {
           image = "kutt/kutt:main";
           autoStart = true;
-          ports = [ "127.0.0.1:${toString cfg.port}:3000" ];
+          ports = ["127.0.0.1:${toString cfg.port}:3000"];
           volumes = [
             "/var/lib/kutt/db_data_sqlite:/var/lib/kutt"
             "/var/lib/kutt/custom:/kutt/custom"
@@ -34,11 +37,9 @@ in {
             SITE_NAME = "zdyant";
             DEFAULT_DOMAIN = homelab.domain;
           };
-          environmentFiles = [ cfg.jwtToken ];
+          environmentFiles = [cfg.jwtToken];
         };
       };
     };
-
   };
 }
-

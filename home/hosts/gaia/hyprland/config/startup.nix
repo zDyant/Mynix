@@ -1,7 +1,6 @@
-{ ... }:
-{
-wayland.windowManager.hyprland = {
-  extraConfig = "
+{...}: {
+  wayland.windowManager.hyprland = {
+    extraConfig = "
 
 $wallDIR=$HOME/Pictures/wallpapers
 

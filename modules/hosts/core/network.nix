@@ -1,4 +1,8 @@
-{ host, lib, ... }: {
+{
+  host,
+  lib,
+  ...
+}: {
   # https://git.ryot.foo/toph/dot.nix/src/branch/main/modules/hosts/core/networking.nix#
   # Essential WireGuard setup when any WireGuard-dependent service is enabled
   config = lib.mkMerge [

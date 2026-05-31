@@ -1,5 +1,10 @@
-{ pkgs, config, lib, ... }:
-let gamescoperun = lib.getExe config.play.gamescoperun.package;
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
+  gamescoperun = lib.getExe config.play.gamescoperun.package;
 in {
   home.packages = with pkgs; [
     # nsz
@@ -14,7 +19,7 @@ in {
     icon = "Ryujinx";
     type = "Application";
     terminal = false;
-    categories = [ "Game" "Emulator" ];
+    categories = ["Game" "Emulator"];
     mimeType = [
       "application/x-nx-nca"
       "application/x-nx-nro"

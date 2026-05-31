@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   programs.nixcord.quickCss = ''
         /*
          * @name system24

@@ -1,5 +1,9 @@
-{ inputs, pkgs, ... }: {
-  nix = { package = pkgs.lixPackageSets.stable.lix; };
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  nix = {package = pkgs.lixPackageSets.stable.lix;};
 
   nixpkgs = {
     overlays = [
@@ -7,5 +11,4 @@
       inputs.self.overlays.packages
     ];
   };
-
 }

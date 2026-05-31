@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   wayland.windowManager.hyprland.settings.env = [
     "NIXOS_OZONE_WL, 1"
     "CLUTTER_BACKEND,wayland"

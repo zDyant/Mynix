@@ -1,5 +1,4 @@
-{ flakeRoot, ... }:
-{
+{flakeRoot, ...}: {
   programs.nh = {
     enable = true;
     clean = {

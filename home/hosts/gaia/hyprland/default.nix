@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  ...
+}:
 # https://github.com/purplesmoke05/dotnix/blob/6704c3b3c6f03437fcc834a76b86e662845d3dcb/home-manager/wm/hyprland/default.nix#L71
 {
   imports = lib.fs.scanPaths ./.;
@@ -33,12 +37,11 @@
   xdg = {
     enable = true;
     mime.enable = true;
-    mimeApps = { enable = true; };
+    mimeApps = {enable = true;};
     portal = {
       enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-      configPackages = [ pkgs.hyprland ];
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
+      configPackages = [pkgs.hyprland];
     };
   };
-
 }

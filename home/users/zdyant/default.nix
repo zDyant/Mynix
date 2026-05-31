@@ -1,4 +1,4 @@
-{lib, ... }: {
+{lib, ...}: {
   imports = lib.fs.scanPaths ./.;
   # Why though
   programs.zsh.enable = true;

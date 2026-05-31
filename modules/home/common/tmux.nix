@@ -1,4 +1,8 @@
-{ lib, pkgs, ... }: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.tmux = {
     enable = true;
     shell = lib.getExe pkgs.zsh;
@@ -36,16 +40,16 @@
 
 
       # Start selecting text with "v"
-      bind-key -T copy-mode-vi 'v' send -X begin-selection 
+      bind-key -T copy-mode-vi 'v' send -X begin-selection
 
       # Copy text with "y"
       bind -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "pbcopy"
 
       # Paste yanked text with "Prefix + P" ("Prefix + p" goes to previous window)
       bind P paste-buffer
-       
+
       # Don't exit copy mode when dragging with mouse
-      unbind -T copy-mode-vi MouseDragEnd1Pane 
+      unbind -T copy-mode-vi MouseDragEnd1Pane
 
       bind v split-window -v
       bind h split-window -h
@@ -72,6 +76,5 @@
       set -g pane-active-border-style "bg=default"
       set -g pane-border-style "bg=default"
     '';
-
   };
 }

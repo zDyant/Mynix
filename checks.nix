@@ -1,10 +1,13 @@
 # https://github.com/EmergentMind/nix-config-starter/blob/a002409272bf775c2ab8ca0f3ab754b859050460/checks.nix
-{ inputs, system, ... }:
 {
+  inputs,
+  system,
+  ...
+}: {
   # Use alternative pre-commit implementations
   pre-commit-check = inputs.git-hooks.lib.${system}.run {
     src = ./.;
-    default_stages = [ "pre-commit" ];
+    default_stages = ["pre-commit"];
 
     hooks = {
       # ========== General ==========

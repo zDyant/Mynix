@@ -1,4 +1,8 @@
-{ lib, inputs, ... }: {
+{
+  lib,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.nixcord.homeModules.nixcord
     ./system24.nix
@@ -14,7 +18,7 @@
     };
     config = {
       useQuickCss = true;
-      themeLinks = [ ];
+      themeLinks = [];
       frameless = true;
       plugins = {
         themeLibrary.enable = true;

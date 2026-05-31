@@ -1,6 +1,9 @@
-{ pkgs, inputs, ... }:
 {
-  imports = [ inputs.mix-nix.nixosModules.oci-stacks ];
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [inputs.mix-nix.nixosModules.oci-stacks];
 
   virtualisation = {
     docker = {

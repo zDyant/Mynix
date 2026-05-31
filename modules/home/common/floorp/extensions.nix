@@ -1,4 +1,8 @@
-{pkgs, host, ...}: {
+{
+  pkgs,
+  host,
+  ...
+}: {
   programs.floorp.profiles.${host.user.name}.extensions = {
     force = true;
     packages = with pkgs.nur.repos.rycee.firefox-addons; [

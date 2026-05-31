@@ -1,15 +1,15 @@
-{ ... }: {
+{...}: {
   programs.floorp.policies = {
-    DisableTelemetry          = true;
-    DisableAppUpdate          = true;
-    DisableFirefoxAccounts    = true;
-    DisableFirefoxStudies     = true;
-    DisablePocket             = true;
+    DisableTelemetry = true;
+    DisableAppUpdate = true;
+    DisableFirefoxAccounts = true;
+    DisableFirefoxStudies = true;
+    DisablePocket = true;
 
-    OfferToSaveLogins         = false;
-    OfferToSaveLoginsDefault  = false;
-    DontCheckDefaultBrowser   = true;
-    HardwareAcceleration      = true;
+    OfferToSaveLogins = false;
+    OfferToSaveLoginsDefault = false;
+    DontCheckDefaultBrowser = true;
+    HardwareAcceleration = true;
     PromptForDownloadLocation = true;
 
     Preferences = {
@@ -24,6 +24,5 @@
       ExtensionRecommendations = false;
       SkipOnboarding = true;
     };
-
   };
 }

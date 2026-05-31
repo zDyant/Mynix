@@ -1,6 +1,5 @@
-{ host, ... }: {
+{host, ...}: {
   programs.floorp.profiles.${host.user.name}.settings = {
-
     # Telemetry
     "browser.ping-centre.telemetry" = false;
     "devtools.onboarding.telemetry.logged" = false;
@@ -34,6 +33,5 @@
     "extensions.formautofill.creditCards.available" = false;
     "extensions.formautofill.creditCards.enabled" = false;
     "extensions.formautofill.heuristics.enabled" = false;
-
   };
 }

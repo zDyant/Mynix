@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
-let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   dotsPath = "/repos/dots";
   terminal = lib.getExe pkgs.kitty;
   shell = "${lib.getExe pkgs.zsh} -c";

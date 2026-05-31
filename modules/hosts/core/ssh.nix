@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   programs.ssh.startAgent = true;
 
   # services.fail2ban.enable = true;
@@ -7,7 +6,7 @@
     openssh = {
       enable = true;
       openFirewall = true;
-      ports = [ 22 ];
+      ports = [22];
 
       settings = {
         AllowUsers = null; # everyone
@@ -22,5 +21,4 @@
     };
     gnome.gcr-ssh-agent.enable = false;
   };
-
 }

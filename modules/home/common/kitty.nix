@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   home.sessionVariables = {
     TERMINAL = "kitty";
   };

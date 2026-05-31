@@ -3,8 +3,7 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   # https://github.com/71zenith/kiseki/blob/6f1c8efbb4ea41bfa32c95d1413f844305b4ad77/home/mpv.nix
   # https://iamscum.wordpress.com/guides/videoplayback-guide/mpv-conf/
   imports = lib.fs.scanPaths ./.;
@@ -15,7 +14,7 @@
   ];
   programs.mpv = {
     enable = true;
-    defaultProfiles = [ "gpu-hq" ];
+    defaultProfiles = ["gpu-hq"];
     scriptOpts = {
       webtorrent.path = "${config.xdg.cacheHome}/mpv";
       modernz = {
@@ -25,19 +24,19 @@
         "scalewindowed" = "0.6";
         "hover_effect" = "size";
 
-        "hover_effect_color"   = lib.mkDefault config.lib.stylix.colors.withHashtag.base05;
-        "side_buttons_color"   = lib.mkDefault config.lib.stylix.colors.withHashtag.base04;
+        "hover_effect_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base05;
+        "side_buttons_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base04;
         "middle_buttons_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base0D;
-        "playpause_color"      = lib.mkDefault config.lib.stylix.colors.withHashtag.base0D;
+        "playpause_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base0D;
 
-        "seekbarfg_color"     = lib.mkDefault config.lib.stylix.colors.withHashtag.base0D;
-        "seekbarbg_color"     = lib.mkDefault config.lib.stylix.colors.withHashtag.base04;
+        "seekbarfg_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base0D;
+        "seekbarbg_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base04;
         "seekbar_cache_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base0A;
 
-        "window_controls_color"      = lib.mkDefault config.lib.stylix.colors.withHashtag.base04;
+        "window_controls_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base04;
         "windowcontrols_close_hover" = lib.mkDefault config.lib.stylix.colors.withHashtag.base05;
-        "windowcontrols_min_hover"   = lib.mkDefault config.lib.stylix.colors.withHashtag.base05;
-        "windowcontrols_max_hover"   = lib.mkDefault config.lib.stylix.colors.withHashtag.base05;
+        "windowcontrols_min_hover" = lib.mkDefault config.lib.stylix.colors.withHashtag.base05;
+        "windowcontrols_max_hover" = lib.mkDefault config.lib.stylix.colors.withHashtag.base05;
       };
     };
     scripts = with pkgs.mpvScripts; [

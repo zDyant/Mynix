@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   # WARN: test if arroz-nix handles it, if not include on import
   programs.hyprland = {
     enable = true;
@@ -8,10 +13,9 @@
   };
 
   services.displayManager.defaultSession =
-    if config.programs.hyprland.withUWSM or false then
-      "hyprland-uwsm"
-    else
-      "hyprland";
+    if config.programs.hyprland.withUWSM or false
+    then "hyprland-uwsm"
+    else "hyprland";
 
   xdg.portal = {
     enable = true;
@@ -23,7 +27,6 @@
       chooser_cmd = "${lib.getExe pkgs.slurp} -f 'Monitor: %o' -or";
     };
     xdgOpenUsePortal = true;
-    extraPortals = with pkgs;
-      [ xdg-desktop-portal-gtk ];
+    extraPortals = with pkgs; [xdg-desktop-portal-gtk];
   };
 }

@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   programs.mpv.config = {
     # UI
     osc = "no";

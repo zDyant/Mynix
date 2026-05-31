@@ -58,7 +58,6 @@
   services.gvfs.enable = true;
   services.hardware.openrgb.enable = true;
 
-
   # Some shenanigans --------------------------------------
   time.timeZone = "America/Sao_Paulo";
   i18n.defaultLocale = "en_US.UTF-8"; # Select internationalisation properties.
