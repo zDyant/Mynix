@@ -33,6 +33,10 @@
       host = "glance";
       port = cfg.services.glance.port;
     }))
+    (lib.mkIf cfg.services.openmonetis.enable (mkProxyVHost {
+      host = "openmonetis";
+      port = cfg.services.openmonetis.port;
+    }))
     (lib.mkIf cfg.services.ollama.enable (mkProxyVHost {
       host = "ollama";
       port = cfg.services.ollama.port;
@@ -58,8 +62,8 @@ in {
   config = lib.mkIf cfg.enable {
     networking.firewall.allowedTCPPorts = [80 443];
 
-  security.acme.acceptTerms = true;
-  security.acme.defaults.email = "zdyant@pm.me";
+    security.acme.acceptTerms = true;
+    security.acme.defaults.email = "zdyant@pm.me";
 
     services.nginx = {
       enable = true;
