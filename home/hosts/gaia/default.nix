@@ -14,7 +14,6 @@
       "modules/home/common/nixcord"
       "modules/home/common/yazi"
       "modules/home/common/affinity.nix"
-      "modules/home/common/bat.nix"
       "modules/home/common/kitty.nix"
       "modules/home/common/npm.nix"
       "modules/home/common/spicetify.nix"
@@ -23,7 +22,6 @@
       "modules/home/common/tmux.nix"
       "modules/home/common/vicinae.nix"
       "modules/home/common/wallpaper-engine.nix"
-      "modules/home/common/zsh.nix"
     ])
   ];
 
