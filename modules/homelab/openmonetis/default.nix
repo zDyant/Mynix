@@ -9,9 +9,6 @@
   homelab = config.homelab;
   cfg = homelab.services.openmonetis;
   name = "openmonetis";
-  dbName = "${name}_db";
-  dbUser = name;
-  dbPassword = "openmonetis_dev_password";
   dbContainer = "${name}-db";
 in {
   options.homelab.services.${name} = {
@@ -39,16 +36,11 @@ in {
           autoStart = true;
           extraOptions = [
             "--network=${name}"
-            "--network-alias=${dbContainer}"
+            "--network-alias=${name}"
           ];
           volumes = [
             "/var/lib/${name}/postgres:/var/lib/postgresql/data"
           ];
-          environment = {
-            POSTGRES_DB = dbName;
-            POSTGRES_USER = dbUser;
-            POSTGRES_PASSWORD = dbPassword;
-          };
         };
 
         ${name} = {
@@ -58,16 +50,16 @@ in {
           dependsOn = [dbContainer];
           extraOptions = [
             "--network=${name}"
-            "--network-alias=${name}"
+            "--network-alias=${dbContainer}"
           ];
           volumes = [
             "/var/lib/${name}"
           ];
           environment = {
             "BETTER_AUTH_SECRET" = secrets.docker.BETTER_AUTH_SECRET;
-            "DATABASE_URL" = "postgresql://${dbUser}:${dbPassword}@${dbContainer}:5432/${dbName}";
+            "DATABASE_URL" = secrets.docker.OPENMONETIS_DB;
             "BETTER_AUTH_URL" = "https://${name}.${homelab.domain}";
-            "DISABLE_SIGNUP" = "false"; # opcional: true bloqueia novos cadastros
+            "DISABLE_SIGNUP" = "true"; # opcional: true bloqueia novos cadastros
           };
         };
       };
