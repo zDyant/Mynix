@@ -24,6 +24,7 @@
   ];
 
   documentation.nixos.enable = lib.mkForce false;
+  programs.nix-ld.enable = true;
   nix = {
     # Garbage collector ------------------------------------
     gc = {
