@@ -37,7 +37,7 @@
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
     mix-nix = {
-      url = "github:tophc7/mix.nix";
+      url = "github:tophc7/mix.nix?ref=8039666eed90a4ce06096355ddc30d702d921fa3";
     };
     bonk = {
       url = "github:tophc7/bonk";
