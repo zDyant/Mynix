@@ -8,7 +8,6 @@
   imports = lib.fs.scanPaths ./.;
 
   home.packages = with pkgs; [
-    networkmanagerapplet
     glib
     wl-clipboard
     xwayland

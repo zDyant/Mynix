@@ -11,7 +11,6 @@ exec-once = systemctl --user import-environment PATH
 exec-once = systemctl --user restart xdg-desktop-portal.service
 
 # startup apps
-exec-once = nm-applet --indicator &
 exec-once = hypridle &
 exec-once = spotify
     ";
