@@ -8,19 +8,13 @@
     packages = with pkgs.nur.repos.rycee.firefox-addons; [
       bitwarden
       sponsorblock
-      stylus
       ublock-origin
       refined-github
-      localcdn
-      don-t-fuck-with-paste
-      skip-redirect
       tridactyl
-      istilldontcareaboutcookies
       return-youtube-dislikes
       tweaks-for-youtube
       youtube-suite-search-fixer
       violentmonkey
-      sidebery
       private-grammar-checker-harper
     ];
   };
