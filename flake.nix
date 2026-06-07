@@ -28,10 +28,6 @@
     nixcord = {
       url = "github:kaylorben/nixcord";
     };
-    textfox = {
-      url = "github:adriankarlen/textfox";
-      flake = false;
-    };
     betterfox = {
       url = "github:yokoffing/Betterfox";
       flake = false;

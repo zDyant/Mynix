@@ -20,11 +20,6 @@
     # ask for where to download files instead of just putting them wherever
     "browser.download.useDownloadDir" = false;
 
-    # Additional settings textfox need
-    "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-    "svg.context-properties.content.enabled" = true;
-    "layout.css.color-mix.enabled" = true;
-
     # Disable Form autofill
     # https://wiki.mozilla.org/Firefox/Features/Form_Autofill
     "browser.formfill.enable" = false;
