@@ -10,7 +10,6 @@
 
   wayland.windowManager.hyprland.settings.windowrule = lib.mkIf config.wayland.windowManager.hyprland.enable [
     "tag +gamestore, match:class ^([Ss]team)$"
-    "tag +gamestore, match:class ^([Ll]utris)$"
     "tag +gamestore, match:class ^(com.heroicgameslauncher.hgl)$"
     "tag +games, match:class ^(gamescope|\\.gamescope-wrapped)$"
     "tag +games, match:class ^(steam_app_.*)$"
@@ -57,18 +56,9 @@
         };
       };
 
-      # Other game launchers
       heroic = lib.mkDefault {
         enable = true;
         package = pkgs.heroic; # No special package configured by play.nix
-      };
-
-      lutris = lib.mkDefault {
-        enable = true;
-        package =
-          osConfig.play.lutris.package; # play.nix provides readonly packages
-        extraOptions = {"force-windows-fullscreen" = true;};
-        environment = {LUTRIS_SKIP_INIT = 1;};
       };
     };
   };
@@ -130,23 +120,6 @@
         native = {
           name = "Heroic (No Gamescope)";
           exec = "${lib.getExe pkgs.heroic}";
-        };
-      };
-    };
-
-    "net.lutris.Lutris" = lib.mkDefault {
-      name = "Lutris Games Launcher";
-      comment = "Lutris in Gamescope Session";
-      exec = "${lib.getExe config.play.wrappers.lutris.wrappedPackage}";
-      # exec = config.play.wrappers.lutris.wrappedPackage;
-      icon = "net.lutris.Lutris";
-      type = "Application";
-      terminal = false;
-      categories = ["Game"];
-      actions = {
-        native = {
-          name = "Lutris (No Gamescope)";
-          exec = "${lib.getExe pkgs.lutris}";
         };
       };
     };

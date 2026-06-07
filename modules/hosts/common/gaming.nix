@@ -9,7 +9,6 @@
     amd.enable = true;
     ananicy.enable = true;
     gamemode.enable = true;
-    lutris.enable = true;
     steam = {
       enable = true;
       extraCompatPackages = with pkgs; [
