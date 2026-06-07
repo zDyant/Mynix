@@ -7,7 +7,6 @@
   ...
 }: {
   imports = lib.fs.scanPaths ./.;
-  stylix.targets.floorp.enable = false;
 
   home.sessionVariables = {BROWSER = "floorp";};
   programs.floorp = {
