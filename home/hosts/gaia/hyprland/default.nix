@@ -30,7 +30,11 @@
       enable = true;
       # hidpi = true;
     };
-    systemd.enable = true;
+    # INFO:
+    # UWSM owns the graphical-session targets. Home Manager's Hyprland
+    # systemd integration creates a separate hyprland-session.target and can
+    # produce ordering cycles during shutdown/restart.
+    systemd.enable = false;
   };
 
   xdg = {
