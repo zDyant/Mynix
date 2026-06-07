@@ -24,18 +24,10 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    zlib
-    zlib-ng
-    libxkbcommon
-    libnotify
-    openssl
     appimage-run
     ffmpeg-full
     pamixer
     btrfs-progs
-    libarchive
-    pkgconf
-    gnome-keyring
     # zathura     # Minimalist document Viewer
     # eog         # Image-viewer
     pavucontrol
@@ -45,13 +37,6 @@
     qbittorrent-enhanced
     man-pages
   ];
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.ratbagd.enable = true;
-
-  # Several services -------------------------------------
-  programs.nix-ld.enable = true;
 
   # For passwords
   services.gnome.gnome-keyring.enable = true;
