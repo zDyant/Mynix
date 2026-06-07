@@ -15,12 +15,6 @@
     };
     # monitor = ",1920x1080@144,0x0, 1, bitdepth, 10, cm, wide";
 
-    dwindle = {
-      pseudotile = "yes";
-      preserve_split = "yes";
-      special_scale_factor = 0.8;
-    };
-
     master = {
       new_on_top = 1;
       mfact = 0.5;
@@ -94,7 +88,6 @@
       disable_hyprland_logo = true;
       disable_splash_rendering = true;
       mouse_move_enables_dpms = true;
-      vfr = true;
       vrr = 2;
       enable_swallow = false;
       focus_on_activate = false;
