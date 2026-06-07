@@ -5,18 +5,25 @@
   pkgs,
   host,
   ...
-}: {
+}: let
+  user = host.user.name;
+in {
   imports = lib.fs.scanPaths ./.;
-
   home.sessionVariables = {BROWSER = "floorp";};
+
+  stylix.targets.floorp = {
+    profileNames = ["${user}"];
+    firefoxGnomeTheme.enable = true;
+  };
+
   programs.floorp = {
     enable = true;
     nativeMessagingHosts = [pkgs.tridactyl-native];
 
-    profiles.${host.user.name} = {
+    profiles.${user} = {
       id = 0;
       isDefault = true;
-      name = host.user.name;
+      name = user;
       extraConfig = ''
         ${builtins.readFile "${inputs.betterfox}/user.js"}
         ${builtins.readFile "${inputs.betterfox}/Fastfox.js"}
