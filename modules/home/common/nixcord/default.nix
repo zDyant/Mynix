@@ -6,7 +6,6 @@
   imports = [
     inputs.nixcord.homeModules.nixcord
     ./system24.nix
-    ./krisp.nix
   ];
   stylix.targets.nixcord.enable = lib.mkDefault false;
 
@@ -15,6 +14,7 @@
     discord = {
       vencord.enable = false;
       equicord.enable = true;
+      krisp.enable = true;
     };
     config = {
       useQuickCss = true;
