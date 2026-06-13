@@ -2,7 +2,6 @@
   programs.tealdeer.enable = true;
   programs.navi = {
     enable = true;
-    enableZshIntegration = true;
 
     settings = {
       finder = {

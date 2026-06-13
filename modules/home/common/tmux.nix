@@ -5,7 +5,7 @@
 }: {
   programs.tmux = {
     enable = true;
-    shell = lib.getExe pkgs.zsh;
+    shell = lib.getExe pkgs.nushell;
     keyMode = "vi";
     historyLimit = 10000;
     escapeTime = 0;

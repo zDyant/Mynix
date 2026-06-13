@@ -1,10 +1,10 @@
-{...}: {
-  programs.zsh.enable = true;
+{pkgs, ...}: {
   # programs.bash.enable = true;
+
+  environment.systemPackages = [pkgs.nushell];
 
   programs.zoxide = {
     enable = true;
-    enableZshIntegration = true;
     # enableBashIntegration = true;
     flags = [
       "--cmd cd"

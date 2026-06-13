@@ -86,7 +86,10 @@
         # INFO:
         # Enter a development shell with `nix develop -c pre-commit run -a`.`
         # The hooks will be installed automatically.
-        devShells.default = import ./shell.nix {checks = inputs.self.checks.${system};};
+        devShells = import ./shell.nix {
+          inherit pkgs;
+          checks = inputs.self.checks.${system};
+        };
       };
 
       flake.overlays = import ./overlays {inherit lib inputs;};
@@ -106,12 +109,16 @@
           gitattributes = ./.gitattributes;
         };
 
-        specialArgs = let flakeRoot = ./.; in {inherit flakeRoot;};
+        specialArgs = let
+          flakeRoot = ./.;
+        in {
+          inherit flakeRoot;
+        };
 
         users.zdyant = {
           name = "zdyant";
           uid = 1000;
-          shell = inputs.nixpkgs.legacyPackages.x86_64-linux.zsh;
+          shell = inputs.nixpkgs.legacyPackages.x86_64-linux.nushell;
           extraGroups = [
             "adbusers"
             "audio"

@@ -18,7 +18,7 @@ in {
 
   # Special sudo config for user
   users.users.root = {
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
     hashedPassword = lib.mkForce (userSecrets.hashedPassword or null);
     openssh.authorizedKeys.keys = userSecrets.ssh.publicKeys or [];
   };
