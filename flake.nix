@@ -2,9 +2,9 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs?rev=64c08a7ca051951c8eae34e3e3cb1e202fe36786";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager?rev=7d8127d308c3fb9664f7e643eec944be74ebb37d";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
@@ -16,10 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
-      url = "github:nix-community/NUR";
+      url = "github:nix-community/NUR?rev=39917b7f68263188707925ffe26c9df6ef4e7d64";
     };
     git-hooks = {
-      url = "github:cachix/git-hooks.nix";
+      url = "github:cachix/git-hooks.nix?rev=61ab0e80d9c7ab14c256b5b453d8b3fb0189ba0a";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     play = {
@@ -29,7 +29,7 @@
       url = "github:kaylorben/nixcord?rev=d0a08d06b3a00b1038b1780366180068af7c1489";
     };
     betterfox = {
-      url = "github:yokoffing/Betterfox";
+      url = "github:yokoffing/Betterfox?rev=c97bc0639609f35ff9d65522e3ddb03dac69e938";
       flake = false;
     };
     userstyles = {

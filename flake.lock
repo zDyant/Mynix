@@ -25,6 +25,7 @@
       "original": {
         "owner": "mrshmllow",
         "repo": "affinity-nix",
+        "rev": "84994addd36ea35740d2cf2f9de58ed73319aad4",
         "type": "github"
       }
     },
@@ -109,6 +110,7 @@
       "original": {
         "owner": "yokoffing",
         "repo": "Betterfox",
+        "rev": "c97bc0639609f35ff9d65522e3ddb03dac69e938",
         "type": "github"
       }
     },
@@ -132,6 +134,7 @@
       "original": {
         "owner": "tophc7",
         "repo": "bonk",
+        "rev": "737bf81523ffd311fbd308938463679a793d1e22",
         "type": "github"
       }
     },
@@ -215,6 +218,7 @@
       "original": {
         "owner": "nix-community",
         "repo": "disko",
+        "rev": "caa775cf67bfdc47f940edd96c975b5016df9059",
         "type": "github"
       }
     },
@@ -364,6 +368,7 @@
       "original": {
         "owner": "hercules-ci",
         "repo": "flake-parts",
+        "rev": "f7c1a2d347e4c52d5fb8d10cb4d94b5884e546fb",
         "type": "github"
       }
     },
@@ -561,6 +566,7 @@
       "original": {
         "owner": "cachix",
         "repo": "git-hooks.nix",
+        "rev": "61ab0e80d9c7ab14c256b5b453d8b3fb0189ba0a",
         "type": "github"
       }
     },
@@ -641,6 +647,7 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "rev": "7d8127d308c3fb9664f7e643eec944be74ebb37d",
         "type": "github"
       }
     },
@@ -864,6 +871,7 @@
       "original": {
         "owner": "kaylorben",
         "repo": "nixcord",
+        "rev": "d0a08d06b3a00b1038b1780366180068af7c1489",
         "type": "github"
       }
     },
@@ -1113,8 +1121,8 @@
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "rev": "64c08a7ca051951c8eae34e3e3cb1e202fe36786",
         "type": "github"
       }
     },
@@ -1166,6 +1174,7 @@
       "original": {
         "owner": "nix-community",
         "repo": "NUR",
+        "rev": "39917b7f68263188707925ffe26c9df6ef4e7d64",
         "type": "github"
       }
     },
@@ -1227,6 +1236,7 @@
       "original": {
         "owner": "tophc7",
         "repo": "play.nix",
+        "rev": "fec1003647b457a82a166f7251cd2b1aba1a8f84",
         "type": "github"
       }
     },
@@ -1322,6 +1332,7 @@
       "original": {
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
+        "rev": "c679f3fa9fbe86903486a8f7ad71f99e26481d71",
         "type": "github"
       }
     },
@@ -1355,6 +1366,7 @@
       "original": {
         "owner": "danth",
         "repo": "stylix",
+        "rev": "8ed48a41087feeb66372ff718021a9512fc552b3",
         "type": "github"
       }
     },
@@ -1530,6 +1542,7 @@
       "original": {
         "owner": "knoopx",
         "repo": "userContent.css",
+        "rev": "f5653b1305a31add191efface54bd9d8cede0c91",
         "type": "github"
       }
     }
