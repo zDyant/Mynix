@@ -56,9 +56,9 @@
       enableNushellIntegration = true;
     };
 
-    yazi = lib.mkMerge {
+    yazi = lib.mkMerge [ {
       enableNushellIntegration = true;
-    };
+    } ];
 
     starship = {
       enable = true;
