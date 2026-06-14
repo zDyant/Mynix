@@ -2,17 +2,17 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
+      url = "github:Gerg-L/spicetify-nix?rev=c679f3fa9fbe86903486a8f7ad71f99e26481d71";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:danth/stylix?rev=8ed48a41087feeb66372ff718021a9512fc552b3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
@@ -23,31 +23,33 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     play = {
-      url = "github:tophc7/play.nix";
+      url = "github:tophc7/play.nix?rev=fec1003647b457a82a166f7251cd2b1aba1a8f84";
     };
     nixcord = {
-      url = "github:kaylorben/nixcord";
+      url = "github:kaylorben/nixcord?rev=d0a08d06b3a00b1038b1780366180068af7c1489";
     };
     betterfox = {
       url = "github:yokoffing/Betterfox";
       flake = false;
     };
     userstyles = {
-      url = "github:knoopx/userContent.css";
+      url = "github:knoopx/userContent.css?rev=f5653b1305a31add191efface54bd9d8cede0c91";
     };
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts?rev=f7c1a2d347e4c52d5fb8d10cb4d94b5884e546fb";
+    };
     mix-nix = {
-      url = "github:tophc7/mix.nix?ref=8039666eed90a4ce06096355ddc30d702d921fa3";
+      url = "github:tophc7/mix.nix?rev=8039666eed90a4ce06096355ddc30d702d921fa3";
     };
     bonk = {
-      url = "github:tophc7/bonk";
+      url = "github:tophc7/bonk?rev=737bf81523ffd311fbd308938463679a793d1e22";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     affinity-nix = {
-      url = "github:mrshmllow/affinity-nix";
+      url = "github:mrshmllow/affinity-nix?rev=84994addd36ea35740d2cf2f9de58ed73319aad4";
     };
     disko = {
-      url = "github:nix-community/disko";
+      url = "github:nix-community/disko?rev=caa775cf67bfdc47f940edd96c975b5016df9059";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
