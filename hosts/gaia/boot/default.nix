@@ -1,9 +1,7 @@
 {pkgs, ...}: {
   boot.loader.grub = {
     device = "/dev/nvme0n1";
-    theme = pkgs.catppuccin-grub.override {
-      flavor = "mocha";
-    };
+    theme = pkgs.nur.repos.zerozawa.grub-theme-yorha;
   };
 
   boot.plymouth = {
