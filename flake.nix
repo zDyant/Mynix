@@ -80,8 +80,8 @@
           config.allowUnfree = true;
         };
 
-        # INFO:
-        # Run the hooks in a sandbox with `nix flake check`.
+        formatter = inputs.nixpkgs.legacyPackages.${system}.alejandra;
+        # INFO: Run the hooks in a sandbox with `nix flake check`.
         # Read-only filesystem and no internet access.
         checks = import ./checks.nix {inherit inputs system pkgs;};
 

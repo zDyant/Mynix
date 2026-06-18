@@ -12,16 +12,27 @@
     hooks = {
       # ========== General ==========
       check-case-conflicts.enable = true;
-      check-executables-have-shebangs.enable = true;
       check-shebang-scripts-are-executable.enable = false; # many of the scripts in the config aren't executable because they don't need to be.
       check-merge-conflicts.enable = true;
-      detect-private-keys.enable = true;
+      detect-private-keys = {
+        enable = true;
+        excludes = ["^secrets\\.nix$"];
+      };
       fix-byte-order-marker.enable = true;
       mixed-line-endings.enable = true;
       trim-trailing-whitespace.enable = true;
 
+      destroyed-symlinks = {
+        enable = true;
+        name = "destroyed-symlinks";
+        description = "detects symlinks which are changed to regular files with a content of a path which that symlink was pointing to.";
+        package = inputs.git-hooks.checks.${system}.pre-commit-hooks;
+        entry = "${inputs.git-hooks.checks.${system}.pre-commit-hooks}/bin/destroyed-symlinks";
+        types = ["symlink"];
+      };
+
       # ========== nix ==========
-      # nixfmt-rfc-style.enable = true;
+      alejandra.enable = true;
       deadnix = {
         enable = true;
         settings = {

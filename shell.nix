@@ -28,6 +28,7 @@
       just
       pre-commit
       deadnix
+      alejandra
     ];
   };
 }
