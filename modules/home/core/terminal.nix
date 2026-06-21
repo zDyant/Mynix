@@ -19,7 +19,6 @@
       shellAliases = {
         v = "nvim";
         ns = "nh search";
-        ls = "exa --icons";
 
         upkg = "nix-shell -I nixpkgs=channel:nixpkgs-unstable -p";
 
@@ -56,9 +55,11 @@
       enableNushellIntegration = true;
     };
 
-    yazi = lib.mkMerge [ {
-      enableNushellIntegration = true;
-    } ];
+    yazi = lib.mkMerge [
+      {
+        enableNushellIntegration = true;
+      }
+    ];
 
     starship = {
       enable = true;
