@@ -2,10 +2,12 @@
   lib,
   config,
   ...
-}: {
+}: let
+  vicinae = lib.getExe config.programs.vicinae.package;
+in {
   wayland.windowManager.hyprland.settings.bind = lib.mkIf config.wayland.windowManager.hyprland.enable [
-    "$mod, A, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
-    "$mod, $mod_L, exec, vicinae toggle"
+    "$mod, A, exec, ${vicinae} vicinae://launch/clipboard/history"
+    "$mod, $mod_L, exec, ${vicinae} toggle"
   ];
 
   programs.vicinae = lib.mkDefault {
