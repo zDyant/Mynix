@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  secrets,
   ...
 }: let
   homelab = config.homelab;
@@ -13,10 +14,6 @@ in {
       description = "Kutt bind address";
       default = 3000;
       example = 8080;
-    };
-    jwtToken = lib.mkOption {
-      type = lib.types.path;
-      description = "Key used to sign authentication tokens. Use a long random string";
     };
   };
 
@@ -36,8 +33,8 @@ in {
             TRUST_PROXY = "true";
             SITE_NAME = "zdyant";
             DEFAULT_DOMAIN = homelab.domain;
+            JWT_SECRET = secrets.docker.JWT_SECRET;
           };
-          environmentFiles = [cfg.jwtToken];
         };
       };
     };
