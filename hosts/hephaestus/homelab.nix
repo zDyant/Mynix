@@ -14,6 +14,7 @@
     services = {
       glance.enable = true;
       openmonetis.enable = true;
+      kutt.enable = true;
     };
   };
 }
