@@ -1,13 +1,14 @@
-{...}: {
+{
+  config,
+  lib,
+  ...
+}: let
+  floorp = lib.getExe config.programs.floorp.package;
+in {
   wayland.windowManager.hyprland = {
     extraConfig = "
-
-$wallDIR=$HOME/Pictures/wallpapers
-
-
-# startup apps
-exec-once = hypridle &
-exec-once = spotify
+exec-once = spotify  &
+exec-once = ${floorp} &
     ";
   };
 }
