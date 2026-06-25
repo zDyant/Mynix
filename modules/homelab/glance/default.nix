@@ -78,6 +78,10 @@ in {
                         icon = "kutt";
                       })
                       (mkSite {
+                        title = "Karakeep";
+                        icon = "karakeep";
+                      })
+                      (mkSite {
                         title = "Openmonetis";
                         icon = "openmonetis";
                       })
