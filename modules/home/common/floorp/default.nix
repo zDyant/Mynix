@@ -53,8 +53,13 @@ in {
         };
         userStyles =
           inputs.userstyles.lib.${system}.mkUserStyles palette;
+        unroundEverythingEverywhere = pkgs.fetchurl {
+          url = "https://userstyles.world/api/style/8283.user.css";
+          sha256 = "0jyhvmn6nasrm05x1mzvgqw5a6x8ipvsi45w1qkfj3rhwx6p6w5n";
+        };
       in ''
         ${builtins.readFile userStyles}
+        ${builtins.readFile unroundEverythingEverywhere}
       '';
     };
   };
