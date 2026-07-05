@@ -15,6 +15,7 @@
       glance.enable = true;
       openmonetis.enable = true;
       kutt.enable = true;
+      karakeep.enable = true;
     };
   };
 }
