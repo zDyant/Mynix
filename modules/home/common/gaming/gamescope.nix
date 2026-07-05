@@ -24,7 +24,7 @@
   play = {
     gamescoperun = {
       enable = true;
-      useGit = lib.mkDefault true;
+      useGit = lib.mkDefault false;
       defaultWSI = lib.mkDefault true;
       defaultHDR = lib.mkDefault null;
 
