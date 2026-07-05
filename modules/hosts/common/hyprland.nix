@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: {
@@ -9,7 +8,6 @@
     enable = true;
     xwayland.enable = true;
     withUWSM = true;
-    portalPackage = lib.mkForce pkgs.xdg-desktop-portal-gtk;
   };
 
   services.displayManager.defaultSession =
@@ -19,12 +17,12 @@
 
   xdg.portal = {
     enable = true;
-    config.common.default = "wlr";
-    wlr.enable = true;
-    wlr.settings.screencast = {
-      output_name = "DP-2";
-      chooser_type = "simple";
-      chooser_cmd = "${lib.getExe pkgs.slurp} -f 'Monitor: %o' -or";
+    config = {
+      common.default = ["hyprland" "gtk"];
+      hyprland = {
+        default = ["hyprland" "gtk"];
+        "org.freedesktop.impl.portal.FileChooser" = "gtk";
+      };
     };
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [xdg-desktop-portal-gtk];
