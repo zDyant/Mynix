@@ -7,6 +7,7 @@
     enable = true;
 
     targets = {
+      kde.enable = false;
       qt = {
         enable = true;
         platform = "qtct";
