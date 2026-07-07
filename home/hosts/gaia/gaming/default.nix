@@ -20,9 +20,10 @@
 
     # emulators -----------------------
     # emulationstation-de
-    # pcsx2           # PS2
-    # retroarchFull   # Retro
-    # rpcs3           # PS3
-    # cemu            # Wii u
+    pcsx2 # PS2
+    # retroarchFull # Retro
+    xenia-canary # Xbox
+    rpcs3 # PS3
+    cemu # Wii u
   ];
 }
