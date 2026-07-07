@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}:
+{pkgs, ...}:
 pkgs.stdenvNoCC.mkDerivation rec {
   pname = "Surge";
   version = "0.8.1";
