@@ -1,5 +1,4 @@
-{ host, ... }:
-{
+{host, ...}: {
   programs.floorp.profiles.${host.user.name}.settings = {
     # Telemetry
     "browser.ping-centre.telemetry" = false;
@@ -30,12 +29,6 @@
     "extensions.formautofill.creditCards.enabled" = false;
     "extensions.formautofill.heuristics.enabled" = false;
 
-    # Linux video/rendering acceleration.
-    "media.ffmpeg.vaapi.enabled" = true;
-    "media.hardware-video-decoding.force-enabled" = true;
-    "layers.gpu-process.enabled" = true;
-    "widget.dmabuf.force-enabled" = true;
-
     # Cache sizes tuned for a 64 GB RAM system.
     "browser.cache.disk.enable" = true;
     "browser.cache.disk.smart_size.enabled" = false;
@@ -43,6 +36,10 @@
     "browser.cache.memory.enable" = true;
     "browser.cache.memory.capacity" = 2097152;
     "image.cache.size" = 268435456;
+
+    # Avoid red-tinted video from the VA-API / GPU decode path.
+    "media.ffmpeg.vaapi.enabled" = false;
+    "media.hardware-video-decoding.force-enabled" = false;
 
     # Avoid repeated DNS lookups during long browsing sessions.
     "network.dnsCacheEntries" = 20000;

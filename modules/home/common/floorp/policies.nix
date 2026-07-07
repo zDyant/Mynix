@@ -9,13 +9,13 @@
     OfferToSaveLogins = false;
     OfferToSaveLoginsDefault = false;
     DontCheckDefaultBrowser = true;
-    HardwareAcceleration = true;
+    HardwareAcceleration = false;
     PromptForDownloadLocation = true;
 
     Preferences = {
       "widget.use-xdg-desktop-portal.file-picker" = 1;
       "browser.tabs.loadInBackground" = true;
-      "media.ffmpeg.vaapi.enabled" = true;
+      "media.ffmpeg.vaapi.enabled" = false;
       "browser.aboutConfig.showWarning" = false;
       "browser.warnOnQuitShortcut" = true;
     };
