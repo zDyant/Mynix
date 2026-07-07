@@ -4,6 +4,11 @@
   ...
 }: let
   cfg = config.homelab;
+  securityHeaders = ''
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+  '';
   mkProxyVHost = {
     host,
     port,
@@ -16,9 +21,7 @@
         forceSSL = true;
 
         extraConfig = ''
-          add_header X-Frame-Options "SAMEORIGIN" always;
-          add_header X-Content-Type-Options "nosniff" always;
-          add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+          ${securityHeaders}
         '';
         locations."/" = {
           proxyPass = "http://127.0.0.1:${toString port}";
@@ -46,6 +49,15 @@
       port = cfg.services.kutt.port;
       websocket = true;
     }))
+    (lib.mkIf cfg.services.karakeep.enable (mkProxyVHost {
+      host = "karakeep";
+      port = cfg.services.karakeep.port;
+    }))
+    (lib.mkIf cfg.services.n8n.enable (mkProxyVHost {
+      host = "n8n";
+      port = cfg.services.n8n.port;
+      websocket = true;
+    }))
   ];
 in {
   imports = lib.fs.scanPaths ./.;
@@ -60,7 +72,10 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    networking.firewall.allowedTCPPorts = [80 443];
+    networking.firewall.allowedTCPPorts = [
+      80
+      443
+    ];
 
     security.acme.acceptTerms = true;
     security.acme.defaults.email = "zdyant@pm.me";
