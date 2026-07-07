@@ -25,9 +25,7 @@
         url =
           if fixedPort != null
           then "http://localhost:${toString fixedPort}"
-          else "http://localhost:${
-            toString homelab.services.${serviceName}.port
-          }";
+          else "http://localhost:${toString homelab.services.${serviceName}.port}";
         icon = "sh:${icon}";
       }
       // extra;
@@ -47,7 +45,9 @@ in {
       enable = true;
 
       settings = {
-        server = {port = cfg.port;};
+        server = {
+          port = cfg.port;
+        };
 
         pages = [
           {
@@ -101,12 +101,12 @@ in {
                   {
                     type = "rss";
                     limit = 10;
+                    style = "detailed-list";
                     collapse-after = 5;
                     cache = "3h";
                     feeds = [
                       {url = "https://feed.itsfoss.com";}
                       {url = "https://omglinux.com/feed/";}
-                      {url = "https://phoronix.com/rss.php";}
                       {url = "https://wololo.net/feed/";}
                     ];
                   }
@@ -228,6 +228,7 @@ in {
                       "motion-canvas/motion-canvas"
                       "felipegcoutinho/openmonetis"
                       "penpot/penpot"
+                      "iamgio/quarkdown"
                     ];
                   }
                 ];
