@@ -49,6 +49,8 @@
       # use binary cache, its not gentoo
       builders-use-substitutes = true;
       max-jobs = "auto";
+      cores = lib.mkDefault 4;
+
       allow-import-from-derivation = true;
       trusted-users = ["@wheel"];
 
