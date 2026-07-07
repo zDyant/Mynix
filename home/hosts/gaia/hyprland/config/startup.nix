@@ -1,14 +1,14 @@
 {
   config,
   lib,
+  pkgs,
   ...
-}: let
-  floorp = lib.getExe config.programs.floorp.package;
-in {
+}: {
   wayland.windowManager.hyprland = {
-    extraConfig = "
-exec-once = spotify  &
-exec-once = ${floorp} &
-    ";
+    settings.exec-once = [
+      (lib.getExe config.programs.floorp.package)
+      (lib.getExe config.programs.spicetify.spotifyPackage)
+      "${lib.getExe pkgs.easyeffects} --gapplication-service"
+    ];
   };
 }
