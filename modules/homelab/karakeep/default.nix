@@ -24,6 +24,10 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    nixpkgs.config.permittedInsecurePackages = [
+      "pnpm-9.15.9"
+    ];
+
     services.karakeep = {
       enable = true;
       inherit (cfg) environmentFile;
