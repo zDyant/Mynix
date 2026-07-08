@@ -29,7 +29,10 @@
     '';
   menuBind = entries: "$mod, D, exec, ${lib.getExe (mkMenu entries)}";
 in {
-  home.packages = [pkgs.voice-dictate];
+  home.packages = with pkgs; [
+    song-detect
+    voice-dictate
+  ];
 
   wayland.windowManager.hyprland.settings.bind = [
     (menuBind [
@@ -52,6 +55,11 @@ in {
         key = "v";
         desc = "Voice Dictation";
         cmd = lib.getExe pkgs.voice-dictate;
+      }
+      {
+        key = "m";
+        desc = "Detect Music";
+        cmd = lib.getExe pkgs.song-detect;
       }
 
       # Recording
