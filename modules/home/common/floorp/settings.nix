@@ -37,10 +37,6 @@
     "browser.cache.memory.capacity" = 2097152;
     "image.cache.size" = 268435456;
 
-    # Avoid red-tinted video from the VA-API / GPU decode path.
-    "media.ffmpeg.vaapi.enabled" = false;
-    "media.hardware-video-decoding.force-enabled" = false;
-
     # Avoid repeated DNS lookups during long browsing sessions.
     "network.dnsCacheEntries" = 20000;
     "network.dnsCacheExpiration" = 3600;
