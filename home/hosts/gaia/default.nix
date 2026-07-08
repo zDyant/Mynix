@@ -38,7 +38,6 @@
 
     # Apps ---------------------------------------------------------
     rnote # Scratch pad
-    obsidian # Love you obsidian
     planify # Todo-List
     anki
     oxipng

@@ -18,7 +18,6 @@
         path = "/repos/dots";
         name = "Dotfiles";
       }
-      {path = "${config.home.homeDirectory}/obsidian";}
     ];
 
     folderIcons = {
