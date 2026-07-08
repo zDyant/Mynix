@@ -4,6 +4,8 @@
       # Sans(Serif) fonts
       lexend
       noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
       noto-fonts-color-emoji
       roboto
       (google-fonts.override {
@@ -26,8 +28,8 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        serif = ["Laila"];
-        sansSerif = ["Lexend"];
+        serif = ["Laila" "Noto Serif CJK JP"];
+        sansSerif = ["Lexend" "Noto Sans CJK JP"];
         monospace = ["Maple Mono NF"];
         emoji = ["Noto Color Emoji"];
       };
