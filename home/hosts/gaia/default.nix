@@ -25,13 +25,6 @@
     ])
   ];
 
-  # Why I enabled this?
-  gtk.enable = true;
-  home.sessionVariables = {
-    # WLR_RENDERER = "vulkan";  # WARN: KEEP IT OFF, OTHERWISE HYPRLAND WON'T LAUNCH
-  };
-
-  # Check LIBS on configuration.nix
   home.packages = with pkgs; [
     # Cli tools -----------------------------------------------
     devenv # Ease the use of nix-shell
