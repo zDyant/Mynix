@@ -29,7 +29,7 @@
         betterGifPicker.enable = true;
         betterSettings.enable = true;
         biggerStreamPreview.enable = true;
-        ClearURLs.enable = true;
+        clearUrls.enable = true;
         clipsEnhancements.enable = true;
         crashHandler.enable = true;
         disableDeepLinks.enable = true;
@@ -42,7 +42,7 @@
         fixImagesQuality.enable = true;
         fixSpotifyEmbeds.enable = true;
         fixYoutubeEmbeds.enable = true;
-        forwardAnywhere.enable = true;
+        betterForwards.enable = true;
         imageFilename.enable = true;
         spotifyActivityToggle.enable = true;
         validReply.enable = true;

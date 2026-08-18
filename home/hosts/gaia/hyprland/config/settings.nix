@@ -4,7 +4,6 @@
   ...
 }: {
   wayland.windowManager.hyprland.settings = {
-    configType = "hyprlang";
     monitorv2 = [
       {
         output = "DP-2";
