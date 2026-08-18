@@ -5,15 +5,32 @@
 }: {
   wayland.windowManager.hyprland.settings = {
     configType = "hyprlang";
-    monitorv2 = {
-      output = "DP-2";
-      mode = "1920x1080@144";
-      position = "0x0";
-      scale = 1;
-      # bitdepth = 10;
-      cm = "auto";
-    };
-    # monitor = ",1920x1080@144,0x0, 1, bitdepth, 10, cm, wide";
+    monitorv2 = [
+      {
+        output = "DP-2";
+        mode = "3840x2160@144";
+        position = "0x0";
+        scale = 1.5;
+        # bitdepth = 10;
+        cm = "auto";
+      }
+      {
+        output = "HDMI-A-1";
+        mode = "1920x1080@144";
+        position = "2560x0";
+        scale = 1;
+        cm = "auto";
+      }
+    ];
+    # monitor = ",3840x2160@144,0x0, 1, bitdepth, 10, cm, wide";
+
+    workspace = [
+      "1, monitor:DP-2"
+      "2, monitor:DP-2"
+      "3, monitor:HDMI-A-1"
+      "4, monitor:HDMI-A-1"
+      "5, monitor:HDMI-A-1"
+    ];
 
     master = {
       new_on_top = 1;

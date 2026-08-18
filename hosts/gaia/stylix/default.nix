@@ -17,7 +17,7 @@
     cursor = {
       package = pkgs.vision-cursor;
       name = "Vision-White";
-      size = 28;
+      size = 40;
     };
 
     fonts = {
