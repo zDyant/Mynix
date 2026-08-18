@@ -3,10 +3,17 @@
     {
       name = "DP-2";
       primary = true;
+      width = 3840;
+      height = 2160;
+      refreshRate = 144;
+      hdr = true;
+      vrr = true;
+    }
+    {
+      name = "HDMI-A-1";
       width = 1920;
       height = 1080;
       refreshRate = 144;
-      hdr = true;
       vrr = true;
     }
   ];
