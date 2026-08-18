@@ -90,7 +90,7 @@
       repeat_delay = 300;
       numlock_by_default = 1;
       follow_mouse = 1;
-      sensitivity = 1.0;
+      sensitivity = 0.8;
 
       scroll_method = "on_button_down";
       scroll_button = 274;
