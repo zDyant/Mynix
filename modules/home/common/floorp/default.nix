@@ -55,7 +55,7 @@ in {
           inputs.userstyles.lib.${system}.mkUserStyles palette;
         unroundEverythingEverywhere = pkgs.fetchurl {
           url = "https://userstyles.world/api/style/8283.user.css";
-          sha256 = "0jyhvmn6nasrm05x1mzvgqw5a6x8ipvsi45w1qkfj3rhwx6p6w5n";
+          sha256 = "sha256-pTaEOm19O9nxetVg5ABQyPHP4Y6wvjKbQFapFRUAEfQ=";
         };
       in ''
         ${builtins.readFile userStyles}
