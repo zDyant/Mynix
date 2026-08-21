@@ -2,31 +2,31 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?rev=7d5d19274b9f6f7498f7af01063f3b3def9bd0fc";
+    nixpkgs.url = "github:nixos/nixpkgs?rev=324f531d00b90e4fa5c5263b57c52e8b0a56b4cb";
     home-manager = {
-      url = "github:nix-community/home-manager?rev=b885baad531fa3d3beae2ba9a0712d22974d8016";
+      url = "github:nix-community/home-manager?rev=353742587cbaf079b3caee743115d037bc51fea6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix?rev=9cabea6f5973ec01f60080ea50f54f8f6d74dc95";
+      url = "github:Gerg-L/spicetify-nix?rev=0f478ff79b82abb785160cd4531293f61d21be86";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      url = "github:danth/stylix?rev=718c14e8ecba215a65ff955c187fadb9732ddd01";
+      url = "github:danth/stylix?rev=1e6ccadeda179d96728b4a9f20fc9d4dcf6b6059";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
-      url = "github:nix-community/NUR?rev=e714624b7c423dfa66a63751ae425350d56a5d4b";
+      url = "github:nix-community/NUR?rev=6a6f82b8fc56faf1eebaaa0475ebe780a5992924";
     };
     git-hooks = {
-      url = "github:cachix/git-hooks.nix?rev=bca82caa46d5ec0f5d422c61fb1e30bc51313cbe";
+      url = "github:cachix/git-hooks.nix?rev=43b3c1ab9d40fb1dbb008f451988a91e375825e9";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     play = {
       url = "github:tophc7/play.nix?rev=fec1003647b457a82a166f7251cd2b1aba1a8f84";
     };
     nixcord = {
-      url = "github:kaylorben/nixcord?rev=35f2aa7b56b2e546273307ac2d0fa357ca4c62c3";
+      url = "github:kaylorben/nixcord?rev=cd8d67d6b4fb646e70725e1dd7dc546bce95da08";
     };
     betterfox = {
       url = "github:yokoffing/Betterfox?rev=8e415d1633f10fe0192d9c938e4ca2628eeec9f9";
@@ -36,17 +36,17 @@
       url = "github:knoopx/userContent.css?rev=c2590a73fb89b8cf4b82c991d00a6256333732d2";
     };
     flake-parts = {
-      url = "github:hercules-ci/flake-parts?rev=17c9d6cdfc60c64f4ee8d306f9bc0b4ccb51481e";
+      url = "github:hercules-ci/flake-parts?rev=427bf4bd9435fdf21321c8cc628c24efc14c0f7a";
     };
     mix-nix = {
-      url = "github:tophc7/mix.nix?rev=ccb310fdbf1547fd35a472eb9ceb21a9d5f890b4";
+      url = "github:tophc7/mix.nix?rev=4f851037078544329c6f07661f3742b0a6bf039c";
     };
     bonk = {
-      url = "github:tophc7/bonk?rev=737bf81523ffd311fbd308938463679a793d1e22";
+      url = "github:tophc7/bonk?rev=646213784713c7df66795103bf004e5a76a3adc8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     affinity-nix = {
-      url = "github:mrshmllow/affinity-nix?rev=eb5fb72efc11e77e34404a206d978ca8aa131b71";
+      url = "github:mrshmllow/affinity-nix?rev=a67e334856b7bf0ab9b5b4f38dffd436c0b8a2e5";
     };
     disko = {
       url = "github:nix-community/disko?rev=ff8702b4de27f72b4c78573dfb89ec74e36abdf1";
@@ -57,7 +57,7 @@
   outputs = {...} @ inputs: let
     # INFO: Extend nixpkgs lib with mix.nix utilities BEFORE entering flake-parts
     # This gives us lib.fs.*, lib.hosts.*, lib.desktop.*, etc.
-    lib = inputs.mix-nix.lib;
+    lib = (import "${inputs.mix-nix}/lib") inputs.nixpkgs.lib;
   in
     inputs.flake-parts.lib.mkFlake
     {
