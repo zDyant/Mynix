@@ -44,7 +44,7 @@
         fixYoutubeEmbeds.enable = true;
         betterForwards.enable = true;
         imageFilename.enable = true;
-        spotifyActivityToggle.enable = true;
+        gameActivityToggle.enable = true;
         validReply.enable = true;
         voiceButtons.enable = true;
         voiceMessages.enable = true;
