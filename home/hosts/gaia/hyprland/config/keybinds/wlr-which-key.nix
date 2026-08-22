@@ -61,6 +61,36 @@ in {
         desc = "Detect Music";
         cmd = lib.getExe pkgs.song-detect;
       }
+      {
+        key = "b";
+        desc = "Copy Bitwarden credential to clipboard";
+        cmd = let
+          colors = config.lib.stylix.colors.withHashtag;
+          rbw-pick = pkgs.writeShellApplication {
+            name = "rbw-pick";
+            runtimeInputs = [
+              pkgs.rbw
+              pkgs.fzf
+              pkgs.wl-clipboard
+            ];
+            text = ''
+              export SHELL=${lib.getExe pkgs.bash}
+              rbw unlock
+              rbw list --fields name,user \
+              | fzf \
+                  --layout=reverse \
+                  --prompt="󰌆  " \
+                  --pointer="→ " \
+                  --marker="✓ " \
+                  --color="bg+:${colors.base0D},fg+:${colors.base00},pointer:${colors.base0D},hl+:${colors.base00}" \
+                  --preview-window=bottom:3:wrap:border-top \
+                  --delimiter $'\t' \
+                  --preview '[ -n {2} ] && rbw get {1} {2} || rbw get {1}' \
+                  --bind 'enter:execute({ [ -n {2} ] && rbw get {1} {2} || rbw get {1}; } | wl-copy)+abort'
+            '';
+          };
+        in "${lib.getExe pkgs.kitty} --class float -o font_size=16 ${lib.getExe rbw-pick}";
+      }
 
       # Recording
       {
