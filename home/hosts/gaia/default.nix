@@ -38,6 +38,7 @@
     filen-cli
     rclone
     protonmail-desktop
-    bitwarden-desktop
+    rbw # bitwarden-cli
+    pinentry-curses # needed by rbw
   ];
 }
