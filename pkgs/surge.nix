@@ -1,10 +1,10 @@
 {pkgs, ...}:
 pkgs.stdenvNoCC.mkDerivation rec {
   pname = "Surge";
-  version = "0.8.1";
+  version = "0.12.0";
   src = pkgs.fetchurl {
     url = "https://github.com/SurgeDM/Surge/releases/download/v${version}/Surge_${version}_linux_amd64.tar.gz";
-    hash = "sha256-mzMZWHY+gJ+YwKK1sEvCR4q2i7NXanhm3v6KIWeDtRw=";
+    hash = "sha256-vrX0mztTScYa6pEmFuFddYDUeFqDPuxBBFZNBRBd3Ys=";
   };
   sourceRoot = ".";
 
