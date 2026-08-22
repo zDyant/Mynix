@@ -20,6 +20,7 @@
       "modules/hosts/common/nextdns.nix"
       "modules/hosts/common/sunshine.nix"
       "modules/hosts/common/hyprland.nix"
+      "modules/hosts/common/dms.nix"
       "modules/hosts/common/greeter.nix"
     ])
   ];

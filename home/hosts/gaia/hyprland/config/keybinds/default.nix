@@ -80,6 +80,10 @@
       "$mod, code:17, workspace, 8"
       "$mod, code:18, workspace, 9"
       "$mod, code:19, workspace, 10"
+
+      # DmsShell
+      "$mod, A, exec, dms ipc clipboard toggle"
+      "$mod, $mod_L, exec, dms ipc launcher toggle"
     ];
 
     # Resize
