@@ -6,6 +6,7 @@
 }: let
   hyprshot = lib.getExe pkgs.hyprshot;
   wf-recorder = lib.getExe pkgs.wf-recorder;
+  wl-copy = lib.getExe' pkgs.wl-clipboard "wl-copy";
   mkMenu = menu: let
     configFile = pkgs.writeText "config.yaml" (
       lib.generators.toYAML {} {
@@ -43,13 +44,13 @@ in {
         cmd = ''
           ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp})" - \
             | ${lib.getExe pkgs.tesseract} - - \
-            | ${lib.getExe' pkgs.wl-clipboard "wl-copy"}
+            | ${wl-copy}
         '';
       }
       {
         key = "d";
         desc = "Download Manager";
-        cmd = "${lib.getExe pkgs.kitty} --class download-manager ${lib.getExe pkgs.surge}";
+        cmd = "${lib.getExe pkgs.kitty} --class float ${lib.getExe pkgs.surge}";
       }
       {
         key = "v";
