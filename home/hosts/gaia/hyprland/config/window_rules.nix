@@ -25,8 +25,8 @@
       "float on,           match:tag config*"
       "center on,          match:tag config*"
 
-      "float on,     match:class ^(download-manager)$"
-      "size 40% 60%, match:class ^(download-manager)$"
+      "float on,     match:class ^(float)$"
+      "size 40% 60%, match:class ^(float)$"
 
       "match:title ^(Picture-in-Picture)$, float on, move 72% 7%, pin on keep_aspect_ratio on, size 40% 60%"
     ];
