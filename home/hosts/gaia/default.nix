@@ -20,7 +20,6 @@
       "modules/home/common/stylix.nix"
       "modules/home/common/tldr.nix"
       "modules/home/common/tmux.nix"
-      "modules/home/common/vicinae.nix"
       "modules/home/common/wallpaper-engine.nix"
     ])
   ];
