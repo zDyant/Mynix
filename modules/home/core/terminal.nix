@@ -1,20 +1,10 @@
 {lib, ...}: {
   programs = {
-    nushell = {
+    zsh = {
       enable = true;
-
-      settings = {
-        edit_mode = "vi";
-        show_banner = false;
-        completions.external = {
-          enable = true;
-          max_results = 200;
-        };
-        history = {
-          file_format = "sqlite";
-          sync_on_enter = true;
-        };
-      };
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      defaultKeymap = "viins";
 
       shellAliases = {
         v = "nvim";
@@ -30,12 +20,10 @@
         gd = "git diff";
       };
 
-      extraEnv = ''
-        $env.PROMPT_INDICATOR = ""
-        $env.PROMPT_INDICATOR_VI_INSERT = ""
-        $env.PROMPT_INDICATOR_VI_NORMAL = ""
-        $env.PROMPT_MULTILINE_INDICATOR = ""
-      '';
+      history = {
+        size = 10000;
+        ignoreAllDups = true;
+      };
     };
 
     fzf = {
@@ -47,23 +35,23 @@
       options = [
         "--cmd cd"
       ];
-      enableNushellIntegration = true;
+      enableZshIntegration = true;
     };
 
     carapace = {
       enable = true;
-      enableNushellIntegration = true;
+      enableZshIntegration = true;
     };
 
     yazi = lib.mkMerge [
       {
-        enableNushellIntegration = true;
+        enableZshIntegration = true;
       }
     ];
 
     starship = {
       enable = true;
-      enableNushellIntegration = true;
+      enableZshIntegration = true;
     };
   };
 }

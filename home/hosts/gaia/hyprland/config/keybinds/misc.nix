@@ -5,7 +5,7 @@
 }: let
   dotsPath = "/repos/dots";
   terminal = lib.getExe pkgs.kitty;
-  shell = "${lib.getExe pkgs.nushell} -c";
+  shell = "${lib.getExe pkgs.zsh} -c";
   playerctl = "${lib.getExe pkgs.playerctl} -p spotify";
 in {
   wayland.windowManager.hyprland.settings.bind = [

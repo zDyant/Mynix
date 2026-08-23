@@ -120,7 +120,7 @@
         users.zdyant = {
           name = "zdyant";
           uid = 1000;
-          shell = inputs.nixpkgs.legacyPackages.x86_64-linux.nushell;
+          shell = inputs.nixpkgs.legacyPackages.x86_64-linux.zsh;
           extraGroups = [
             "adbusers"
             "audio"
