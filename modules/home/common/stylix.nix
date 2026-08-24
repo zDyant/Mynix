@@ -17,7 +17,7 @@
     icons = lib.mkForce {
       enable = true;
       package = pkgs.pixora-icons;
-      dark = "pixora-icons";
+      dark = "pixora-dark";
     };
   };
 }

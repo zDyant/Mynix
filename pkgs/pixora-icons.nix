@@ -5,17 +5,17 @@
 }:
 pkgs.stdenvNoCC.mkDerivation {
   pname = "pixora-icons";
-  version = "1.0";
+  version = "2992e37";
   src = pkgs.fetchFromGitHub {
     owner = "tsora1603";
     repo = "pixora-icons";
-    rev = "9e334feb360b2a778ad9f16c999fa3ca516cfbd1";
-    hash = "sha256-RkCClbcv+lofjEVvaUGwEXT6M9Sm6tNY8Y5sVKZccWk=";
+    rev = "2992e376079dd41f0f05e4312ebbd80c9645407e";
+    hash = "sha256-3XrGb2PhUarz4H0jYfBWIB5vOYXOKIlspSIm2+UCyk0=";
   };
 
   installPhase = ''
     mkdir -p $out/share/icons
-    cp -R pixora-icons $out/share/icons
+    cp -R pixora pixora-dark $out/share/icons/
   '';
 
   meta = with lib; {
