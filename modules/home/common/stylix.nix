@@ -20,4 +20,11 @@
       dark = "pixora-dark";
     };
   };
+
+  home.packages = [
+    pkgs.pixelitos-icons
+    (pkgs.whitesur-icon-theme.override {
+      alternativeIcons = true;
+    })
+  ];
 }
