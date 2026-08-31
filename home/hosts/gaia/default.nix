@@ -25,19 +25,18 @@
   ];
 
   home.packages = with pkgs; [
-    # Cli tools -----------------------------------------------
-    devenv # Ease the use of nix-shell
-
     # Apps ---------------------------------------------------------
-    rnote # Scratch pad
-    planify # Todo-List
+    rnote # For math
     anki
-    oxipng
-    obs-studio
-    filen-cli
-    rclone
+    filen-cli # https://filen.io
+    rclone # For my daily backups
     protonmail-desktop
     rbw # bitwarden-cli
-    pinentry-curses # needed by rbw
+    pear-desktop
+    newsflash # RSS Reader
+    aria2 # Download Manager
+    qbittorrent-enhanced # Torrent
+    appimage-run
+    brave-origin
   ];
 }

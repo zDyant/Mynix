@@ -26,24 +26,22 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    appimage-run
     ffmpeg-full
     pamixer
     btrfs-progs
-    # zathura     # Minimalist document Viewer
-    # eog         # Image-viewer
+    zathura     # Minimalist document Viewer
+    imv # Image-viewer
     pavucontrol
     authenticator # OTP manager
     nurl # Nix fetchFromGitHub
-    aria2 # DL/Torrent manager
-    qbittorrent-enhanced
     man-pages
+    pinentry-curses # needed by rbw
+    devenv # easy nix-shell
   ];
 
   # For passwords
   services.gnome.gnome-keyring.enable = true;
   services.gvfs.enable = true;
-  services.hardware.openrgb.enable = true;
 
   # Some shenanigans --------------------------------------
   time.timeZone = "America/Sao_Paulo";
