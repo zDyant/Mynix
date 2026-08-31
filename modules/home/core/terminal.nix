@@ -24,6 +24,11 @@
         size = 10000;
         ignoreAllDups = true;
       };
+
+      initContent = ''
+        bindkey '^E' autosuggest-execute
+        bindkey '^Y' autosuggest-accept
+      '';
     };
 
     fzf = {
