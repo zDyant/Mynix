@@ -1,14 +1,12 @@
-{pkgs, ...}: {
-  # AMD Gpu Control
-  systemd.services.lactd.wantedBy = ["multi-user.target"];
-  systemd.packages = with pkgs; [lact];
+{...}: {
+  services.lact.enable = true;
+  hardware = {
+    amdgpu.overdrive.enable = true;
+    amdgpu.opencl.enable = true;
 
-  environment.systemPackages = with pkgs; [lact];
-
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      rocmPackages.clr.icd
-    ];
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
   };
 }
