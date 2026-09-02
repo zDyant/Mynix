@@ -30,17 +30,22 @@
     '';
   menuBind = entries: "$mod, D, exec, ${lib.getExe (mkMenu entries)}";
 in {
-  home.packages = with pkgs; [
-    song-detect
-    voice-dictate
-  ];
+  # home.packages = with pkgs; [
+  #   song-detect
+  #   voice-dictate
+  # ];
 
   wayland.windowManager.hyprland.settings.bind = [
     (menuBind [
-      # Apps
+      # Scripts
+      {
+        key = "C";
+        desc = "  Color picker";
+        cmd = ''${lib.getExe pkgs.hyprpicker} | ${wl-copy} '';
+      }
       {
         key = "c";
-        desc = "Copy text on screen";
+        desc = "  Copy text on screen";
         cmd = ''
           ${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp})" - \
             | ${lib.getExe pkgs.tesseract} - - \
@@ -48,55 +53,20 @@ in {
         '';
       }
       {
-        key = "d";
-        desc = "Download Manager";
-        cmd = "${lib.getExe pkgs.kitty} --class float ${lib.getExe pkgs.surge}";
-      }
-      {
         key = "v";
-        desc = "Voice Dictation";
+        desc = " Voice Dictation";
         cmd = lib.getExe pkgs.voice-dictate;
       }
       {
         key = "m";
-        desc = "Detect Music";
+        desc = "  Detect Music";
         cmd = lib.getExe pkgs.song-detect;
-      }
-      {
-        key = "b";
-        desc = "Copy Bitwarden credential to clipboard";
-        cmd = let
-          colors = config.lib.stylix.colors.withHashtag;
-          rbw-pick = pkgs.writeShellApplication {
-            name = "rbw-pick";
-            runtimeInputs = [
-              pkgs.rbw
-              pkgs.fzf
-              pkgs.wl-clipboard
-            ];
-            text = ''
-              export SHELL=${lib.getExe pkgs.bash}
-              rbw unlock
-              rbw list --fields name,user \
-              | fzf \
-                  --layout=reverse \
-                  --prompt="󰌆  " \
-                  --pointer="→ " \
-                  --marker="✓ " \
-                  --color="bg+:${colors.base0D},fg+:${colors.base00},pointer:${colors.base0D},hl+:${colors.base00}" \
-                  --preview-window=bottom:3:wrap:border-top \
-                  --delimiter $'\t' \
-                  --preview '[ -n {2} ] && rbw get {1} {2} || rbw get {1}' \
-                  --bind 'enter:execute({ [ -n {2} ] && rbw get {1} {2} || rbw get {1}; } | wl-copy)+abort'
-            '';
-          };
-        in "${lib.getExe pkgs.kitty} --class float -o font_size=16 ${lib.getExe rbw-pick}";
       }
 
       # Recording
       {
         key = "r";
-        desc = "Record";
+        desc = "  Record";
         submenu = let
           timestamp = "$(date +%Y-%m-%d_%H-%M-%S)";
         in [
@@ -121,7 +91,7 @@ in {
       # Screenshot
       {
         key = "s";
-        desc = "Screenshot";
+        desc = "  Screenshot";
         submenu = [
           {
             key = "r";
@@ -146,33 +116,63 @@ in {
         ];
       }
 
-      # Power
+      # Interfaces
       {
-        key = "p";
-        desc = "Power";
+        key = "o";
+        desc = " Launch";
         submenu = [
           {
-            key = "s";
-            desc = "Sleep";
-            cmd = "systemctl suspend";
+            key = "t";
+            desc = "Tmux";
+            cmd = "dms ipc tmux toggle";
           }
           {
-            key = "r";
-            desc = "Reboot";
-            cmd = "reboot";
+            key = "w";
+            desc = "Color wheel";
+            cmd = "dms ipc color-picker toggle";
           }
           {
-            key = "o";
-            desc = "Power Off";
-            cmd = "poweroff";
+            key = "d";
+            desc = "Download Manager";
+            cmd = "${lib.getExe pkgs.kitty} --class float ${lib.getExe pkgs.surge}";
           }
           {
-            key = "g";
-            desc = "Reboot into Grub";
-            cmd = "sudo grub-reboot && sudo reboot";
+            key = "b";
+            desc = "Bitwarden";
+            cmd = let
+              colors = config.lib.stylix.colors.withHashtag;
+
+              rbw-pick = pkgs.writeShellApplication {
+                name = "rbw-pick";
+                runtimeInputs = [
+                  pkgs.rbw
+                  pkgs.fzf
+                  pkgs.wl-clipboard
+                ];
+
+                text = ''
+                  export SHELL=${lib.getExe pkgs.bash}
+                  rbw unlock
+                  rbw list --fields name,user \
+                  | fzf \
+                      --layout=reverse \
+                      --prompt="󰌆  " \
+                      --pointer="→ " \
+                      --marker="✓ " \
+                      --color="bg+:${colors.base0D},fg+:${colors.base00},pointer:${colors.base0D},hl+:${colors.base00}" \
+                      --preview-window=bottom:3:wrap:border-top \
+                      --delimiter $'\t' \
+                      --preview '[ -n {2} ] && rbw get {1} {2} || rbw get {1}' \
+                      --bind 'enter:execute({ [ -n {2} ] && rbw get {1} {2} || rbw get {1}; } | wl-copy)+abort'
+                '';
+              };
+            in "${lib.getExe pkgs.kitty} --class float -o font_size=16 ${lib.getExe rbw-pick}";
           }
         ];
       }
+
+      # Power menu don't work anymore. Idk why. too lazy.
+      # Dms-shell already provides a power menu anyway
     ])
   ];
 }
