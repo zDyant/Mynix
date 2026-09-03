@@ -4,8 +4,6 @@
   pkgs,
   ...
 }: let
-  hyprshot = lib.getExe pkgs.hyprshot;
-  wf-recorder = lib.getExe pkgs.wf-recorder;
   wl-copy = lib.getExe' pkgs.wl-clipboard "wl-copy";
   mkMenu = menu: let
     configFile = pkgs.writeText "config.yaml" (
@@ -30,14 +28,8 @@
     '';
   menuBind = entries: "$mod, D, exec, ${lib.getExe (mkMenu entries)}";
 in {
-  # home.packages = with pkgs; [
-  #   song-detect
-  #   voice-dictate
-  # ];
-
   wayland.windowManager.hyprland.settings.bind = [
     (menuBind [
-      # Scripts
       {
         key = "C";
         desc = "  Color picker";
@@ -61,59 +53,6 @@ in {
         key = "m";
         desc = "  Detect Music";
         cmd = lib.getExe pkgs.song-detect;
-      }
-
-      # Recording
-      {
-        key = "r";
-        desc = "  Record";
-        submenu = let
-          timestamp = "$(date +%Y-%m-%d_%H-%M-%S)";
-        in [
-          {
-            key = "f";
-            desc = "Record Fullscreen";
-            cmd = "${wf-recorder} -f ~/Videos/${timestamp}.mp4 & notify-send 'Started recording'";
-          }
-          {
-            key = "r";
-            desc = "Record Region";
-            cmd = "${wf-recorder} -g \"$(${lib.getExe pkgs.slurp})\" -f ~/Videos/${timestamp}.mp4 & notify-send 'Started recording'";
-          }
-          {
-            key = "q";
-            desc = "Stop Recording";
-            cmd = "${lib.getExe pkgs.killall} -s SIGINT ${wf-recorder} && notify-send 'Stopped recording'";
-          }
-        ];
-      }
-
-      # Screenshot
-      {
-        key = "s";
-        desc = "  Screenshot";
-        submenu = [
-          {
-            key = "r";
-            desc = "Capture Region";
-            cmd = "${hyprshot} -m region";
-          }
-          {
-            key = "c";
-            desc = "[] Capture Region";
-            cmd = "${hyprshot} -m region --clipboard-only";
-          }
-          {
-            key = "f";
-            desc = "Capture Region Freeze";
-            cmd = "${hyprshot} -z -m region";
-          }
-          {
-            key = "z";
-            desc = "[] Capture Region Freeze";
-            cmd = "${hyprshot} -z -m region --clipboard-only";
-          }
-        ];
       }
 
       # Interfaces
@@ -170,9 +109,6 @@ in {
           }
         ];
       }
-
-      # Power menu don't work anymore. Idk why. too lazy.
-      # Dms-shell already provides a power menu anyway
     ])
   ];
 }
