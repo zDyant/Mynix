@@ -4,6 +4,12 @@
   pkgs,
   ...
 }: let
+  inherit
+    (import ../_helper.nix {inherit lib;})
+    bind
+    exec
+    ;
+
   wl-copy = lib.getExe' pkgs.wl-clipboard "wl-copy";
   mkMenu = menu: let
     configFile = pkgs.writeText "config.yaml" (
@@ -24,9 +30,10 @@
     );
   in
     pkgs.writeShellScriptBin "my-menu" ''
-      pkill ${lib.getExe pkgs.wlr-which-key} ; exec ${lib.getExe pkgs.wlr-which-key} ${configFile}
+      pkill ${lib.getExe pkgs.wlr-which-key}; ${lib.getExe pkgs.wlr-which-key} ${configFile}
     '';
-  menuBind = entries: "$mod, D, exec, ${lib.getExe (mkMenu entries)}";
+
+  menuBind = entries: (bind "SUPER + D" (exec (lib.getExe (mkMenu entries))));
 in {
   wayland.windowManager.hyprland.settings.bind = [
     (menuBind [
@@ -73,7 +80,7 @@ in {
           {
             key = "d";
             desc = "Download Manager";
-            cmd = "${lib.getExe pkgs.kitty} --class float ${lib.getExe pkgs.surge}";
+            cmd = "${lib.getExe pkgs.kitty} --single-instance --class float ${lib.getExe pkgs.surge}";
           }
           {
             key = "b";
@@ -105,7 +112,7 @@ in {
                       --bind 'enter:execute({ [ -n {2} ] && rbw get {1} {2} || rbw get {1}; } | wl-copy)+abort'
                 '';
               };
-            in "${lib.getExe pkgs.kitty} --class float -o font_size=16 ${lib.getExe rbw-pick}";
+            in "${lib.getExe pkgs.kitty} --single-instance --class float -o font_size=16 ${lib.getExe rbw-pick}";
           }
         ];
       }

@@ -1,103 +1,59 @@
-{lib, ...}: {
+{lib, ...}: let
+  inherit
+    (import ../_helper.nix {inherit lib;})
+    bind
+    exec
+    focus
+    mv
+    ;
+in {
   imports = lib.fs.scanPaths ./.;
-  wayland.windowManager.hyprland.settings."$mod" = "SUPER";
-  wayland.windowManager.hyprland.settings = {
+  wayland.windowManager.hyprland.settings.bind = [
     # Windows control ------------------------------------------------------------
-    bind = [
-      "$mod, Q, killactive"
-      "$mod SHIFT, Q, exec, hyprctl kill"
-      "$mod, F, fullscreen"
-      "$mod SHIFT, F, togglefloating"
+    (bind "SUPER + SHIFT + Q" (exec "hyprctlkill"))
+    (bind "SUPER + Q" "hl.dsp.window.close()")
+    (bind "SUPER + F" "hl.dsp.window.fullscreen({mode='fullscreen'})")
+    (bind "SUPER + SHIFT + F" "hl.dsp.window.float({action='toggle'})")
 
-      "$mod, h, movefocus, l"
-      "$mod, l, movefocus, r"
-      "$mod, k, movefocus, u"
-      "$mod, j, movefocus, d"
+    (bind "SUPER + h" (focus "left"))
+    (bind "SUPER + l" (focus "right"))
+    (bind "SUPER + k" (focus "up"))
+    (bind "SUPER + j" (focus "down"))
 
-      "$mod CTRL, h, movewindow, l"
-      "$mod CTRL, l, movewindow, r"
-      "$mod CTRL, k, movewindow, u"
-      "$mod CTRL, j, movewindow, d"
+    (bind "SUPER + CTRL + h" (mv "left"))
+    (bind "SUPER + CTRL + l" (mv "right"))
+    (bind "SUPER + CTRL + k" (mv "up"))
+    (bind "SUPER + CTRL + j" (mv "down"))
 
-      # Groups
-      "$mod, G, togglegroup"
-      "ALT, tab, changegroupactive" # change focus to another window
+    (bind "SUPER + SHIFT + h" "hl.dsp.window.resize({ x = -10, y = 0, relative = true })" {repeating = true;})
+    (bind "SUPER + SHIFT + l" "hl.dsp.window.resize({ x = 10, y = 0, relative = true })" {repeating = true;})
+    (bind "SUPER + SHIFT + k" "hl.dsp.window.resize({ x = 0, y = -10, relative = true })" {repeating = true;})
+    (bind "SUPER + SHIFT + j" "hl.dsp.window.resize({ x = 0, y = 10, relative = true })" {repeating = true;})
 
-      # Special workspace
-      "$mod SHIFT, U, movetoworkspace, special"
-      "$mod, U, togglespecialworkspace"
+    # Groups
+    (bind "SUPER +  G" "hl.dsp.group.toggle()")
+    (bind "ALT + tab " "hl.dsp.group.next()")
 
-      # Hyprland ---------------------------------------------------------
-      "CTRL ALT, Delete, exec, hyprctl dispatch exit 0"
+    # Hyprland ---------------------------------------------------------
+    (bind "CTRL + ALT + Delete" "hl.dsp.exit()")
 
-      # ------------------------------------------------------------------
-      # Move using tab
-      "$mod, tab, workspace, m+1"
-      "$mod SHIFT, tab, workspace, m-1"
+    # Workspaces -------------------------------------------------------
 
-      # Scroll through existing workspaces with mod + scroll
-      "$mod, mouse_down, workspace, e+1"
-      "$mod, mouse_up, workspace, e-1"
-      "$mod, period, workspace, e+1"
-      "$mod, comma, workspace, e-1"
+    # Move active window to a workspace silently
+    (bind "SUPER + CTRL + 1" (mv 1))
+    (bind "SUPER + CTRL + 1" (mv 1))
+    (bind "SUPER + CTRL + 2" (mv 2))
+    (bind "SUPER + CTRL + 3" (mv 3))
+    (bind "SUPER + CTRL + 4" (mv 4))
+    (bind "SUPER + CTRL + 5" (mv 5))
+    (bind "SUPER + CTRL + 6" (mv 6))
 
-      # Move active window and follow to workspace mod + SHIFT [0-9]
-      "$mod SHIFT, code:10, movetoworkspace, 1"
-      "$mod SHIFT, code:11, movetoworkspace, 2"
-      "$mod SHIFT, code:12, movetoworkspace, 3"
-      "$mod SHIFT, code:13, movetoworkspace, 4"
-      "$mod SHIFT, code:14, movetoworkspace, 5"
-      "$mod SHIFT, code:15, movetoworkspace, 6"
-      "$mod SHIFT, code:16, movetoworkspace, 7"
-      "$mod SHIFT, code:17, movetoworkspace, 8"
-      "$mod SHIFT, code:18, movetoworkspace, 9"
-      "$mod SHIFT, code:19, movetoworkspace, 10"
-
-      # Move active window to a workspace silently mod + CTRL [0-9]
-      "$mod CTRL, code:10, movetoworkspacesilent, 1"
-      "$mod CTRL, code:11, movetoworkspacesilent, 2"
-      "$mod CTRL, code:12, movetoworkspacesilent, 3"
-      "$mod CTRL, code:13, movetoworkspacesilent, 4"
-      "$mod CTRL, code:14, movetoworkspacesilent, 5"
-      "$mod CTRL, code:15, movetoworkspacesilent, 6"
-      "$mod CTRL, code:16, movetoworkspacesilent, 7"
-      "$mod CTRL, code:17, movetoworkspacesilent, 8"
-      "$mod CTRL, code:18, movetoworkspacesilent, 9"
-      "$mod CTRL, code:19, movetoworkspacesilent, 10"
-
-      # Workspaces ------------------------------------------------------------------
-      # The following mappings use the key codes to better support various keyboard layouts
-      # 1 is code:10, 2 is code 11, etc
-
-      # Switch workspaces with mod + [0-9]
-      "$mod, code:10, workspace, 1"
-      "$mod, code:11, workspace, 2"
-      "$mod, code:12, workspace, 3"
-      "$mod, code:13, workspace, 4"
-      "$mod, code:14, workspace, 5"
-      "$mod, code:15, workspace, 6"
-      "$mod, code:16, workspace, 7"
-      "$mod, code:17, workspace, 8"
-      "$mod, code:18, workspace, 9"
-      "$mod, code:19, workspace, 10"
-
-      # DmsShell
-      "$mod, A, exec, dms ipc clipboard toggle"
-      "$mod, $mod_L, exec, dms ipc launcher toggle"
-    ];
-
-    # Resize
-    binde = [
-      "$mod SHIFT, h, resizeactive,-50 0"
-      "$mod SHIFT, l, resizeactive,50 0"
-      "$mod SHIFT, k, resizeactive,0 -50"
-      "$mod SHIFT, j, resizeactive,0 50"
-    ];
-
-    # Move/resize windows with mod + LMB/RMB and dragging
-    bindm = [
-      "$mod, mouse:272, movewindow"
-      "$mod, mouse:273, resizewindow"
-    ];
-  };
+    # Switch workspaces with mod + [0-9]
+    (bind "SUPER + 1" (focus 1))
+    (bind "SUPER + 2" (focus 2))
+    (bind "SUPER + 3" (focus 3))
+    (bind "SUPER + 4" (focus 4))
+    (bind "SUPER + 5" (focus 5))
+    (bind "SUPER + 6" (focus 6))
+  ];
 }

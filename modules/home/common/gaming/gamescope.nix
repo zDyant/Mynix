@@ -8,19 +8,6 @@
 }: {
   imports = [inputs.play.homeManagerModules.play];
 
-  wayland.windowManager.hyprland.settings.windowrule = lib.mkIf config.wayland.windowManager.hyprland.enable [
-    "tag +gamestore, match:class ^([Ss]team)$"
-    "tag +gamestore, match:class ^(com.heroicgameslauncher.hgl)$"
-    "tag +games, match:class ^(gamescope|\\.gamescope-wrapped)$"
-    "tag +games, match:class ^(steam_app_.*)$"
-
-    "no_blur on,     match:tag games*"
-    "fullscreen on, match:tag games*"
-
-    "workspace 2 silent, match:tag gamestore*"
-    "workspace 2 silent, match:tag games*"
-  ];
-
   play = {
     gamescoperun = {
       enable = true;

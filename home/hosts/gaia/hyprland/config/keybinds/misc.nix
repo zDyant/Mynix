@@ -3,26 +3,36 @@
   pkgs,
   ...
 }: let
+  inherit
+    (import ../_helper.nix {inherit lib;})
+    bind
+    exec
+    ;
+
   dotsPath = "/repos/dots";
-  terminal = lib.getExe pkgs.kitty;
+  terminal = "${lib.getExe pkgs.kitty} --single-instance";
   shell = "${lib.getExe pkgs.zsh} -c";
   playerctl = "${lib.getExe pkgs.playerctl} -p spotify";
 in {
   wayland.windowManager.hyprland.settings.bind = [
-    "$mod SHIFT, S, exec, ${lib.getExe pkgs.hyprshot} -m region --clipboard-only"
-
     # Sound control
-    "$mod, V, exec, volume-control --inc" # volume up
-    "$mod, Z, exec, volume-control --dec" # volume down
-    "$mod, SPACE, exec, ${playerctl} play-pause"
-    "$mod, C, exec,     ${playerctl} next"
-    "$mod, X, exec,     ${playerctl} previous"
+    (bind "SUPER +  V      " (exec "volume-control --inc")) # volume up
+    (bind "SUPER +  Z      " (exec "volume-control --dec")) # volume down
+    (bind "SUPER +  SPACE  " (exec "${playerctl} play-pause"))
+    (bind "SUPER +  C      " (exec "${playerctl} next"))
+    (bind "SUPER +  X      " (exec "${playerctl} previous"))
 
     # Launchers
-    "$mod, T, exec, ${terminal}" # Launch terminal
-    "$mod, E, exec, ${terminal} ${shell} yazi" # File manager
-    "$mod, RETURN, exec, ${terminal} ${shell} 'cd ${dotsPath}; nvim +terminal'"
+    (bind "SUPER +  T      " (exec "${terminal}")) # Launch terminal
+    (bind "SUPER +  E      " (exec "${terminal} ${shell} ${lib.getExe pkgs.yazi}")) # File manager
+    (bind "SUPER +  RETURN " (exec "${terminal} ${shell} 'cd ${dotsPath}; nvim +terminal'"))
 
-    "$mod, S, exec, ${lib.getExe pkgs.grim} - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"}"
+    (bind "SUPER +  S      " (exec "${lib.getExe pkgs.hyprshot} -m output --clipboard-only"))
+    (bind "SUPER + SHIFT + S" (exec "${lib.getExe pkgs.hyprshot} -z -m region --clipboard-only"))
+
+    # DmsShell
+    (bind "SUPER +  A        " (exec "dms ipc clipboard toggle        "))
+    (bind "SUPER+ Super_L" (exec "dms ipc launcher toggle"))
+    (bind "SUPER +  W        " (exec "dms ipc call hypr toggleOverview"))
   ];
 }

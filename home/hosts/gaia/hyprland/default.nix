@@ -22,8 +22,8 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    configType = "hyprlang";
-    package = pkgs.hyprland;
+    package = null; # INFO: Set this to null if you use the NixOS module to install Hyprland.
+    portalPackage = null;
     xwayland = {
       enable = true;
       # hidpi = true;
