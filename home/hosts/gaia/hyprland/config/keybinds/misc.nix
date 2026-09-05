@@ -8,11 +8,16 @@
     bind
     exec
     ;
-
   dotsPath = "/repos/dots";
+
   terminal = "${lib.getExe pkgs.kitty} --single-instance";
   shell = "${lib.getExe pkgs.zsh} -c";
   playerctl = "${lib.getExe pkgs.playerctl} -p spotify";
+
+  yazi = lib.getExe pkgs.yazi;
+  rishot = lib.getExe pkgs.rishot;
+
+  dms = "dms ipc";
 in {
   wayland.windowManager.hyprland.settings.bind = [
     # Sound control
@@ -23,15 +28,15 @@ in {
     (bind "SUPER +  X      " (exec "${playerctl} previous"))
 
     # Launchers
-    (bind "SUPER +  T      " (exec "${terminal}")) # Launch terminal
-    (bind "SUPER +  E      " (exec "${terminal} ${shell} ${lib.getExe pkgs.yazi}")) # File manager
+    (bind "SUPER +  T      " (exec terminal))
+    (bind "SUPER + E" (exec "${terminal} ${shell} ${yazi}"))
     (bind "SUPER +  RETURN " (exec "${terminal} ${shell} 'cd ${dotsPath}; nvim +terminal'"))
 
     (bind "SUPER +  S       " (exec rishot))
 
     # DmsShell
-    (bind "SUPER +  A        " (exec "dms ipc clipboard toggle        "))
-    (bind "SUPER+ Super_L" (exec "dms ipc launcher toggle"))
-    (bind "SUPER +  W        " (exec "dms ipc call hypr toggleOverview"))
+    (bind "SUPER +  A"      (exec "${dms} clipboard toggle"))
+    (bind "SUPER + Super_L" (exec "${dms} launcher toggle"))
+    (bind "SUPER +  W"      (exec "${dms} hypr toggleOverview"))
   ];
 }

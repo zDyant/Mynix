@@ -8,7 +8,7 @@
     __functor = self: flags: {_args = [key (lua action) flags];};
     _args = [key (lua action) {}];
   };
-  exec = cmd: ''hl.dsp.exec_cmd("${cmd}")'';
+  exec = cmd: "hl.dsp.exec_cmd(${builtins.toJSON cmd})";
   execHook = cmd: ''hl.exec_cmd("${cmd}")'';
 
   func = body: "function()\n${body}\nend";
@@ -23,6 +23,11 @@
     if builtins.isInt action
     then ''hl.dsp.window.move({ workspace = "${toString action}", follow = false})''
     else ''hl.dsp.window.move({ direction = "${action}" })'';
+
+  resize = key: x: y:
+    bind "SUPER + SHIFT + ${key}"
+    "hl.dsp.window.resize({ x = ${toString x}, y = ${toString y}, relative = true })"
+    {repeating = true;};
 
   #omg
   on_startup = targets: [
