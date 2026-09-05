@@ -3,4 +3,4 @@
   lib,
   pkgs,
 }:
-lib.fs.importAttrs ./. {inherit lib pkgs;}
+lib.fs.importAttrs ./. (pkgs // {inherit lib;})
