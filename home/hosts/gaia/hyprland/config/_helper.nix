@@ -26,7 +26,7 @@
 
   #omg
   on_startup = targets: [
-    (mkArgs ["hyprland.start" (lua (func (lib.concatStringsSep "\n" (map (t: exec t) targets))))])
+    (mkArgs ["hyprland.start" (lua (func (lib.concatStringsSep "\n" (map (t: execHook t) targets))))])
   ];
 
   mkEnv = lib.mapAttrsToList (
