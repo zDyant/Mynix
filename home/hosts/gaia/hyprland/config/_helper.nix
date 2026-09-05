@@ -22,7 +22,7 @@
   mv = action:
     if builtins.isInt action
     then ''hl.dsp.window.move({ workspace = "${toString action}", follow = false})''
-    else ''hl.dsp.window.move({ direction = "${action}" })'';
+    else ''hl.dsp.window.move({ direction = "${action}", group_aware = true})'';
 
   resize = key: x: y:
     bind "SUPER + SHIFT + ${key}"
