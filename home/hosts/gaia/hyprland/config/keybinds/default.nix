@@ -10,7 +10,7 @@ in {
   imports = lib.fs.scanPaths ./.;
   wayland.windowManager.hyprland.settings.bind = [
     # Windows control ------------------------------------------------------------
-    (bind "SUPER + SHIFT + Q" (exec "hyprctlkill"))
+    (bind "SUPER + SHIFT + Q" (exec "hyprctl kill"))
     (bind "SUPER + Q" "hl.dsp.window.close()")
     (bind "SUPER + F" "hl.dsp.window.fullscreen({mode='fullscreen'})")
     (bind "SUPER + SHIFT + F" "hl.dsp.window.float({action='toggle'})")
