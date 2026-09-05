@@ -9,6 +9,7 @@
     _args = [key (lua action) {}];
   };
   exec = cmd: ''hl.dsp.exec_cmd("${cmd}")'';
+  execHook = cmd: ''hl.exec_cmd("${cmd}")'';
 
   func = body: "function()\n${body}\nend";
   mkArgs = args: {_args = args;};
