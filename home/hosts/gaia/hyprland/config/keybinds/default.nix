@@ -25,10 +25,10 @@ in {
     (bind "SUPER + CTRL + k" (mv "up"))
     (bind "SUPER + CTRL + j" (mv "down"))
 
-    (bind "SUPER + SHIFT + h" "hl.dsp.window.resize({ x = -10, y = 0, relative = true })" {repeating = true;})
-    (bind "SUPER + SHIFT + l" "hl.dsp.window.resize({ x = 10, y = 0, relative = true })" {repeating = true;})
-    (bind "SUPER + SHIFT + k" "hl.dsp.window.resize({ x = 0, y = -10, relative = true })" {repeating = true;})
-    (bind "SUPER + SHIFT + j" "hl.dsp.window.resize({ x = 0, y = 10, relative = true })" {repeating = true;})
+    (bind "SUPER + SHIFT + h" "hl.dsp.window.resize({ x = -24, y = 0, relative = true })" {repeating = true;})
+    (bind "SUPER + SHIFT + l" "hl.dsp.window.resize({ x = 24, y = 0, relative = true })" {repeating = true;})
+    (bind "SUPER + SHIFT + k" "hl.dsp.window.resize({ x = 0, y = -24, relative = true })" {repeating = true;})
+    (bind "SUPER + SHIFT + j" "hl.dsp.window.resize({ x = 0, y = 24, relative = true })" {repeating = true;})
 
     # Groups
     (bind "SUPER +  G" "hl.dsp.group.toggle()")
