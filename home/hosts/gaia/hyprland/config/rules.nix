@@ -6,7 +6,7 @@ in {
       # INFO: Remove border around hyprshot screenshots
       {
         match.namespace = [
-          "selection"
+          "rishot"
           "^(dms:.*)$"
         ];
         no_anim = true;

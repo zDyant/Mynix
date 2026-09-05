@@ -27,8 +27,7 @@ in {
     (bind "SUPER +  E      " (exec "${terminal} ${shell} ${lib.getExe pkgs.yazi}")) # File manager
     (bind "SUPER +  RETURN " (exec "${terminal} ${shell} 'cd ${dotsPath}; nvim +terminal'"))
 
-    (bind "SUPER +  S      " (exec "${lib.getExe pkgs.hyprshot} -m output --clipboard-only"))
-    (bind "SUPER + SHIFT + S" (exec "${lib.getExe pkgs.hyprshot} -z -m region --clipboard-only"))
+    (bind "SUPER +  S       " (exec rishot))
 
     # DmsShell
     (bind "SUPER +  A        " (exec "dms ipc clipboard toggle        "))
