@@ -15,14 +15,14 @@
     execHook "${lib.getExe' pkgs.pipewire "pw-play"} --volume 0.2 ${file}";
 in {
   wayland.windowManager.hyprland.settings.on = let
-    attention = ./item_appear_09.wav;
-    close = ./click_2.wav;
+    item = ./item_appear_09.wav;
+    click2 = ./click_07.wav;
     click = ./click.wav;
-    move = ./item_appear_06.wav;
+    item2 = ./item_appear_06.wav;
   in [
-    (on "window.open_early" (play move))
-    (on "window.close" (play close))
+    (on "window.open_early" (play item2))
+    (on "window.close" (play click2))
     (on "window.active" (play click))
-    (on "window.move_to_workspace" (play attention))
+    (on "window.move_to_workspace" (play item))
   ];
 }
