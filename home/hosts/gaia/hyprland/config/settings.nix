@@ -40,7 +40,7 @@ in {
         border_size = 4;
         resize_on_border = false;
         "col.active_border" = lib.mkDefault "rgb(${colors.base0A})";
-        layout = "dwindle";
+        layout = "master";
       };
 
       group = {
