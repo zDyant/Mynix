@@ -24,14 +24,10 @@
     then ''hl.dsp.window.move({ workspace = "${toString action}", follow = false})''
     else ''hl.dsp.window.move({ direction = "${action}", group_aware = true})'';
 
-  resize = key: x: y:
-    bind "SUPER + SHIFT + ${key}"
-    "hl.dsp.window.resize({ x = ${toString x}, y = ${toString y}, relative = true })"
-    {repeating = true;};
+  mvxy = dispatcher: x: y: "hl.dsp.window.${dispatcher}({ x = ${toString x}, y = ${toString y}, relative = true })";
 
-  #omg
   on_startup = targets: [
-    (mkArgs ["hyprland.start" (lua (func (lib.concatStringsSep "\n" (map (t: execHook t) targets))))])
+    (mkArgs ["hyprland.start" (lua (func (lib.concatStringsSep "\n" (map (t: execHook t) targets))))]) #omg
   ];
 
   mkEnv = lib.mapAttrsToList (
