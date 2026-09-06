@@ -2,6 +2,34 @@
   inherit (import ./_helper.nix {inherit lib;}) expandRules mkRules;
 in {
   wayland.windowManager.hyprland.settings = {
+    workspace_rule = [
+      {
+        workspace = "1";
+        monitor = "DP-2";
+      }
+      {
+        workspace = "2";
+        monitor = "DP-2";
+      }
+      {
+        workspace = "3";
+        monitor = "DP-2";
+      }
+      {
+        workspace = "4";
+        monitor = "DP-2";
+      }
+      {
+        workspace = "5";
+        monitor = "DP-2";
+      }
+      {
+        workspace = "6";
+        monitor = "HDMI-A-1";
+        layout = "scrolling";
+      }
+    ];
+
     layer_rule = expandRules [
       # INFO: Remove border around hyprshot screenshots
       {
