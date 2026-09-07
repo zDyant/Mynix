@@ -1,0 +1,31 @@
+{
+  "wallpaperPath": "/home/zdyant/Pictures/wallpapers/113657216_p0.png",
+  "wallpaperTransition": "random",
+  "includedTransitions": [
+    "fade",
+    "wipe",
+    "disc",
+    "iris bloom",
+    "portal"
+  ],
+  "wallpaperCyclingEnabled": true,
+  "wallpaperCyclingRandom": true,
+  "wallpaperCyclingInterval": 7200,
+  "lastPlayerIdentity": "Spotify",
+  "desktopWidgetInstancePositions": {
+    "dw_1787404775783_mall1g28z": {
+      "_synced": {
+        "width": 200,
+        "height": 200,
+        "x": 0.4479166666666667,
+        "y": 0.4074074074074074
+      }
+    }
+  },
+  "launcherLastQuery": "sett",
+  "launcherQueryHistory": [
+    "sett",
+    "spo"
+  ],
+  "configVersion": 4
+}
