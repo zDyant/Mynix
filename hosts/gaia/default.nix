@@ -20,7 +20,6 @@
       "modules/hosts/common/nextdns.nix"
       "modules/hosts/common/sunshine.nix"
       "modules/hosts/common/hyprland.nix"
-      "modules/hosts/common/dms.nix"
       "modules/hosts/common/greeter.nix"
     ])
   ];
@@ -29,7 +28,7 @@
     ffmpeg-full
     pamixer
     btrfs-progs
-    zathura     # Minimalist document Viewer
+    zathura # Minimalist document Viewer
     imv # Image-viewer
     pavucontrol
     authenticator # OTP manager

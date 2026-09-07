@@ -21,6 +21,7 @@
       "modules/home/common/tldr.nix"
       "modules/home/common/tmux.nix"
       "modules/home/common/wallpaper-engine.nix"
+      "modules/home/common/dms"
     ])
   ];
 
