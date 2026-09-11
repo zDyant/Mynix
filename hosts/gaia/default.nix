@@ -36,6 +36,7 @@
     man-pages
     pinentry-curses # needed by rbw
     devenv # easy nix-shell
+    dsearch # needed by dms, great tool btw
   ];
 
   # For passwords
