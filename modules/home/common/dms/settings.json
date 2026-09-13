@@ -171,10 +171,6 @@
         {
           "id": "ambientSound",
           "enabled": true
-        },
-        {
-          "id": "powerMenuButton",
-          "enabled": true
         }
       ],
       "spacing": 4,
@@ -267,8 +263,8 @@
       "islandNotificationExpand": false,
       "islandNotificationBadgeClearOnOpen": true,
       "islandSatellitesEnabled": true,
-      "islandSatelliteBackground": false,
-      "islandSatelliteGothCorners": true,
+      "islandSatelliteBackground": true,
+      "islandSatelliteGothCorners": false,
       "islandSatelliteSwoopRadius": 24,
       "islandSatelliteTransparency": 1,
       "islandSatellitePosition": "edges",

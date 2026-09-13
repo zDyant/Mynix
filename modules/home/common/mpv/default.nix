@@ -9,7 +9,6 @@
   imports = lib.fs.scanPaths ./.;
 
   home.packages = with pkgs; [
-    mpvScripts.modernz # INFO: Included here so that the font is installed
     yt-dlp
   ];
   programs.mpv = {
@@ -17,27 +16,6 @@
     defaultProfiles = ["gpu-hq"];
     scriptOpts = {
       webtorrent.path = "${config.xdg.cacheHome}/mpv";
-      modernz = {
-        "download_path" = "${config.xdg.userDirs.videos}/mpv";
-
-        "osc_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base00;
-        "scalewindowed" = "0.6";
-        "hover_effect" = "size";
-
-        "hover_effect_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base05;
-        "side_buttons_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base04;
-        "middle_buttons_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base0D;
-        "playpause_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base0D;
-
-        "seekbarfg_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base0D;
-        "seekbarbg_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base04;
-        "seekbar_cache_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base0A;
-
-        "window_controls_color" = lib.mkDefault config.lib.stylix.colors.withHashtag.base04;
-        "windowcontrols_close_hover" = lib.mkDefault config.lib.stylix.colors.withHashtag.base05;
-        "windowcontrols_min_hover" = lib.mkDefault config.lib.stylix.colors.withHashtag.base05;
-        "windowcontrols_max_hover" = lib.mkDefault config.lib.stylix.colors.withHashtag.base05;
-      };
     };
     scripts = with pkgs.mpvScripts; [
       mpris
@@ -46,7 +24,6 @@
       webtorrent-mpv-hook
       thumbfast
       sponsorblock
-      modernz
       autosub
       (quality-menu.override {
         oscSupport = true; # Adds a quality menu to MPV when playing youtube videos

@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: let
-  inherit (config.lib.stylix) colors;
-in {
+{...}: {
   wayland.windowManager.hyprland.configType = "lua";
   wayland.windowManager.hyprland.settings = {
     monitor = [
@@ -39,25 +33,7 @@ in {
         gaps_out = 10;
         border_size = 4;
         resize_on_border = false;
-        "col.active_border" = lib.mkDefault "rgb(${colors.base0A})";
         layout = "master";
-      };
-
-      group = {
-        "col.border_active" = lib.mkDefault "rgb(${colors.base0A})";
-        "col.border_inactive" = lib.mkDefault "rgb(${colors.base02})";
-
-        groupbar = {
-          gradients = true;
-          font_family = config.stylix.fonts.sansSerif.name;
-          font_weight_active = "heavy";
-          font_size = 14;
-          height = 20;
-          text_color = lib.mkDefault "rgb(${colors.base00})";
-          text_color_inactive = lib.mkDefault "rgb(${colors.base05})";
-          "col.active" = lib.mkDefault "rgb(${colors.base0D})";
-          "col.inactive" = lib.mkDefault "rgb(${colors.base00})";
-        };
       };
 
       decoration = {

@@ -5,10 +5,7 @@
 }: {
   imports = [
     inputs.nixcord.homeModules.nixcord
-    ./system24.nix
   ];
-  stylix.targets.nixcord.enable = lib.mkDefault false;
-
   programs.nixcord = lib.mkDefault {
     enable = true;
     discord = {
@@ -17,8 +14,6 @@
       krisp.enable = true;
     };
     config = {
-      useQuickCss = true;
-      themeLinks = [];
       frameless = true;
       plugins = {
         themeLibrary.enable = true;
