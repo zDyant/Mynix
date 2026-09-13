@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   host,
   ...
 }: let
@@ -15,6 +16,7 @@ in {
   programs = {
     home-manager.enable = true;
     nix-index.enable = true;
+    zsh.dotDir = config.home.homeDirectory;
   };
 
   # Nicely reload system units when changing configs
