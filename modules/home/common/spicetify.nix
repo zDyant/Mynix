@@ -7,8 +7,6 @@
   inherit (pkgs.stdenv.hostPlatform) system;
   spicePkgs = inputs.spicetify-nix.legacyPackages.${system};
 in {
-  imports = [inputs.spicetify-nix.homeManagerModules.default];
-
   programs.spicetify = {
     enable = true;
 

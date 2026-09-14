@@ -56,6 +56,9 @@
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    emyl-nix = {
+      url = "path:/repos/emyl-nix";
+    };
   };
 
   outputs = {...} @ inputs: let

@@ -1,12 +1,8 @@
 {
   lib,
-  inputs,
   pkgs,
   ...
 }: {
-  imports = [
-    inputs.dms.homeModules.dank-material-shell
-  ];
   # ++ lib.fs.scanPaths ./.;
   programs.dank-material-shell = {
     enable = lib.mkDefault true;

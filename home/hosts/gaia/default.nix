@@ -18,6 +18,7 @@
       "modules/home/common/npm.nix"
       "modules/home/common/spicetify.nix"
       "modules/home/common/stylix.nix"
+      "modules/home/common/emyl"
       "modules/home/common/tldr.nix"
       "modules/home/common/tmux.nix"
       "modules/home/common/wallpaper-engine.nix"
