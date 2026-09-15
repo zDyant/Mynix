@@ -4,18 +4,21 @@
   ...
 }: {
   # ++ lib.fs.scanPaths ./.;
-  programs.dank-material-shell = {
+  programs.dank-material-shell = let
+    importJson = target: builtins.fromJSON (builtins.readFile ./${target}.json);
+    settings = importJson "settings";
+  in {
     enable = lib.mkDefault true;
-    # inherit settings;
-    # # inherit stylix except session
-    # session = lib.mkForce (importJson "session");
+    inherit settings;
+    # inherit stylix except session
+    session = lib.mkForce (importJson "session");
 
     # DMS runtime owns mutable JSON state/settings, including plugin_settings.json.
     managePluginSettings = lib.mkDefault false;
 
     systemd = {
-      enable = lib.mkDefault true;
-      restartIfChanged = lib.mkDefault true;
+      enable = true;
+      restartIfChanged = true;
     };
 
     enableSystemMonitoring = true; # System monitoring widgets (dgop)
