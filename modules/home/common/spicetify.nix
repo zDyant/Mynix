@@ -1,5 +1,5 @@
-# https://github.com/adam01110/infra/blob/6e2c76c12162068a05b0b725816b47738f6b2a1c/modules/programs/gui/spotify/theme.nix#
 {
+  lib,
   pkgs,
   inputs,
   ...
@@ -7,10 +7,12 @@
   inherit (pkgs.stdenv.hostPlatform) system;
   spicePkgs = inputs.spicetify-nix.legacyPackages.${system};
 in {
+  stylix.targets.spicetify.enable = false;
   programs.spicetify = {
     enable = true;
 
-    # enabledCustomApps = with spicePkgs.apps; [ ];
+    theme = lib.mkForce (spicePkgs.themes.default // {name = "marketplace";});
+    enabledCustomApps = with spicePkgs.apps; [marketplace];
     enabledExtensions = with spicePkgs.extensions; [
       # INFO: https://spicetify.app/docs/advanced-usage/extensions/#keyboard-shortcut
       autoVolume
