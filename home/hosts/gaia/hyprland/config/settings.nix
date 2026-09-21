@@ -29,31 +29,8 @@
       };
 
       general = {
-        gaps_in = 4;
-        gaps_out = 10;
-        border_size = 4;
         resize_on_border = false;
         layout = "master";
-      };
-
-      decoration = {
-        rounding = 0;
-        dim_inactive = true;
-        dim_strength = 0.1;
-        shadow.enabled = false;
-
-        blur = {
-          enabled = false;
-          size = 1;
-          passes = 4;
-          ignore_opacity = true;
-          new_optimizations = true;
-          vibrancy = 1.2;
-          brightness = 1.1;
-          contrast = 1.3;
-          xray = false;
-          noise = 0.0117;
-        };
       };
 
       input = {
