@@ -10,7 +10,6 @@
       "modules/home/common/floorp"
       "modules/home/common/gaming"
       "modules/home/common/mpv"
-      "modules/home/common/nautilus"
       "modules/home/common/nixcord"
       "modules/home/common/yazi"
       "modules/home/common/affinity.nix"
