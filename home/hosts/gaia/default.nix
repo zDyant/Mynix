@@ -12,7 +12,6 @@
       "modules/home/common/mpv"
       "modules/home/common/nixcord"
       "modules/home/common/yazi"
-      "modules/home/common/affinity.nix"
       "modules/home/common/kitty.nix"
       "modules/home/common/npm.nix"
       "modules/home/common/spicetify.nix"
