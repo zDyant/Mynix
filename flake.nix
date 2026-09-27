@@ -2,54 +2,54 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?rev=324f531d00b90e4fa5c5263b57c52e8b0a56b4cb";
+    nixpkgs.url = "github:nixos/nixpkgs?rev=c4e77a7c0c0e7dc25f955d9bd0d51c1c5456dc35";
     home-manager = {
-      url = "github:nix-community/home-manager?rev=353742587cbaf079b3caee743115d037bc51fea6";
+      url = "github:nix-community/home-manager?rev=4b9add8645d5e2b0f7de18f7a442d08fe2bdcc91";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix?rev=0f478ff79b82abb785160cd4531293f61d21be86";
+      url = "github:Gerg-L/spicetify-nix?rev=e96330757db4c93b10c31b85feb23ffa693f7b2d";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      url = "github:danth/stylix?rev=1e6ccadeda179d96728b4a9f20fc9d4dcf6b6059";
+      url = "github:danth/stylix?rev=abff36bfab11cbdcd0723f41c1b0921e211be6ac";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
-      url = "github:nix-community/NUR?rev=6a6f82b8fc56faf1eebaaa0475ebe780a5992924";
+      url = "github:nix-community/NUR?rev=fe370cfa9840c433789b6853673773152efd9f25";
     };
     git-hooks = {
-      url = "github:cachix/git-hooks.nix?rev=43b3c1ab9d40fb1dbb008f451988a91e375825e9";
+      url = "github:cachix/git-hooks.nix?rev=0d3997c4d3253505f77c9bcea63904bb575da3c5";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     play = {
       url = "github:tophc7/play.nix?rev=fec1003647b457a82a166f7251cd2b1aba1a8f84";
     };
     nixcord = {
-      url = "github:kaylorben/nixcord?rev=cd8d67d6b4fb646e70725e1dd7dc546bce95da08";
+      url = "github:kaylorben/nixcord?rev=25816aa65e4f19d72a24a1785f3185b42a93b3c4";
     };
     betterfox = {
-      url = "github:yokoffing/Betterfox?rev=8e415d1633f10fe0192d9c938e4ca2628eeec9f9";
+      url = "github:yokoffing/Betterfox?rev=067172a4b0dc90e78e5b8b94d9abfe6430c6a7be";
       flake = false;
     };
     userstyles = {
-      url = "github:knoopx/userContent.css?rev=c2590a73fb89b8cf4b82c991d00a6256333732d2";
+      url = "github:knoopx/userContent.css?rev=19be5f97414b03682511a4ff7449c731b7e4a7b8";
     };
     flake-parts = {
-      url = "github:hercules-ci/flake-parts?rev=427bf4bd9435fdf21321c8cc628c24efc14c0f7a";
+      url = "github:hercules-ci/flake-parts?rev=31729ca8cbdb4fa927b34e5f4353e6a83f39e993";
     };
     mix-nix = {
-      url = "github:tophc7/mix.nix?rev=4f851037078544329c6f07661f3742b0a6bf039c";
+      url = "github:tophc7/mix.nix?rev=4877cb1d1ce7b3e9de9f8e0ebb8cafcdb9a6673e";
     };
     bonk = {
       url = "github:tophc7/bonk?rev=646213784713c7df66795103bf004e5a76a3adc8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     affinity-nix = {
-      url = "github:mrshmllow/affinity-nix?rev=a67e334856b7bf0ab9b5b4f38dffd436c0b8a2e5";
+      url = "github:mrshmllow/affinity-nix?rev=9d2534bb14eb13f583011ae9415fc1871d39dc4e";
     };
     disko = {
-      url = "github:nix-community/disko?rev=ff8702b4de27f72b4c78573dfb89ec74e36abdf1";
+      url = "github:nix-community/disko?rev=725ea35e410ad83be4931d1bff7e090eacaf3563";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dms = {
