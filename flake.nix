@@ -23,7 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     play = {
-      url = "github:tophc7/play.nix?rev=fec1003647b457a82a166f7251cd2b1aba1a8f84";
+      url = "path:/home/zdyant/play.nix";
     };
     nixcord = {
       url = "github:kaylorben/nixcord?rev=25816aa65e4f19d72a24a1785f3185b42a93b3c4";

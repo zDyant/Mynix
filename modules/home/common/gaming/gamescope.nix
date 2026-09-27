@@ -36,7 +36,6 @@
         extraOptions = {"steam" = true;};
         environment = {
           GAMEMODERUN = "1";
-          MESA_SHADER_CACHE_MAX_SIZE = "4096";
           WINEDLLOVERRIDES = "dinput8,dxgi,dsound,version=n,b";
           STEAM_FORCE_DESKTOPUI_SCALING = 1;
           STEAM_GAMEPADUI = 1;
