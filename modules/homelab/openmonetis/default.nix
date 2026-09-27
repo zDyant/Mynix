@@ -58,7 +58,10 @@ in {
           environment = {
             "BETTER_AUTH_SECRET" = secrets.docker.BETTER_AUTH_SECRET;
             "DATABASE_URL" = secrets.docker.OPENMONETIS_DB;
-            "BETTER_AUTH_URL" = "https://${name}.${homelab.domain}";
+            "BETTER_AUTH_URL" =
+              if homelab.domain != null
+              then "https://${name}.${homelab.domain}"
+              else "http://localhost:${toString cfg.port}";
             "DISABLE_SIGNUP" = "true"; # opcional: true bloqueia novos cadastros
           };
         };

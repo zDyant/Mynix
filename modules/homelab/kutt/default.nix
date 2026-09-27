@@ -32,7 +32,10 @@ in {
             DB_FILENAME = "/var/lib/kutt/data.sqlite";
             TRUST_PROXY = "true";
             SITE_NAME = "zdyant";
-            DEFAULT_DOMAIN = homelab.domain;
+            DEFAULT_DOMAIN =
+              if homelab.domain != null
+              then homelab.domain
+              else "localhost:${toString cfg.port}";
             JWT_SECRET = secrets.docker.JWT_SECRET;
           };
         };

@@ -21,10 +21,11 @@ in {
   config = lib.mkIf cfg.enable {
     services.n8n = {
       enable = true;
-      environment = {
-        N8N_PORT = cfg.port;
-        WEBHOOK_URL = "https://${name}.${homelab.domain}";
-      };
+      environment =
+        {N8N_PORT = cfg.port;}
+        // lib.optionalAttrs (homelab.domain != null) {
+          WEBHOOK_URL = "https://${name}.${homelab.domain}";
+        };
     };
 
     systemd.services.n8n.path = with pkgs; [

@@ -53,13 +53,14 @@ in {
   options.homelab = {
     enable = lib.mkEnableOption "Enable Homelab services and configuration";
     domain = lib.mkOption {
-      type = lib.types.str;
-      description = "Domain used to access the services";
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      description = "Public domain for HTTPS access to the services; null disables the reverse proxy";
       example = "zdyant.com";
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (cfg.enable && cfg.domain != null) {
     networking.firewall.allowedTCPPorts = [
       80
       443

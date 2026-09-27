@@ -34,7 +34,10 @@ in {
 
       extraEnvironment = {
         PORT = toString cfg.port;
-        NEXTAUTH_URL = "https://${name}.${homelab.domain}";
+        NEXTAUTH_URL =
+          if homelab.domain != null
+          then "https://${name}.${homelab.domain}"
+          else "http://localhost:${toString cfg.port}";
       };
     };
   };
