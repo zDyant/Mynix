@@ -31,34 +31,22 @@
       // extraConfig;
   };
 
-  enabledProxyVHosts = lib.mkMerge [
-    (lib.mkIf cfg.services.glance.enable (mkProxyVHost {
-      host = "glance";
-      port = cfg.services.glance.port;
-    }))
-    (lib.mkIf cfg.services.openmonetis.enable (mkProxyVHost {
-      host = "openmonetis";
-      port = cfg.services.openmonetis.port;
-    }))
-    (lib.mkIf cfg.services.ollama.enable (mkProxyVHost {
-      host = "ollama";
-      port = cfg.services.ollama.port;
-    }))
-    (lib.mkIf cfg.services.kutt.enable (mkProxyVHost {
-      host = "kutt";
-      port = cfg.services.kutt.port;
-      websocket = true;
-    }))
-    (lib.mkIf cfg.services.karakeep.enable (mkProxyVHost {
-      host = "karakeep";
-      port = cfg.services.karakeep.port;
-    }))
-    (lib.mkIf cfg.services.n8n.enable (mkProxyVHost {
-      host = "n8n";
-      port = cfg.services.n8n.port;
-      websocket = true;
-    }))
-  ];
+  enabledProxyVHosts =
+    lib.mkMerge
+    (lib.mapAttrsToList (
+        host: websocket:
+          lib.mkIf cfg.services.${host}.enable (mkProxyVHost {
+            inherit host websocket;
+            inherit (cfg.services.${host}) port;
+          })
+      ) {
+        glance = false;
+        openmonetis = false;
+        ollama = false;
+        kutt = true;
+        karakeep = false;
+        n8n = true;
+      });
 in {
   imports = lib.fs.scanPaths ./.;
 
