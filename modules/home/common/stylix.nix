@@ -8,6 +8,7 @@
 
     targets = {
       kde.enable = false;
+      rofi.enable = false;
       qt = {
         enable = true;
         platform = "qtct";
