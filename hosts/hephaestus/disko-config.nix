@@ -5,7 +5,7 @@
 
   disko.devices.disk = {
     os = {
-      device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_118718849";
+      device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_127672611";
       type = "disk";
       content = {
         type = "gpt";
@@ -36,25 +36,25 @@
       };
     };
 
-    block = {
-      device = "/dev/disk/by-id/scsi-0HC_Volume_105748237";
-      type = "disk";
-
-      content = {
-        type = "gpt";
-
-        partitions = {
-          nix = {
-            size = "100%";
-
-            content = {
-              type = "filesystem";
-              format = "ext4";
-              mountpoint = "/nix";
-            };
-          };
-        };
-      };
-    };
+    # block = {
+    #   device = "/dev/disk/by-id/scsi-0HC_Volume_105748237";
+    #   type = "disk";
+    #
+    #   content = {
+    #     type = "gpt";
+    #
+    #     partitions = {
+    #       nix = {
+    #         size = "100%";
+    #
+    #         content = {
+    #           type = "filesystem";
+    #           format = "ext4";
+    #           mountpoint = "/nix";
+    #         };
+    #       };
+    #     };
+    #   };
+    # };
   };
 }
