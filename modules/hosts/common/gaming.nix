@@ -9,7 +9,6 @@
     ananicy.enable = true;
     gamemode.enable = true;
     steam.enable = true;
-    steam.millennium.enable = true;
     heroic.enable = true;
   };
 }
