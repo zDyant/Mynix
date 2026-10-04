@@ -1,5 +1,0 @@
-{...}: {
-  imports = [
-    ./full-border.nix
-  ];
-}
