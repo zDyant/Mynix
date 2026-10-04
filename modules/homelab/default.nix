@@ -26,6 +26,7 @@
         locations."/" = {
           proxyPass = "http://127.0.0.1:${toString port}";
           proxyWebsockets = websocket;
+          extraConfig = lib.optionalString (host == "hister") "client_max_body_size 100m;";
         };
       }
       // extraConfig;
@@ -40,6 +41,7 @@
             inherit (cfg.services.${host}) port;
           })
       ) {
+        hister = true;
         glance = false;
         openmonetis = false;
         ollama = false;

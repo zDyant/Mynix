@@ -9,12 +9,16 @@
   cfg = homelab.services.${name};
   serviceBackupPaths =
     lib.optionals homelab.services.glance.enable ["/var/lib/glance"]
+    ++ lib.optionals homelab.services.hister.enable ["/var/lib/hister"]
     ++ lib.optionals homelab.services.karakeep.enable ["/var/lib/karakeep"]
     ++ lib.optionals homelab.services.kutt.enable ["/var/lib/kutt"]
     ++ lib.optionals homelab.services.openmonetis.enable ["/var/lib/openmonetis"];
   stoppedServices =
     lib.optionals homelab.services.glance.enable [
       "glance.service"
+    ]
+    ++ lib.optionals homelab.services.hister.enable [
+      "hister.service"
     ]
     ++ lib.optionals homelab.services.karakeep.enable [
       "karakeep-browser.service"

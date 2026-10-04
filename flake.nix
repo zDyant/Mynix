@@ -41,6 +41,11 @@
     mix-nix = {
       url = "github:tophc7/mix.nix?rev=4877cb1d1ce7b3e9de9f8e0ebb8cafcdb9a6673e";
     };
+    hister = {
+      url = "github:asciimoo/hister/v0.20.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
     bonk = {
       url = "github:tophc7/bonk?rev=646213784713c7df66795103bf004e5a76a3adc8";
       inputs.nixpkgs.follows = "nixpkgs";

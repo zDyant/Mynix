@@ -70,6 +70,10 @@ in {
                     style = "compact";
                     sites = builtins.filter (site: site != null) [
                       (mkSite {
+                        title = "Hister";
+                        icon = "hister";
+                      })
+                      (mkSite {
                         title = "Ollama";
                         icon = "ollama";
                       })
