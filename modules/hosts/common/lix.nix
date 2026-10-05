@@ -8,7 +8,6 @@
   nixpkgs = {
     overlays = [
       inputs.self.overlays.lix
-      inputs.self.overlays.packages
     ];
   };
 }

@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   pkgs,
   ...
@@ -70,6 +71,10 @@
     allowUnfree = true;
     allowUnfreePredicate = _: true;
   };
+  nixpkgs.overlays = [
+    inputs.self.overlays.packages
+  ];
+
   # Making sure /tmp is clear to avoid issues
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
