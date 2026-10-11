@@ -25,6 +25,8 @@
 
   documentation.nixos.enable = lib.mkForce false;
   programs.nix-ld.enable = true;
+  home-manager.backupFileExtension = "hm-backup";
+
   nix = {
     # Garbage collector ------------------------------------
     gc = {
