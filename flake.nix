@@ -40,6 +40,7 @@
     };
     mix-nix = {
       url = "github:tophc7/mix.nix?rev=081afb79a0e4fa9201c532110764c68781f4a9b6";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     hister = {
       url = "github:asciimoo/hister/v0.20.0";
@@ -70,20 +71,17 @@
     };
   };
 
-  outputs = {...} @ inputs: let
-    # INFO: Extend nixpkgs lib with mix.nix utilities BEFORE entering flake-parts
-    # This gives us lib.fs.*, lib.hosts.*, lib.desktop.*, etc.
-    lib = (import "${inputs.mix-nix}/lib") inputs.nixpkgs.lib;
-  in
+  outputs = {...} @ inputs:
     inputs.flake-parts.lib.mkFlake
     {
       inherit inputs;
-      specialArgs = {inherit lib;};
+      specialArgs = {lib = inputs.mix-nix.lib;};
     }
     {
       systems = ["x86_64-linux"];
       imports = with inputs; [
         mix-nix.flakeModules.default
+        ./mix
       ];
 
       perSystem = {
@@ -96,7 +94,7 @@
           config.allowUnfree = true;
         };
 
-        formatter = lib.mkForce inputs.nixpkgs.legacyPackages.${system}.alejandra;
+        formatter = inputs.nixpkgs.lib.mkForce inputs.nixpkgs.legacyPackages.${system}.alejandra;
         # INFO: Run the hooks in a sandbox with `nix flake check`.
         # Read-only filesystem and no internet access.
         checks = import ./checks.nix {inherit inputs system pkgs;};
@@ -110,53 +108,9 @@
         };
       };
 
-      flake.overlays = import ./overlays {inherit lib inputs;};
-      mix = {
-        coreModules = with inputs; [
-          stylix.nixosModules.stylix
-          nur.modules.nixos.default
-          bonk.nixosModules.default
-          ./modules/hosts/core
-        ];
-        coreHomeModules = [./modules/home/core];
-        hostsDir = ./hosts;
-        hostsHomeDir = ./home/hosts;
-        usersHomeDir = ./home/users;
-        secrets = {
-          file = ./secrets.nix;
-          gitattributes = ./.gitattributes;
-        };
-
-        specialArgs = let
-          flakeRoot = ./.;
-        in {
-          inherit flakeRoot;
-        };
-
-        users.zdyant = {
-          name = "zdyant";
-          uid = 1000;
-          shell = inputs.nixpkgs.legacyPackages.x86_64-linux.zsh;
-          extraGroups = [
-            "adbusers"
-            "audio"
-            "docker"
-            "gamemode"
-            "git"
-            "i2c"
-            "input"
-            "libvirtd"
-            "networkmanager"
-            "video"
-            "wheel"
-          ];
-        };
-        hosts.gaia.user = "zdyant";
-        hosts.hephaestus = {
-          user = "zdyant";
-          isServer = true;
-          isMinimal = true;
-        };
+      flake.overlays = import ./overlays {
+        lib = inputs.mix-nix.lib;
+        inherit inputs;
       };
     };
 }

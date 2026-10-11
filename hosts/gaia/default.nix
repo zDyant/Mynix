@@ -1,28 +1,40 @@
 {
   lib,
   pkgs,
-  flakeRoot,
   ...
 }: {
   # WARN: Remember to grab yours hardware-configuration.nix
-  imports = lib.flatten [
-    (lib.fs.scanPaths ./.)
-    (map (lib.fs.relativeTo flakeRoot) [
-      "modules/hosts/common/amd.nix"
-      "modules/hosts/common/adb.nix"
-      "modules/hosts/common/audio.nix"
-      "modules/hosts/common/bluetooth.nix"
-      "modules/hosts/common/docker.nix"
-      "modules/hosts/common/flatpak.nix"
-      "modules/hosts/common/gaming.nix"
-      "modules/hosts/common/cache.nix"
-      "modules/hosts/common/lix.nix"
-      "modules/hosts/common/nextdns.nix"
-      "modules/hosts/common/sunshine.nix"
-      "modules/hosts/common/hyprland.nix"
-      "modules/hosts/common/greeter.nix"
-    ])
-  ];
+  imports =
+    [./config]
+    ++ lib.features [
+      "amd"
+      "adb"
+      "audio"
+      "bluetooth"
+      "docker"
+      "flatpak"
+      "gaming"
+      "cache"
+      "lix"
+      "nextdns"
+      "sunshine"
+      "hyprland"
+      "greeter"
+      "floorp"
+      "mpv"
+      "nixcord"
+      "yazi"
+      "kitty"
+      "npm"
+      "spicetify"
+      "stylix"
+      "emyl"
+      "tldr"
+      "tmux"
+      "wallpaper-engine"
+      "dms"
+      "xdg"
+    ];
 
   environment.systemPackages = with pkgs; [
     ffmpeg-full

@@ -1,14 +1,14 @@
-{
-  lib,
-  flakeRoot,
-  ...
-}: {
-  imports = lib.flatten [
-    (lib.fs.scanPaths ./.)
-    (map (lib.fs.relativeTo flakeRoot) [
-      "modules/hosts/common/cache.nix"
-    ])
-  ];
+{lib, ...}: {
+  imports =
+    [
+      ./hardware.nix
+      ./config
+    ]
+    ++ lib.features [
+      "cache"
+      "docker"
+      "homelab"
+    ];
   time.timeZone = "UTC";
 
   # environment.systemPackages = with pkgs; [ ];
