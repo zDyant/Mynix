@@ -15,6 +15,7 @@
       youtube-suite-search-fixer
       violentmonkey
       private-grammar-checker-harper
+      animalese-typing
     ];
   };
 
