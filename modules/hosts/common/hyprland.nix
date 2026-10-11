@@ -28,7 +28,6 @@
       xdg-desktop-portal-gtk
       xdg-desktop-portal-termfilechooser
     ];
-    xdgOpenUsePortal = true;
   };
 
   environment.etc."xdg-desktop-portal-termfilechooser/config".text = ''
