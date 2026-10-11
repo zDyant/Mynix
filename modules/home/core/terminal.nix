@@ -26,6 +26,7 @@
       };
 
       initContent = ''
+        unsetopt SINGLE_LINE_ZLE
         bindkey '^E' autosuggest-execute
         bindkey '^Y' autosuggest-accept
       '';
