@@ -43,7 +43,7 @@
       bind-key -T copy-mode-vi 'v' send -X begin-selection
 
       # Copy text with "y"
-      bind -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "pbcopy"
+      bind -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "${pkgs.wl-clipboard}/bin/wl-copy 2>/dev/null || true"
 
       # Paste yanked text with "Prefix + P" ("Prefix + p" goes to previous window)
       bind P paste-buffer
