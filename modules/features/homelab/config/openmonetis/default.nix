@@ -2,7 +2,6 @@
   inputs,
   config,
   lib,
-  secrets,
   ...
 }: let
   homelab = config.homelab;
@@ -12,6 +11,16 @@
 in {
   options.homelab.services.${name} = {
     enable = lib.mkEnableOption "Openmonetis configuration";
+    environmentFile = lib.mkOption {
+      type = lib.types.str;
+      default = "/var/lib/openmonetis/app.env";
+      description = "Runtime environment file containing application secrets";
+    };
+    postgresEnvironmentFile = lib.mkOption {
+      type = lib.types.str;
+      default = "/var/lib/openmonetis/postgres.env";
+      description = "Runtime environment file containing PostgreSQL initialization credentials";
+    };
     port = lib.mkOption {
       type = lib.types.port;
       description = "Openmonetis bind address";
@@ -27,6 +36,7 @@ in {
       containers = {
         ${dbContainer} = {
           image = "postgres:16-alpine";
+          environmentFiles = [cfg.postgresEnvironmentFile];
           autoStart = true;
           extraOptions = [
             "--network=${name}"
@@ -39,6 +49,7 @@ in {
 
         ${name} = {
           image = "felipegcoutinho/openmonetis:main";
+          environmentFiles = [cfg.environmentFile];
           autoStart = true;
           ports = ["127.0.0.1:${toString cfg.port}:3000"];
           dependsOn = [dbContainer];
@@ -50,8 +61,6 @@ in {
             "/var/lib/${name}"
           ];
           environment = {
-            "BETTER_AUTH_SECRET" = secrets.docker.BETTER_AUTH_SECRET;
-            "DATABASE_URL" = secrets.docker.OPENMONETIS_DB;
             "BETTER_AUTH_URL" =
               if homelab.domain != null
               then "https://${name}.${homelab.domain}"
@@ -65,6 +74,8 @@ in {
     systemd.tmpfiles.rules = [
       "d /var/lib/${name} 0755 root root -"
       "d /var/lib/${name}/postgres 0700 70 70 -"
+      "z ${cfg.environmentFile} 0600 root root -"
+      "z ${cfg.postgresEnvironmentFile} 0600 root root -"
     ];
   };
 }

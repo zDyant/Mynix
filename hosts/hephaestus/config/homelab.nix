@@ -19,7 +19,11 @@
         ];
       };
       glance.enable = true;
-      openmonetis.enable = true;
+      openmonetis = {
+        enable = true;
+        environmentFile = "/var/lib/openmonetis/app.env";
+        postgresEnvironmentFile = "/var/lib/openmonetis/postgres.env";
+      };
       kutt.enable = true;
       karakeep.enable = true;
       restic = {
