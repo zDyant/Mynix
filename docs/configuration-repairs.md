@@ -69,7 +69,7 @@ Both Gaia and Hephaestus system closures built without lockfile writes or
 activation. The Git-backed `nix flake check --no-write-lock-file` passed every
 existing hook, including formatting, Deadnix, ShellCheck, and shfmt. Statix has no
 new diagnostics relative to HEAD; existing advisory style warnings remain.
-Isolated probes passed for Homelab parent-disable, Ollama, n8n, and Affinity.
+Isolated probes passed for Homelab parent-disable, Ollama, and n8n.
 
 Generated Git settings contain the intended `[init]`, `[pull]`, and `[core]`
 sections; `git ls-remote --get-url gh:zdyant/dots` resolves locally to the correct

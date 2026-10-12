@@ -51,9 +51,6 @@
       url = "github:tophc7/bonk?rev=646213784713c7df66795103bf004e5a76a3adc8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    affinity-nix = {
-      url = "github:mrshmllow/affinity-nix?rev=47d5b16c3e2e2412c0d5df9963c02d0e8c5e97d6";
-    };
     disko = {
       url = "github:nix-community/disko?rev=725ea35e410ad83be4931d1bff7e090eacaf3563";
       inputs.nixpkgs.follows = "nixpkgs";
