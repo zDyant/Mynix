@@ -24,7 +24,7 @@ in {
       (bind "SUPER + SHIFT + F" "hl.dsp.window.float({action='toggle'})")
       (bind "SUPER + P" "hl.dsp.window.pin({ action = 'toggle' })")
 
-      (bind "SUPER + semicolon" (func "hl.dispatch(hl.dsp.window.cycle_next({ floating = not hl.get_active_window().floating }))"))
+      (bind "SUPER + semicolon" (func "local window = hl.get_active_window(); if window then hl.dispatch(hl.dsp.window.cycle_next({ floating = not window.floating })) end"))
       (bind "SUPER + h" (focus "left"))
       (bind "SUPER + l" (focus "right"))
       (bind "SUPER + k" (focus "up"))
