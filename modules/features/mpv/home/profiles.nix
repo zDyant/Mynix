@@ -21,7 +21,7 @@
 
     nis = {
       "profile-desc" = "NVIDIA Image Scaling (all GPUs)";
-      "glsl-shaders" = lib.concatStringsSep ":" ["${shadersPkg}/NVScaler.glsl:scale-sharpness=0.5"];
+      "glsl-shaders" = lib.concatStringsSep ":" ["${shadersPkg}/NVScaler.glsl"];
     };
 
     anime4k = {
