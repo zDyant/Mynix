@@ -24,7 +24,7 @@ in {
       id = 0;
       isDefault = true;
       name = user;
-      extraConfig = ''
+      preConfig = ''
         ${builtins.readFile "${inputs.betterfox}/user.js"}
         ${builtins.readFile "${inputs.betterfox}/Fastfox.js"}
         ${builtins.readFile "${inputs.betterfox}/Peskyfox.js"}
