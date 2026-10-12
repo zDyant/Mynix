@@ -62,15 +62,12 @@
 
     "rescale-nnedi3" = {
       "profile-desc" = "Fix bad upscales with nnedi3. (Very High Quality, gpu-next only)";
-      # WARN: This profile requires vo=gpu-next to be set in your main config
       vo = "gpu-next";
       "glsl-shaders" = lib.concatStringsSep ":" [
         # Downscale 1080p -> 540p
         "${shadersPkg}/Anime4K_AutoDownscalePre_x2.glsl"
         # Restore artifacts before upscaling
         "${shadersPkg}/Anime4K_Restore_CNN_M.glsl"
-      ];
-      "hook-shaders" = [
         # High-quality luma upscaler, great for lines
         "${shadersPkg}/nnedi3-nns64-win8x6.hook"
       ];
