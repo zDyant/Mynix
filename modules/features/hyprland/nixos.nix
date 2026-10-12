@@ -30,15 +30,19 @@
     ];
   };
 
-  environment.etc."xdg-desktop-portal-termfilechooser/config".text = ''
+  environment.etc."xdg/xdg-desktop-portal-termfilechooser/config".text = let
+    directoryConfig = pkgs.writeTextDir "keymap.toml" (builtins.readFile ./portal/keymap.toml);
+    chooser = pkgs.writeShellApplication {
+      name = "yazi-portal-chooser";
+      runtimeInputs = [pkgs.kitty pkgs.yazi pkgs.coreutils];
+      text = ''
+        export PORTAL_DIRECTORY_CONFIG=${directoryConfig}
+        ${builtins.readFile ./portal/chooser.sh}
+      '';
+    };
+  in ''
     [filechooser]
-    cmd=${pkgs.writeShellScript "yazi-wrapper" ''
-      #!/usr/bin/env bash
-      # $1 = output path, $2+ = paths passed by the portal (multiple/directory/save mode)
-      OUT="$1"
-      shift
-      ${pkgs.kitty}/bin/kitty --class filechooser -e ${pkgs.yazi}/bin/yazi --chooser-file="$OUT" "$@"
-    ''}
+    cmd=${chooser}/bin/yazi-portal-chooser
     default_dir=$HOME
   '';
 }
