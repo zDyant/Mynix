@@ -8,7 +8,7 @@
         "git@github.com:zdyant/" = {
           insteadOf = "zdyant:";
         };
-        "git@github.com" = {
+        "git@github.com:" = {
           insteadOf = "gh:";
         };
       };
