@@ -22,13 +22,11 @@ in {
       enable = true;
       port = cfg.port;
       package = lib.mkDefault pkgs.ollama-vulkan;
+      loadModels = lib.mkDefault ["qwen3.5:9b"];
       environmentVariables = {
         # Ryzen 5 5600 / 9060xt 16gb
         OLLAMA_FLASH_ATTENTION = lib.mkDefault "1";
         OLLAMA_MAX_LOADED_MODELS = lib.mkDefault "2";
-        loadModels = lib.mkDefault [
-          "qwen3.5:9b"
-        ];
       };
     };
   };
