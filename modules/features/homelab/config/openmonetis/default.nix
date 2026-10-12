@@ -2,6 +2,7 @@
   inputs,
   config,
   lib,
+  pkgs,
   ...
 }: let
   homelab = config.homelab;
@@ -70,6 +71,17 @@ in {
         };
       };
     };
+
+    systemd.services."docker-${name}".preStart = lib.mkAfter ''
+      for attempt in $(seq 1 60); do
+        if ${pkgs.docker}/bin/docker exec ${dbContainer} sh -c 'pg_isready -h 127.0.0.1 -U "$POSTGRES_USER" -d "$POSTGRES_DB"' >/dev/null 2>&1; then
+          exit 0
+        fi
+        sleep 2
+      done
+      echo "PostgreSQL did not become ready within 120 seconds" >&2
+      exit 1
+    '';
 
     systemd.tmpfiles.rules = [
       "d /var/lib/${name} 0755 root root -"
