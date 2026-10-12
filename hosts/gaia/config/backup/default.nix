@@ -33,7 +33,7 @@ in {
     path = [pkgs.rclone];
     script = ''
       common_args=(
-        --config /home/${host.user.name}/.config/rclone/rclone.conf
+        --config ${lib.escapeShellArg "/home/${host.user.name}/.config/rclone/rclone.conf"}
         --create-empty-src-dirs
         --links
         --disable-http2
@@ -45,15 +45,15 @@ in {
         --retries 8
         --retries-sleep 30s
         --low-level-retries 20
-        --exclude node_modules/**
+        --exclude 'node_modules/**'
         --exclude result
         --exclude '*.tmp'
-        --exclude __pycache__/**
-        --exclude .venv/**
+        --exclude '__pycache__/**'
+        --exclude '.venv/**'
       )
 
       ${lib.concatMapStringsSep "\n" (target: ''
-          rclone copy ${target.source} ${target.destination} "''${common_args[@]}"
+          rclone copy ${lib.escapeShellArg target.source} ${lib.escapeShellArg target.destination} "''${common_args[@]}"
         '')
         copyTargets}
     '';
