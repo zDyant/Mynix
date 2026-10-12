@@ -10,21 +10,25 @@
     shadersPkg = "${pkgs.mpv-shim-default-shaders}/share/mpv-shim-default-shaders/shaders";
   in {
     fsr = {
+      vo = "gpu";
       "profile-desc" = "AMD FSR 1.0 Upscaling";
       "glsl-shaders" = lib.concatStringsSep ":" ["${shadersPkg}/FSR.glsl"];
     };
 
     fsrcnnx = {
+      vo = "gpu";
       "profile-desc" = "FSRCNNX Neural Network Upscaling";
       "glsl-shaders" = lib.concatStringsSep ":" ["${shadersPkg}/FSRCNNX_x2_16-0-4-1.glsl"];
     };
 
     nis = {
+      vo = "gpu";
       "profile-desc" = "NVIDIA Image Scaling (all GPUs)";
       "glsl-shaders" = lib.concatStringsSep ":" ["${shadersPkg}/NVScaler.glsl"];
     };
 
     anime4k = {
+      vo = "gpu";
       "profile-desc" = "Anime4K Upscaling (Mode A)";
       "glsl-shaders" = lib.concatStringsSep ":" [
         "${shadersPkg}/Anime4K_Denoise_Bilateral_Mode.glsl"
@@ -34,6 +38,7 @@
     };
 
     "rescale-balanced" = {
+      vo = "gpu";
       "profile-desc" = "Fix bad upscales with a balanced Anime4K chain. (Good start)";
       "glsl-shaders" = lib.concatStringsSep ":" [
         # Downscale 1080p -> 540p to remove upscaling artifacts
@@ -47,6 +52,7 @@
     };
 
     "rescale-hq" = {
+      vo = "gpu";
       "profile-desc" = "Fix bad upscales with Restore + FSRCNNX. (Recommended Quality)";
       "glsl-shaders" = lib.concatStringsSep ":" [
         # Downscale 1080p -> 540p to remove upscaling artifacts
