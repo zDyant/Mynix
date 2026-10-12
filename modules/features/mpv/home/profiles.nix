@@ -12,7 +12,6 @@
     fsr = {
       "profile-desc" = "AMD FSR 1.0 Upscaling";
       "glsl-shaders" = lib.concatStringsSep ":" ["${shadersPkg}/FSR.glsl"];
-      "glsl-shader-opts" = ["fsr-strength=0"];
     };
 
     fsrcnnx = {
