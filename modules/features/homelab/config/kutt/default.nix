@@ -43,7 +43,7 @@ in {
             SITE_NAME = "zdyant";
             DEFAULT_DOMAIN =
               if homelab.domain != null
-              then homelab.domain
+              then "kutt.${homelab.domain}"
               else "localhost:${toString cfg.port}";
           };
         };
