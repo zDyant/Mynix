@@ -81,17 +81,6 @@ Desktop entries validate and every MIME default has an installed handler. The
 validator emits existing advisory warnings for Steam's deprecated KDE key and
 Ryubing's repeated descriptive text.
 
-`tests/repair_runtime.py` exercises portal modes, cancellation and paths with
-spaces, microphone unmuting, numeric notification hints, unavailable notifications,
-PostgreSQL readiness success/timeout, and Restic cleanup after both successful and
-failed preparation. Run its standalone checks with `python3 tests/repair_runtime.py`.
-After building both closures, run generated-script checks in the development shell:
-
-```sh
-nix eval --impure --json --no-write-lock-file --file tests/repair_config.nix > /tmp/dots-repair.json
-python3 tests/repair_runtime.py /tmp/dots-repair.json
-```
-
 Fresh PostgreSQL 16, OpenMonetis, and Kutt started in disposable Docker containers
 using environment files and matching credentials, without published ports or host
 state mounts; the test removed the containers, anonymous volumes, and network.

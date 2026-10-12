@@ -31,7 +31,6 @@
       deadnix
       alejandra
       statix
-      python3
     ];
   };
 }
