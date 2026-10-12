@@ -30,7 +30,7 @@ in {
           autoStart = true;
           extraOptions = [
             "--network=${name}"
-            "--network-alias=${name}"
+            "--network-alias=${dbContainer}"
           ];
           volumes = [
             "/var/lib/${name}/postgres:/var/lib/postgresql/data"
@@ -44,7 +44,7 @@ in {
           dependsOn = [dbContainer];
           extraOptions = [
             "--network=${name}"
-            "--network-alias=${dbContainer}"
+            "--network-alias=${name}"
           ];
           volumes = [
             "/var/lib/${name}"
