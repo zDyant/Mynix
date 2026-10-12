@@ -10,7 +10,6 @@ in {
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     GTK_USE_PORTAL = "1";
     MOZ_ENABLE_WAYLAND = "1"; # firefox
-    ELECTRON_OZONE_PLATFORM_HINT = "1"; # electron apps on wayland
     XFT_DPI = "144";
   };
 }
