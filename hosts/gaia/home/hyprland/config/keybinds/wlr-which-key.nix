@@ -54,8 +54,8 @@ in {
       }
       {
         key = "v";
-        desc = " Voice Dictation";
-        cmd = lib.getExe pkgs.voice-dictate;
+        desc = " Toggle Voice Dictation";
+        cmd = "${lib.getExe (pkgs.voxtype.override {vulkanSupport = true;})} record toggle";
       }
       {
         key = "m";
