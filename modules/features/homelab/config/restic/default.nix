@@ -33,7 +33,17 @@
       "docker-openmonetis.service"
       "docker-openmonetis-db.service"
     ];
-  restartServices = lib.reverseList stoppedServices;
+  activeServicesFile = "/run/restic-backups-${name}/active-services";
+  cleanup = pkgs.writeShellScript "restic-homelab-cleanup" ''
+    set -eu
+    if [ -f ${activeServicesFile} ]; then
+      mapfile -t active < ${activeServicesFile}
+      if [ "''${#active[@]}" -gt 0 ]; then
+        ${pkgs.systemd}/bin/systemctl start "''${active[@]}"
+      fi
+      rm -f ${activeServicesFile}
+    fi
+  '';
 in {
   options.homelab.services.${name} = {
     enable = lib.mkEnableOption "Restic backups";
@@ -126,6 +136,9 @@ in {
   };
 
   config = lib.mkIf (homelab.enable && cfg.enable) {
+    systemd.services."restic-backups-${name}".serviceConfig = {
+      RuntimeDirectoryPreserve = "yes";
+    };
     services.restic.backups.${name} = {
       inherit
         (cfg)
@@ -140,11 +153,20 @@ in {
         ;
       paths = serviceBackupPaths ++ cfg.paths;
       backupPrepareCommand = lib.mkIf (stoppedServices != []) ''
+        set -eu
+        umask 077
+        # Recover an interrupted previous run before recording a new snapshot.
+        ${cleanup}
+        : > ${activeServicesFile}
+        for service in ${lib.escapeShellArgs (lib.reverseList stoppedServices)}; do
+          if ${pkgs.systemd}/bin/systemctl is-active --quiet "$service"; then
+            printf '%s\n' "$service" >> ${activeServicesFile}
+          fi
+        done
         ${pkgs.systemd}/bin/systemctl stop ${lib.escapeShellArgs stoppedServices}
       '';
-      backupCleanupCommand = lib.mkIf (restartServices != []) ''
-        ${pkgs.systemd}/bin/systemctl start ${lib.escapeShellArgs restartServices}
-      '';
+      # NixOS runs this through ExecStopPost, including failed preparation/backup.
+      backupCleanupCommand = lib.mkIf (stoppedServices != []) "${cleanup}";
       extraOptions =
         [
           "rclone.program=${lib.getExe pkgs.rclone}"
