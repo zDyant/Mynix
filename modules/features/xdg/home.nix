@@ -141,8 +141,6 @@
     "application/zstd" = archive;
   };
 in {
-  targets.genericLinux.enable = true;
-
   xdg.desktopEntries = {
     yazi = {
       name = "Yazi";
