@@ -60,7 +60,7 @@ in {
             "^(gamescope|\\.gamescope-wrapped)$"
             "^(steam_app_.*)$"
           ];
-          content = "game";
+          anyOf.content = "game";
           apply = {
             workspace = "2 silent";
             no_blur = true;
