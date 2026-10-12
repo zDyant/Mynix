@@ -3,6 +3,6 @@
     enable = true;
     inherit flakePath;
     buildHost = null; # null = local builds, or "buildserver"
-    extraArgs = [""]; # Extra args passed to nh/nix
+    extraArgs = [];
   };
 }
