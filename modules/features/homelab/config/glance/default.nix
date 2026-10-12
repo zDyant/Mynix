@@ -23,9 +23,16 @@
       {
         inherit title;
         url =
-          if fixedPort != null
+          if homelab.domain != null
+          then "https://${serviceName}.${homelab.domain}"
+          else if fixedPort != null
           then "http://localhost:${toString fixedPort}"
           else "http://localhost:${toString homelab.services.${serviceName}.port}";
+        check-url = "http://127.0.0.1:${toString (
+          if fixedPort != null
+          then fixedPort
+          else homelab.services.${serviceName}.port
+        )}";
         icon = "sh:${icon}";
       }
       // extra;
