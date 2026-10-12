@@ -12,6 +12,5 @@ in {
     MOZ_ENABLE_WAYLAND = "1"; # firefox
     ELECTRON_OZONE_PLATFORM_HINT = "1"; # electron apps on wayland
     XFT_DPI = "144";
-    GDK_SCALE = "1.5";
   };
 }
