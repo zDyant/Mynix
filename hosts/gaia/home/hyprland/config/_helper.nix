@@ -176,6 +176,14 @@
       tags ? {},
       rules ? [],
     }: let
+      checkedTags =
+        lib.mapAttrs (
+          tag: spec:
+            if lib.subtractLists ["anyOf" "allOf" "apply"] (lib.attrNames spec) != []
+            then throw "hyprland: unsupported keys in tag ${tag}"
+            else spec
+        )
+        tags;
       defs = lib.concatLists (
         lib.mapAttrsToList (
           tag: spec:
@@ -193,13 +201,13 @@
               tag = "+${tag}";
             }) (spec.allOf or [])
         )
-        tags
+        checkedTags
       );
       applies = lib.concatLists (
         lib.mapAttrsToList (
           tag: spec: lib.optional (spec ? apply) ({match.tag = tag;} // spec.apply)
         )
-        tags
+        checkedTags
       );
     in
       expandRules (defs ++ applies ++ rules);
