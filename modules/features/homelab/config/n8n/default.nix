@@ -18,7 +18,7 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (homelab.enable && cfg.enable) {
     services.n8n = {
       enable = true;
       environment =

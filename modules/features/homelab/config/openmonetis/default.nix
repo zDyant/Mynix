@@ -22,7 +22,7 @@ in {
 
   imports = [inputs.mix-nix.nixosModules.oci-stacks];
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (homelab.enable && cfg.enable) {
     virtualisation.oci-stacks.${name} = {
       containers = {
         ${dbContainer} = {

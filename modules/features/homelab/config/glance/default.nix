@@ -40,7 +40,7 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (homelab.enable && cfg.enable) {
     services.glance = {
       enable = true;
 

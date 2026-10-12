@@ -124,7 +124,7 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (homelab.enable && cfg.enable) {
     services.restic.backups.${name} = {
       inherit
         (cfg)

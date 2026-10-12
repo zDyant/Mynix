@@ -17,7 +17,7 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (homelab.enable && cfg.enable) {
     services.ollama = {
       enable = true;
       port = cfg.port;

@@ -17,7 +17,7 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (homelab.enable && cfg.enable) {
     virtualisation.oci-containers = {
       containers = {
         kutt = {

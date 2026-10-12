@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   host,
   pkgs,
   ...
@@ -30,12 +31,12 @@
     };
   };
 
-  system.activationScripts.histerAccessToken = lib.stringAfter ["users"] ''
+  system.activationScripts.histerAccessToken = lib.mkIf (config.homelab.enable && config.homelab.services.hister.enable) (lib.stringAfter ["users"] ''
     token_file=/var/lib/hister/secrets.env
     ${pkgs.coreutils}/bin/install -d -m 0750 -o hister -g hister /var/lib/hister
     if [ ! -s "$token_file" ]; then
       umask 077
       printf 'HISTER__APP__ACCESS_TOKEN=%s\n' "$(${pkgs.openssl}/bin/openssl rand -hex 32)" > "$token_file"
     fi
-  '';
+  '');
 }

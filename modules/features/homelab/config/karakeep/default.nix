@@ -23,7 +23,7 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf (homelab.enable && cfg.enable) {
     nixpkgs.config.permittedInsecurePackages = [
       "pnpm-9.15.9"
     ];
