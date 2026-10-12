@@ -8,9 +8,9 @@
   name = "restic";
   cfg = homelab.services.${name};
   serviceBackupPaths =
-    lib.optionals homelab.services.glance.enable ["/var/lib/glance"]
+    lib.optionals homelab.services.glance.enable ["/var/lib/private/glance"]
     ++ lib.optionals homelab.services.hister.enable ["/var/lib/hister"]
-    ++ lib.optionals homelab.services.karakeep.enable ["/var/lib/karakeep"]
+    ++ lib.optionals homelab.services.karakeep.enable ["/var/lib/karakeep" "/var/lib/private/karakeep-browser" "/var/lib/private/meilisearch"]
     ++ lib.optionals homelab.services.kutt.enable ["/var/lib/kutt"]
     ++ lib.optionals homelab.services.openmonetis.enable ["/var/lib/openmonetis"];
   stoppedServices =
@@ -24,6 +24,7 @@
       "karakeep-browser.service"
       "karakeep-workers.service"
       "karakeep-web.service"
+      "meilisearch.service"
     ]
     ++ lib.optionals homelab.services.kutt.enable [
       "docker-kutt.service"
