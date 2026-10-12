@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  homelab = config.homelab;
+  inherit (config) homelab;
   cfg = homelab.services.openmonetis;
   name = "openmonetis";
   dbContainer = "${name}-db";

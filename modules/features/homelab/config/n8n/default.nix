@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  homelab = config.homelab;
+  inherit (config) homelab;
   name = "n8n";
   cfg = homelab.services.${name};
 in {

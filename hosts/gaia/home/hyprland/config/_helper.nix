@@ -27,7 +27,7 @@
   mvxy = dispatcher: x: y: "hl.dsp.window.${dispatcher}({ x = ${toString x}, y = ${toString y}, relative = true })";
 
   on_startup = targets: [
-    (mkArgs ["hyprland.start" (lua (func (lib.concatStringsSep "\n" (map (t: execHook t) targets))))]) #omg
+    (mkArgs ["hyprland.start" (lua (func (lib.concatStringsSep "\n" (map execHook targets))))]) #omg
   ];
 
   mkEnv = lib.mapAttrsToList (

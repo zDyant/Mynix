@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  homelab = config.homelab;
+  inherit (config) homelab;
   name = "restic";
   cfg = homelab.services.${name};
   serviceBackupPaths =

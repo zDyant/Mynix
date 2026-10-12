@@ -5,7 +5,7 @@
   secrets,
   ...
 }: let
-  user = host.user;
+  inherit (host) user;
   userSecrets = secrets.users.${user.name} or {};
 in {
   users.users.${user.name} = {

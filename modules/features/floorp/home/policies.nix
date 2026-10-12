@@ -1,4 +1,4 @@
-{...}: {
+_: {
   programs.floorp.policies = {
     DisableTelemetry = true;
     DisableAppUpdate = true;

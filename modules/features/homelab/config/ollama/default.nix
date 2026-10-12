@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  homelab = config.homelab;
+  inherit (config) homelab;
   cfg = homelab.services."ollama";
 in {
   options.homelab.services."ollama" = {
@@ -20,7 +20,7 @@ in {
   config = lib.mkIf (homelab.enable && cfg.enable) {
     services.ollama = {
       enable = true;
-      port = cfg.port;
+      inherit (cfg) port;
       package = lib.mkDefault pkgs.ollama-vulkan;
       loadModels = lib.mkDefault ["qwen3.5:9b"];
       environmentVariables = {

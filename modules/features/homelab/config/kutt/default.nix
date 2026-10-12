@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  homelab = config.homelab;
+  inherit (config) homelab;
   cfg = homelab.services."kutt";
 in {
   options.homelab.services."kutt" = {

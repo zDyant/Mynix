@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  homelab = config.homelab;
+  inherit (config) homelab;
   cfg = homelab.services."glance";
 
   toServiceName = title: "${lib.toLower title}";
@@ -53,7 +53,7 @@ in {
 
       settings = {
         server = {
-          port = cfg.port;
+          inherit (cfg) port;
         };
 
         pages = [

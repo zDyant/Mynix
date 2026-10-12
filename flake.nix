@@ -71,11 +71,11 @@
     };
   };
 
-  outputs = {...} @ inputs:
+  outputs = inputs:
     inputs.flake-parts.lib.mkFlake
     {
       inherit inputs;
-      specialArgs = {lib = inputs.mix-nix.lib;};
+      specialArgs = {inherit (inputs.mix-nix) lib;};
     }
     {
       systems = ["x86_64-linux"];
@@ -109,7 +109,7 @@
       };
 
       flake.overlays = import ./overlays {
-        lib = inputs.mix-nix.lib;
+        inherit (inputs.mix-nix) lib;
         inherit inputs;
       };
     };

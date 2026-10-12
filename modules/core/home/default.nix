@@ -4,7 +4,7 @@
   host,
   ...
 }: let
-  user = host.user;
+  inherit (host) user;
 in {
   imports = lib.fs.scanPaths ./.;
 

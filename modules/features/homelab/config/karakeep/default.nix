@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  homelab = config.homelab;
+  inherit (config) homelab;
   name = "karakeep";
   cfg = homelab.services.${name};
 in {

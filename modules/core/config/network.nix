@@ -10,7 +10,7 @@
     {
       networking = {
         dhcpcd.enable = false;
-        hostName = host.hostName;
+        inherit (host) hostName;
         networkmanager.enable = true;
         useDHCP = lib.mkDefault true;
         useHostResolvConf = false;

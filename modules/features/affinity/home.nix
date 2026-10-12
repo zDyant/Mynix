@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  system = pkgs.stdenv.hostPlatform.system;
+  inherit (pkgs.stdenv.hostPlatform) system;
   affinityPkgs = pkgs.extend inputs.affinity-nix.overlays.default;
 in {
   assertions = [
