@@ -1,4 +1,4 @@
-{lib, ...}: {
+_: {
   programs = {
     zsh = {
       enable = true;
@@ -49,11 +49,7 @@
       enableZshIntegration = true;
     };
 
-    yazi = lib.mkMerge [
-      {
-        enableZshIntegration = true;
-      }
-    ];
+    yazi.enableZshIntegration = true;
 
     starship = {
       enable = true;
