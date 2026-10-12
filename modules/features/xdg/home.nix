@@ -24,7 +24,6 @@
     "inode/directory" = files;
 
     # Text and coding file types
-    "text/*" = editor;
     "text/plain" = editor;
     "text/x-authors" = editor;
     "text/x-changelog" = editor;
@@ -84,7 +83,6 @@
     "application/pdf" = pdfViewer;
 
     # Images
-    "image/*" = imageViewer;
     "image/bmp" = imageViewer;
     "image/gif" = imageViewer;
     "image/jpeg" = imageViewer;
@@ -96,8 +94,19 @@
     "image/x-icon" = imageViewer;
 
     # Video / audio
-    "video/*" = videoPlayer;
-    "audio/*" = videoPlayer;
+
+    "audio/mpeg" = videoPlayer;
+    "audio/flac" = videoPlayer;
+    "audio/ogg" = videoPlayer;
+    "audio/opus" = videoPlayer;
+    "audio/x-wav" = videoPlayer;
+    "audio/mp4" = videoPlayer;
+    "video/mp4" = videoPlayer;
+    "video/mpeg" = videoPlayer;
+    "video/ogg" = videoPlayer;
+    "video/webm" = videoPlayer;
+    "video/x-matroska" = videoPlayer;
+    "video/x-msvideo" = videoPlayer;
 
     # Archives
     "application/gzip" = archive;
