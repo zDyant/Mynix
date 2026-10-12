@@ -172,7 +172,7 @@ in {
     mimeApps.defaultApplications = associations;
     mimeApps.associations.added = associations;
     systemDirs.data = [
-      "${config.home.homeDirectory}/.nix-profile/share/applications"
+      "${config.home.profileDirectory}/share"
       "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
       "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
     ];
