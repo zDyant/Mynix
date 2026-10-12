@@ -44,7 +44,7 @@ in {
 
   programs.mpv = {
     enable = true;
-    defaultProfiles = ["gpu-hq"];
+    defaultProfiles = ["high-quality"];
     scriptOpts = {
       webtorrent.path = "${config.xdg.cacheHome}/mpv";
     };

@@ -22,8 +22,6 @@
     demuxer-readahead-secs = "60";
 
     # Opts
-    profile = "high-quality";
-    # profile = "gpu-hq";
     keep-open = "yes";
     save-position-on-quit = "yes";
     resume-playback = "yes";
