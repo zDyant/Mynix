@@ -8,74 +8,77 @@
 {
   programs.mpv.profiles = let
     shadersPkg = "${pkgs.mpv-shim-default-shaders}/share/mpv-shim-default-shaders/shaders";
+    mkShaderProfile = {
+      description,
+      shaders,
+      vo ? "gpu",
+    }: {
+      inherit vo;
+      profile-desc = description;
+      glsl-shaders = lib.concatStringsSep ":" (map (shader: "${shadersPkg}/${shader}") shaders);
+    };
   in {
-    fsr = {
-      vo = "gpu";
-      "profile-desc" = "AMD FSR 1.0 Upscaling";
-      "glsl-shaders" = lib.concatStringsSep ":" ["${shadersPkg}/FSR.glsl"];
+    fsr = mkShaderProfile {
+      description = "AMD FSR 1.0 Upscaling";
+      shaders = ["FSR.glsl"];
     };
 
-    fsrcnnx = {
-      vo = "gpu";
-      "profile-desc" = "FSRCNNX Neural Network Upscaling";
-      "glsl-shaders" = lib.concatStringsSep ":" ["${shadersPkg}/FSRCNNX_x2_16-0-4-1.glsl"];
+    fsrcnnx = mkShaderProfile {
+      description = "FSRCNNX Neural Network Upscaling";
+      shaders = ["FSRCNNX_x2_16-0-4-1.glsl"];
     };
 
-    nis = {
-      vo = "gpu";
-      "profile-desc" = "NVIDIA Image Scaling (all GPUs)";
-      "glsl-shaders" = lib.concatStringsSep ":" ["${shadersPkg}/NVScaler.glsl"];
+    nis = mkShaderProfile {
+      description = "NVIDIA Image Scaling (all GPUs)";
+      shaders = ["NVScaler.glsl"];
     };
 
-    anime4k = {
-      vo = "gpu";
-      "profile-desc" = "Anime4K Upscaling (Mode A)";
-      "glsl-shaders" = lib.concatStringsSep ":" [
-        "${shadersPkg}/Anime4K_Denoise_Bilateral_Mode.glsl"
-        "${shadersPkg}/Anime4K_Thin_HQ.glsl"
-        "${shadersPkg}/Anime4K_Upscale_Denoise_CNN_x2_M.glsl"
+    anime4k = mkShaderProfile {
+      description = "Anime4K Upscaling (Mode A)";
+      shaders = [
+        "Anime4K_Denoise_Bilateral_Mode.glsl"
+        "Anime4K_Thin_HQ.glsl"
+        "Anime4K_Upscale_Denoise_CNN_x2_M.glsl"
       ];
     };
 
-    "rescale-balanced" = {
-      vo = "gpu";
-      "profile-desc" = "Fix bad upscales with a balanced Anime4K chain. (Good start)";
-      "glsl-shaders" = lib.concatStringsSep ":" [
+    "rescale-balanced" = mkShaderProfile {
+      description = "Fix bad upscales with a balanced Anime4K chain. (Good start)";
+      shaders = [
         # Downscale 1080p -> 540p to remove upscaling artifacts
-        "${shadersPkg}/Anime4K_AutoDownscalePre_x2.glsl"
+        "Anime4K_AutoDownscalePre_x2.glsl"
         # Upscale, denoise, and deblur in one step
-        "${shadersPkg}/Anime4K_Upscale_Denoise_CNN_x2_VL.glsl"
+        "Anime4K_Upscale_Denoise_CNN_x2_VL.glsl"
         # Optional line art sharpening
-        "${shadersPkg}/Anime4K_Darken_HQ.glsl"
-        "${shadersPkg}/Anime4K_Thin_HQ.glsl"
+        "Anime4K_Darken_HQ.glsl"
+        "Anime4K_Thin_HQ.glsl"
       ];
     };
 
-    "rescale-hq" = {
-      vo = "gpu";
-      "profile-desc" = "Fix bad upscales with Restore + FSRCNNX. (Recommended Quality)";
-      "glsl-shaders" = lib.concatStringsSep ":" [
+    "rescale-hq" = mkShaderProfile {
+      description = "Fix bad upscales with Restore + FSRCNNX. (Recommended Quality)";
+      shaders = [
         # Downscale 1080p -> 540p to remove upscaling artifacts
-        "${shadersPkg}/Anime4K_AutoDownscalePre_x2.glsl"
+        "Anime4K_AutoDownscalePre_x2.glsl"
         # Powerful restoration shader for artifacts and noise
-        "${shadersPkg}/Anime4K_Restore_CNN_VL.glsl"
+        "Anime4K_Restore_CNN_VL.glsl"
         # High-quality neural network upscaler
-        "${shadersPkg}/FSRCNNX_x2_16-0-4-1.glsl"
+        "FSRCNNX_x2_16-0-4-1.glsl"
         # Final contrast-adaptive sharpening pass
-        "${shadersPkg}/CAS-scaled.glsl"
+        "CAS-scaled.glsl"
       ];
     };
 
-    "rescale-nnedi3" = {
-      "profile-desc" = "Fix bad upscales with nnedi3. (Very High Quality, gpu-next only)";
+    "rescale-nnedi3" = mkShaderProfile {
+      description = "Fix bad upscales with nnedi3. (Very High Quality, gpu-next only)";
       vo = "gpu-next";
-      "glsl-shaders" = lib.concatStringsSep ":" [
+      shaders = [
         # Downscale 1080p -> 540p
-        "${shadersPkg}/Anime4K_AutoDownscalePre_x2.glsl"
+        "Anime4K_AutoDownscalePre_x2.glsl"
         # Restore artifacts before upscaling
-        "${shadersPkg}/Anime4K_Restore_CNN_M.glsl"
+        "Anime4K_Restore_CNN_M.glsl"
         # High-quality luma upscaler, great for lines
-        "${shadersPkg}/nnedi3-nns64-win8x6.hook"
+        "nnedi3-nns64-win8x6.hook"
       ];
     };
   };
