@@ -62,23 +62,35 @@ in {
     };
   };
 
-  config = lib.mkIf (cfg.enable && cfg.domain != null) {
-    networking.firewall.allowedTCPPorts = [
-      80
-      443
-    ];
+  config = lib.mkMerge [
+    (lib.mkIf cfg.enable {
+      assertions = [
+        {
+          assertion =
+            !(cfg.services.kutt.enable || cfg.services.openmonetis.enable)
+            || (config.virtualisation.docker.enable && config.virtualisation.oci-containers.backend == "docker");
+          message = "Homelab container services require Docker and the Docker OCI backend";
+        }
+      ];
+    })
+    (lib.mkIf (cfg.enable && cfg.domain != null) {
+      networking.firewall.allowedTCPPorts = [
+        80
+        443
+      ];
 
-    security.acme.acceptTerms = true;
-    security.acme.defaults.email = "zdyant@pm.me";
+      security.acme.acceptTerms = true;
+      security.acme.defaults.email = "zdyant@pm.me";
 
-    services.nginx = {
-      enable = true;
-      recommendedGzipSettings = true;
-      recommendedOptimisation = true;
-      recommendedProxySettings = true;
-      recommendedTlsSettings = true;
+      services.nginx = {
+        enable = true;
+        recommendedGzipSettings = true;
+        recommendedOptimisation = true;
+        recommendedProxySettings = true;
+        recommendedTlsSettings = true;
 
-      virtualHosts = enabledProxyVHosts;
-    };
-  };
+        virtualHosts = enabledProxyVHosts;
+      };
+    })
+  ];
 }
