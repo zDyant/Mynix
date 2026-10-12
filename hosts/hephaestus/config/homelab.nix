@@ -24,7 +24,10 @@
         environmentFile = "/var/lib/openmonetis/app.env";
         postgresEnvironmentFile = "/var/lib/openmonetis/postgres.env";
       };
-      kutt.enable = true;
+      kutt = {
+        enable = true;
+        environmentFile = "/var/lib/kutt/secrets.env";
+      };
       karakeep.enable = true;
       restic = {
         enable = true;

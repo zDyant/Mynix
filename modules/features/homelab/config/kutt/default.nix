@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  secrets,
   ...
 }: let
   homelab = config.homelab;
@@ -9,6 +8,11 @@
 in {
   options.homelab.services."kutt" = {
     enable = lib.mkEnableOption "Custom Kutt configuration";
+    environmentFile = lib.mkOption {
+      type = lib.types.str;
+      default = "/var/lib/kutt/secrets.env";
+      description = "Runtime environment file containing JWT_SECRET";
+    };
     port = lib.mkOption {
       type = lib.types.port;
       description = "Kutt bind address";
@@ -18,11 +22,16 @@ in {
   };
 
   config = lib.mkIf (homelab.enable && cfg.enable) {
+    systemd.tmpfiles.rules = [
+      "d /var/lib/kutt 0750 root root -"
+      "z ${cfg.environmentFile} 0600 root root -"
+    ];
     virtualisation.oci-containers = {
       containers = {
         kutt = {
           image = "kutt/kutt:main";
           autoStart = true;
+          environmentFiles = [cfg.environmentFile];
           ports = ["127.0.0.1:${toString cfg.port}:3000"];
           volumes = [
             "/var/lib/kutt/db_data_sqlite:/var/lib/kutt"
@@ -36,7 +45,6 @@ in {
               if homelab.domain != null
               then homelab.domain
               else "localhost:${toString cfg.port}";
-            JWT_SECRET = secrets.docker.JWT_SECRET;
           };
         };
       };
