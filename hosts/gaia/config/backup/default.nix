@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  host,
   ...
 }: let
   copyTargets = [
@@ -9,11 +10,11 @@
       destination = "filen-remote:/gaia/repos";
     }
     {
-      source = "/home/zdyant/important";
+      source = "/home/${host.user.name}/important";
       destination = "filen-remote:/gaia/important";
     }
     {
-      source = "/home/zdyant/.config/nvim";
+      source = "/home/${host.user.name}/.config/nvim";
       destination = "filen-remote:/gaia/nvim";
     }
   ];
@@ -32,7 +33,7 @@ in {
     path = [pkgs.rclone];
     script = ''
       common_args=(
-        --config /home/zdyant/.config/rclone/rclone.conf
+        --config /home/${host.user.name}/.config/rclone/rclone.conf
         --create-empty-src-dirs
         --links
         --disable-http2
