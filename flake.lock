@@ -422,8 +422,8 @@
         ]
       },
       "locked": {
-        "lastModified": 1791116501,
-        "narHash": "sha256-ee540m2zR4TpymIMmqbE6PUl08sPkJe4HHoWWyiQHuY=",
+        "lastModified": 1791723107,
+        "narHash": "sha256-lNEI5jklsL72Z+gV7tc+T5ugSBH2Uf4stk5T2ySQzY4=",
         "path": "/repos/emyl-nix",
         "type": "path"
       },

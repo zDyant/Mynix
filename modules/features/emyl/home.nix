@@ -16,6 +16,7 @@
     hyprland.enable = true;
     mpv.enable = true;
     dms.enable = true;
+    yazi.enable = true;
   };
 
   # theme.firefox = {
