@@ -24,6 +24,7 @@
         compression = 9;
         whitespace = "error";
         preloadindex = true;
+        editor = "nvim";
       };
 
       status = {
@@ -37,13 +38,10 @@
         interHunkContext = 10;
       };
 
-      extraConfig = {
-        init.defaultBranch = "main";
-        pull = {
-          rebase = true;
-          ff = "only";
-        };
-        core.editor = "nvim";
+      init.defaultBranch = "main";
+      pull = {
+        rebase = true;
+        ff = "only";
       };
     };
 
