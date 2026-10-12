@@ -30,7 +30,8 @@
     );
   in
     pkgs.writeShellScriptBin "my-menu" ''
-      pkill ${lib.getExe pkgs.wlr-which-key}; ${lib.getExe pkgs.wlr-which-key} ${configFile}
+      ${pkgs.procps}/bin/pkill -x wlr-which-key || true
+      exec ${lib.getExe pkgs.wlr-which-key} ${configFile}
     '';
 
   menuBind = entries: (bind "SUPER + D" (exec (lib.getExe (mkMenu entries))));
