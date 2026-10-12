@@ -30,6 +30,7 @@
       pre-commit
       deadnix
       alejandra
+      statix
     ];
   };
 }
