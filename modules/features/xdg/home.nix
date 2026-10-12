@@ -170,6 +170,6 @@ in {
   };
 
   home.packages = builtins.attrValues {
-    inherit (pkgs) handlr-regex;
+    inherit (pkgs) handlr-regex file-roller;
   };
 }
