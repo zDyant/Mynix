@@ -1,22 +1,23 @@
-# Shell for bootstrapping flake-enabled nix and other tooling
+# Standalone bootstrap: nix-shell -A default
 {
   pkgs ?
   # If pkgs is not defined, instantiate nixpkgs from locked commit
   let
-    lock = (builtins.fromJSON (builtins.readFile ./flake.lock)).nodes.nixpkgs.locked;
+    lockfile = builtins.fromJSON (builtins.readFile ./flake.lock);
+    lock = lockfile.nodes.${lockfile.nodes.${lockfile.root}.inputs.nixpkgs}.locked;
     nixpkgs = fetchTarball {
       url = "https://github.com/nixos/nixpkgs/archive/${lock.rev}.tar.gz";
       sha256 = lock.narHash;
     };
   in
     import nixpkgs {overlays = [];},
-  checks,
+  checks ? {},
   ...
 }: {
   default = pkgs.mkShell {
     NIX_CONFIG = "extra-experimental-features = nix-command flakes";
-    inherit (checks.pre-commit-check) shellHook;
-    buildInputs = checks.pre-commit-check.enabledPackages;
+    shellHook = checks.pre-commit-check.shellHook or "";
+    buildInputs = checks.pre-commit-check.enabledPackages or [];
 
     nativeBuildInputs = with pkgs; [
       # NOTE(starter): add any packages you want available in the shell when accessing the parent directory.
