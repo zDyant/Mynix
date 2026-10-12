@@ -45,7 +45,6 @@ in {
         --retries-sleep 30s
         --low-level-retries 20
         --exclude node_modules/**
-        --exclude .git/**
         --exclude result
         --exclude '*.tmp'
         --exclude __pycache__/**
