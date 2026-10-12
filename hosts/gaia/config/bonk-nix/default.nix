@@ -1,7 +1,7 @@
-{...}: {
+{flakePath, ...}: {
   programs.bonk = {
     enable = true;
-    flakePath = "/repos/dots"; # Your flake location
+    inherit flakePath;
     buildHost = null; # null = local builds, or "buildserver"
     extraArgs = [""]; # Extra args passed to nh/nix
   };

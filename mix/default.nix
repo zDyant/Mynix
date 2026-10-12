@@ -6,7 +6,7 @@
       file = ../secrets.nix;
       gitattributes = ../.gitattributes;
     };
-    specialArgs.flakeRoot = ../.;
+    specialArgs.flakePath = "/repos/dots";
     users.zdyant = {
       name = "zdyant";
       uid = 1000;
