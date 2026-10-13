@@ -67,7 +67,7 @@ in {
       assertions = [
         {
           assertion =
-            !(cfg.services.kutt.enable || cfg.services.openmonetis.enable)
+            !(cfg.services.kutt.enable || cfg.services.openmonetis.enable || cfg.services.rss.enable)
             || (config.virtualisation.docker.enable && config.virtualisation.oci-containers.backend == "docker");
           message = "Homelab container services require Docker and the Docker OCI backend";
         }
