@@ -28,7 +28,7 @@ in {
       fallback_to_clipboard = true;
       notification = {
         on_recording_start = true;
-        on_recording_stop = true;
+        on_recording_stop = false;
         on_transcription = false;
       };
     };
