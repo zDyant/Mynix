@@ -29,6 +29,57 @@
         environmentFile = "/var/lib/kutt/secrets.env";
       };
       karakeep.enable = true;
+      rss = let
+        steamGames = {
+          "427410" = "Abiotic Factor";
+          "3110760" = "Alabaster Dawn";
+          "2529790" = "GRIME II";
+          "2024600" = "Into the Unwell";
+          "2719590" = "Light No Fire";
+          "1169040" = "Necesse";
+          "1371980" = "No rest for the wicked";
+          "2961930" = "TemTem: Pioneers";
+          "2376260" = "Mariachi Legends";
+          "2843060" = "Into the Wind";
+          "3910680" = "Inari";
+          "1203170" = "Darksiders 4";
+          "2090210" = "Threads of Time";
+          "1739080" = "Sword Hero";
+          "2146290" = "The Big Catch";
+          "3724710" = "Gunstoppable";
+          "3808690" = "Pathogenic";
+          "2445690" = "Lost Castle 2";
+        };
+        mkSteamFeed = appId: "https://store.steampowered.com/feeds/news/app/${appId}/";
+      in {
+        enable = true;
+        labels =
+          lib.mapAttrs' (
+            appId: game: lib.nameValuePair "https://store.steampowered.com/news/app/${appId}/" game
+          )
+          steamGames;
+        groups = {
+          linux = [
+            "https://nixos.org/blog/feed.xml"
+            "https://feed.itsfoss.com"
+            "https://omglinux.com/feed/"
+            "https://wololo.net/feed/"
+          ];
+          github = let
+            mkGithubFeed = repo: "https://github.com/${repo}/releases.atom";
+          in (map mkGithubFeed [
+            "hyprwm/hyprland"
+            "karakeep-app/karakeep"
+            "memstechtips/Winhance"
+            "VERT-sh/vertd"
+            "canvas-commons/canvas-commons"
+            "AvengeMedia/DankMaterialShell"
+            "felipegcoutinho/openmonetis"
+            "ilya-zlobintsev/LACT"
+          ]);
+          games = lib.mapAttrsToList (appId: _: mkSteamFeed appId) steamGames;
+        };
+      };
       restic = {
         enable = true;
         repository = "rclone:filen-remote:restic/hephaestus";
