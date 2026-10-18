@@ -25,6 +25,7 @@
     play = {
       url = "github:TophC7/play.nix";
     };
+    wayscope.url = "github:TophC7/wayscope";
     nixcord = {
       url = "github:kaylorben/nixcord?rev=1ffd9a241a518fab5c2188749a599a8981cd8208";
     };

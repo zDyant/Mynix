@@ -1,22 +1,14 @@
 {pkgs, ...}: {
-  monitors = [
-    {
-      name = "DP-2";
-      primary = true;
+  programs.wayscope.monitors = {
+    main = {
       width = 3840;
       height = 2160;
       refreshRate = 144;
       hdr = true;
       vrr = true;
-    }
-    {
-      name = "HDMI-A-1";
-      width = 1920;
-      height = 1080;
-      refreshRate = 144;
-      vrr = true;
-    }
-  ];
+      primary = true;
+    };
+  };
 
   home.packages = with pkgs; [
     adwsteamgtk # Theme for steam

@@ -1,11 +1,15 @@
 {
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   # WARN: Remember to grab yours hardware-configuration.nix
   imports =
-    [./config]
+    [
+      ./config
+      inputs.emyl-nix.nixosModules.default
+    ]
     ++ lib.features [
       "amd"
       "adb"
@@ -14,6 +18,7 @@
       "docker"
       "flatpak"
       "gaming"
+      "gaming/gamescope"
       "cache"
       "lix"
       "nextdns"
