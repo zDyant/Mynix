@@ -21,10 +21,6 @@ in {
       }
       {
         workspace = "5";
-        monitor = "DP-2";
-      }
-      {
-        workspace = "6";
         monitor = "HDMI-A-1";
         layout = "scrolling";
       }
@@ -80,7 +76,7 @@ in {
             "^(mpv)$"
             "^([Ss]potify)$"
           ];
-          apply.workspace = "5";
+          apply.workspace = "4";
         };
 
         float = {

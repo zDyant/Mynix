@@ -8,7 +8,7 @@
     mvxy
     func
     ;
-  workspaces = [1 2 3 4 5 6];
+  workspaces = [1 2 3 4 5];
 in {
   imports = lib.fs.scanPaths ./.;
 
