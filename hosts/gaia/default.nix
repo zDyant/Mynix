@@ -17,8 +17,8 @@
       "bluetooth"
       "docker"
       "flatpak"
+      # Gamescope is disabled since it causes more problems than it solves. Its implementation should be deleted very soon
       "gaming"
-      "gaming/gamescope"
       "cache"
       "lix"
       "nextdns"

@@ -24,6 +24,7 @@ in {
         options = baseOptions;
       };
 
+      # WARN: steam does not open in normal "desktop mode" with gamescope
       steam = {
         useWSI = true;
         options =
