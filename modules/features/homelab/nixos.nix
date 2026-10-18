@@ -47,7 +47,6 @@
         ollama = false;
         kutt = true;
         karakeep = false;
-        n8n = true;
       });
 in {
   imports = lib.fs.scanPaths ./config;
