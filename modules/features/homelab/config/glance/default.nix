@@ -110,18 +110,6 @@ in {
                 size = "full";
                 widgets = [
                   {
-                    type = "rss";
-                    limit = 10;
-                    style = "detailed-list";
-                    collapse-after = 5;
-                    cache = "3h";
-                    feeds = [
-                      {url = "https://feed.itsfoss.com";}
-                      {url = "https://omglinux.com/feed/";}
-                      {url = "https://wololo.net/feed/";}
-                    ];
-                  }
-                  {
                     type = "videos";
                     style = "grid-cards";
                     collapse-after-row = 3;
@@ -227,19 +215,6 @@ in {
                           }
                         ];
                       }
-                    ];
-                  }
-                  {
-                    type = "releases";
-                    cache = "7d";
-                    repositories = [
-                      "glanceapp/glance"
-                      "hyprwm/hyprland"
-                      "quickshell-mirror/quickshell"
-                      "motion-canvas/motion-canvas"
-                      "felipegcoutinho/openmonetis"
-                      "penpot/penpot"
-                      "iamgio/quarkdown"
                     ];
                   }
                 ];
