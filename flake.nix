@@ -8,51 +8,51 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix?rev=32d97b6b3c3401e5d0e474c82e764f8f9bf35b86";
+      url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      url = "github:danth/stylix?rev=2856c4c6a845b9bec98828ef197abe176e4806bb";
+      url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
-      url = "github:nix-community/NUR?rev=f8508ae9d03b238d5929e88a745eafffc8e060cc";
+      url = "github:nix-community/NUR";
     };
     git-hooks = {
-      url = "github:cachix/git-hooks.nix?rev=a0e4241b51206fbcbf52fd322eb5f0cd80f153c4";
+      url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     play = {
       url = "github:TophC7/play.nix";
     };
     nixcord = {
-      url = "github:kaylorben/nixcord?rev=1ffd9a241a518fab5c2188749a599a8981cd8208";
+      url = "github:kaylorben/nixcord";
     };
     betterfox = {
-      url = "github:yokoffing/Betterfox?rev=067172a4b0dc90e78e5b8b94d9abfe6430c6a7be";
+      url = "github:yokoffing/Betterfox";
       flake = false;
     };
     userstyles = {
-      url = "github:knoopx/userContent.css?rev=161cffbecd1eb550e0b230041518ff7feec3a363";
+      url = "github:knoopx/userContent.css";
     };
     flake-parts = {
-      url = "github:hercules-ci/flake-parts?rev=024633cd702b10285db5cb19b40ad48d2399ba60";
+      url = "github:hercules-ci/flake-parts";
     };
     mix-nix = {
-      url = "github:tophc7/mix.nix?rev=081afb79a0e4fa9201c532110764c68781f4a9b6";
+      url = "github:tophc7/mix.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hister = {
-      url = "github:asciimoo/hister/v0.20.0";
+      url = "github:asciimoo/hister";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
     bonk = {
-      url = "github:tophc7/bonk?rev=646213784713c7df66795103bf004e5a76a3adc8";
+      url = "github:tophc7/bonk";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
-      url = "github:nix-community/disko?rev=725ea35e410ad83be4931d1bff7e090eacaf3563";
+      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     emyl-nix = {
