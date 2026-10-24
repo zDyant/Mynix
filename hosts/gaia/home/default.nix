@@ -19,5 +19,6 @@
     qbittorrent-enhanced # Torrent
     appimage-run
     brave-origin
+    adwsteamgtk # Theming for steam
   ];
 }
