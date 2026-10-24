@@ -2,7 +2,7 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?rev=84dc35d87e387775da82b754fa1d768bb256e801";
+    nixpkgs.url = "github:nixos/nixpkgs?rev=c4c3c1898c74d2537346f7716febdb1990bface8";
     home-manager = {
       url = "github:nix-community/home-manager?rev=c58f54c733a7894d84fa2fdff26cc12088c4b78c";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,10 +54,6 @@
     };
     disko = {
       url = "github:nix-community/disko?rev=725ea35e410ad83be4931d1bff7e090eacaf3563";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    dms = {
-      url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     emyl-nix = {

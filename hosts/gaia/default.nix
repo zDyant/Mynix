@@ -56,6 +56,8 @@
     dsearch # needed by dms, great tool btw
   ];
 
+  programs.dux-shell.enable = true;
+
   # For passwords
   services.gnome.gnome-keyring.enable = true;
   services.gvfs.enable = true;
