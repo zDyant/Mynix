@@ -53,7 +53,6 @@ in {
           anyOf.class = [
             "^([Ss]team)$"
             "^(com.heroicgameslauncher.hgl)$"
-            "^(gamescope|\\.gamescope-wrapped)$"
             "^(steam_app_.*)$"
           ];
           anyOf.content = "game";
