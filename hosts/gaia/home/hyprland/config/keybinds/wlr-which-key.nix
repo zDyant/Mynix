@@ -110,7 +110,7 @@ in {
                       --preview-window=bottom:3:wrap:border-top \
                       --delimiter $'\t' \
                       --preview '[ -n {2} ] && rbw get {1} {2} || rbw get {1}' \
-                      --bind 'enter:execute({ [ -n {2} ] && rbw get {1} {2} || rbw get {1}; } | wl-copy)+abort'
+                      --bind 'enter:execute-silent({ [ -n {2} ] && rbw get {1} {2} || rbw get {1}; } | wl-copy)+abort'
                 '';
               };
             in "${lib.getExe pkgs.kitty} --single-instance --class float -o font_size=16 ${lib.getExe rbw-pick}";
