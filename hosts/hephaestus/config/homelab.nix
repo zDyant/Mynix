@@ -19,6 +19,7 @@
         ];
       };
       glance.enable = true;
+      nextcloud.enable = true;
       openmonetis = {
         enable = true;
         environmentFile = "/var/lib/openmonetis/app.env";
