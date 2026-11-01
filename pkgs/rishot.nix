@@ -12,8 +12,10 @@
   libnotify,
   quickshell,
   qt6,
+  tesseract,
   util-linux,
   wl-clipboard,
+  zbar,
   ...
 }: let
   qmlModules = [
@@ -46,17 +48,20 @@
     imagemagick
     kdePackages.kdialog
     libnotify
+    tesseract
+    zbar
+    kdePackages.spectacle
   ];
 in
   stdenvNoCC.mkDerivation {
     pname = "rishot";
-    version = "unstable-2026-06-23";
+    version = "unstable-2026-11-01";
 
     src = fetchFromGitHub {
       owner = "Gakuseei";
       repo = "rishot";
-      rev = "f05f53e8b5f3e47952b3c25567a097b66ceb2a49";
-      hash = "sha256-NmYCNSwMBgfma2KjGF8nElswK4QxaIyLPjJQg3OwvOQ=";
+      rev = "60db58ceebc1ba4b1575f6587fccaa0327fa5cfd";
+      hash = "sha256-WBXizcXanNt0VvyNQALRSaytHk9WcT5/HfJP1gN4cpY=";
     };
 
     nativeBuildInputs = [makeWrapper];
