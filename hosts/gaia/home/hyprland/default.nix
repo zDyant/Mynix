@@ -17,7 +17,6 @@
     direnv
     qt6.qtwayland
     playerctl
-    hyprland-qtutils
   ];
 
   wayland.windowManager.hyprland = {
