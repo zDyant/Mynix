@@ -36,7 +36,7 @@ in {
 
     # DmsShell
     (bind "SUPER +  A" (exec "${dms} clipboard toggle"))
-    (bind "SUPER + Super_L" (exec "${dms} launcher toggle"))
+    (bind "SUPER + Super_L" (exec "${dms} launcher toggle") {release = true;})
     (bind "SUPER +  W" (exec "${dms} hypr toggleOverview"))
   ];
 }
