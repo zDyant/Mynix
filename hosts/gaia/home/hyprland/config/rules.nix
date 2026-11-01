@@ -106,6 +106,11 @@ in {
 
       # Standalone rules, applied in order. Fields in `match` are AND.
       rules = [
+        # Keep the pointer on this monitor while interacting with games.
+        {
+          match.content = "game";
+          confine_pointer = true;
+        }
         {
           match.fullscreen = true;
           idle_inhibit = "fullscreen";
