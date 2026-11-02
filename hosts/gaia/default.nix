@@ -51,6 +51,7 @@
     man-pages
     pinentry-curses # needed by rbw
     devenv # easy nix-shell
+    nur.repos.forkprince.opentubex
   ];
 
   # For passwords

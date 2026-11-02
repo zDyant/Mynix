@@ -10,9 +10,6 @@
       ublock-origin
       refined-github
       tridactyl
-      return-youtube-dislikes
-      tweaks-for-youtube
-      youtube-suite-search-fixer
       violentmonkey
       private-grammar-checker-harper
       animalese-typing
@@ -37,10 +34,6 @@
             reddit.com###right-rail-experience-root > faceplate-tracker
             chatgpt.com##.absolute:has-text("Thanks for trying")
             chatgpt.com##body:style(pointer-events: auto !important)
-            youtube.com##div[class^='YtInlinePlayerControlsTopLeftControls']
-            youtube.com##div[class^='ytp-paid-content-overlay']
-            youtube.com##ytd-rich-section-renderer:has(#dismissible)
-            youtube.com##a[href="https://support.google.com/youtube?p=ppp&nohelpkit=1"]
           '';
 
           # https://github.com/yokoffing/filterlists

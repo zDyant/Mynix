@@ -44,17 +44,6 @@
         definedAliases = ["@ng"];
       };
 
-      "Youtube" = {
-        urls = [
-          {
-            template = "https://www.youtube.com/results?search_query={searchTerms}";
-          }
-        ];
-        icon = "https://youtube.com/favicon.ico";
-        updateInterval = 24 * 60 * 60 * 1000;
-        definedAliases = ["@yt"];
-      };
-
       "Github" = {
         urls = [{template = "https://github.com/search?q={searchTerms}";}];
         icon = "https://github.com/fluidicon.png";
