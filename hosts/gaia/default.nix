@@ -4,7 +4,6 @@
   inputs,
   ...
 }: {
-  # WARN: Remember to grab yours hardware-configuration.nix
   imports =
     [
       ./config
@@ -36,7 +35,7 @@
       "tldr"
       "tmux"
       "wallpaper-engine"
-      "dms"
+      "dux-shell"
       "xdg"
     ];
 
@@ -52,10 +51,7 @@
     man-pages
     pinentry-curses # needed by rbw
     devenv # easy nix-shell
-    dsearch # needed by dms, great tool btw
   ];
-
-  programs.dux-shell.enable = true;
 
   # For passwords
   services.gnome.gnome-keyring.enable = true;
