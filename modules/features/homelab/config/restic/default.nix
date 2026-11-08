@@ -8,17 +8,13 @@
   name = "restic";
   cfg = homelab.services.${name};
   serviceBackupPaths =
-    lib.optionals homelab.services.glance.enable ["/var/lib/private/glance"]
-    ++ lib.optionals homelab.services.hister.enable ["/var/lib/hister"]
+    lib.optionals homelab.services.hister.enable ["/var/lib/hister"]
     ++ lib.optionals homelab.services.karakeep.enable ["/var/lib/karakeep" "/var/lib/private/karakeep-browser" "/var/lib/private/meilisearch"]
     ++ lib.optionals homelab.services.kutt.enable ["/var/lib/kutt"]
     ++ lib.optionals homelab.services.openmonetis.enable ["/var/lib/openmonetis"]
     ++ lib.optionals homelab.services.nextcloud.enable ["/var/lib/nextcloud"];
   stoppedServices =
-    lib.optionals homelab.services.glance.enable [
-      "glance.service"
-    ]
-    ++ lib.optionals homelab.services.hister.enable [
+    lib.optionals homelab.services.hister.enable [
       "hister.service"
     ]
     ++ lib.optionals homelab.services.karakeep.enable [
