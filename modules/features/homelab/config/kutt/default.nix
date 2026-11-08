@@ -29,7 +29,7 @@ in {
     virtualisation.oci-containers = {
       containers = {
         kutt = {
-          image = "kutt/kutt:main";
+          image = "kutt/kutt@sha256:fc61127ff1d3c7128a9e6e4c0016a7ea058e2836c8f84a972ef7322d15531375";
           autoStart = true;
           environmentFiles = [cfg.environmentFile];
           ports = ["127.0.0.1:${toString cfg.port}:3000"];

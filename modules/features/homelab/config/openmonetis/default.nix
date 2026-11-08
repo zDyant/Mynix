@@ -36,7 +36,7 @@ in {
     virtualisation.oci-stacks.${name} = {
       containers = {
         ${dbContainer} = {
-          image = "postgres:16-alpine";
+          image = "postgres@sha256:cf78e76683b9ca8c5733cbbdce6c9262b45b6767934dd0a95e671f9a0fc20685";
           environmentFiles = [cfg.postgresEnvironmentFile];
           autoStart = true;
           extraOptions = [
@@ -49,7 +49,7 @@ in {
         };
 
         ${name} = {
-          image = "felipegcoutinho/openmonetis:main";
+          image = "felipegcoutinho/openmonetis@sha256:7dc2c24f33aa9b7c4f5796c58251b1a108eb8e0be358f225aa67aeaf3be7a4a9";
           environmentFiles = [cfg.environmentFile];
           autoStart = true;
           ports = ["127.0.0.1:${toString cfg.port}:3000"];
