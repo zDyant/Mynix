@@ -34,7 +34,6 @@
       "emyl"
       "tldr"
       "tmux"
-      "wallpaper-engine"
       "dux-shell"
       "xdg"
     ];
