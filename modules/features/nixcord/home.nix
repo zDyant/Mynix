@@ -1,6 +1,7 @@
 {
   lib,
   inputs,
+  pkgs,
   ...
 }: {
   imports = [
@@ -10,7 +11,10 @@
     enable = true;
     discord = {
       vencord.enable = false;
-      equicord.enable = true;
+      equicord = {
+        enable = true;
+        package = pkgs.equicord;
+      };
       krisp.enable = true;
     };
     config = {
