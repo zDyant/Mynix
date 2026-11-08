@@ -42,7 +42,6 @@
           })
       ) {
         hister = true;
-        glance = false;
         openmonetis = false;
         ollama = false;
         kutt = true;
