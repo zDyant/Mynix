@@ -18,6 +18,7 @@
           "^https?://(www\\.|old\\.)?reddit\\.com/r/(nixos|hyprland)(/|$|\\?)"
         ];
       };
+      stalwart.enable = true;
       nextcloud.enable = true;
       openmonetis = {
         enable = true;
