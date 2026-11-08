@@ -12,7 +12,7 @@
     ++ lib.optionals homelab.services.karakeep.enable ["/var/lib/karakeep" "/var/lib/private/karakeep-browser" "/var/lib/private/meilisearch"]
     ++ lib.optionals homelab.services.kutt.enable ["/var/lib/kutt"]
     ++ lib.optionals homelab.services.openmonetis.enable ["/var/lib/openmonetis"]
-    ++ lib.optionals homelab.services.nextcloud.enable ["/var/lib/nextcloud"];
+    ++ lib.optionals homelab.services.nextcloud.enable ["/var/lib/nextcloud" "/var/lib/postgresql"];
   stoppedServices =
     lib.optionals homelab.services.hister.enable [
       "hister.service"
@@ -33,6 +33,7 @@
     ++ lib.optionals homelab.services.nextcloud.enable [
       "nextcloud-setup.service"
       "phpfpm-nextcloud.service"
+      "postgresql.service"
     ];
   activeServicesFile = "/run/restic-backups-${name}/active-services";
   cleanup = pkgs.writeShellScript "restic-homelab-cleanup" ''
