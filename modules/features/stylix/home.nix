@@ -17,15 +17,8 @@
 
     icons = lib.mkForce {
       enable = true;
-      package = pkgs.pixora-icons;
-      dark = "pixora-dark";
+      package = pkgs.reversal-icon-theme;
+      dark = "Reversal-dark";
     };
   };
-
-  home.packages = [
-    pkgs.pixelitos-icons
-    (pkgs.whitesur-icon-theme.override {
-      alternativeIcons = true;
-    })
-  ];
 }
