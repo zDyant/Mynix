@@ -19,6 +19,11 @@
     }
   ];
 in {
+  environment.systemPackages = with pkgs; [
+    filen-cli
+    rclone
+  ];
+
   systemd.services.rclone-cloud-copy = {
     description = "Copy to Filen";
     wants = ["network-online.target"];
@@ -56,6 +61,7 @@ in {
           rclone copy ${lib.escapeShellArg target.source} ${lib.escapeShellArg target.destination} "''${common_args[@]}"
         '')
         copyTargets}
+
     '';
   };
 
