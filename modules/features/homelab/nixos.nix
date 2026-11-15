@@ -43,7 +43,6 @@
       ) {
         hister = true;
         openmonetis = false;
-        ollama = false;
         kutt = true;
         karakeep = false;
       });
