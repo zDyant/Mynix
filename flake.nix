@@ -67,6 +67,7 @@
       inputs.spicetify-nix.follows = "spicetify-nix";
       inputs.userstyles.follows = "userstyles";
     };
+    omp.url = "github:can1357/oh-my-pi";
   };
 
   outputs = inputs:
