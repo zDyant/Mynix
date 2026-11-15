@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: let
   inherit
@@ -12,6 +11,5 @@ in {
   wayland.windowManager.hyprland.settings.on = on_startup [
     (lib.getExe config.programs.floorp.package)
     (lib.getExe config.programs.spicetify.spotifyPackage)
-    "${lib.getExe pkgs.easyeffects} --gapplication-service"
   ];
 }

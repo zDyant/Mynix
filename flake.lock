@@ -1,5 +1,26 @@
 {
   "nodes": {
+    "audio": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pipewire-screenaudio": "pipewire-screenaudio"
+      },
+      "locked": {
+        "lastModified": 1792589802,
+        "narHash": "sha256-GCludZwDiXADJVEv7heSL/ChjlRsgFpQoE8aUIrl6Qk=",
+        "owner": "flashgnash",
+        "repo": "audio.nix",
+        "rev": "4a3dc848963ca1148e945ae064589a05bd02bc39",
+        "type": "github"
+      },
+      "original": {
+        "owner": "flashgnash",
+        "repo": "audio.nix",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"

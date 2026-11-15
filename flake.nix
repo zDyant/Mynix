@@ -51,6 +51,11 @@
       url = "github:tophc7/bonk";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    audio = {
+      url = "github:flashgnash/audio.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
